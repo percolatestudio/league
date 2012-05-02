@@ -1,0 +1,13 @@
+<head>
+  <title>Sport Grid</title>
+</head>
+
+<body>
+  {{> team }}
+</body>
+
+<template name="team">
+  {{#if team_selected }}
+    <h1>{{ team_name }}</h1>
+  {{/if }}
+</template>
