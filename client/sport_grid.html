@@ -3,11 +3,11 @@
 </head>
 
 <body>
-  {{> team }}
+  {{> team_grid }}
 </body>
 
-<template name="team">
-  {{#if team_selected }}
-    <h1>{{ team_name }}</h1>
-  {{/if }}
+<template name="team_grid">
+  {{#if team}}{{#with team}}
+    <h1>{{ name }} Schedule</h1>
+  {{/with }}{{/if}}
 </template>
