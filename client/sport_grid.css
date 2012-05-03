@@ -1,1 +1,9 @@
-/* CSS declarations go here */
+table td.playing {
+  background: green;
+}
+table td.not_playing {
+  background: red;
+}
+table td.unconfirmed {
+  background: yellow;
+}

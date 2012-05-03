@@ -45,7 +45,13 @@
     </th>
     
     {{#each availabilities}}
-      <td>{{this}}</td>
+      {{> availability_cell}}
     {{/each}}
   </tr>
+</template>
+
+<template name="availability_cell">
+  <td class="{{availability_class availability}}">
+    {{availability}}
+  </td>
 </template>
