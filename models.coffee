@@ -9,7 +9,8 @@ Players = new Meteor.Collection 'players'
 playing_states = ['Unconfirmed', 'Playing', 'Not Playing']
 
 Games = new Meteor.Collection 'games'
-# { date: '27-11-2012', time: '8:40', location: 'Brunswick',
+# { team_id: 123,
+#   date: '27-11-2012', time: '8:40', location: 'Brunswick',
 #   players: [{player_id, state}]}
 
 # returns the next 'day' Day after date.

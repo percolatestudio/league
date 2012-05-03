@@ -9,5 +9,43 @@
 <template name="team_grid">
   {{#if team}}{{#with team}}
     <h1>{{ name }} Schedule</h1>
+    
+    {{#if games}}
+      <table>
+        <tr>
+          <th></th>
+          {{#each games}}
+            {{> game_header }}
+          {{/each}}
+        <tr/>
+        
+        {{#each players}}
+          {{> player_row }}
+        {{/each}}
+      </table>
+    {{else}}
+      <p>No Games!</p>
+    {{/if}}
+  
   {{/with }}{{/if}}
+</template>
+
+<template name="game_header">
+  <th>
+    <p>{{date}}</p>
+    <p>{{time}} -- {{location}}</p>
+  </th>
+</template>
+
+<template name="player_row">
+  <tr>
+    <th>
+      <p>{{name}}</p>
+      <p>{{email}}</p>
+    </th>
+    
+    {{#each availabilities}}
+      <td>{{this}}</td>
+    {{/each}}
+  </tr>
 </template>

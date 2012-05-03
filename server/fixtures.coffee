@@ -1,6 +1,8 @@
 Meteor.startup ->
   return unless Teams.find().count() is 0
   
+  console.log 'Initializing Fixtures'
+  
   team = Teams.insert
     name: "Tom's Fault"
     password: ''
@@ -11,11 +13,21 @@ Meteor.startup ->
     Players.insert
       name: player[0]
       email: player[1]
-      team_id: team.id
+      team_id: team
   
-  game = Games.insert
-    date: get_day_after(team.day)
+  next_date = get_day_after(team.day)
+  
+  Games.insert
+    team_id: team
+    date: next_date
     time: '8:40'
     location: 'Brunswick'
-    players: [[players[0].id, 1], [players[1], 2]]
+    players: [[players[0], 1], [players[1], 2]]
+  
+  Games.insert
+    team_id: team
+    date: get_day_after(team.day, new Date().setDate(next_date.getDate() + 7))
+    time: '8:00'
+    location: 'Princes Hill'
+    players: [[players[0], 1]]
   

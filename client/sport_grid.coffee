@@ -14,7 +14,20 @@ Meteor.autosubscribe ->
   Meteor.subscribe 'players', team_id
   Meteor.subscribe 'games', team_id
 
+availability = (game, player) -> 
+  code = (p[1] for p in game.players when p[0] is player._id)[0] || 0
+  playing_states[code]
+
+
 Template.team_grid.team = -> 
   return unless team_id = Session.get('team_id')
   Teams.findOne(team_id)
+
+all_games = -> Games.find().fetch()
+
+Template.team_grid.games = all_games
+Template.team_grid.players = -> Players.find().fetch()
+  
+Template.player_row.availabilities = ->
+  availability(game, this) for game in all_games()
   
