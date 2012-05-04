@@ -21,11 +21,27 @@ Template.team_grid.team = ->
   return unless team_id = Session.get('team_id')
   Teams.findOne(team_id)
 
-upcoming_games = -> Games.find({date: {$gt: new Date()}}).fetch()
+upcoming_games = -> Games.find({date: {$gt: new Date().getTime()}}).fetch()
 
 Template.team_grid.games = upcoming_games
 
 Template.team_grid.players = -> Players.find().fetch()
+
+Template.team_grid.events = 
+  'click .add_game': ->
+    last_game = Games.findOne({}, {sort: {date: -1}})
+    new_game = $.extend({}, last_game)
+    
+    # make a new date, 1 week in the future
+    new_date = new Date(last_game.date)
+    new_date.setDate(new_date.getDate() + 7)
+    new_game.date = new_date.getTime()
+    
+    new_game.players = {}
+    delete new_game._id
+    Games.insert new_game
+
+
 
 Template.game_header.format_date = (date) -> new Date(date).toDateString()
 Template.game_header.player_count = -> 

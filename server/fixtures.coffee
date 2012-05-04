@@ -23,7 +23,7 @@ Meteor.startup ->
   players[player_ids[1]] = 2
   game = Games.insert
     team_id: team_id
-    date: next_date
+    date: next_date.getTime()
     time: '8:40'
     location: 'Brunswick'
     players: players
@@ -32,7 +32,7 @@ Meteor.startup ->
   players[player_ids[0]] = 1
   game = Games.insert
     team_id: team_id
-    date: get_day_after(day, new Date().setDate(next_date.getDate() + 7))
+    date: get_day_after(day, new Date().setDate(next_date.getDate() + 7)).getTime()
     time: '8:00'
     location: 'Princes Hill'
     players: players
