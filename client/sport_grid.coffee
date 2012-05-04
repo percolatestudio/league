@@ -1,4 +1,5 @@
 Session.set 'team_id', null
+Session.set 'editing_game_id', null
 
 # subscribe to the teams collection, and redirect to one as soon as it exists
 Meteor.subscribe 'teams', ->
@@ -21,7 +22,10 @@ Template.team_grid.team = ->
   return unless team_id = Session.get('team_id')
   Teams.findOne(team_id)
 
-upcoming_games = -> Games.find({date: {$gt: new Date().getTime()}}).fetch()
+upcoming_games = -> 
+  Games.find(
+    {date: {$gt: new Date().getTime()}}, {sort: {date: 1}}
+  ).fetch()
 
 Template.team_grid.games = upcoming_games
 
@@ -46,6 +50,16 @@ Template.team_grid.events =
 Template.game_header.format_date = (date) -> new Date(date).toDateString()
 Template.game_header.player_count = -> 
   (id for id, state of this.players when state == 1).length
+Template.game_header.editing = -> Session.get('editing_game_id') is this._id
+Template.game_header.events = 
+  'click th': -> Session.set('editing_game_id', this._id)
+  'change input': (event) -> 
+    # update attribute
+    update = {}
+    update[$(event.target).attr('name')] = $(event.target).val()
+    
+    # save to db
+    Games.update {_id: this._id}, {$set: update}
 
 Template.player_row.availabilities = ->
   {player: this, game: game} for game in upcoming_games()

@@ -33,8 +33,19 @@
 
 <template name="game_header">
   <th>
-    <p>{{format_date date}}</p>
-    <p>{{time}} -- {{location}}</p>
+    {{#if editing}}
+      <p>
+        <input name="date" type="text" value="{{format_date date}}"></input>
+      </p>
+      <p>
+        <input name="time" type="text" value="{{time}}"></input>
+        -- 
+        <input name="location" type="text" value="{{location}}"></input>
+      </p>
+    {{else}}
+      <p>{{format_date date}}</p>
+      <p>{{time}} -- {{location}}</p>
+    {{/if}}
     <p>{{player_count}}</p>
   </th>
 </template>
