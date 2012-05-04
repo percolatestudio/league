@@ -2,7 +2,7 @@ Session.set 'team_id', null
 
 # subscribe to the teams collection, and redirect to one as soon as it exists
 Meteor.subscribe 'teams', ->
-  return if Session.get('team_id')
+  return if id = Session.get('team_id') and Teams.findOne({_id: id})
   
   team = Teams.findOne({}, {sort: {name: 1}})
   Router.setTeam(team._id) if team
