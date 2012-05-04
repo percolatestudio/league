@@ -21,16 +21,18 @@ Template.team_grid.team = ->
   return unless team_id = Session.get('team_id')
   Teams.findOne(team_id)
 
-all_games = -> Games.find().fetch()
+upcoming_games = -> Games.find({date: {$gt: new Date()}}).fetch()
 
-Template.team_grid.games = all_games
+Template.team_grid.games = upcoming_games
 
 Template.team_grid.players = -> Players.find().fetch()
 
-Template.game_header.player_count = -> (id for id, state of this.players when state == 1).length
+Template.game_header.format_date = (date) -> new Date(date).toDateString()
+Template.game_header.player_count = -> 
+  (id for id, state of this.players when state == 1).length
 
 Template.player_row.availabilities = ->
-  {player: this, game: game} for game in all_games()
+  {player: this, game: game} for game in upcoming_games()
   
 Template.availability_cell.availability = -> availability(this)
 Template.availability_cell.availability_state = (a) -> playing_states[a]

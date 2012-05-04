@@ -15,5 +15,5 @@ Games = new Meteor.Collection 'games'
 
 # returns the next 'day' Day after date.
 get_day_after = (day, date = new Date()) ->
-  difference = (day - date.getDay()) % 7
+  difference = (day - date.getDay() + 7) % 7
   (new Date(date)).setDate(date.getDate() + difference)
