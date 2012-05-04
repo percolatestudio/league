@@ -15,9 +15,7 @@ Meteor.autosubscribe ->
   Meteor.subscribe 'games', team_id
 
 availability = (data) ->
-  code = data.game.players[data.player._id] || 0
-  playing_states[code]
-
+  data.game.players[data.player._id] || 0
 
 Template.team_grid.team = -> 
   return unless team_id = Session.get('team_id')
@@ -29,16 +27,19 @@ Template.team_grid.games = all_games
 
 Template.team_grid.players = -> Players.find().fetch()
 
+Template.game_header.player_count = -> (id for id, state of this.players when state == 1).length
+
 Template.player_row.availabilities = ->
   {player: this, game: game} for game in all_games()
   
 Template.availability_cell.availability = -> availability(this)
+Template.availability_cell.availability_state = (a) -> playing_states[a]
 Template.availability_cell.availability_class = (a) -> 
-  a.toLowerCase().replace(' ', '_')
+  playing_states[a].toLowerCase().replace(' ', '_')
 
 Template.availability_cell.events =
   'click td': ->
-    update = {players: {}}
-    update.players[this.player._id] = 1
-    console.log(update)
-    Games.update({_id: this.game._id}, {$set: update})
+    # need a better way to do this pattern
+    update = {}
+    update["players.#{this.player._id}"] = (availability(this) + 1) % 3
+    Games.update {_id: this.game._id}, {$set: update}

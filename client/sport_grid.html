@@ -34,6 +34,7 @@
   <th>
     <p>{{date}}</p>
     <p>{{time}} -- {{location}}</p>
+    <p>{{player_count}}</p>
   </th>
 </template>
 
@@ -52,6 +53,6 @@
 
 <template name="availability_cell">
   <td class="{{availability_class availability}}">
-    {{availability}}
+    {{availability_state availability}}
   </td>
 </template>
