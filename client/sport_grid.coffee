@@ -44,6 +44,12 @@ Template.team_grid.events =
     new_game.players = {}
     delete new_game._id
     Games.insert new_game
+    
+  'click .add_player': ->
+    Players.insert
+      name: 'Pick Name'
+      email: ''
+      team_id: Session.get 'team_id'
 
 
 
