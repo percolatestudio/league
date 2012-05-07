@@ -1,5 +1,6 @@
 Session.set 'team_id', null
 Session.set 'editing_game_id', null
+Session.set 'editing_player_id', null
 
 # subscribe to the teams collection, and redirect to one as soon as it exists
 Meteor.subscribe 'teams', ->
@@ -43,15 +44,13 @@ Template.team_grid.events =
     
     new_game.players = {}
     delete new_game._id
-    Games.insert new_game
+    new_game_id = Games.insert new_game
+    Session.set 'editing_game_id', new_game_id
     
   'click .add_player': ->
-    Players.insert
-      name: 'Pick Name'
-      email: ''
-      team_id: Session.get 'team_id'
-
-
+    new_player_id = Players.insert {team_id: Session.get 'team_id'}
+    Session.set 'editing_player_id', new_player_id
+    
 
 Template.game_header.format_date = (date) -> new Date(date).toDateString()
 Template.game_header.player_count = -> 
@@ -69,6 +68,8 @@ Template.game_header.events =
 
 Template.player_row.availabilities = ->
   {player: this, game: game} for game in upcoming_games()
+Template.player_row.editing = -> Session.get('editing_player_id') is this._id
+Template.player_row.empty = -> !(this.name || this.email)
   
 Template.availability_cell.availability = -> availability(this)
 Template.availability_cell.availability_state = (a) -> playing_states[a]

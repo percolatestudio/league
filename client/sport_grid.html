@@ -13,7 +13,7 @@
     <h1>{{ name }} Schedule</h1>
     
     {{#if games}}
-      <table class="table table-striped">
+      <table id="schedule" class="table table-striped">
         <thead>
           <tr>
             <th></th>
@@ -68,8 +68,23 @@
 <template name="player_row">
   <tr>
     <th>
-      <p>{{name}}</p>
-      <p>{{email}}</p>
+      {{#if editing}}
+        <p>
+          <input name="name" type="text" value="{{name}}"></input>
+        </p>
+        <p>
+          <input name="email" type="text" value="{{email}}"></input>
+        </p>
+      {{else}}
+        {{#if empty}}
+          <p class="empty_player">
+            Enter some details
+          </p>
+        {{else}}
+          <p>{{name}}</p>
+          <p>{{email}}</p>
+        {{/if}}
+      {{/if}}
     </th>
     
     {{#each availabilities}}

@@ -1,9 +1,14 @@
-table td.playing {
+table#schedule td.playing {
   background: green;
 }
-table td.not_playing {
+table#schedule td.not_playing {
   background: red;
 }
-table td.unconfirmed {
+table#schedule td.unconfirmed {
   background: yellow;
+}
+
+.empty_player {
+  font-weight: normal;
+  font-style: italic;
 }
