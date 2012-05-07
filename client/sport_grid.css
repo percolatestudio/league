@@ -1,3 +1,11 @@
+.container {
+  overflow-x: auto;
+}
+
+table#schedule {
+  min-width: 100%;
+}
+
 table#schedule td.playing {
   background: green;
 }
