@@ -3,7 +3,9 @@
 </head>
 
 <body>
-  {{> team_grid }}
+  <div class="container">
+    {{> team_grid }}
+  </div>
 </body>
 
 <template name="team_grid">
@@ -11,19 +13,31 @@
     <h1>{{ name }} Schedule</h1>
     
     {{#if games}}
-      <table>
-        <tr>
-          <th></th>
-          {{#each games}}
-            {{> game_header }}
-          {{/each}}
-          <th class="add_game">+</th>
-        <tr/>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th></th>
+            {{#each games}}
+              {{> game_header }}
+            {{/each}}
+            <th><button class="btn add_game">
+              <i class="icon-plus"></i> Add Game</a>
+            </th>
+          <tr/>
+        </thead>
         
-        {{#each players}}
-          {{> player_row }}
-        {{/each}}
-        <tr><th class="add_player">+</th></tr>
+        <tbody>
+          {{#each players}}
+            {{> player_row }}
+          {{/each}}
+          <th><button class="btn add_player">
+            <i class="icon-plus"></i> Add Player</a>
+          </th>
+          {{#each games}}
+            <td></td>
+          {{/each}}
+          <td></td>{{! extra for add game}}
+        </tbody>
       </table>
     {{else}}
       <p>No Games!</p>
@@ -61,6 +75,7 @@
     {{#each availabilities}}
       {{> availability_cell}}
     {{/each}}
+    <td></td>{{! extra for add game}}
   </tr>
 </template>
 
