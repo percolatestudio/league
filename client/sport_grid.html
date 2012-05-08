@@ -64,38 +64,3 @@
     <p>{{player_count}}</p>
   </th>
 </template>
-
-<template name="player_row">
-  <tr>
-    <th>
-      {{#if editing}}
-        <p>
-          <input name="name" type="text" value="{{name}}"></input>
-        </p>
-        <p>
-          <input name="email" type="text" value="{{email}}"></input>
-        </p>
-      {{else}}
-        {{#if empty}}
-          <p class="empty_player">
-            Enter some details
-          </p>
-        {{else}}
-          <p>{{name}}</p>
-          <p>{{email}}</p>
-        {{/if}}
-      {{/if}}
-    </th>
-    
-    {{#each availabilities}}
-      {{> availability_cell}}
-    {{/each}}
-    <td></td>{{! extra for add game}}
-  </tr>
-</template>
-
-<template name="availability_cell">
-  <td class="{{availability_class availability}}">
-    {{availability_state availability}}
-  </td>
-</template>

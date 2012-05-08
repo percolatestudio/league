@@ -7,6 +7,9 @@
   tr:nth-child(odd) & {
     background: desaturate(@color, 20%) !important;
   }
+  tr:hover & {
+    background: desaturate(@color, 30%) !important;
+  }
 }
 
 .playing {
@@ -32,4 +35,18 @@ table#schedule {
 .empty_player {
   font-weight: normal;
   font-style: italic;
+}
+
+.player_row {
+  input {
+    display: block;
+  }
+  td, th {
+    position: relative;
+    .edit_toggle {
+      position: absolute;
+      bottom: 5px;
+      right: 5px;
+    }
+  }
 }

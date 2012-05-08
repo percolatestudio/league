@@ -1,0 +1,37 @@
+<template name="player_row">
+  <tr class="player_row">
+    <th>
+      {{#if editing}}
+        <form>
+          <input name="name-{{_id}}" type="text" value="{{name}}" placeholder="Player's Name"></input>
+          <input name="email-{{_id}}" type="text" value="{{email}}" placeholder="Where can we reach them?"></input>
+        </form>
+        <p class="edit_toggle">
+          <a class="cancel">Cancel</a>
+          <a class="save">Save</a>
+        </p>
+      {{else}}
+        {{#if empty}}
+          <p class="empty_player">
+            Enter some details
+          </p>
+        {{else}}
+          <p>{{name}}</p>
+          <p>{{email}}</p>
+        {{/if}}
+        <a class="edit_toggle">Edit</a>
+      {{/if}}
+    </th>
+    
+    {{#each availabilities}}
+      {{> availability_cell}}
+    {{/each}}
+    <td></td>{{! extra for add game}}
+  </tr>
+</template>
+
+<template name="availability_cell">
+  <td class="{{availability_class availability}}">
+    {{availability_state availability}}
+  </td>
+</template>

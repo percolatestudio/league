@@ -70,6 +70,20 @@ Template.player_row.availabilities = ->
   {player: this, game: game} for game in upcoming_games()
 Template.player_row.editing = -> Session.get('editing_player_id') is this._id
 Template.player_row.empty = -> !(this.name || this.email)
+Template.player_row.events =
+  'click .edit_toggle': (e) ->
+    $link = $(e.target)
+    save = $link.hasClass('save')
+    cancel = $link.hasClass('cancel')
+    
+    if save
+      update = {}
+      update['name'] = $link.closest('th').find('input[name^=name]').val()
+      update['email'] = $link.closest('th').find('input[name^=email]').val()
+      Players.update {_id: this._id}, {$set: update}
+      
+    
+    Session.set('editing_player_id', if save or cancel then null else this._id)
   
 Template.availability_cell.availability = -> availability(this)
 Template.availability_cell.availability_state = (a) -> playing_states[a]
