@@ -1,0 +1,35 @@
+.container {
+  overflow-x: auto;
+}
+
+.table-row(@color) {
+  background: @color;
+  tr:nth-child(odd) & {
+    background: desaturate(@color, 20%) !important;
+  }
+}
+
+.playing {
+  // 120 248 127
+  .table-row(#78f87f);
+}
+.not_playing {
+  // 255 127 124
+  .table-row(#ff7f7c);
+}
+.unconfirmed {
+  // 250 250 102
+  .table-row(#fafa66);
+}
+
+
+table#schedule {
+  min-width: 100%;
+}
+
+
+
+.empty_player {
+  font-weight: normal;
+  font-style: italic;
+}

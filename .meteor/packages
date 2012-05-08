@@ -6,5 +6,5 @@
 coffeescript
 backbone
 underscore
-sass
 bootstrap
+less
