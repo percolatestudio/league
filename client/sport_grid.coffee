@@ -19,6 +19,21 @@ Meteor.autosubscribe ->
 availability = (data) ->
   data.game.players[data.player._id] || 0
 
+## ACTIONS
+toggle_session = (key, value) -> 
+  if Session.get(key) == value
+    Session.set(key, null)
+  else
+    Session.set(key, value)
+
+toggle_player_state = (player) -> 
+  toggle_session('editing_player_id', player._id)
+
+
+
+
+############# HELPERS ###########
+
 Template.team_grid.team = -> 
   return unless team_id = Session.get('team_id')
   Teams.findOne(team_id)
@@ -74,7 +89,6 @@ Template.player_row.events =
   'click .edit-btns': (e) ->
     $link = $(e.target)
     save = $link.hasClass('save')
-    cancel = $link.hasClass('cancel')
     destroy = $link.hasClass('delete')
     
     if save
@@ -84,8 +98,9 @@ Template.player_row.events =
       Players.update {_id: this._id}, {$set: update}
     else if destroy
       Players.remove {_id: this._id}
+    toggle_player_state(this)
     
-    Session.set('editing_player_id', if save or cancel or destroy then null else this._id)
+  'click .empty-player': -> toggle_player_state(this)
   
 Template.availability_cell.availability = -> availability(this)
 Template.availability_cell.availability_state = (a) -> playing_states[a]
