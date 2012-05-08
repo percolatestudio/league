@@ -1,25 +1,28 @@
 <template name="player_row">
-  <tr class="player_row">
+  <tr class="player-row">
     <th>
       {{#if editing}}
         <form>
           <input name="name-{{_id}}" type="text" value="{{name}}" placeholder="Player's Name"></input>
           <input name="email-{{_id}}" type="text" value="{{email}}" placeholder="Where can we reach them?"></input>
         </form>
-        <p class="edit_toggle">
-          <a class="cancel">Cancel</a>
-          <a class="save">Save</a>
+        <p class="edit-btns">
+          <a class="btn btn-mini btn-danger delete">Delete</a>
+          <a class="btn btn-mini cancel">Cancel</a>
+          <a class="btn btn-mini btn-primary save">Save</a>
         </p>
       {{else}}
         {{#if empty}}
-          <p class="empty_player">
+          <p class="empty-player">
             Enter some details
           </p>
         {{else}}
           <p>{{name}}</p>
           <p>{{email}}</p>
         {{/if}}
-        <a class="edit_toggle">Edit</a>
+        <div class="edit-btns">
+          <a class="btn btn-mini">Edit</a>
+        </div>
       {{/if}}
     </th>
     

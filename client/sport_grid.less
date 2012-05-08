@@ -2,6 +2,10 @@
   overflow-x: auto;
 }
 
+table#schedule {
+  min-width: 100%;
+}
+
 .table-row(@color) {
   background: @color;
   tr:nth-child(odd) & {
@@ -26,27 +30,21 @@
 }
 
 
-table#schedule {
-  min-width: 100%;
-}
 
-
-
-.empty_player {
+.empty-player {
   font-weight: normal;
   font-style: italic;
 }
 
-.player_row {
+.player-row {
   input {
     display: block;
   }
-  td, th {
+  th {
+    max-width: 300px;
     position: relative;
-    .edit_toggle {
-      position: absolute;
-      bottom: 5px;
-      right: 5px;
-    }
+  }
+  .edit-btns {
+    text-align: right;
   }
 }
