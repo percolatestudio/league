@@ -19,16 +19,35 @@ Meteor.autosubscribe ->
 availability = (data) ->
   data.game.players[data.player._id] || 0
 
-## ACTIONS
+######### SESSION ACTIONS
 toggle_session = (key, value) -> 
-  if Session.get(key) == value
+  if Session.equals(key, value)
     Session.set(key, null)
   else
     Session.set(key, value)
 
-toggle_player_state = (player) -> 
+toggle_player_state = (player) ->
   toggle_session('editing_player_id', player._id)
+toggle_game_state = (game) ->
+  toggle_session('editing_game_id', game._id)
 
+##### GENERIC EVENTS
+make_edit_function = (collection_name, attributes, callback) -> 
+  (e) ->
+    collection = window[collection_name]
+    $link = $(e.target)
+    save = $link.hasClass('save')
+    destroy = $link.hasClass('delete')
+    
+    if save
+      update = {}
+      for key in attributes
+        update[key] = $link.closest('th').find("input[name^=#{key}]").val()
+      collection.update {_id: this._id}, {$set: update}
+    else if destroy
+      collection.remove {_id: this._id}
+    
+    callback.call(this)
 
 
 
@@ -72,34 +91,16 @@ Template.game_header.player_count = ->
   (id for id, state of this.players when state == 1).length
 Template.game_header.editing = -> Session.get('editing_game_id') is this._id
 Template.game_header.events = 
-  'click th': -> Session.set('editing_game_id', this._id)
-  'change input': (event) -> 
-    # update attribute
-    update = {}
-    update[$(event.target).attr('name')] = $(event.target).val()
-    
-    # save to db
-    Games.update {_id: this._id}, {$set: update}
+  'click .edit-btns': 
+    make_edit_function('Games', ['date', 'time', 'location'], -> toggle_game_state(this))
 
 Template.player_row.availabilities = ->
   {player: this, game: game} for game in upcoming_games()
 Template.player_row.editing = -> Session.get('editing_player_id') is this._id
 Template.player_row.empty = -> !(this.name || this.email)
 Template.player_row.events =
-  'click .edit-btns': (e) ->
-    $link = $(e.target)
-    save = $link.hasClass('save')
-    destroy = $link.hasClass('delete')
-    
-    if save
-      update = {}
-      update['name'] = $link.closest('th').find('input[name^=name]').val()
-      update['email'] = $link.closest('th').find('input[name^=email]').val()
-      Players.update {_id: this._id}, {$set: update}
-    else if destroy
-      Players.remove {_id: this._id}
-    toggle_player_state(this)
-    
+  'click .edit-btns': 
+    make_edit_function('Players', ['name', 'email'], -> toggle_player_state(this))
   'click .empty-player': -> toggle_player_state(this)
   
 Template.availability_cell.availability = -> availability(this)
