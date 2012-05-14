@@ -42,8 +42,11 @@
     {{else}}
       <p>No Games!</p>
     {{/if}}
-  
   {{/with }}{{else}}
-    {{> login }}
+    {{#if user}}
+      {{> create_team }}
+    {{else}}
+      {{> login }}
+    {{/if}}
   {{/if}}
 </template>

@@ -1,27 +1,42 @@
 Session.set 'team_id', null
+Session.set 'current_user', null
 Session.set 'editing_game_id', null
 Session.set 'editing_player_id', null
 
 Facebook.load ->
-  FB.init {appId: '227688344011052', channelUrl: Facebook.channelUrl, status: false}
+  FB.init {appId: '227688344011052', channelUrl: Facebook.channelUrl, status: true}
   FB.Event.subscribe 'auth.statusChange', (response) ->
     if response.authResponse
-      console.log 'logged in to FB, woo'
+      Meteor.call 'login', response.authResponse.userID, (error, user) -> 
+        # this user doesn't exist
+        if !(user)
+          console.log "TODO create user with fb id #{response.authResponse.userID}"
+          # TODO -- request user details
+          # TODO -- create user
+        
+        Session.set 'current_user', user
+        Router.login user
     else
-      console.log 'no love, not logged in'
+      Meteor.call 'logout'
+      Session.set 'current_user', null
   
 # subscribe to the teams collection
 Meteor.subscribe 'teams'
 
 # always subscribe to the players and (TODO: upcoming) games for the given team
 Meteor.autosubscribe ->
-  return unless team_id = Session.get('team_id')
-  
+  team_id = Session.get('team_id')
   Meteor.subscribe 'players', team_id
   Meteor.subscribe 'games', team_id
 
 availability = (data) ->
   data.game.players[data.player._id] || 0
+
+upcoming_games = -> 
+  Games.find(
+    {date: {$gt: new Date().getTime()}}, {sort: {date: 1}}
+  ).fetch()
+
 
 ######### SESSION ACTIONS
 toggle_session = (key, value) -> 
@@ -61,14 +76,10 @@ Template.login.events =
   'click .login': -> 
     FB.login _.identity,  {scope: 'email'}
 
+Template.team_grid.current_user = -> Session.get('current_user')
 Template.team_grid.team = -> 
   return unless team_id = Session.get('team_id')
   Teams.findOne(team_id)
-
-upcoming_games = -> 
-  Games.find(
-    {date: {$gt: new Date().getTime()}}, {sort: {date: 1}}
-  ).fetch()
 
 Template.team_grid.games = upcoming_games
 
