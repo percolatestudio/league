@@ -3,22 +3,16 @@ Session.set 'editing_game_id', null
 Session.set 'editing_player_id', null
 
 Facebook.load ->
-  FB.init {appId: '227688344011052', channelUrl: Facebook.channelUrl}
+  FB.init {appId: '227688344011052', channelUrl: Facebook.channelUrl, status: false}
   FB.Event.subscribe 'auth.statusChange', (response) ->
     if response.authResponse
       console.log 'logged in to FB, woo'
     else
       console.log 'no love, not logged in'
   
-  FB.login()
+# subscribe to the teams collection
+Meteor.subscribe 'teams'
 
-# subscribe to the teams collection, and redirect to one as soon as it exists
-Meteor.subscribe 'teams', ->
-  return if id = Session.get('team_id') and Teams.findOne({_id: id})
-  
-  team = Teams.findOne({}, {sort: {name: 1}})
-  Router.setTeam(team._id) if team
-  
 # always subscribe to the players and (TODO: upcoming) games for the given team
 Meteor.autosubscribe ->
   return unless team_id = Session.get('team_id')
@@ -62,6 +56,10 @@ make_edit_function = (collection_name, attributes, callback) ->
 
 
 ############# HELPERS ###########
+
+Template.login.events = 
+  'click .login': -> 
+    FB.login _.identity,  {scope: 'email'}
 
 Template.team_grid.team = -> 
   return unless team_id = Session.get('team_id')
