@@ -2,6 +2,16 @@ Session.set 'team_id', null
 Session.set 'editing_game_id', null
 Session.set 'editing_player_id', null
 
+Facebook.load ->
+  FB.init {appId: '227688344011052', channelUrl: Facebook.channelUrl}
+  FB.Event.subscribe 'auth.statusChange', (response) ->
+    if response.authResponse
+      console.log 'logged in to FB, woo'
+    else
+      console.log 'no love, not logged in'
+  
+  FB.login()
+
 # subscribe to the teams collection, and redirect to one as soon as it exists
 Meteor.subscribe 'teams', ->
   return if id = Session.get('team_id') and Teams.findOne({_id: id})
