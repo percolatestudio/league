@@ -43,7 +43,7 @@
       <p>No Games!</p>
     {{/if}}
   {{/with }}{{else}}
-    {{#if user}}
+    {{#if current_user }}
       {{> create_team }}
     {{else}}
       {{> login }}

@@ -8,16 +8,16 @@ Facebook.load ->
   FB.Event.subscribe 'auth.statusChange', (response) ->
     if response.authResponse
       Meteor.call 'login', response.authResponse.userID, (error, user) -> 
-        # this user doesn't exist
-        if !(user)
-          console.log "TODO create user with fb id #{response.authResponse.userID}"
-          # TODO -- request user details
-          # TODO -- create user
+        if user
+          Router.login user
+          return
         
-        Session.set 'current_user', user
-        Router.login user
+        # better get some deets from the FB
+        FB.api '/me', (me) -> 
+          attributes = { name: me.name, facebook_id: me.id, email: me.email }
+          Meteor.call 'create', attributes, (error, user) ->
+            Router.login user
     else
-      Meteor.call 'logout'
       Session.set 'current_user', null
   
 # subscribe to the teams collection

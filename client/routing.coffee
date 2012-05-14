@@ -4,8 +4,10 @@ SportGridRouter = Backbone.Router.extend
   home: -> Session.set 'team_id', null
   team: (team_id) -> Session.set 'team_id', team_id
   login: (user) ->
+    Session.set 'current_user', user
     if user and user.team_id
       this.navigate(user.team_id, {replace: true, trigger: true})
+  logout: -> Session.set 'current_user', null
 
 Router = new SportGridRouter
 
