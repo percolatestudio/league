@@ -10,7 +10,17 @@
 <template name="team">
   <ul class="team">
     <li>{{ name }}</li>
-    <li>edit team players</li>
+    <li>Players
+      <ul>
+        {{#each players }}
+          {{> player}}
+        {{/each}}
+        <li class="add_player"><a>Add</a></li>
+      </ul>
+    </li>
+    {{#if adding}}
+      {{> add_player}}
+    {{/if}}
     <li>season</li>
     <li>players required</li>
     <li>notification of whether upcoming game has enough players (displayed as the required # of players minus the # of confirmed players ; a negative number)</li>

@@ -1,0 +1,18 @@
+<template name="player">
+  <li>{{name}}</li>
+</template>
+
+<template name="add_player">
+  <div class="add_player">
+    Add one then: <input name="player[name]" placeholder="players name"></input>
+    <ul class="results">
+      {{#each results}}
+        {{> add_player_result}}
+      {{/each}}
+    </ul>
+  </div>
+</template>
+
+<template name="add_player_result">
+  <li>{{ name }}</li>
+</template>
