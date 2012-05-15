@@ -2,3 +2,4 @@
 *.DS_Store
 client/style.css
 public/.sass-cache/*
+server/deploy_keys.coffee
