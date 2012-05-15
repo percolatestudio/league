@@ -3,11 +3,12 @@ Meteor.startup ->
   
   console.log 'Initializing Fixtures'
   
-  player_data = [['Tom Coleman', 'tom@thesnail.org'], ['Kris Nilsen', 'kris@thesnail.org']]
+  player_data = [['Tom Coleman', 'tom@thesnail.org', '680541486'], ['Kris Nilsen', 'kris@thesnail.org']]
   player_ids = for player in player_data
     Players.insert
       name: player[0]
       email: player[1]
+      facebook_id: player[2]
   
   day = 1
   team_id = Teams.insert
