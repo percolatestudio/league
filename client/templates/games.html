@@ -1,8 +1,6 @@
 <template name="games">
   {{#if team }}{{#with team }}
     <h1>A list of games for <em>{{ name }}</em></h1>
-    <button>Global add team button</button>
-  
     {{#each games }}
       {{> game }}
     {{/each}}
