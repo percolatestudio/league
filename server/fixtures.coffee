@@ -3,21 +3,20 @@ Meteor.startup ->
   
   console.log 'Initializing Fixtures'
   
-  day = 1
-  team_id = Teams.insert
-    name: "Tom's Fault"
-    password: ''
-    day: day
-  
   player_data = [['Tom Coleman', 'tom@thesnail.org'], ['Kris Nilsen', 'kris@thesnail.org']]
   player_ids = for player in player_data
     Players.insert
       name: player[0]
       email: player[1]
-      team_id: team_id
   
+  day = 1
+  team_id = Teams.insert
+    name: "Tom's Fault"
+    password: ''
+    day: day
+    player_ids: player_ids
+
   next_date = get_day_after(day)
-  
   players = {}
   players[player_ids[0]] = 1
   players[player_ids[1]] = 2
@@ -36,4 +35,6 @@ Meteor.startup ->
     time: '8:00'
     location: 'Princes Hill'
     players: players
+  
+  
   

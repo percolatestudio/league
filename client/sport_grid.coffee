@@ -3,23 +3,6 @@ Session.set 'current_user', null
 Session.set 'editing_game_id', null
 Session.set 'editing_player_id', null
 
-Facebook.load ->
-  FB.init {appId: '227688344011052', channelUrl: Facebook.channelUrl, status: true}
-  FB.Event.subscribe 'auth.statusChange', (response) ->
-    if response.authResponse
-      Meteor.call 'login', response.authResponse.userID, (error, user) -> 
-        if user
-          Router.login user
-          return
-        
-        # better get some deets from the FB
-        FB.api '/me', (me) -> 
-          attributes = { name: me.name, facebook_id: me.id, email: me.email }
-          Meteor.call 'create', attributes, (error, user) ->
-            Router.login user
-    else
-      Session.set 'current_user', null
-  
 # subscribe to the teams collection
 Meteor.autosubscribe -> 
   current_user = Session.get 'current_user'
