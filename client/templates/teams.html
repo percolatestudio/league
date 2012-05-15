@@ -1,0 +1,22 @@
+<template name="teams">
+  <h1>A list of leagues</h1>
+  <button>Global add team button</button>
+  
+  {{#each teams }}
+    {{> team }}
+  {{/each}}
+</template>
+
+<template name="team">
+  <ul>
+    <li>{{ name }}</li>
+    <li>edit team players</li>
+    <li>season</li>
+    <li>players required</li>
+    <li>notification of whether upcoming game has enough players (displayed as the required # of players minus the # of confirmed players ; a negative number)</li>
+  </ul>
+</template>
+
+<template name="create_team">
+  form: team name, # of players, submit
+</template>

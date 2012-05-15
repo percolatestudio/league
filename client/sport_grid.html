@@ -4,49 +4,6 @@
 
 <body>
   <div class="container">
-    {{> team_grid }}
+    {{> screens }}
   </div>
 </body>
-
-<template name="team_grid">
-  {{#if team}}{{#with team}}
-    <h1>{{ name }} Schedule</h1>
-    
-    {{#if games}}
-      <table id="schedule" class="table table-striped">
-        <thead>
-          <tr>
-            <th></th>
-            {{#each games}}
-              {{> game_header }}
-            {{/each}}
-            <th><button class="btn add_game">
-              <i class="icon-plus"></i> Add Game</a>
-            </th>
-          <tr/>
-        </thead>
-        
-        <tbody>
-          {{#each players}}
-            {{> player_row }}
-          {{/each}}
-          <th><button class="btn add_player">
-            <i class="icon-plus"></i> Add Player</a>
-          </th>
-          {{#each games}}
-            <td></td>
-          {{/each}}
-          <td></td>{{! extra for add game}}
-        </tbody>
-      </table>
-    {{else}}
-      <p>No Games!</p>
-    {{/if}}
-  {{/with }}{{else}}
-    {{#if current_user }}
-      {{> create_team }}
-    {{else}}
-      {{> login }}
-    {{/if}}
-  {{/if}}
-</template>

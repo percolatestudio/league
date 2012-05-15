@@ -1,0 +1,1 @@
+Template.teams.teams = -> Teams.find()

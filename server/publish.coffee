@@ -1,5 +1,6 @@
 # Published collections
-Meteor.publish 'teams', -> Teams.find()
+Meteor.publish 'teams', (player_id) -> 
+  Teams.find({player_ids: player_id})
 
 Meteor.publish 'players', (team_id) -> 
   console.log "getting players for #{team_id}"
