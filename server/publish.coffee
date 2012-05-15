@@ -1,7 +1,6 @@
 # Published collections
 Meteor.publish 'teams', (player_id) -> 
   console.log "getting teams for #{player_id}"
-  console.log Teams.find({player_ids: player_id}).count()
   Teams.find({player_ids: player_id})
 
 Meteor.publish 'players', (team_id) -> 
