@@ -13,8 +13,7 @@ Meteor.startup ->
   day = 1
   team_id = Teams.insert
     name: "Tom's Fault"
-    password: ''
-    day: day
+    players_needed: 5
     player_ids: player_ids
 
   next_date = get_day_after(day)

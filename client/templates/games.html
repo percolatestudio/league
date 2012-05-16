@@ -1,9 +1,11 @@
 <template name="games">
   {{#if team }}{{#with team }}
-    <h1>A list of games for <em>{{ name }}</em></h1>
-    {{#each games }}
-      {{> game }}
-    {{/each}}
+    <div class="games">
+      <h1>A list of games for <em>{{ name }}</em></h1>
+      {{#each games }}
+        {{> game }}
+      {{/each}}
+    </div>
   {{/with}}{{/if}}
 </template>
 

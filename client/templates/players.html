@@ -1,3 +1,18 @@
+<template name="players">
+  {{#if team }}{{#with team }}
+    <div class="players">
+      <h1>LINEUP</h1>
+      <h2>{{name}}</h2>
+      <ul class="players">
+        {{#each players }}
+          {{> player}}
+        {{/each}}
+      </ul>
+      {{> add_player}}
+    </div>
+  {{/with}}{{/if}}
+</template>
+
 <template name="player">
   <li>{{name}}</li>
 </template>

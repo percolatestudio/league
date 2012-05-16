@@ -1,32 +1,28 @@
 <template name="teams">
-  <h1>A list of leagues</h1>
-  <button class="add_team">Global add team button</button>
-  
-  {{#each teams }}
-    {{> team }}
-  {{/each}}
+  <div class="teams">
+    <h1>LEAGUES</h1>
+    <button class="add_team">Add a Team</button>
+    
+    {{> team_builder }}
+    
+    {{#each teams }}
+      {{> team }}
+    {{/each}}
+  </div>
 </template>
 
+<template name="team_builder">
+  <form class="team_builder">
+    <h2>Team Builder</h2>
+    <input name="team[name]" placeholder="Team name"></input>
+    {{> players_needed_select }}
+    <button type="submit">Create</button>
+  </form>
+</template>
+  
 <template name="team">
   <ul class="team">
     <li>{{ name }}</li>
-    <li>Players
-      <ul>
-        {{#each players }}
-          {{> player}}
-        {{/each}}
-        <li class="add_player"><a>Add</a></li>
-      </ul>
-    </li>
-    {{#if adding}}
-      {{> add_player}}
-    {{/if}}
-    <li>season</li>
-    <li>players required</li>
-    <li>notification of whether upcoming game has enough players (displayed as the required # of players minus the # of confirmed players ; a negative number)</li>
+    <a href="season">Season</a>
   </ul>
-</template>
-
-<template name="create_team">
-  form: team name, # of players, submit
 </template>
