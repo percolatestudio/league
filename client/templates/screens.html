@@ -1,5 +1,8 @@
 <template name="screens">
-  {{> home }}
-  {{> teams }}
-  {{> games }}
+  <div class="container {{visible_page}}">
+    {{> auth }}
+    {{> home }}
+    {{> teams }}
+    {{> games }}
+  </div>
 </template>
