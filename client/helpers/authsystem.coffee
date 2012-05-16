@@ -1,9 +1,10 @@
 # this is a Facebook authentication system. With more thought it could be generalised
 # and the FB system could be a subclass... thoughts for another day
-class AuthSystem
+class FBAuthSystem
   constructor: ->
     @login_callback = null
-    
+  
+  init: ->
     # set up state change handler
     @_handleStateChange()
     
@@ -16,7 +17,7 @@ class AuthSystem
         else
           @_handleLogout()
   
-  logged_in: -> AuthSystem.logged_in()
+  logged_in: -> not Session.equals('current_user', null)
   
   require_login: (callback = (->)) ->
     return callback() if @logged_in() # they are logged in
@@ -58,13 +59,15 @@ class AuthSystem
         return if not FB? # haven't yet finished checking
         
         # we need to go back to the homepage
-        Router.logout()
+        window.Router.logout()
         
       else
         @login_callback() if @login_callback
         @login_callback = null
-
-AuthSystem.logged_in = -> not Session.equals('current_user', null)
+        
+        # make sure we aren't on the homepage
+        window.Router.login()
   
 # prepare a singleton instance
-Meteor.startup -> AuthSystem.instance = new AuthSystem()
+AuthSystem = new FBAuthSystem
+Meteor.startup -> AuthSystem.init()
