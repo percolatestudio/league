@@ -1,5 +1,8 @@
 <template name="screens">
   <div class="container {{visible_page}}">
+    <h1>Showing page: {{visible_page}}</h1>
+    <div class="loading">Loading</div>
+    <div class="not_authorized">Not Authorized</div>
     {{> auth }}
     {{> home }}
     {{> teams }}
