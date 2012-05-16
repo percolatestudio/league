@@ -28,9 +28,9 @@ class FBAuthSystem
         console.log 'auth.login'
         @_handleLogin(response.authResponse)
       
-      FB.Event.subscribe 'auth.logout', =>
-        console.log 'auth.logout'
-        @_handleLogout()
+      FB.Event.subscribe 'auth.logout', (response) =>
+        # Ok, whaaaaaaaaa? FB.. sometimes this gets fired when they aren't logged out. go figure
+        @_handleLogout() if response.status == ''
   
   login_status: -> Session.get('current_user')
   logged_in: -> not _.include([null, 'logged_out', 'not_authorized'], @login_status())
@@ -42,7 +42,7 @@ class FBAuthSystem
     # we haven't yet initialized facebook, so we need to just set the callback while we wait
     @login_callback = callback
     
-    console.log "hmm... #{FB?}"
+    console.log "facebook is ready: #{FB?}"
     # FIXME what if they've previously denied access?
     # they aren't logged in, so we'll ask facebook to try
     return FB.login null,  {scope: 'email'} if FB?
@@ -79,6 +79,7 @@ class FBAuthSystem
       # this needs to be taken care of _after_ we check the session
       return if not FB? # haven't yet finished checking
       
+      console.log 'running login callback'
       @login_callback() if @login_callback
       @login_callback = null
       
