@@ -19,5 +19,7 @@ Template.add_player.events =
       FB.api '/me/friends', (response) ->
         
         # store the data and try again
-        self.all_friends = response.data
+        self.all_friends = _.map(response.data, user_new_from_facebook)
         $(event.target).keyup()
+
+Template.add_player_result.facebook_profile_url = -> user_facebook_profile_url(this)

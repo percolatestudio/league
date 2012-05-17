@@ -17,10 +17,13 @@ Meteor.autosubscribe ->
 availability = (data) ->
   data.game.players[data.player._id] || 0
 
-upcoming_games = -> 
+future_games = -> 
   Games.find(
     {date: {$gt: new Date().getTime()}}, {sort: {date: 1}}
   ).fetch()
+
+current_team = -> Teams.findOne(Session.get 'team_id')
+
 
 
 ######### SESSION ACTIONS

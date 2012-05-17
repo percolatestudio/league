@@ -9,7 +9,8 @@
       {{> next_game }}
       
       <div class="upcoming_games">
-        {{#each games }}
+        <h2>Upcoming Games</h2>
+        {{#each upcoming_games }}
           {{> game }}
         {{/each}}
       </div>
@@ -25,31 +26,17 @@
     {{#with next_game }}
       <p>{{ location }}</p>
       <p>{{ day }} {{ time }} {{ formatted_date }}</p>
+      <ul class="game_players">
+        {{#each players }}
+          {{> player}}
+        {{/each}}
+      </ul>
     {{/with}}
   {{/if}}
 </template>
 
 <template name="game">
-  {{#if editing}}
-    <p>
-      <input name="date" type="text" value="{{format_date date}}"></input>
-    </p>
-    <p>
-      <input name="time" type="text" value="{{time}}"></input>
-      -- 
-      <input name="location" type="text" value="{{location}}"></input>
-    </p>
-    <p class="edit-btns">
-      <a class="btn btn-mini btn-danger delete">Delete</a>
-      <a class="btn btn-mini cancel">Cancel</a>
-      <a class="btn btn-mini btn-primary save">Save</a>
-    </p>
-  {{else}}
-    <p>{{format_date date}}</p>
-    <p>{{time}} -- {{location}}</p>
-    <div class="edit-btns">
-      <a class="btn btn-mini">Edit</a>
-    </div>
-  {{/if}}
+  <p>{{format_date date}}</p>
+  <p>{{time}} -- {{location}}</p>
   <p>{{player_count}}</p>
 </template>
