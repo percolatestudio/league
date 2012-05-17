@@ -1,6 +1,18 @@
 .container {
   overflow-x: auto;
+  
+  .loading, .not_authorized, .signin, .games, .home, .teams {
+    display: none;
+  }
+
+  &.loading .loading { display: block; }
+  &.not_authorized .not_authorized { display: block; }
+  &.signin .signin { display: block; }
+  &.games .games { display: block; }
+  &.home .home { display: block; }
+  &.teams .teams { display: block; }
 }
+
 
 table#schedule {
   min-width: 100%;
