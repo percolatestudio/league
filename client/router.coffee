@@ -15,7 +15,7 @@ SportGridRouter = Backbone.Router.extend
     console.log 'at leagues'
     @require_login ->
       console.log 'setting visible page to leagues'
-      Session.set 'visible_page', 'leagues'
+      Session.set 'visible_page', 'teams'
   players: (team_id) -> 
     @require_login ->
       Session.set 'team_id', team_id
