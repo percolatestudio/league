@@ -59,3 +59,12 @@ SportGridRouter = Backbone.Router.extend
 Router = new SportGridRouter
 
 Meteor.startup -> Backbone.history.start({pushState: true})
+
+
+########## FIXME: this is temporary until https://github.com/meteor/meteor/issues/142 is resolved
+  
+visible_page_watcher = ->
+  ctx = new Meteor.deps.Context()
+  ctx.on_invalidate visible_page_watcher # reset
+  ctx.run -> $('.container').removeClass().addClass("container #{Session.get 'visible_page'}")
+Meteor.startup -> visible_page_watcher()
