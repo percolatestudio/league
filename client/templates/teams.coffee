@@ -9,7 +9,3 @@ Template.team.players = -> Players.find()
 Template.team.adding = -> Session.get 'adding_player'
 Template.team.events =
   'click .add_player': -> Session.set 'adding_player', true
-    
-  'click .season': (event) ->
-    event.preventDefault()
-    Router.navigate("#{this._id}/season", {trigger: true})

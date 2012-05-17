@@ -6,7 +6,9 @@ Meteor.publish 'teams', (player_id) ->
 Meteor.publish 'players', (team_id) -> 
   console.log "getting players for #{team_id}"
   Players.find({team_id: team_id})
-Meteor.publish 'games', (team_id) -> Games.find({team_id: team_id})
+Meteor.publish 'games', (team_id) -> 
+  console.log "getting games for #{team_id}"
+  Games.find({team_id: team_id})
 
 # Published methods
 Meteor.methods
