@@ -1,9 +1,6 @@
 Template.games.team = -> Teams.findOne(Session.get('team_id'))
-  
-
 
 Template.games.games = -> upcoming_games()
-
 
 Template.next_game.next_game = -> upcoming_games()[0]
 

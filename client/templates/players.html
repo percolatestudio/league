@@ -1,7 +1,10 @@
 <template name="players">
   {{#if team }}{{#with team }}
     <div class="players">
-      <h1>LINEUP</h1>
+      <div class="header">
+        <a href="/leagues">Leagues</a>
+        <h1>Lineup</h1>
+      </div>
       <h2>{{name}}</h2>
       <ul class="players">
         {{#each players }}
@@ -21,6 +24,9 @@
   <div class="add_player">
     Add one then: <input name="player[name]" placeholder="players name"></input>
     <ul class="results">
+      {{#unless results}}
+        Loading friends...
+      {{/unless}}
       {{#each results}}
         {{> add_player_result}}
       {{/each}}
@@ -29,5 +35,8 @@
 </template>
 
 <template name="add_player_result">
-  <li>{{ name }}</li>
+  <li>
+    <img src="https://graph.facebook.com/{{ id }}/picture?type=normal"></img>
+    {{ name }}
+  </li>
 </template>

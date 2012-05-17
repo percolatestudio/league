@@ -1,6 +1,6 @@
-N_FRIENDS_TO_SHOW = 5
 Session.set 'add_player_results', []
 
+Template.players.team = -> Teams.findOne(Session.get('team_id'))
   
 Template.add_player.results = -> Session.get 'add_player_results'
 
@@ -11,7 +11,7 @@ Template.add_player.events =
     if self.all_friends
       re = new RegExp $(event.target).val(), 'i'
       results = (f for f in self.all_friends when f.name.match(re))
-      Session.set 'add_player_results', _.first(results, N_FRIENDS_TO_SHOW)
+      Session.set 'add_player_results', results
       
     else if not self.searching
       self.searching = true
