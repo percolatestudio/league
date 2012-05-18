@@ -3,9 +3,12 @@ Session.set 'adding_player', false
 Template.teams.teams = -> Teams.find()
 
 Template.teams.events =
-  'click .add_team': -> null
-
-Template.team.players = -> Players.find()
-Template.team.adding = -> Session.get 'adding_player'
-Template.team.events =
-  'click .add_player': -> Session.set 'adding_player', true
+  'submit .team_builder': (event) -> 
+    event.preventDefault()
+    
+    # validate
+    $form = $(event.target)
+    team = {}
+    team[pair.name] = pair.value for pair in $form.serializeArray()
+    
+    team_create(team)
