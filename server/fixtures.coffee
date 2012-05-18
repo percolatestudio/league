@@ -3,7 +3,7 @@ Meteor.startup ->
   
   console.log 'Initializing Fixtures'
   
-  player_data = [['Tom Coleman', 'tom@thesnail.org', '680541486'], ['Kris Nilsen', 'kris@thesnail.org']]
+  player_data = [['Tom Coleman', 'tom@thesnail.org', '680541486'], ['Kris Nilsen', 'kris@thesnail.org'], ['Dominic Nguyen', 'd@dominicnguyen.net', '1230930']]
   player_ids = for player in player_data
     Players.insert
       name: player[0]
