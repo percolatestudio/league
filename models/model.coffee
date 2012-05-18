@@ -1,7 +1,7 @@
 class Model
   @_collection: null
   constructor: (attributes) ->
-    @attributes = attributes
+    @attributes = attributes || {}
     @errors = {}
   
   valid: -> 
@@ -10,3 +10,8 @@ class Model
   save: ->
     @constructor._collection.insert(@attributes) if @valid()
     _.isEmpty(@errors)
+  
+  @create: (attrs)->
+    record = new this(attrs)
+    record.save()
+    record

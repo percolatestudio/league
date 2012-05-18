@@ -1,1 +1,1 @@
-Template.players_needed_select.potential_counts = [3..18]
+Template.players_required_select.potential_counts = [3..18]

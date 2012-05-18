@@ -6,9 +6,11 @@ Template.teams.events =
   'submit .team_builder': (event) -> 
     event.preventDefault()
     
-    # validate
     $form = $(event.target)
-    team = {}
-    team[pair.name] = pair.value for pair in $form.serializeArray()
+    t = {}
+    t[pair.name] = pair.value for pair in $form.serializeArray()
+    t.player_ids = [Session.get('current_user')._id]
     
-    team_create(team)
+    team = Team.create(t)
+    # FIXME -- display errors..
+    console.log team.errors unless team.valid()
