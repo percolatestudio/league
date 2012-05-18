@@ -5,7 +5,7 @@
         <a href="/leagues">Leagues</a>
         <h1>Lineup</h1>
       </div>
-      <h2>{{name}}</h2>
+      <h2>{{attributes.name}}</h2>
       <ul class="players">
         {{#each players }}
           {{> player}}
@@ -17,7 +17,10 @@
 </template>
 
 <template name="player">
-  <li>{{name}}</li>
+  <li>
+    <img src="{{ facebook_profile_url }}"></img>
+    {{attributes.name}}
+  </li>
 </template>
 
 <template name="add_player">
@@ -28,15 +31,8 @@
         Loading friends...
       {{/unless}}
       {{#each results}}
-        {{> add_player_result}}
+        {{> player}}
       {{/each}}
     </ul>
   </div>
-</template>
-
-<template name="add_player_result">
-  <li>
-    <img src="{{ facebook_profile_url }}"></img>
-    {{ name }}
-  </li>
 </template>

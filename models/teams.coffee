@@ -18,4 +18,7 @@ class Team extends Model
       @errors.player_ids  = 'must not be empty'
     
     _.isEmpty(@errors)
+  
+  add_player: (player) ->
+    @attributes.player_ids = _.union(@attributes.player_ids, [player.id])
 

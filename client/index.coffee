@@ -22,7 +22,7 @@ future_games = ->
     {date: {$gt: new Date().getTime()}}, {sort: {date: 1}}
   ).fetch()
 
-current_team = -> Teams.findOne(Session.get 'team_id')
+current_team = -> new Team(Teams.findOne(Session.get 'team_id'))
 
 
 
