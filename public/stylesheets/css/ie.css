@@ -1,0 +1,57 @@
+/* -----------------------------------------------------------------------
+
+   Blueprint CSS Framework 0.7.1
+   http://blueprintcss.googlecode.com
+
+   * Copyright (c) 2007-2008. See LICENSE for more info.
+   * See README for instructions on how to use Blueprint.
+   * For credits and origins, see AUTHORS.
+   * This is a compressed file. See the sources in the 'src' directory.
+
+----------------------------------------------------------------------- */
+/* ie.css */
+/* line 14, ie.scss */
+body {
+  text-align: center;
+}
+
+/* line 15, ie.scss */
+.container {
+  text-align: left;
+}
+
+/* line 16, ie.scss */
+* html .column {
+  overflow-x: hidden;
+}
+
+/* line 17, ie.scss */
+* html legend {
+  margin: -18px -8px 16px 0;
+  padding: 0;
+}
+
+/* line 18, ie.scss */
+ol {
+  margin-left: 2em;
+}
+
+/* line 19, ie.scss */
+sup {
+  vertical-align: text-top;
+}
+
+/* line 20, ie.scss */
+sub {
+  vertical-align: text-bottom;
+}
+
+/* line 21, ie.scss */
+html > body p code {
+  *white-space: normal;
+}
+
+/* line 22, ie.scss */
+hr {
+  margin: -8px auto 11px;
+}

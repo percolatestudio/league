@@ -1,0 +1,604 @@
+/* line 17, ../../../../Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* line 20, ../../../../Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+body {
+  line-height: 1;
+}
+
+/* line 22, ../../../../Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 24, ../../../../Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 26, ../../../../Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 28, ../../../../Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 101, ../../../../Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 30, ../../../../Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 114, ../../../../Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 8, style.scss */
+#content {
+  width: 960px;
+  margin: 0 auto;
+}
+/* line 11, style.scss */
+#content a {
+  display: block;
+  float: left;
+  width: 300px;
+  height: 300px;
+  margin: 40px;
+}
+/* line 17, style.scss */
+#content a:nth-child(1n) {
+  margin-left: 0;
+  margin-right: 0;
+}
+/* line 18, style.scss */
+#content a:nth-child(3n) {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* line 22, style.scss */
+a#logo {
+  overflow: visible;
+}
+/* line 24, style.scss */
+a#logo.shield {
+  margin: 10px auto 30px;
+  position: relative;
+  width: 340px;
+}
+/* line 28, style.scss */
+a#logo.shield:before {
+  content: "";
+  display: block;
+  position: absolute;
+  border-style: solid;
+  border-color: red transparent transparent transparent;
+  border-width: 340px 30px 0;
+  width: 280px;
+}
+/* line 37, style.scss */
+a#logo.shield:after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -80px;
+  z-index: 3;
+  border-style: solid;
+  border-color: red transparent transparent transparent;
+  border-width: 40px 140px 0;
+  margin-left: 30px;
+  width: 0;
+}
+/* line 50, style.scss */
+a#logo.flatdiamond {
+  background: red;
+  position: relative;
+  top: auto;
+  bottom: auto;
+  left: auto;
+  right: auto;
+  width: 100px;
+  height: 0px;
+}
+/* line 53, style.scss */
+a#logo.flatdiamond:before, a#logo.flatdiamond:after {
+  content: '';
+}
+/* line 56, style.scss */
+a#logo.flatdiamond:before {
+  position: absolute;
+  top: -25px;
+  bottom: auto;
+  left: 0;
+  right: auto;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: transparent transparent red transparent;
+  border-width: 0 50px 25px 50px;
+}
+/* line 62, style.scss */
+a#logo.flatdiamond:after {
+  position: absolute;
+  top: auto;
+  bottom: -25px;
+  left: 0;
+  right: auto;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: red transparent transparent transparent;
+  border-width: 25px 50px 0 50px;
+}
+/* line 69, style.scss */
+a#logo.diamond {
+  position: relative;
+}
+/* line 71, style.scss */
+a#logo.diamond:before {
+  content: '';
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 0;
+  height: 0;
+  border: 50px solid transparent;
+  border-bottom-color: red;
+}
+/* line 81, style.scss */
+a#logo.diamond:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 100px;
+  width: 0;
+  height: 0;
+  border: 50px solid transparent;
+  border-top-color: red;
+}
+/* line 93, style.scss */
+a#logo.darrow:after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: red transparent transparent transparent;
+  border-width: 100px 50px 0 50px;
+}
+/* line 103, style.scss */
+a#logo.uarrow:after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: transparent transparent red transparent;
+  border-width: 0 50px 100px 50px;
+}
+/* line 112, style.scss */
+a#logo.star {
+  margin: 50px 0;
+  position: relative;
+  top: auto;
+  bottom: auto;
+  left: auto;
+  right: auto;
+  width: 0;
+  height: 0;
+  display: block;
+  color: red;
+  border-style: solid;
+  border-color: transparent transparent red transparent;
+  border-width: 0 100px 70px 100px;
+  -moz-transform: rotate(35deg);
+  -webkit-transform: rotate(35deg);
+  -o-transform: rotate(35deg);
+  -ms-transform: rotate(35deg);
+  transform: rotate(35deg);
+}
+/* line 121, style.scss */
+a#logo.star:before {
+  content: '';
+  display: block;
+  border-style: solid;
+  border-color: transparent transparent red transparent;
+  border-width: 0 30px 80px 30px;
+  position: absolute;
+  top: -45px;
+  bottom: auto;
+  left: -65px;
+  right: auto;
+  width: 0;
+  height: 0;
+  -moz-transform: rotate(-35deg);
+  -webkit-transform: rotate(-35deg);
+  -o-transform: rotate(-35deg);
+  -ms-transform: rotate(-35deg);
+  transform: rotate(-35deg);
+}
+/* line 130, style.scss */
+a#logo.star:after {
+  content: '';
+  display: block;
+  color: red;
+  border-style: solid;
+  border-color: transparent transparent red transparent;
+  border-width: 0 100px 70px 100px;
+  position: absolute;
+  top: 3px;
+  bottom: auto;
+  left: -105px;
+  right: auto;
+  width: 0;
+  height: 0;
+  -moz-transform: rotate(-70deg);
+  -webkit-transform: rotate(-70deg);
+  -o-transform: rotate(-70deg);
+  -ms-transform: rotate(-70deg);
+  transform: rotate(-70deg);
+}
+/* line 141, style.scss */
+a#logo.circle {
+  width: 100px;
+  height: 100px;
+  background: red;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  -o-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -khtml-border-radius: 50px;
+  border-radius: 50px;
+}
+/* line 147, style.scss */
+a#logo.flatcircle {
+  width: 200px;
+  height: 100px;
+  background: red;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -o-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -khtml-border-radius: 50%;
+  border-radius: 50%;
+}
+/* line 153, style.scss */
+a#logo.national {
+  position: relative;
+  top: auto;
+  bottom: auto;
+  left: auto;
+  right: auto;
+  width: 100px;
+  height: 100px;
+}
+/* line 155, style.scss */
+a#logo.national:before, a#logo.national:after {
+  content: '';
+  -moz-transform: skew(-30deg);
+  -webkit-transform: skew(-30deg);
+  -o-transform: skew(-30deg);
+  -ms-transform: skew(-30deg);
+  transform: skew(-30deg);
+}
+/* line 159, style.scss */
+a#logo.national:before {
+  position: absolute;
+  top: auto;
+  bottom: auto;
+  left: 0;
+  right: auto;
+  width: 46px;
+  height: 100px;
+  -moz-border-radius: 5px 0 0 5px;
+  -webkit-border-radius: 5px 0 0 5px;
+  -o-border-radius: 5px 0 0 5px;
+  -ms-border-radius: 5px 0 0 5px;
+  -khtml-border-radius: 5px 0 0 5px;
+  border-radius: 5px 0 0 5px;
+  background: red;
+}
+/* line 164, style.scss */
+a#logo.national:after {
+  position: absolute;
+  top: auto;
+  bottom: auto;
+  left: auto;
+  right: 0;
+  width: 46px;
+  height: 100px;
+  -moz-border-radius: 0 5px 5px 0;
+  -webkit-border-radius: 0 5px 5px 0;
+  -o-border-radius: 0 5px 5px 0;
+  -ms-border-radius: 0 5px 5px 0;
+  -khtml-border-radius: 0 5px 5px 0;
+  border-radius: 0 5px 5px 0;
+  background: red;
+}
+/* line 170, style.scss */
+a#logo.badge {
+  background: transparent;
+  position: relative;
+  top: auto;
+  bottom: auto;
+  left: auto;
+  right: auto;
+  width: 100px;
+  height: 55px;
+}
+/* line 173, style.scss */
+a#logo.badge:before, a#logo.badge:after {
+  content: '';
+}
+/* line 176, style.scss */
+a#logo.badge:before {
+  position: absolute;
+  top: -25px;
+  bottom: auto;
+  left: 0;
+  right: auto;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: transparent transparent red transparent;
+  border-width: 0 50px 25px 50px;
+}
+/* line 182, style.scss */
+a#logo.badge:after {
+  position: absolute;
+  top: auto;
+  bottom: 0px;
+  left: 0;
+  right: auto;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: red transparent transparent transparent;
+  border-width: 55px 50px 0 50px;
+}
+/* line 189, style.scss */
+a#logo.inning {
+  border-style: solid;
+  border-color: transparent transparent red transparent;
+  border-width: 0 25px 25px 25px;
+  position: relative;
+  top: auto;
+  bottom: auto;
+  left: auto;
+  right: auto;
+  width: 50px;
+  height: 0;
+  margin: 20px 0 50px 0;
+}
+/* line 195, style.scss */
+a#logo.inning:after {
+  content: "";
+  position: absolute;
+  top: 25px;
+  bottom: auto;
+  left: -25px;
+  right: auto;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: red transparent transparent transparent;
+  border-width: 70px 50px 0 50px;
+}
+/* line 203, style.scss */
+a#logo.bolt {
+  background: transparent;
+  position: relative;
+  top: auto;
+  bottom: auto;
+  left: auto;
+  right: auto;
+  width: 100px;
+  height: 100px;
+}
+/* line 206, style.scss */
+a#logo.bolt:before {
+  content: '';
+  background: red;
+  position: absolute;
+  top: auto;
+  bottom: auto;
+  left: auto;
+  right: auto;
+  width: 80px;
+  height: 100px;
+  -moz-transform: skew(-30deg);
+  -webkit-transform: skew(-30deg);
+  -o-transform: skew(-30deg);
+  -ms-transform: skew(-30deg);
+  transform: skew(-30deg);
+}
+/* line 212, style.scss */
+a#logo.bolt:after {
+  content: '';
+  position: absolute;
+  top: auto;
+  bottom: -100px;
+  left: -10px;
+  right: auto;
+  width: 0;
+  height: 0;
+  -moz-transform: skew(-20deg);
+  -webkit-transform: skew(-20deg);
+  -o-transform: skew(-20deg);
+  -ms-transform: skew(-20deg);
+  transform: skew(-20deg);
+  border-top: 125px solid red;
+  border-right: 100px solid transparent;
+}
+/* line 220, style.scss */
+a#logo.hexagon {
+  background: red;
+  position: relative;
+  top: auto;
+  bottom: auto;
+  left: auto;
+  right: auto;
+  width: 100px;
+  height: 55px;
+}
+/* line 223, style.scss */
+a#logo.hexagon:before, a#logo.hexagon:after {
+  content: '';
+}
+/* line 226, style.scss */
+a#logo.hexagon:before {
+  position: absolute;
+  top: -25px;
+  bottom: auto;
+  left: 0;
+  right: auto;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: transparent transparent red transparent;
+  border-width: 0 50px 25px 50px;
+}
+/* line 232, style.scss */
+a#logo.hexagon:after {
+  position: absolute;
+  top: auto;
+  bottom: -25px;
+  left: 0;
+  right: auto;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: red transparent transparent transparent;
+  border-width: 25px 50px 0 50px;
+}
+/* line 239, style.scss */
+a#logo.tapestry {
+  background: red;
+  position: relative;
+  top: auto;
+  bottom: auto;
+  left: auto;
+  right: auto;
+  width: 100px;
+  height: 100px;
+}
+/* line 242, style.scss */
+a#logo.tapestry:before, a#logo.tapestry:after {
+  content: '';
+  border-style: solid;
+  border-color: transparent transparent red transparent;
+  border-width: 0 40px 70px 40px;
+}
+/* line 248, style.scss */
+a#logo.tapestry:before {
+  position: absolute;
+  top: 70px;
+  bottom: auto;
+  left: -23px;
+  right: auto;
+  width: auto;
+  height: auto;
+  -moz-transform: rotate(-150deg);
+  -webkit-transform: rotate(-150deg);
+  -o-transform: rotate(-150deg);
+  -ms-transform: rotate(-150deg);
+  transform: rotate(-150deg);
+}
+/* line 252, style.scss */
+a#logo.tapestry:after {
+  position: absolute;
+  top: 70px;
+  bottom: auto;
+  left: auto;
+  right: -23px;
+  width: auto;
+  height: auto;
+  -moz-transform: rotate(150deg);
+  -webkit-transform: rotate(150deg);
+  -o-transform: rotate(150deg);
+  -ms-transform: rotate(150deg);
+  transform: rotate(150deg);
+}
+/* line 257, style.scss */
+a#logo.ribbon {
+  background: red;
+  position: relative;
+  top: auto;
+  bottom: auto;
+  left: auto;
+  right: auto;
+  width: 100px;
+  height: 100px;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  -o-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -khtml-border-radius: 50px;
+  border-radius: 50px;
+}
+/* line 261, style.scss */
+a#logo.ribbon:before, a#logo.ribbon:after {
+  content: '';
+  border-style: solid;
+  border-color: transparent transparent red transparent;
+  border-width: 0 40px 70px 40px;
+}
+/* line 267, style.scss */
+a#logo.ribbon:before {
+  position: absolute;
+  top: 70px;
+  bottom: auto;
+  left: -10px;
+  right: auto;
+  width: auto;
+  height: auto;
+  -moz-transform: rotate(-140deg);
+  -webkit-transform: rotate(-140deg);
+  -o-transform: rotate(-140deg);
+  -ms-transform: rotate(-140deg);
+  transform: rotate(-140deg);
+}
+/* line 271, style.scss */
+a#logo.ribbon:after {
+  position: absolute;
+  top: 70px;
+  bottom: auto;
+  left: auto;
+  right: -10px;
+  width: auto;
+  height: auto;
+  -moz-transform: rotate(140deg);
+  -webkit-transform: rotate(140deg);
+  -o-transform: rotate(140deg);
+  -ms-transform: rotate(140deg);
+  transform: rotate(140deg);
+}
