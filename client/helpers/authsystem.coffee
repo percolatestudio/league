@@ -1,12 +1,37 @@
 # this is a Facebook authentication system. With more thought it could be generalised
 # and the FB system could be a subclass... thoughts for another day
+#
+# Uses two session variables, current_user and login_status
+#  TODO -- use a local var and set it up to trigger external things via deps
+#
+# There are 4 states we can be in, with different ways to get there:
+# 1. 'loggin_in' (fb: N/A)
+#   -- we are still waiting on FB to tell us what the deal is. Reachable:
+#   A. when we first load
+# 2. 'logged_out', (fb: 'unknown')
+#   -- we aren't logged into a fb account. Can be reached via:
+#   A. when FB first reports (need to call getLoginStatus to detect it, seems like a FB bug)
+#   B. after they click the logout button
+# 3. 'not_authorized', (fb: 'not_authorized). Treated more or less like 2.
+#   -- we've logged in, but the app is not yet authorized. Reachable:
+#   A. when FB first reports
+#   [B.] if they open the login dialog from 2. but only get halfway (i.e login but not auth.)
+#       -- we don't hear about this. But it's OK, we don't really care.
+# 4. 'logged_in', (fb: 'connected')
+#   -- all is good, we are logged in, both with FB and with the app. Reachable
+#   A. When FB first reports
+#   B. When the login dialog is successful.
 class FBAuthSystem
   constructor: ->
     @login_callback = null
+    @logout_callback = null
   
-  init: ->
-    # set up state change handler
-    @_handleStateChange()
+  init: (default_login_callback, default_logout_callback) ->
+    @default_login_callback = default_login_callback
+    @default_logout_callback = default_logout_callback
+    
+    # FIXME: if this is set, do we just assume we are X? maybe
+    Session.set('login_status', 'logging_in') if Session.equals('login_status', undefined)
     
     # initialize our connection to FB.
     Facebook.load =>
@@ -15,32 +40,38 @@ class FBAuthSystem
         appId: '227688344011052'
         channelUrl: Facebook.channelUrl
       
-      # get initial status (have to do it this way)
+      # we need to call this as FB for some reason doesn't tell us if we aren't initially
+      # logged out (and so we end up waiting forever for confirmation)
       FB.getLoginStatus (response) =>
-        if response.status == 'connected'
-          @_handleLogin(response.authResponse)
-        else if response.status == 'not_authorized'
+        @_handleLogout() if response.status == 'unknown'
+      
+      # this subscription handles all types of status changes apart from #2A
+      FB.Event.subscribe 'auth.statusChange', (r) => 
+        console.log 'statusChange'
+        console.log r
+        if r.status == 'connected'
+          @_handleLogin(r.authResponse)
+        else if r.status == 'not_authorized'
           @_handleNotAuthorized()
         else
           @_handleLogout()
       
-      FB.Event.subscribe 'auth.login', (response) =>
-        console.log 'auth.login'
-        @_handleLogin(response.authResponse)
-      
-      FB.Event.subscribe 'auth.logout', (response) =>
-        # Ok, whaaaaaaaaa? FB.. sometimes this gets fired when they aren't logged out. go figure
-        @_handleLogout() if response.status == ''
   
-  login_status: -> Session.get('current_user')
-  logged_in: -> not _.include([null, 'logged_out', 'not_authorized'], @login_status())
+  @login_states = ['logging_in', 'logged_in', 'logged_out', 'not_authorized']
+  login_status: -> Session.get('login_status')
+  for state in @login_states
+    # need to be slightly OTT here to bind the state variable properly (is there a cleaner way to do this?)
+    this.prototype[state] = ((s) -> 
+      -> Session.equals('login_status', s)
+    )(state)
   
-  require_login: (callback = (->)) ->
-    console.log 'requiring login'
-    return callback() if @logged_in() # they are logged in
+  # initiate login process (if it hasn't already happened).
+  login: (login_callback, logout_callback) ->
+    return @_login_callback() if @logged_in() # they are logged in
 
     # we haven't yet initialized facebook, so we need to just set the callback while we wait
-    @login_callback = callback
+    @login_callback = login_callback if login_callback
+    @logout_callback = logout_callback if logout_callback
     
     console.log "facebook is ready: #{FB?}"
     # FIXME what if they've previously denied access?
@@ -51,40 +82,51 @@ class FBAuthSystem
     console.log 'trying to logout'
     FB.logout() if @logged_in()
   
+  _login_callback: ->
+    console.log 'running login callback'
+    console.log @login_callback
+    console.log @default_login_callback
+    if @login_callback
+      @login_callback()
+      @login_callback = null
+    else
+      @default_login_callback() if @default_login_callback
+  
+  _logout_callback: ->
+    if @logout_callback
+      @logout_callback()
+      @logout_callback = null
+    else
+      @default_logout_callback() if @default_logout_callback
+
   _handleLogin: (authResponse) ->
-    Meteor.call 'login', authResponse.userID, (error, user) -> 
+    Meteor.call 'login', authResponse.userID, (error, user) => 
       console.log "woo, login #{user}"
-      return Session.set('current_user', user) if user # the user already exists
+      return @_doLogin(user) if user # the user already exists
       
-      # better get some deets from the FB
-      FB.api '/me', (me) -> 
+      # else, better get some deets from the FB
+      FB.api '/me', (me) => 
         attributes = { name: me.name, facebook_id: me.id, email: me.email }
         Meteor.call 'create', attributes, (error, user) ->
-          Session.set 'current_user', user
+          @_doLogin(user)
   
+  _doLogin: (user) ->
+    Session.set('login_status', 'logged_in')
+    Session.set('current_user', user) 
+    @_login_callback()
+    
   _handleLogout: -> 
     console.log 'FB logged us out?'
-    Session.set 'current_user', 'logged_out'
+    Session.set 'current_user', null
+    Session.set 'login_status', 'logged_out'
+    
+    console.log 'running logout_callback'
+    @_logout_callback()
   
-  _handleNotAuthorized: -> 
-    Session.set 'current_user', 'not_authorized'
-  
-  _handleStateChange: =>
-    ctx = new Meteor.deps.Context()
-    ctx.on_invalidate @_handleStateChange # reset
-    ctx.run =>
-      # don't need to do anything with this, just query it
-      Session.get 'current_user'
-      
-      # this needs to be taken care of _after_ we check the session
-      return if not FB? # haven't yet finished checking
-      
-      console.log 'running login callback'
-      @login_callback() if @login_callback
-      @login_callback = null
-      
-      # make sure we aren't on the homepage
-      window.Router.login() if @logged_in()
+  _handleNotAuthorized: ->
+    console.log 'not authorized'
+    Session.set 'current_user', null
+    Session.set 'login_status', 'not_authorized'
   
 # prepare a singleton instance
 AuthSystem = new FBAuthSystem

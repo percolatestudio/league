@@ -1,5 +1,4 @@
 Session.set 'team_id', null
-Session.set 'current_user', null
 Session.set 'editing_game_id', null
 Session.set 'editing_player_id', null
 
