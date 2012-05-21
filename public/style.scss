@@ -4,6 +4,7 @@ $experimental-support-for-svg: true;
 @import 'compass/reset';
 @import "compass/css3/transform";
 @import 'stylesheets/include/helpers';
+@import 'stylesheets/include/shapes';
 
 #content{
   width: 960px;
@@ -22,29 +23,9 @@ $experimental-support-for-svg: true;
 a#logo{
   overflow: visible;
   &.shield{
-    margin: 10px auto 30px;
-    position: relative;
-    width: 340px;
-    &:before {
-      content: "";
-      display: block;
-      position: absolute;
-      border-style: solid;
-      border-color: red transparent transparent transparent;
-      border-width: 340px 30px 0;
-      width: 280px;
-    }
-    &:after {
-      content: "";
-      display: block;
-      position: absolute;
-      bottom: -80px;
-      z-index: 3;
-      border-style: solid;
-      border-color: red transparent transparent transparent;
-      border-width: 40px 140px 0;
-      margin-left: 30px;
-      width: 0;
+    @include shield(100px, 100px, blue);
+    span{
+      @include shield(80px, 80px, red);
     }
   }
   &.flatdiamond{
