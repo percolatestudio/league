@@ -21,18 +21,16 @@
 #   -- all is good, we are logged in, both with FB and with the app. Reachable
 #   A. When FB first reports
 #   B. When the login dialog is successful.
+
+# FIXME: if this is set, do we just assume we are X? maybe
+Session.set('login_status', 'logging_in')
+
 class FBAuthSystem
   constructor: ->
-    @login_callback = null
-    @logout_callback = null
+    @login_callback = () ->
+    @logout_callback = () ->
   
-  init: (default_login_callback, default_logout_callback) ->
-    @default_login_callback = default_login_callback
-    @default_logout_callback = default_logout_callback
-    
-    # FIXME: if this is set, do we just assume we are X? maybe
-    Session.set('login_status', 'logging_in') if Session.equals('login_status', undefined)
-    
+  init: ->
     # initialize our connection to FB.
     Facebook.load =>
       console.log 'fb loaded'
@@ -66,9 +64,11 @@ class FBAuthSystem
     )(state)
   
   # initiate login process (if it hasn't already happened).
-  login: (login_callback, logout_callback) ->
-    return @_login_callback() if @logged_in() # they are logged in
-
+  require_login: (login_callback, logout_callback) ->
+    return login_callback() if @logged_in() # they are logged in already
+    
+    console.log 'setting login_callbacks'
+    
     # we haven't yet initialized facebook, so we need to just set the callback while we wait
     @login_callback = login_callback if login_callback
     @logout_callback = logout_callback if logout_callback
@@ -78,6 +78,19 @@ class FBAuthSystem
     # they aren't logged in, so we'll ask facebook to try
     return FB.login null,  {scope: 'email'} if FB?
   
+  # more relaxed -- do one thing if we are logged in, another if we are not, 
+  #   waiting for FB to return
+  if_logged_in: (login_callback, logout_callback) ->
+    if FB?
+      if @logged_in()
+        login_callback() if login_callback
+      else
+        logout_callback() if logout_callback
+    
+    else # wait for it to happen
+      @login_callback = login_callback if login_callback
+      @logout_callback = logout_callback if logout_callback
+  
   logout: -> 
     console.log 'trying to logout'
     FB.logout() if @logged_in()
@@ -85,19 +98,12 @@ class FBAuthSystem
   _login_callback: ->
     console.log 'running login callback'
     console.log @login_callback
-    console.log @default_login_callback
-    if @login_callback
-      @login_callback()
-      @login_callback = null
-    else
-      @default_login_callback() if @default_login_callback
+    @login_callback()
+    @login_callback = () -> # reset
   
   _logout_callback: ->
-    if @logout_callback
-      @logout_callback()
-      @logout_callback = null
-    else
-      @default_logout_callback() if @default_logout_callback
+    @logout_callback()
+    @logout_callback = () -> # reset
 
   _handleLogin: (authResponse) ->
     Meteor.call 'login', authResponse.userID, (error, user) => 
