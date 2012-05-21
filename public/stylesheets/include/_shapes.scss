@@ -14,7 +14,7 @@
     display: block;
     position: absolute;
     top: $height;
-    z-index: 3;
+    z-index: 1;
     border-style: solid;
     border-color: $color transparent transparent transparent;
     border-width: $height/5 $width/2 0;

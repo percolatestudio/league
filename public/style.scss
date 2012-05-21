@@ -9,11 +9,13 @@ $experimental-support-for-svg: true;
 #content{
   width: 960px;
   margin: 0 auto;
-  a{
-    display: block;
+  li{
     float: left;
-    width: 300px;
-    height: 300px;
+    position: relative;
+    clear: both;
+    width: 200px;
+    height: 200px;
+    background: grey;
     margin: 40px;
     &:nth-child(1n){margin-left:0;margin-right:0;}
     &:nth-child(3n){margin-left:0;margin-right:0;}
@@ -23,9 +25,15 @@ $experimental-support-for-svg: true;
 a#logo{
   overflow: visible;
   &.shield{
-    @include shield(100px, 100px, blue);
+    @include shield(140px, 140px, #2E66B2);
     span{
-      @include shield(80px, 80px, red);
+      @include shield(120px, 120px, #FF5C2B);
+      position: absolute;
+      display: block;
+      text-align: center;
+      z-index: 2;
+      left: 12px;
+      top: 12px;
     }
   }
   &.flatdiamond{
