@@ -63,12 +63,24 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
-/* line 9, style.scss */
+/* line 12, style.scss */
+figure {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* line 20, style.scss */
+body {
+  background: white;
+}
+
+/* line 23, style.scss */
 #content {
   width: 960px;
   margin: 0 auto;
 }
-/* line 12, style.scss */
+/* line 26, style.scss */
 #content li {
   float: left;
   position: relative;
@@ -78,82 +90,117 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   background: grey;
   margin: 40px;
 }
-/* line 20, style.scss */
+/* line 34, style.scss */
 #content li:nth-child(1n) {
   margin-left: 0;
   margin-right: 0;
 }
-/* line 21, style.scss */
+/* line 35, style.scss */
 #content li:nth-child(3n) {
   margin-left: 0;
   margin-right: 0;
 }
 
-/* line 25, style.scss */
-a#logo {
-  overflow: visible;
-}
-/* line 27, style.scss */
-a#logo.shield {
-  position: relative;
-}
-/* line 3, stylesheets/include/_shapes.scss */
-a#logo.shield:before {
-  content: "";
-  display: block;
-  position: absolute;
-  border-style: solid;
-  border-color: #2e66b2 transparent transparent transparent;
-  border-width: 140px 28px 0;
-  width: 140px;
-}
-/* line 12, stylesheets/include/_shapes.scss */
-a#logo.shield:after {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 140px;
-  z-index: 1;
-  border-style: solid;
-  border-color: #2e66b2 transparent transparent transparent;
-  border-width: 28px 70px 0;
-  margin-left: 28px;
-  width: 0;
-}
-/* line 29, style.scss */
-a#logo.shield span {
-  position: relative;
-  position: absolute;
-  display: block;
-  text-align: center;
-  z-index: 2;
-  left: 12px;
-  top: 12px;
-}
-/* line 3, stylesheets/include/_shapes.scss */
-a#logo.shield span:before {
-  content: "";
-  display: block;
-  position: absolute;
-  border-style: solid;
-  border-color: #ff5c2b transparent transparent transparent;
-  border-width: 120px 24px 0;
-  width: 120px;
-}
-/* line 12, stylesheets/include/_shapes.scss */
-a#logo.shield span:after {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 120px;
-  z-index: 1;
-  border-style: solid;
-  border-color: #ff5c2b transparent transparent transparent;
-  border-width: 24px 60px 0;
-  margin-left: 24px;
-  width: 0;
-}
 /* line 39, style.scss */
+a#logo {
+  display: block;
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+/* line 45, style.scss */
+a#logo h3 {
+  font-size: 26px;
+  /*position*/
+  position: absolute;
+  position: absolute;
+  top: 50%;
+  bottom: auto;
+  left: auto;
+  right: auto;
+  width: 100%;
+  height: 1em;
+  margin-top: -0.75em;
+  padding: .25em 0;
+  z-index: 3;
+  /*text*/
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: .1em;
+  color: #FF5C2B;
+  font-family: Rockwell, sans-serif;
+  white-space: nowrap;
+  /*misc*/
+  background: white;
+}
+/* line 64, style.scss */
+a#logo .shield {
+  position: relative;
+  width: 120px;
+  height: 100px;
+  /*real dimensions*/
+  margin-top: 50px;
+  margin-left: 40px;
+}
+/* line 9, stylesheets/include/_shapes.scss */
+a#logo .shield:before {
+  content: "";
+  display: block;
+  position: absolute;
+  border-style: solid;
+  border-color: #2e66b2 transparent transparent transparent;
+  border-width: 80px 10px 0;
+  width: 100px;
+}
+/* line 18, stylesheets/include/_shapes.scss */
+a#logo .shield:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 80px;
+  z-index: 1;
+  border-style: solid;
+  border-color: #2e66b2 transparent transparent transparent;
+  border-width: 16px 50px 0;
+  margin-left: 10px;
+  width: 0;
+}
+/* line 37, stylesheets/include/_shapes.scss */
+a#logo .shield span {
+  position: relative;
+  width: 100px;
+  height: 80px;
+  /*real dimensions*/
+  z-index: 2;
+  left: 10px;
+  top: 10px;
+}
+/* line 9, stylesheets/include/_shapes.scss */
+a#logo .shield span:before {
+  content: "";
+  display: block;
+  position: absolute;
+  border-style: solid;
+  border-color: #ff5c2b transparent transparent transparent;
+  border-width: 64px 10px 0;
+  width: 80px;
+}
+/* line 18, stylesheets/include/_shapes.scss */
+a#logo .shield span:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 64px;
+  z-index: 1;
+  border-style: solid;
+  border-color: #ff5c2b transparent transparent transparent;
+  border-width: 12.8px 40px 0;
+  margin-left: 10px;
+  width: 0;
+}
+/* line 67, style.scss */
 a#logo.flatdiamond {
   background: red;
   position: relative;
@@ -164,11 +211,11 @@ a#logo.flatdiamond {
   width: 100px;
   height: 0px;
 }
-/* line 42, style.scss */
+/* line 70, style.scss */
 a#logo.flatdiamond:before, a#logo.flatdiamond:after {
   content: '';
 }
-/* line 45, style.scss */
+/* line 73, style.scss */
 a#logo.flatdiamond:before {
   position: absolute;
   top: -25px;
@@ -181,7 +228,7 @@ a#logo.flatdiamond:before {
   border-color: transparent transparent red transparent;
   border-width: 0 50px 25px 50px;
 }
-/* line 51, style.scss */
+/* line 79, style.scss */
 a#logo.flatdiamond:after {
   position: absolute;
   top: auto;
@@ -194,11 +241,11 @@ a#logo.flatdiamond:after {
   border-color: red transparent transparent transparent;
   border-width: 25px 50px 0 50px;
 }
-/* line 58, style.scss */
+/* line 86, style.scss */
 a#logo.diamond {
   position: relative;
 }
-/* line 60, style.scss */
+/* line 88, style.scss */
 a#logo.diamond:before {
   content: '';
   position: absolute;
@@ -209,7 +256,7 @@ a#logo.diamond:before {
   border: 50px solid transparent;
   border-bottom-color: red;
 }
-/* line 70, style.scss */
+/* line 98, style.scss */
 a#logo.diamond:after {
   content: '';
   position: absolute;
@@ -220,7 +267,7 @@ a#logo.diamond:after {
   border: 50px solid transparent;
   border-top-color: red;
 }
-/* line 82, style.scss */
+/* line 110, style.scss */
 a#logo.darrow:after {
   content: '';
   width: 0;
@@ -229,7 +276,7 @@ a#logo.darrow:after {
   border-color: red transparent transparent transparent;
   border-width: 100px 50px 0 50px;
 }
-/* line 92, style.scss */
+/* line 120, style.scss */
 a#logo.uarrow:after {
   content: '';
   width: 0;
@@ -238,7 +285,7 @@ a#logo.uarrow:after {
   border-color: transparent transparent red transparent;
   border-width: 0 50px 100px 50px;
 }
-/* line 101, style.scss */
+/* line 129, style.scss */
 a#logo.star {
   margin: 50px 0;
   position: relative;
@@ -259,7 +306,7 @@ a#logo.star {
   -ms-transform: rotate(35deg);
   transform: rotate(35deg);
 }
-/* line 110, style.scss */
+/* line 138, style.scss */
 a#logo.star:before {
   content: '';
   display: block;
@@ -279,7 +326,7 @@ a#logo.star:before {
   -ms-transform: rotate(-35deg);
   transform: rotate(-35deg);
 }
-/* line 119, style.scss */
+/* line 147, style.scss */
 a#logo.star:after {
   content: '';
   display: block;
@@ -300,7 +347,7 @@ a#logo.star:after {
   -ms-transform: rotate(-70deg);
   transform: rotate(-70deg);
 }
-/* line 130, style.scss */
+/* line 158, style.scss */
 a#logo.circle {
   width: 100px;
   height: 100px;
@@ -312,7 +359,7 @@ a#logo.circle {
   -khtml-border-radius: 50px;
   border-radius: 50px;
 }
-/* line 136, style.scss */
+/* line 164, style.scss */
 a#logo.flatcircle {
   width: 200px;
   height: 100px;
@@ -324,7 +371,7 @@ a#logo.flatcircle {
   -khtml-border-radius: 50%;
   border-radius: 50%;
 }
-/* line 142, style.scss */
+/* line 170, style.scss */
 a#logo.national {
   position: relative;
   top: auto;
@@ -334,7 +381,7 @@ a#logo.national {
   width: 100px;
   height: 100px;
 }
-/* line 144, style.scss */
+/* line 172, style.scss */
 a#logo.national:before, a#logo.national:after {
   content: '';
   -moz-transform: skew(-30deg);
@@ -343,7 +390,7 @@ a#logo.national:before, a#logo.national:after {
   -ms-transform: skew(-30deg);
   transform: skew(-30deg);
 }
-/* line 148, style.scss */
+/* line 176, style.scss */
 a#logo.national:before {
   position: absolute;
   top: auto;
@@ -360,7 +407,7 @@ a#logo.national:before {
   border-radius: 5px 0 0 5px;
   background: red;
 }
-/* line 153, style.scss */
+/* line 181, style.scss */
 a#logo.national:after {
   position: absolute;
   top: auto;
@@ -377,7 +424,7 @@ a#logo.national:after {
   border-radius: 0 5px 5px 0;
   background: red;
 }
-/* line 159, style.scss */
+/* line 187, style.scss */
 a#logo.badge {
   background: transparent;
   position: relative;
@@ -388,11 +435,11 @@ a#logo.badge {
   width: 100px;
   height: 55px;
 }
-/* line 162, style.scss */
+/* line 190, style.scss */
 a#logo.badge:before, a#logo.badge:after {
   content: '';
 }
-/* line 165, style.scss */
+/* line 193, style.scss */
 a#logo.badge:before {
   position: absolute;
   top: -25px;
@@ -405,7 +452,7 @@ a#logo.badge:before {
   border-color: transparent transparent red transparent;
   border-width: 0 50px 25px 50px;
 }
-/* line 171, style.scss */
+/* line 199, style.scss */
 a#logo.badge:after {
   position: absolute;
   top: auto;
@@ -418,7 +465,7 @@ a#logo.badge:after {
   border-color: red transparent transparent transparent;
   border-width: 55px 50px 0 50px;
 }
-/* line 178, style.scss */
+/* line 206, style.scss */
 a#logo.inning {
   border-style: solid;
   border-color: transparent transparent red transparent;
@@ -432,7 +479,7 @@ a#logo.inning {
   height: 0;
   margin: 20px 0 50px 0;
 }
-/* line 184, style.scss */
+/* line 212, style.scss */
 a#logo.inning:after {
   content: "";
   position: absolute;
@@ -446,7 +493,7 @@ a#logo.inning:after {
   border-color: red transparent transparent transparent;
   border-width: 70px 50px 0 50px;
 }
-/* line 192, style.scss */
+/* line 220, style.scss */
 a#logo.bolt {
   background: transparent;
   position: relative;
@@ -457,7 +504,7 @@ a#logo.bolt {
   width: 100px;
   height: 100px;
 }
-/* line 195, style.scss */
+/* line 223, style.scss */
 a#logo.bolt:before {
   content: '';
   background: red;
@@ -474,7 +521,7 @@ a#logo.bolt:before {
   -ms-transform: skew(-30deg);
   transform: skew(-30deg);
 }
-/* line 201, style.scss */
+/* line 229, style.scss */
 a#logo.bolt:after {
   content: '';
   position: absolute;
@@ -492,7 +539,7 @@ a#logo.bolt:after {
   border-top: 125px solid red;
   border-right: 100px solid transparent;
 }
-/* line 209, style.scss */
+/* line 237, style.scss */
 a#logo.hexagon {
   background: red;
   position: relative;
@@ -503,11 +550,11 @@ a#logo.hexagon {
   width: 100px;
   height: 55px;
 }
-/* line 212, style.scss */
+/* line 240, style.scss */
 a#logo.hexagon:before, a#logo.hexagon:after {
   content: '';
 }
-/* line 215, style.scss */
+/* line 243, style.scss */
 a#logo.hexagon:before {
   position: absolute;
   top: -25px;
@@ -520,7 +567,7 @@ a#logo.hexagon:before {
   border-color: transparent transparent red transparent;
   border-width: 0 50px 25px 50px;
 }
-/* line 221, style.scss */
+/* line 249, style.scss */
 a#logo.hexagon:after {
   position: absolute;
   top: auto;
@@ -533,7 +580,7 @@ a#logo.hexagon:after {
   border-color: red transparent transparent transparent;
   border-width: 25px 50px 0 50px;
 }
-/* line 228, style.scss */
+/* line 256, style.scss */
 a#logo.tapestry {
   background: red;
   position: relative;
@@ -544,14 +591,14 @@ a#logo.tapestry {
   width: 100px;
   height: 100px;
 }
-/* line 231, style.scss */
+/* line 259, style.scss */
 a#logo.tapestry:before, a#logo.tapestry:after {
   content: '';
   border-style: solid;
   border-color: transparent transparent red transparent;
   border-width: 0 40px 70px 40px;
 }
-/* line 237, style.scss */
+/* line 265, style.scss */
 a#logo.tapestry:before {
   position: absolute;
   top: 70px;
@@ -566,7 +613,7 @@ a#logo.tapestry:before {
   -ms-transform: rotate(-150deg);
   transform: rotate(-150deg);
 }
-/* line 241, style.scss */
+/* line 269, style.scss */
 a#logo.tapestry:after {
   position: absolute;
   top: 70px;
@@ -581,7 +628,7 @@ a#logo.tapestry:after {
   -ms-transform: rotate(150deg);
   transform: rotate(150deg);
 }
-/* line 246, style.scss */
+/* line 274, style.scss */
 a#logo.ribbon {
   background: red;
   position: relative;
@@ -598,14 +645,14 @@ a#logo.ribbon {
   -khtml-border-radius: 50px;
   border-radius: 50px;
 }
-/* line 250, style.scss */
+/* line 278, style.scss */
 a#logo.ribbon:before, a#logo.ribbon:after {
   content: '';
   border-style: solid;
   border-color: transparent transparent red transparent;
   border-width: 0 40px 70px 40px;
 }
-/* line 256, style.scss */
+/* line 284, style.scss */
 a#logo.ribbon:before {
   position: absolute;
   top: 70px;
@@ -620,7 +667,7 @@ a#logo.ribbon:before {
   -ms-transform: rotate(-140deg);
   transform: rotate(-140deg);
 }
-/* line 260, style.scss */
+/* line 288, style.scss */
 a#logo.ribbon:after {
   position: absolute;
   top: 70px;

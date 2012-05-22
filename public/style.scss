@@ -1,11 +1,25 @@
 $experimental-support-for-svg: true;
 
+
+
+
 @import 'compass/css3';
 @import 'compass/reset';
 @import "compass/css3/transform";
 @import 'stylesheets/include/helpers';
 @import 'stylesheets/include/shapes';
 
+figure{
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+$background: #fff;
+
+body{
+  background: $background;
+}
 #content{
   width: 960px;
   margin: 0 auto;
@@ -23,18 +37,32 @@ $experimental-support-for-svg: true;
 }
 
 a#logo{
-  overflow: visible;
-  &.shield{
-    @include shield(140px, 140px, #2E66B2);
-    span{
-      @include shield(120px, 120px, #FF5C2B);
-      position: absolute;
-      display: block;
-      text-align: center;
-      z-index: 2;
-      left: 12px;
-      top: 12px;
-    }
+  display: block;
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  h3{
+    font-size: 26px;
+    /*position*/
+    position: absolute;
+    @include position(absolute, 50%, auto, auto, auto, 100%, 1em);
+    margin-top: -.75em;
+    padding: .25em 0;
+    z-index: 3;
+    /*text*/
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: .1em;
+    color: #FF5C2B;
+    font-family: Rockwell, sans-serif;
+    white-space: nowrap;
+    /*misc*/
+    background: $background;
+  }
+  .shield{
+    @include prepare_shield(200px, 200px);
   }
   &.flatdiamond{
     background: red; 

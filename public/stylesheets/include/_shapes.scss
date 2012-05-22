@@ -1,27 +1,49 @@
 @mixin shield($width: 100px, $height: 100px, $color:red){
   position: relative;
+  width: $width;
+  height: $height;
+  /*real dimensions*/
+  $shielddeg: 10px;
+  $rwidth: $width - 2*10px;
+  $rheight: $height - $height/5;
   &:before {
     content: "";
     display: block;
     position: absolute;
     border-style: solid;
     border-color: $color transparent transparent transparent;
-    border-width: $height $width/5 0;
-    width: $width;
+    border-width: $rheight $shielddeg 0;
+    width: $rwidth;
   }
   &:after {
     content: "";
     display: block;
     position: absolute;
-    top: $height;
+    top: $rheight;
     z-index: 1;
     border-style: solid;
     border-color: $color transparent transparent transparent;
-    border-width: $height/5 $width/2 0;
-    margin-left: $width/5;
+    border-width: $rheight/5 $rwidth/2 0;
+    margin-left: $shielddeg;
     width: 0;
   }
 }//
+@mixin prepare_shield($containerwidth: 200px, $containerheight: 200px){
+  $outerwidth:$containerwidth * .6;
+  $outerheight:$containerheight * .5;
+  @include shield($outerwidth, $outerheight, #2E66B2);
+  margin-top: ($containerheight - $outerheight) *.5;
+  margin-left: ($containerwidth - $outerwidth) *.5;
+  span{
+    $innerwidth: $outerwidth - 10px*2;
+    $innerheight: $outerheight - 10px*2;
+    @include shield($innerwidth, $innerheight, #FF5C2B);
+    z-index: 2;
+    left: 10px;
+    top: 10px;
+  }
+}
+
 @mixin flatdiamond{
   background: red; 
   @include position(relative, auto, auto, auto, auto, 100px, 0px);
