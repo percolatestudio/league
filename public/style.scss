@@ -26,13 +26,10 @@ body{
   li{
     float: left;
     position: relative;
-    clear: both;
     width: 200px;
     height: 200px;
     background: grey;
     margin: 40px;
-    &:nth-child(1n){margin-left:0;margin-right:0;}
-    &:nth-child(3n){margin-left:0;margin-right:0;}
   }
 }
 
@@ -61,71 +58,11 @@ a#logo{
     /*misc*/
     background: $background;
   }
-  .shield{
-    @include prepare_shield(200px, 200px);
-  }
-  &.flatdiamond{
-    background: red; 
-    @include position(relative, auto, auto, auto, auto, 100px, 0px);
-    &:before, &:after{
-      content:'';
-    }
-    &:before{
-      @include position(absolute, -25px, auto, auto, 0, 0, 0);
-      border-style: solid;
-      border-color: transparent transparent red transparent;
-      border-width: 0 50px 25px 50px;
-    }
-    &:after{
-      @include position(absolute, auto, auto, -25px, 0, 0, 0);
-      border-style: solid;
-      border-color: red transparent transparent transparent;
-      border-width: 25px 50px 0 50px;
-    }
-  }
-  &.diamond{
-    position: relative;
-    &:before{
-      content: ''; 
-      position: absolute; 
-      left: 0px; 
-      top: 0px; 
-      width: 0; 
-      height: 0; 
-      border: 50px solid transparent; 
-      border-bottom-color: red;
-    }
-    &:after{
-      content: ''; 
-      position: absolute; 
-      left: 0;
-      top: 100px; 
-      width: 0; 
-      height: 0; 
-      border: 50px solid transparent; 
-      border-top-color: red;
-    }
-  }
-  &.darrow{
-    &:after{
-      content:'';
-      width: 0; 
-      height: 0; 
-      border-style: solid;
-      border-color: red transparent transparent transparent;
-      border-width: 100px 50px 0 50px;
-    }
-  }
-  &.uarrow{
-    &:after{
-      content:'';
-      width: 0; 
-      height: 0; 
-      border-style: solid;
-      border-color: transparent transparent red transparent;
-      border-width: 0 50px 100px 50px;
-    }
-  }
+  .shield{@include prepare_shield(200px, 200px);}
+  .flatdiamond{@include prepare_flatdiamond(200px, 200px);}
+  .diamond{@include prepare_diamond(200px, 200px);}
+  .darrow{@include prepare_darrow(200px, 200px);}
+  .uarrow{@include prepare_uarrow(200px, 200px);}
   &.star{
    margin: 50px 0; 
    @include position(relative, auto, auto, auto, auto, 0, 0);
