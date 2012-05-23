@@ -20,4 +20,6 @@ Template.games.events =
       
     console.log "Game invalid: #{new_game.full_errors()}" unless new_game.save()
 
-Template.next_game.players = -> Players.find().forEach (p) -> new Player(p)
+Template.next_game.players = -> 
+  console.log current_players()
+  current_players()

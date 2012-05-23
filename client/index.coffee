@@ -22,6 +22,9 @@ future_games = ->
 
 current_team = -> new Team(Teams.findOne(Session.get 'team_id'))
 
+current_players = -> Players.find().map((p) -> new Player(p))
+
+current_user = -> new Player(Session.get('current_user'))
 
 
 ######### SESSION ACTIONS

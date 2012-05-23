@@ -3,6 +3,9 @@ Teams = new Meteor.Collection 'teams'
 
 class Team extends Model
   @_collection: Teams
+  constructor: (attrs) ->
+    super(attrs)
+    @attributes.player_ids ||= []
   
   valid: ->
     @errors = {}
