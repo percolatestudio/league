@@ -6,37 +6,48 @@
         <h1>Season Games</h1>
       </div>
       
-      {{> next_game }}
+      {{#if next_game}}
+        {{> next_game }}
+        
+        <div class="upcoming_games">
+          <h2>Upcoming Games</h2>
+          {{#each upcoming_games }}
+            {{> game }}
+          {{/each}}
+          <a class="create_game">Schedule next game</a>
+        </div>
+      {{else}}
+        <p>No games yet!</p>
+        <p>Click <a class="create_game">here</a> to create one</p>
+      {{/if}}
       
-      <div class="upcoming_games">
-        <h2>Upcoming Games</h2>
-        {{#each upcoming_games }}
-          {{> game }}
-        {{/each}}
-      </div>
     {{/with}}{{/if}}
   </div>
 </template>
 
 <template name="next_game">
-  {{#if next_game }}
-    <p>Next Game</p>
-    <p>{{ name }}</p>
-    <p>* AT *</p>
-    {{#with next_game }}
-      <p>{{ location }}</p>
-      <p>{{ day }} {{ time }} {{ formatted_date }}</p>
-      <ul class="game_players">
-        {{#each players }}
-          {{!FIXME> player}}
-        {{/each}}
-      </ul>
-    {{/with}}
-  {{/if}}
+  <p>Next Game</p>
+  <p>{{ name }}</p>
+  <p>* AT *</p>
+  {{#with next_game }}
+    <p>{{ location }}</p>
+    <p>{{ day }} {{ time }} {{ formatted_date }}</p>
+    <ul class="game_players">
+      {{#each players }}
+        {{> player}}
+      {{/each}}
+    </ul>
+  {{/with}}
 </template>
 
 <template name="game">
-  <p>{{format_date date}}</p>
-  <p>{{time}} -- {{location}}</p>
+  <p>{{formatted_date}}</p>
+  <p>{{time}} -- 
+    {{#if location}}
+      {{location}}
+    {{else}}
+      <em>Unknown location</em>
+    {{/if}}
+  </p>
   <p>{{player_count}}</p>
 </template>

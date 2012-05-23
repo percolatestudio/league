@@ -2,13 +2,38 @@ playing_states = ['Unconfirmed', 'Playing', 'Not Playing']
 
 Games = new Meteor.Collection 'games'
 # { team_id: 123,
-#   date: '27-11-2012', time: '8:40', location: 'Brunswick',
-#   players: {player_id: state} }
+#   date: 1318781876406, location: 'Brunswick',
+#   availabilities: {player_id: state} }
 
-
-## FIXME: use date library
-days_of_week = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
-# returns the next 'day' Day after date.
-get_day_after = (day, date = new Date()) ->
-  difference = (day - date.getDay() + 7) % 7
-  (new Date(date)).setDate(date.getDate() + difference)
+class Game extends Model
+  @_collection: Games
+  constructor: (attrs) -> 
+    super(attrs)
+    @moment = moment(@attributes.date)
+  
+  valid: ->
+    @errors = {}
+    
+    unless @attributes.team_id
+      @errors.team_id = 'must be set'
+    
+    unless @attributes.date? and parseInt(@attributes.date) > 0
+      @errors.date = 'must be a valid timestamp'
+    
+    _.isEmpty(@errors)
+  
+  # set the date from a moment
+  set_date: (m) ->
+    @moment = m
+    @attributes.date = @moment.valueOf()
+  
+  day: -> moment.weekdays[@moment.day()]
+  time: -> @moment.format('h:mm a')
+    
+  formatted_date: -> @moment.format('Do MMMM, YYYY')
+  
+  clone_one_week_later: ->
+    new Game(
+      team_id: @attributes.team_id
+      date: moment(@moment).add('days', 7).valueOf()
+    )

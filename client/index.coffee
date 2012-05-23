@@ -17,9 +17,8 @@ availability = (data) ->
   data.game.players[data.player._id] || 0
 
 future_games = -> 
-  Games.find(
-    {date: {$gt: new Date().getTime()}}, {sort: {date: 1}}
-  ).fetch()
+  Games.find({date: {$gt: new Date().getTime()}}, {sort: {date: 1}})
+    .map (g) -> new Game(g)
 
 current_team = -> new Team(Teams.findOne(Session.get 'team_id'))
 

@@ -20,7 +20,6 @@ class Model
       if @id?
         @constructor._collection.update(@id, @attributes) 
       else
-        console.log 'there'
         @id = @constructor._collection.insert(@attributes)
       
       true
