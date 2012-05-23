@@ -1,0 +1,11 @@
+.container {
+  overflow-x: auto;  
+  .loading, .not_authorized, .signin, .games, .home, .players, .teams {display: none;}
+  &.loading .loading { display: block; }
+  &.not_authorized .not_authorized { display: block; }
+  &.signin .signin { display: block; }
+  &.games .games { display: block; }
+  &.home .home { display: block; }
+  &.players .players { display: block; }
+  &.teams .teams { display: block; }
+}

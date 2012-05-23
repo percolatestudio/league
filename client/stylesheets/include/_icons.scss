@@ -1,0 +1,49 @@
+/*--- icons ---*/
+.icon12, .icon16{
+  &:before{
+    content:'';
+    display: inline-block;
+    vertical-align: baseline;
+    position: relative;
+    margin-bottom: -2px;
+    overflow: hidden;
+  }
+  &:empty{
+    &:before{
+      margin-right:0px;
+    }
+  }
+}
+.icon12{
+  &:before{
+    height: 12px;
+    width: 12px;
+    margin-right: 4px;
+  }
+}
+.icon16{
+  &:before{
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+  }
+}
+@include register_icons('.add', 1);
+@include register_icons('.subtract', 2);
+@include register_icons('.facebook', 3);
+@include register_icons('.twitter', 4);
+@include register_icons('.envelope', 5);
+@include register_icons('.google', 6);
+@include register_icons('.comment', 7);
+@include register_icons('.rss', 8);
+@include register_icons('.portrait', 9);
+@include register_icons('.people', 10);
+@include register_icons('.search', 11);
+@include register_icons('.list', 12);
+@include register_icons('.eye', 13);
+@include register_icons('.tag', 14);
+@include register_icons('.home', 15);
+@include register_icons('.dropdown', 16);
+@include register_icons('.dropup', 17);
+@include register_icons('.close', 18);
+@include register_icons('.heart', 19);

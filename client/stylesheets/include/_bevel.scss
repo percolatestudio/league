@@ -1,0 +1,36 @@
+@mixin impress{
+  @include text-shadow(rgba(255,255,255, .7) 0 1px 0);
+}
+@mixin emboss{
+  @include text-shadow(rgba(0,0,0, .7) 0 1px 0);
+}
+@mixin emboss_neg{
+  @include text-shadow(rgba(255,255,255, .7) 0 -1px 0);
+}
+@mixin raised{
+  @include text-shadow(rgba(0,0,0, .7) 0 1px 3px);
+}
+@mixin emboss_border{
+  border-top: 1px solid rgba(255,255,255, .3);
+  border-bottom: 1px solid rgba(0,0,0, .3);
+  border-right: 1px solid rgba(0,0,0, .1);
+  border-left: 1px solid rgba(0,0,0, .1);
+}
+@mixin impress_border($width:1px){
+  border-top: $width solid rgba(0,0,0, .3);
+  border-bottom: $width solid rgba(255,255,255,.3);
+  border-right: $width solid rgba(0,0,0, .2);
+  border-left: $width solid rgba(0,0,0, .2); 
+}
+@mixin reveal{
+  border-top: 1px solid #565b62;
+  @include box-shadow(rgba(0,0,0,.3) 0 2px 5px 0 inset);
+  @include background(
+    url('images/textures/bg_hatch_40x40.png'),
+    linear-gradient(top, rgba(0, 0, 0, .9), rgba(0, 0, 0, .6) 5%, rgba(0, 0, 0, .3) 40% , rgba(101, 104, 120, .5) 90%),
+    #3f464b
+  );
+  @include raised;      
+  color: #fff;
+  clear: both;
+}

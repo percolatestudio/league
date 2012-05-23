@@ -1,0 +1,6 @@
+@mixin maskbg{
+  @include background(
+    url('images/textures/bg_noise_80x80.png') repeat,
+    #f9f9f9
+  );
+}
