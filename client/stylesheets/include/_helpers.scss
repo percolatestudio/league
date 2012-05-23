@@ -1,0 +1,41 @@
+// I don't know why there isn't already a shorthand (I'm using the standard order)
+// use auto if you don't want to set a property
+@mixin position($type, $top: auto, $right: auto, $bottom: auto, $left: auto, $width: auto, $height: auto) {
+  position: $type;
+  top: $top;
+  bottom: $bottom;
+  left: $left;
+  right: $right;
+  width: $width;
+  height: $height;
+}
+@mixin box-sizing($value) {
+  box-sizing: $value;
+  -moz-box-sizing: $value;
+  -webkit-box-sizing: $value;
+}
+@mixin user_select{
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+@mixin hidden{
+  display: none;
+}
+@mixin nolist{
+  list-style: none;
+  margin: 0;
+}
+@mixin clearfix {
+  min-height: 0; // for our favourite friend IE7
+  &:after {
+    clear: both;
+    content: " ";
+    display: block;
+    visibility: hidden;
+    height: 0;
+    font-size: 0;
+  }
+}

@@ -1,0 +1,61 @@
+textarea{
+  @include stdform;
+  overflow: auto;
+  display: block;
+  text-align: left;
+    &.new{
+      color: #AA5959;
+    }
+}
+input{
+  @include stdform;
+  line-height: 1em;
+}
+label{
+  color: #333;
+  font-weight: bold;
+  display: inline-block;
+}
+form{
+  text-align: left;
+  @include clearfix;
+  label {
+    float: left;
+  }
+  /* Exceptions */
+  input[type=checkbox] + label, input[type=radio] + label {
+    display: inline;
+    line-height: 1em;
+    color: #333;
+    font-weight: normal;
+  }
+  textarea, input, select{
+    text-align: left;
+    float: left;
+    width: 100%;
+    @include small(no);
+  }
+  select{
+    margin-bottom: 10px;
+  }
+  input{      
+      &[type=checkbox]{
+        width: auto;
+        margin-right: 6px;
+      }
+  }
+  p{
+    margin-bottom: 10px;
+  }
+  button{
+    float: left;
+  }
+  &.disabled {
+    > * {
+      opacity: .5;
+    }
+    button{
+      opacity: 1;
+    }
+  }    
+}

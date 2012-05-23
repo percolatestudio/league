@@ -1,0 +1,8 @@
+@mixin too_long($color){
+  content: "";
+  position: absolute;
+  right: 0;
+  width: 10px;
+  height: 100%;
+  @include box-shadow($color -8px 0px 6px 0px inset);
+}

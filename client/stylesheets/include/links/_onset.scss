@@ -1,0 +1,56 @@
+@mixin global_btn{
+  @include small(no);
+  line-height: 1em;
+  $btn_padding : (($line / ($small + 2)) - 1) / 2 * 1em;
+  padding:$btn_padding $btn_padding* 2;
+  letter-spacing: .1em;
+  text-align: center;
+  @include user_select;
+  display: inline-block;
+  border: 1px solid transparent;
+  @include opacity(1);
+  @media screen and (-webkit-min-device-pixel-ratio:0) {
+    margin-top:0;
+  }
+  @include box-sizing(border-box);
+  &:before{margin-right:.7em;}
+  // Bug in FF that adds another inner border
+  &::-moz-focus-inner {
+    border: 0;
+  }
+}
+@mixin onset($color: $onsetcolor){
+  @include background( 
+    linear-gradient(top, $color 70%, darken($color, 5%) 100%),
+    $color
+  );
+  border: 1px solid saturate($color, 20%);
+  color: #fff;
+  &:hover{
+    color: #fff;
+    @include background( 
+      linear-gradient(top, saturate($color, 20%) 70%, darken($color, 5%) 100%),
+      $color
+    );
+  }
+  &:active {
+    color: #fff;
+    @include emboss;
+    @include box-shadow(rgba(0,0,0, .2) 0 2px 3px 0 inset, rgba(255,255,255, .7) 0 1px 0px 0);
+  }
+  &[disabled], &.disabled{
+    @include emboss_neg;
+    @include background-image( linear-gradient(top, rgba(238,238,238, 0), rgba(238,238,238, .6) 100%));
+    @include impress_border;
+    @include box-shadow(rgba(0,0,0, .3) 0 1px 3px 0 inset );    
+    background-color: #ccc;
+    color: #999;
+    cursor: not-allowed;
+    &:hover, &:active{
+      background-color: #ccc;
+      color: #999;
+      @include background-image( linear-gradient(top, rgba(238,238,238, 0), rgba(238,238,238, .6) 100%));
+      @include box-shadow(rgba(0,0,0, .3) 0 1px 3px 0 inset );    
+    }
+  }
+}

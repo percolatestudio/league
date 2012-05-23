@@ -1,0 +1,66 @@
+@mixin stdform_bg{
+  @include box-shadow(rgba(0, 0, 0, .3) 0px 1px 2px 0px inset);
+  background: #eee;
+  @include box-sizing(border-box);
+  @include background-size(auto);
+  @include transition(border-color 1s ease);
+  margin: 0 0 .75em 0;
+  line-height: 1em;
+  padding: .25em;
+  border: 1px solid transparent;
+  outline: none;
+  position: relative;
+  &:focus{
+    border: 1px solid rgba(102, 204, 255, .9);
+    @include box-shadow(rgba(102, 204, 255, .3) 0 0px 3px 1px, rgba(0, 0, 0, .3) 0px 1px 3px 0px inset );
+  }
+  &:required{
+    &:valid{
+      @include background(
+        url('icon_valid_16x16.png') no-repeat 98% center,
+        linear-gradient(top, rgba(249, 249, 249, 1), rgba(255, 255, 255, 1) 50%)
+      );          
+    }
+    &::-webkit-validation-bubble-message {
+        color: #333;
+        background: #ff6;
+        border:0px solid transparent;
+        @include border-radius(3px);
+        @include box-shadow(rgba(0, 0, 0, .3) 0px 2px 5px 0px);
+    }
+    
+    &::-webkit-validation-bubble-arrow {
+        background: #ff6;
+        border:0px solid transparent;
+    }
+    &.has_been_focussed{
+      &:valid{
+        @include background(
+          url('icon_valid_16x16.png') no-repeat 98% center,
+          linear-gradient(top, rgba(249, 249, 249, 1), rgba(255, 255, 255, 1) 50%)
+        );
+      }
+      &:invalid{
+        @include background(
+          url('icon_invalid_16x16.png') no-repeat 98% center,
+          linear-gradient(top, rgba(249, 249, 249, 1), rgba(255, 255, 255, 1) 50%)
+        );
+      }
+    }
+  }
+}
+@mixin stdform_txt{
+  @include stdfont;
+  @include emtype;
+  text-align: center;
+    &:-moz-placeholder {
+      color: #ccc;
+    } 
+    &::-webkit-input-placeholder{
+      color: #ccc;
+    }
+}
+@mixin stdform{
+  @include stdform_bg;
+  @include stdform_txt;
+}

@@ -1,0 +1,65 @@
+// Base paragraph formatting 
+
+$font-size: 16;
+$line: $font-size * 1.5;
+
+$huge: $font-size + 20;
+$h1:$font-size + 12;
+$h2:$font-size + 6;
+$h3:$font-size + 2;
+$h4: $font-size;
+$small: $font-size - 3;
+
+@mixin stdtype{
+  font-family: Helvetica, sans-serif;
+}
+@mixin emtype{
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+}
+@mixin stdfont{
+  font-size: $font-size * 1px;
+  line-height: $line * 1px;
+}
+
+@mixin huge($margin:no){
+  font-size: ($huge / $font-size) * 1em ;
+  line-height: ($line * 2) / $huge * 1em; 
+  @if $margin != 'no' {
+    margin-bottom: ($line * 2) / 33 * .5em;
+  }
+}
+@mixin h1($margin:no){ 
+  font-size: ($h1 / $font-size) * 1em ;
+  line-height: ($line * 2) / $h1 * 1em;
+  @if $margin != 'no' {
+    margin-bottom: ($line * 2) / 25 * .5em;
+  }
+}
+@mixin h2($margin:no){ 
+  font-size: ($h2 / $font-size) * 1em ;
+  line-height: $line / $h2  * 1em;
+  @if $margin != 'no' {
+    margin-bottom: $line / 19 * 1em;
+  }
+}
+@mixin h3($margin:no){ 
+  font-size: ($h3 / $font-size) * 1em ;
+  line-height: $line / $h3 * 1em;
+  @if $margin != 'no' {
+    margin-bottom: $line / 15 * 1em;
+  }
+}
+@mixin h4($margin:no){ 
+  font-size: $h4 / $font-size * 1em;
+  line-height: $line / $h4 * 1em;
+  @if $margin != 'no' {
+    margin-bottom: $line / $font-size * 1em;
+  }
+}
+@mixin small($margin:no){
+  font-size: ($small / $font-size) * 1em ;
+  line-height: $line / $small * 1em;
+  @if $margin != 'no' {
+    margin-bottom: $line / $small * 1em;
+  }
+}

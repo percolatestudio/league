@@ -1,0 +1,12 @@
+@mixin btn{
+  background: #eee;
+  border-width: 1px;
+  position: relative;
+  &:active, &.current{
+    background:#e1e1e1;
+    border-top: 1px solid rgba(0,0,0,.3);
+    border-bottom: 1px solid rgba(255,255,255,1);
+    @include box-shadow(rgba(0, 0, 0, .2) 0px 1px 3px 0px inset); 
+  }
+  a{@include inset;}
+}

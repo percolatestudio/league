@@ -1,0 +1,144 @@
+$experimental-support-for-svg: true;
+
+
+@import 'compass/reset';
+@import 'compass/css3';
+@import "compass/css3/transform";
+@import 'stylesheets/include/helpers';
+@import 'stylesheets/include/paragraphs';
+@import 'stylesheets/include/logos/shapes';
+@import 'stylesheets/include/logos/colors';
+@import 'stylesheets/include/links/btn';
+@import 'stylesheets/include/links/onset';
+@import 'stylesheets/include/links/textlink';
+@import 'stylesheets/include/forms/stdform';
+@import 'stylesheets/include/forms/too_long';
+@import 'stylesheets/include/forms';
+
+$background: #fff;
+
+/* html5 and form reset */
+figure {
+  position: relative;
+  img, object, embed, video{max-width: 100%; display: block;}
+}
+img {	border: 0;-ms-interpolation-mode: bicubic;}
+input, textarea{
+  moz-appearance:none;
+  -webkit-appearance:none;
+  outline:0;
+}
+b, strong{ font-weight: bold;}
+sub, sup{ position: relative; font-size: .8em;}
+sub{ bottom: -.2em;}
+sup{ top: -.2em;}
+i, em { font-style: italic;}
+u{ text-decoration: underline;}
+del{ text-decoration: line-through;}
+
+
+html {
+  height: 100%;
+  @include background(url('images/textures/bg_noise_80x80.png') repeat, #fff);
+}
+body {
+  background: transparent;
+  text-align: center;
+  color: #333;
+  height: 100%;
+  @include stdtype;
+  font-size: $font-size * 1px;
+  line-height: $line  * 1px;
+  #content {
+    text-align: left;
+  }
+}
+
+h1{ @include h1(no);}
+h2{ @include h2(no);}
+h3{ @include h3(no);}
+h4{ @include h4(no);}
+small{ @include small(no);}
+.huge { @include huge(no);} 
+
+
+///
+.container {
+  overflow-x: auto;  
+  .loading, .not_authorized, .signin, .games, .home, .players, .teams {display: none;}
+  &.loading .loading { display: block; }
+  &.not_authorized .not_authorized { display: block; }
+  &.signin .signin { display: block; }
+  &.games .games { display: block; }
+  &.home .home { display: block; }
+  &.players .players { display: block; }
+  &.teams .teams { display: block; }
+}
+///
+#content{
+  width: 960px;
+  margin: 0 auto;
+  li{
+    float: left;
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background: grey;
+    margin: 40px;
+  }
+}
+
+a#logo{
+  display: block;
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  h3{
+    font-size: 26px;
+    /*position*/
+    position: absolute;
+    @include position(absolute, 50%, auto, auto, auto, 100%, 1em);
+    margin-top: -.75em;
+    padding: .25em 0;
+    z-index: 3;
+    /*text*/
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: .1em;
+    color: #FF5C2B;
+    font-family: Rockwell, sans-serif;
+    white-space: nowrap;
+    /*misc*/
+    background: $background;
+  }
+  h4{
+    //for long titles
+    font-size: 16px;
+    /*position*/
+    position: absolute;
+    @include position(absolute, auto, auto, 0, auto, 100%, 1em);
+    padding: .25em 0;
+    z-index: 3;
+    /*text*/
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: .1em;
+    color: #FF5C2B;
+    font-family: Rockwell, sans-serif;
+    white-space: nowrap;
+    /*misc*/
+    background: $background;
+  }
+  .shield{@include prepare_shield(200px, 200px);}
+  .flatdiamond{@include prepare_flatdiamond(200px, 200px);}
+  .diamond{@include prepare_diamond(200px, 200px);}
+  .darrow{@include prepare_darrow(200px, 200px);}
+  .uarrow{@include prepare_uarrow(200px, 200px);}
+  .circle{@include prepare_circle(200px, 200px);}
+  .flatcircle{@include prepare_flatcircle(200px, 200px);}
+  .national{@include prepare_national(200px, 200px);}
+  .bolt{@include prepare_bolt(200px, 200px);}
+}

@@ -1,0 +1,41 @@
+@mixin stdlink{
+  @include user_select;
+  cursor: pointer;
+  color: $lblue;
+  &:hover{color: $mblue;}
+  &:active{color: $blend;}
+}
+@mixin nolink($color: #333){
+  @include user_select;
+  cursor: default;
+  color: $color;
+  &:hover{color: $color;}
+  &:active{color: $color;}
+}
+@mixin inset($color:#666){
+  @include impress;
+  color: $color;
+  &:hover {color: $lblue;}
+  &:active {color: $blend;}
+  &[disabled], &.disabled{
+    color: #666;
+    @include opacity(.5);
+    cursor: not-allowed;
+  }
+}
+@mixin seclink{
+  @include impress;
+  color: $orange;
+  &:hover {color: $orange;}
+  &:active {color: $orange;}
+  &[disabled], &.disabled{
+    color: #666;
+    @include opacity(.5);
+    cursor: not-allowed;
+  }
+}
+@mixin inverse{
+  color: white;
+  &:hover {color:$lblue;}
+  &:active {color: black; @include impress; }
+}
