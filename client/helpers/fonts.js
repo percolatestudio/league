@@ -1,7 +1,7 @@
 WebFontConfig = {
   fonts: [ 
-    'Graduate', 'Sonsie One', 'Shojumaru', 'Trade Winds', 
-    'Holtwood One SC', 'Nova Square', 'Bangers', 'Carter One', 'Sansita One' 
+    'Graduate', 'Sonsie One', 'Shojumaru', 'Trade Winds', 'Open Sans'
+    'Holtwood One SC', 'Nova Square', 'Bangers', 'Carter One', 'Sansita One', 'Arvo', 'Pt+sans', 'Cabin' 
   ]
 }
   
