@@ -20,6 +20,19 @@ Template.games.events =
       
     console.log "Game invalid: #{new_game.full_errors()}" unless new_game.save()
 
-Template.next_game.players = -> 
-  console.log current_players()
-  current_players()
+Template.next_game.player_availabilities = -> 
+  {game: this, player: p} for p in current_players()
+
+Template.player_availability.facebook_profile_url = -> 
+  this.facebook_profile_url()
+
+Template.player_availability.unconfirmed = ->
+  this.game.availability(this.player) == 0
+
+Template.player_availability.availability_text = ->
+  this.game.availability_text(this.player)
+
+Template.player_availability.events =
+  'click .confirm_playing': -> this.game.playing(this.player)
+  'click .confirm_not_playing': -> this.game.not_playing(this.player)
+  'click .unconfirm': -> this.game.unconfirmed(this.player)

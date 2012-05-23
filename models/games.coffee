@@ -1,4 +1,3 @@
-playing_states = ['Unconfirmed', 'Playing', 'Not Playing']
 
 Games = new Meteor.Collection 'games'
 # { team_id: 123,
@@ -6,9 +5,11 @@ Games = new Meteor.Collection 'games'
 #   availabilities: {player_id: state} }
 
 class Game extends Model
+  @playing_states = ['Unconfirmed', 'Playing', 'Not Playing']
   @_collection: Games
   constructor: (attrs) -> 
     super(attrs)
+    @attributes.availabilities ||= {}
     @moment = moment(@attributes.date)
   
   valid: ->
@@ -37,3 +38,22 @@ class Game extends Model
       team_id: @attributes.team_id
       date: moment(@moment).add('weeks', 1).valueOf()
     )
+  
+  availability: (player) ->
+    @attributes.availabilities[player.id] || 0
+  
+  availability_text: (player) ->
+    Game.playing_states[@availability(player)]
+  
+  playing: (player) -> 
+    @attributes.availabilities[player.id] = 1
+    @save()
+    
+  not_playing: (player) -> 
+    @attributes.availabilities[player.id] = 2
+    @save()
+    
+  unconfirmed: (player) -> 
+    @attributes.availabilities[player.id] = 0
+    @save()
+    
