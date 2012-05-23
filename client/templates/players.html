@@ -1,17 +1,19 @@
 <template name="players">
   {{#if team }}{{#with team }}
     <div class="players">
-      <div class="header">
-        <a href="/leagues">Leagues</a>
+      <header>
+        <a href="/leagues" class="back btn">Leagues</a>
         <h1>Lineup</h1>
-      </div>
-      <h2>{{attributes.name}}</h2>
-      <ul class="players">
-        {{#each players }}
-          {{> player}}
-        {{/each}}
-      </ul>
-      {{> add_player}}
+      </header>
+      <article>
+        <h2>{{attributes.name}}</h2>
+        <ul class="players">
+          {{#each players }}
+            {{> player}}
+          {{/each}}
+        </ul>
+        {{> add_player}}
+      </article>
     </div>
   {{/with}}{{/if}}
 </template>
@@ -25,7 +27,7 @@
 
 <template name="add_player">
   <div class="add_player">
-    Add one then: <input name="player[name]" placeholder="players name"></input>
+    <input name="player[name]" placeholder="Type a players name"></input>
     <ul class="results">
       {{#unless results}}
         Loading friends...

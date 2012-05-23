@@ -1,15 +1,17 @@
 <template name="teams">
   <div class="teams">
-    <h1>LEAGUES</h1>
-    <button class="add_team">Add a Team</button>
-    
-    {{> team_builder }}
-    
-    <ul class="teams">
-      {{#each teams }}
-        {{> team }}
-      {{/each}}
-    </ul>
+    <header><h1>Leagues</h1></header>
+    <article>
+      <ul class="team_register">
+        {{#each teams }}
+          {{> team }}
+        {{/each}}
+        <li>
+          <button class="add_team">Add a Team</button>
+          {{> team_builder }}
+        </li>
+      </ul>
+    </article>
   </div>
 </template>
 
@@ -25,8 +27,8 @@
 <template name="team">
   <li class="team">
     {{> team_logo}}
-    <a href="/{{ _id }}/season">Season</a>
-    <a href="/{{ _id }}">Players</a>
+    <a href="/{{ _id }}/season" class="inset">Season</a>
+    <a href="/{{ _id }}" class="inset">Players</a>
   </li>
 </template>
 
