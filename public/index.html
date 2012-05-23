@@ -1,8 +1,95 @@
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" media="screen" href="style.css" />  
+	<link rel="stylesheet" type="text/css" media="screen" href="style.css" /> 
+	<style type="text/css">
+	h2[id="fitTeamTitle"] {
+    color: #FFFFFF;
+    display: block;
+    font: 35px/1 "Impact";
+    letter-spacing: 0.1em;
+    padding: 1%;
+    position: relative;
+    text-align: right;
+    text-shadow: -1px 1px 0 #253E45, -2px 2px 0 #253E45, -3px 3px 0 #D45848, -4px 4px 0 #D45848;
+    text-transform: uppercase;
+    top: 40px;
+	}
+	#wrapper {
+		width: 30%;
+		height: 30%;
+	}
+	a#logo .shield2:after {
+	border-color: #2E66B2 transparent transparent;
+	border-style: solid;
+	border-width: 16px 50px 0;
+	content: "";
+	display: block;
+	margin-left: 10px;
+	position: absolute;
+	top: 80px;
+	width: 0;
+	z-index: 1;
+	}
+	
+	a#logo .shield2:before {
+	border-color: #2E66B2 transparent transparent;
+	border-style: solid;
+	border-width: 80px 10px 0;
+	content: "";
+	display: block;
+	position: absolute;
+	width: 100px;
+	}
+	
+	a#logo .shield2 {
+    height: 100px;
+    left: 60%;
+    position: absolute;
+    top: 13%;
+    width: 24%;
+    z-index: -1;
+	}
+
+	a#logo .shield2 span:after {
+	border-color: #FF5C2B transparent transparent;
+	border-style: solid;
+	border-width: 12.8px 40px 0;
+	content: "";
+	display: block;
+	margin-left: 10px;
+	position: absolute;
+	top: 64px;
+	width: 0;
+	z-index: 1;
+	}
+	
+	a#logo .shield2 span:before {
+	border-color: #FF5C2B transparent transparent;
+	border-style: solid;
+	border-width: 64px 10px 0;
+	content: "";
+	display: block;
+	position: absolute;
+	width: 80px;
+	}
+	
+	a#logo .shield2 span {
+	height: 80px;
+	left: 10px;
+	position: relative;
+	top: 10px;
+	width: 100px;
+	z-index: 2;
+	}
+	</style> 
 </head>
 <body>
+<div id="wrapper">
+<a id="logo" title="Schpunken">
+<h2 id="fitTeamTitle">Schpunken</h2>
+<figure class="shield2"><span></span></figure>
+</a>
+</div>
 
   <div id="content">
   <ul>
@@ -68,5 +155,11 @@
     </li>
   </ul>
   </div>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+ 	<script src="js/jquery.fittext.js"></script>
+	<script type="text/javascript">
+		$("#fitTeamTitle").fitText(1.1, { minFontSize: 20, maxFontSize: '50px' });
+	</script>
 </body>
 </html>
