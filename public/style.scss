@@ -58,144 +58,32 @@ a#logo{
     /*misc*/
     background: $background;
   }
+  h4{
+    font-size: 16px;
+    /*position*/
+    position: absolute;
+    @include position(absolute, auto, auto, 0, auto, 100%, 1em);
+/*    margin-top: -.75em;*/
+    padding: .25em 0;
+    z-index: 3;
+    /*text*/
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: .1em;
+    color: #FF5C2B;
+    font-family: Rockwell, sans-serif;
+    white-space: nowrap;
+    /*misc*/
+    background: $background;
+  }
   .shield{@include prepare_shield(200px, 200px);}
   .flatdiamond{@include prepare_flatdiamond(200px, 200px);}
   .diamond{@include prepare_diamond(200px, 200px);}
   .darrow{@include prepare_darrow(200px, 200px);}
   .uarrow{@include prepare_uarrow(200px, 200px);}
-  &.circle{
-    width: 100px; 
-    height: 100px; 
-    background: red;
-    @include border-radius(50px);
-  }
-  &.flatcircle{
-    width: 200px; 
-    height: 100px; 
-    background: red;
-    @include border-radius(50%);
-  }
-  &.national{
-    @include position(relative, auto, auto, auto, auto, 100px, 100px);
-    &:before, &:after{
-      content:'';
-      @include transform(skew(-30deg));
-    }
-    &:before{
-      @include position(absolute, auto, auto, auto, 0, 46px, 100px);
-      @include border-radius(5px 0 0 5px);
-      background: red;
-    }
-    &:after{
-      @include position(absolute, auto, 0, auto, auto, 46px, 100px);
-      @include border-radius( 0 5px 5px 0);
-      background: red;
-    }
-  }
-  &.badge{
-    background: transparent; 
-    @include position(relative, auto, auto, auto, auto, 100px, 55px);
-    &:before, &:after{
-      content:'';
-    }
-    &:before{
-      @include position(absolute, -25px, auto, auto, 0, 0, 0);
-      border-style: solid;
-      border-color: transparent transparent red transparent;
-      border-width: 0 50px 25px 50px;
-    }
-    &:after{
-      @include position(absolute, auto, auto, 0px, 0, 0, 0);
-      border-style: solid;
-      border-color: red transparent transparent transparent;
-      border-width: 55px 50px 0 50px;
-    }
-  }
-  &.inning{
-    border-style: solid; 
-    border-color: transparent transparent red transparent; 
-    border-width: 0 25px 25px 25px;
-    @include position(relative, auto, auto, auto, auto, 50px, 0);
-    margin: 20px 0 50px 0;
-    &:after{
-      content: ""; 
-      @include position(absolute, 25px, auto, auto, -25px, 0,0);
-      border-style: solid; 
-      border-color: red transparent transparent transparent; 
-      border-width: 70px 50px 0 50px;
-    }
-  }
-  &.bolt{
-    background: transparent;
-    @include position(relative, auto, auto, auto, auto, 100px, 100px);
-    &:before{
-      content:'';
-      background: red;
-      @include position(absolute, auto, auto, auto, auto, 80px, 100px);
-      @include transform(skew(-30deg));
-    }
-    &:after{
-      content:'';
-      @include position(absolute, auto, auto, -100px, -10px, 0, 0);
-      @include transform(skew(-20deg));
-      border-top: 125px solid red; 
-      border-right: 100px solid transparent;
-    }
-  }
-  &.hexagon{
-    background: red; 
-    @include position(relative, auto, auto, auto, auto, 100px, 55px);
-    &:before, &:after{
-      content:'';
-    }
-    &:before{
-      @include position(absolute, -25px, auto, auto, 0, 0, 0);
-      border-style: solid;
-      border-color: transparent transparent red transparent;
-      border-width: 0 50px 25px 50px;
-    }
-    &:after{
-      @include position(absolute, auto, auto, -25px, 0, 0, 0);
-      border-style: solid;
-      border-color: red transparent transparent transparent;
-      border-width: 25px 50px 0 50px;
-    }
-  }
-  &.tapestry{
-    background: red; 
-    @include position(relative, auto, auto, auto, auto, 100px, 100px);
-    &:before, &:after{
-      content: '';
-      border-style: solid; 
-      border-color: transparent transparent red transparent; 
-      border-width: 0 40px 70px 40px;
-    }
-    &:before{
-      @include position(absolute, 70px,auto,auto, -23px);
-      @include transform(rotate(-150deg));
-    }
-    &:after{
-      @include position(absolute, 70px, -23px,auto, auto);
-      @include transform(rotate(150deg));
-    }
-  }
-  &.ribbon{
-    background: red; 
-    @include position(relative, auto, auto, auto, auto, 100px, 100px);
-    @include border-radius(50px);
-    &:before, &:after{
-      content: '';
-      border-style: solid; 
-      border-color: transparent transparent red transparent; 
-      border-width: 0 40px 70px 40px;
-    }
-    &:before{
-      @include position(absolute, 70px,auto,auto, -10px);
-      @include transform(rotate(-140deg));
-    }
-    &:after{
-      @include position(absolute, 70px,-10px,auto, auto);
-      @include transform(rotate(140deg));
-    }
-  }
+  .circle{@include prepare_circle(200px, 200px);}
+  .flatcircle{@include prepare_flatcircle(200px, 200px);}
+  .national{@include prepare_national(200px, 200px);}
+  .bolt{@include prepare_bolt(200px, 200px);}
 }

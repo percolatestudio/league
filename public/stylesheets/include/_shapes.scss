@@ -127,7 +127,6 @@
   }
 }
 @mixin uarrow($width: 100px, $height:100px, $color:red){
-  position: relative;
   @include position(absolute, 50%, auto, auto, auto, $width, $height);
   &:before{
     content:'';
@@ -158,167 +157,107 @@
     margin-top: $innerheight * -.5;
   } 
 }
-@mixin star{
- margin: 50px 0; 
- @include position(relative, auto, auto, auto, auto, 0, 0);
- display: block; 
- color: red; 
- border-style: solid;
- border-color: transparent transparent red transparent;
- border-width: 0 100px 70px 100px;
- @include transform(rotate(35deg));
- &:before{
-  content: '';
-  display: block;
-  border-style: solid;
-  border-color: transparent transparent red transparent;
-  border-width: 0 30px 80px 30px;
-  @include position(absolute, -45px, auto, auto, -65px, 0, 0); 
-  @include transform(rotate(-35deg));
- }
- &:after{
-   content: '';
-   display: block; 
-   color: red;  
-   border-style: solid;
-   border-color: transparent transparent red transparent;
-   border-width: 0 100px 70px 100px;
-   @include position(absolute, 3px, auto, auto, -105px, 0, 0); 
-   @include transform(rotate(-70deg));
- }
+@mixin circle($width: 100px, $height:100px, $color:red, $radius: $width/2){
+  @include position(absolute, 50%, auto, auto, auto, $width, $height);
+  background: $color;
+  @include border-radius($radius);
 }
-@mixin circle{
-  width: 100px; 
-  height: 100px; 
-  background: red;
-  @include border-radius(50px);
+@mixin prepare_circle($containerwidth: 200px, $containerheight: 200px){
+  $scale: .7; /*change this to affect total size*/
+  $outerwidth:$containerwidth * $scale;
+  $outerheight:$containerheight * $scale;
+  margin-top: $outerheight * -.5;
+  margin-left: ($containerwidth - $outerwidth) *.5;
+  @include circle($outerwidth, $outerheight, #2E66B2);
+  span{
+    display: block;
+    $innerwidth: $outerwidth - 10px*2;
+    $innerheight: $outerheight - 10px*2;
+    @include circle($innerwidth, $innerheight, #FF5C2B);
+    z-index: 2;
+    left: 10px;
+    margin-top: $innerheight *-.5;
+  }
 }
-@mixin flatcircle{
-  width: 200px; 
-  height: 100px; 
-  background: red;
-  @include border-radius(50%);
+@mixin prepare_flatcircle($containerwidth: 200px, $containerheight: 200px){
+  $outerwidth:$containerwidth * .8;
+  $outerheight:$containerheight * .5;
+  margin-top: $outerheight * -.5;
+  margin-left: ($containerwidth - $outerwidth) *.5;
+  @include circle($outerwidth, $outerheight, #2E66B2, 50%);
+  span{
+    display: block;
+    $innerwidth: $outerwidth - 10px*2;
+    $innerheight: $outerheight - 10px*2;
+    @include circle($innerwidth, $innerheight, #FF5C2B, 50%);
+    z-index: 2;
+    left: 10px;
+    margin-top: $innerheight *-.5;
+  }
 }
-@mixin national{
-  @include position(relative, auto, auto, auto, auto, 100px, 100px);
+
+@mixin national($width: 100px, $height:100px, $color:red){
+  @include position(absolute, 50%, auto, auto, auto, $width, $height);
   &:before, &:after{
     content:'';
     @include transform(skew(-30deg));
   }
   &:before{
-    @include position(absolute, auto, auto, auto, 0, 46px, 100px);
+    @include position(absolute, auto, auto, auto, 0, 45%, 100%);
     @include border-radius(5px 0 0 5px);
-    background: red;
+    background: $color;
   }
   &:after{
-    @include position(absolute, auto, 0, auto, auto, 46px, 100px);
+    @include position(absolute, auto, 0, auto, auto, 45%, 100%);
     @include border-radius( 0 5px 5px 0);
-    background: red;
+    background: $color;
   }
 }
-@mixin badge{
-  background: transparent; 
-  @include position(relative, auto, auto, auto, auto, 100px, 55px);
-  &:before, &:after{
-    content:'';
-  }
-  &:before{
-    @include position(absolute, -25px, auto, auto, 0, 0, 0);
-    border-style: solid;
-    border-color: transparent transparent red transparent;
-    border-width: 0 50px 25px 50px;
-  }
-  &:after{
-    @include position(absolute, auto, auto, 0px, 0, 0, 0);
-    border-style: solid;
-    border-color: red transparent transparent transparent;
-    border-width: 55px 50px 0 50px;
+@mixin prepare_national($containerwidth: 200px, $containerheight: 200px){
+  $outerwidth:$containerwidth * .5;
+  $outerheight:$containerheight * .5;
+  margin-top: $outerheight * -.5;
+  margin-left: ($containerwidth - $outerwidth) *.5;
+  @include national($outerwidth, $outerheight, #2E66B2);
+  span{
+    display: block;
+    $innerwidth: $outerwidth - 10px*2;
+    $innerheight: $outerheight - 10px*2;
+    @include national($innerwidth, $innerheight, #FF5C2B);
+    z-index: 2;
+    left: 10px;
+    margin-top: $innerheight *-.5;
   }
 }
-@mixin inning{
-  border-style: solid; 
-  border-color: transparent transparent red transparent; 
-  border-width: 0 25px 25px 25px;
-  @include position(relative, auto, auto, auto, auto, 50px, 0);
-  margin: 20px 0 50px 0;
-  &:after{
-    content: ""; 
-    @include position(absolute, 25px, auto, auto, -25px, 0,0);
-    border-style: solid; 
-    border-color: red transparent transparent transparent; 
-    border-width: 70px 50px 0 50px;
-  }
-}
-@mixin bolt{
-  background: transparent;
-  @include position(relative, auto, auto, auto, auto, 100px, 100px);
+@mixin bolt($width: 100px, $height:100px, $color:red){
+  @include position(absolute, 50%, auto, auto, auto, $width, $height);
   &:before{
     content:'';
-    background: red;
-    @include position(absolute, auto, auto, auto, auto, 80px, 100px);
+    background: $color;
+    @include position(absolute, auto, auto, auto, 50%/2, 50%, 40%);
     @include transform(skew(-30deg));
   }
   &:after{
     content:'';
-    @include position(absolute, auto, auto, -100px, -10px, 0, 0);
+    @include position(absolute, 40%, auto, auto, 50%/2, 0, 0);
     @include transform(skew(-20deg));
-    border-top: 125px solid red; 
-    border-right: 100px solid transparent;
+    border-top: $height* .6 solid $color; 
+    border-right: $width/2 solid transparent;
   }
 }
-@mixin hexagon{
-  background: red; 
-  @include position(relative, auto, auto, auto, auto, 100px, 55px);
-  &:before, &:after{
-    content:'';
-  }
-  &:before{
-    @include position(absolute, -25px, auto, auto, 0, 0, 0);
-    border-style: solid;
-    border-color: transparent transparent red transparent;
-    border-width: 0 50px 25px 50px;
-  }
-  &:after{
-    @include position(absolute, auto, auto, -25px, 0, 0, 0);
-    border-style: solid;
-    border-color: red transparent transparent transparent;
-    border-width: 25px 50px 0 50px;
-  }
-}
-@mixin tapestry{
-  background: red; 
-  @include position(relative, auto, auto, auto, auto, 100px, 100px);
-  &:before, &:after{
-    content: '';
-    border-style: solid; 
-    border-color: transparent transparent red transparent; 
-    border-width: 0 40px 70px 40px;
-  }
-  &:before{
-    @include position(absolute, 70px,auto,auto, -23px);
-    @include transform(rotate(-150deg));
-  }
-  &:after{
-    @include position(absolute, 70px, -23px,auto, auto);
-    @include transform(rotate(150deg));
-  }
-}
-@mixin ribbon{
-  background: red; 
-  @include position(relative, auto, auto, auto, auto, 100px, 100px);
-  @include border-radius(50px);
-  &:before, &:after{
-    content: '';
-    border-style: solid; 
-    border-color: transparent transparent red transparent; 
-    border-width: 0 40px 70px 40px;
-  }
-  &:before{
-    @include position(absolute, 70px,auto,auto, -10px);
-    @include transform(rotate(-140deg));
-  }
-  &:after{
-    @include position(absolute, 70px,-10px,auto, auto);
-    @include transform(rotate(140deg));
+@mixin prepare_bolt($containerwidth: 200px, $containerheight: 200px){
+  $outerwidth:$containerwidth * .7;
+  $outerheight:$containerheight * .7;
+  margin-top: $outerheight * -.5;
+  margin-left: ($containerwidth - $outerwidth) *.5;
+  @include bolt($outerwidth, $outerheight, #2E66B2);
+  span{
+    display: block;
+    $innerwidth: $outerwidth - 10px;
+    $innerheight: $outerheight - 10px;
+    @include bolt($innerwidth, $innerheight, #FF5C2B);
+    z-index: 2;
+    left: 10px;
+    margin-top: $innerheight *-.5;
   }
 }

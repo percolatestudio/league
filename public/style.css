@@ -125,6 +125,32 @@ a#logo h3 {
   background: white;
 }
 /* line 61, style.scss */
+a#logo h4 {
+  font-size: 16px;
+  /*position*/
+  position: absolute;
+  position: absolute;
+  top: auto;
+  bottom: 0;
+  left: auto;
+  right: auto;
+  width: 100%;
+  height: 1em;
+  /*    margin-top: -.75em;*/
+  padding: .25em 0;
+  z-index: 3;
+  /*text*/
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: .1em;
+  color: #FF5C2B;
+  font-family: Rockwell, sans-serif;
+  white-space: nowrap;
+  /*misc*/
+  background: white;
+}
+/* line 80, style.scss */
 a#logo .shield {
   margin-top: 50px;
   margin-left: 40px;
@@ -189,7 +215,7 @@ a#logo .shield span:after {
   margin-left: 10px;
   width: 0;
 }
-/* line 62, style.scss */
+/* line 81, style.scss */
 a#logo .flatdiamond {
   margin-top: 40px;
   margin-left: 20px;
@@ -274,7 +300,7 @@ a#logo .flatdiamond span:after {
   border-width: 50px 70px 0 70px;
   z-index: 1;
 }
-/* line 63, style.scss */
+/* line 82, style.scss */
 a#logo .diamond {
   margin-top: 20px;
   margin-left: 40px;
@@ -359,7 +385,7 @@ a#logo .diamond span:after {
   border-width: 70px 50px 0 50px;
   z-index: 1;
 }
-/* line 64, style.scss */
+/* line 83, style.scss */
 a#logo .darrow {
   /*math doesnt seem to work with scout*/
   /*change this to affect total size*/
@@ -424,14 +450,13 @@ a#logo .darrow span:before {
   border-color: #ff5c2b transparent transparent transparent;
   border-width: 100.4px 60px 0 60px;
 }
-/* line 65, style.scss */
+/* line 84, style.scss */
 a#logo .uarrow {
   /*math doesnt seem to work with scout*/
   /*change this to affect total size*/
   /*makes equilateral tri*/
   margin-top: -63.68px;
   margin-left: 30px;
-  position: relative;
   position: absolute;
   top: 50%;
   bottom: auto;
@@ -440,7 +465,7 @@ a#logo .uarrow {
   width: 140px;
   height: 120.4px;
 }
-/* line 132, stylesheets/include/_shapes.scss */
+/* line 131, stylesheets/include/_shapes.scss */
 a#logo .uarrow:before {
   content: '';
   position: absolute;
@@ -457,10 +482,9 @@ a#logo .uarrow:before {
   border-color: transparent transparent #2e66b2 transparent;
   border-width: 0 70px 120.4px 70px;
 }
-/* line 151, stylesheets/include/_shapes.scss */
+/* line 150, stylesheets/include/_shapes.scss */
 a#logo .uarrow span {
   display: block;
-  position: relative;
   position: absolute;
   top: 50%;
   bottom: auto;
@@ -472,7 +496,7 @@ a#logo .uarrow span {
   left: 10px;
   margin-top: -50.2px;
 }
-/* line 132, stylesheets/include/_shapes.scss */
+/* line 131, stylesheets/include/_shapes.scss */
 a#logo .uarrow span:before {
   content: '';
   position: absolute;
@@ -489,23 +513,59 @@ a#logo .uarrow span:before {
   border-color: transparent transparent #ff5c2b transparent;
   border-width: 0 60px 100.4px 60px;
 }
-/* line 66, style.scss */
-a#logo.circle {
-  width: 100px;
-  height: 100px;
-  background: red;
-  -moz-border-radius: 50px;
-  -webkit-border-radius: 50px;
-  -o-border-radius: 50px;
-  -ms-border-radius: 50px;
-  -khtml-border-radius: 50px;
-  border-radius: 50px;
+/* line 85, style.scss */
+a#logo .circle {
+  /*change this to affect total size*/
+  margin-top: -70px;
+  margin-left: 30px;
+  position: absolute;
+  top: 50%;
+  bottom: auto;
+  left: auto;
+  right: auto;
+  width: 140px;
+  height: 140px;
+  background: #2e66b2;
+  -moz-border-radius: 70px;
+  -webkit-border-radius: 70px;
+  -o-border-radius: 70px;
+  -ms-border-radius: 70px;
+  -khtml-border-radius: 70px;
+  border-radius: 70px;
 }
-/* line 72, style.scss */
-a#logo.flatcircle {
-  width: 200px;
+/* line 172, stylesheets/include/_shapes.scss */
+a#logo .circle span {
+  display: block;
+  position: absolute;
+  top: 50%;
+  bottom: auto;
+  left: auto;
+  right: auto;
+  width: 120px;
+  height: 120px;
+  background: #ff5c2b;
+  -moz-border-radius: 60px;
+  -webkit-border-radius: 60px;
+  -o-border-radius: 60px;
+  -ms-border-radius: 60px;
+  -khtml-border-radius: 60px;
+  border-radius: 60px;
+  z-index: 2;
+  left: 10px;
+  margin-top: -60px;
+}
+/* line 86, style.scss */
+a#logo .flatcircle {
+  margin-top: -50px;
+  margin-left: 20px;
+  position: absolute;
+  top: 50%;
+  bottom: auto;
+  left: auto;
+  right: auto;
+  width: 160px;
   height: 100px;
-  background: red;
+  background: #2e66b2;
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
   -o-border-radius: 50%;
@@ -513,18 +573,41 @@ a#logo.flatcircle {
   -khtml-border-radius: 50%;
   border-radius: 50%;
 }
-/* line 78, style.scss */
-a#logo.national {
-  position: relative;
-  top: auto;
+/* line 188, stylesheets/include/_shapes.scss */
+a#logo .flatcircle span {
+  display: block;
+  position: absolute;
+  top: 50%;
+  bottom: auto;
+  left: auto;
+  right: auto;
+  width: 140px;
+  height: 80px;
+  background: #ff5c2b;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -o-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -khtml-border-radius: 50%;
+  border-radius: 50%;
+  z-index: 2;
+  left: 10px;
+  margin-top: -40px;
+}
+/* line 87, style.scss */
+a#logo .national {
+  margin-top: -50px;
+  margin-left: 50px;
+  position: absolute;
+  top: 50%;
   bottom: auto;
   left: auto;
   right: auto;
   width: 100px;
   height: 100px;
 }
-/* line 80, style.scss */
-a#logo.national:before, a#logo.national:after {
+/* line 201, stylesheets/include/_shapes.scss */
+a#logo .national:before, a#logo .national:after {
   content: '';
   -moz-transform: skew(-30deg);
   -webkit-transform: skew(-30deg);
@@ -532,144 +615,133 @@ a#logo.national:before, a#logo.national:after {
   -ms-transform: skew(-30deg);
   transform: skew(-30deg);
 }
-/* line 84, style.scss */
-a#logo.national:before {
+/* line 205, stylesheets/include/_shapes.scss */
+a#logo .national:before {
   position: absolute;
   top: auto;
   bottom: auto;
   left: 0;
   right: auto;
-  width: 46px;
-  height: 100px;
+  width: 45%;
+  height: 100%;
   -moz-border-radius: 5px 0 0 5px;
   -webkit-border-radius: 5px 0 0 5px;
   -o-border-radius: 5px 0 0 5px;
   -ms-border-radius: 5px 0 0 5px;
   -khtml-border-radius: 5px 0 0 5px;
   border-radius: 5px 0 0 5px;
-  background: red;
+  background: #2e66b2;
 }
-/* line 89, style.scss */
-a#logo.national:after {
+/* line 210, stylesheets/include/_shapes.scss */
+a#logo .national:after {
   position: absolute;
   top: auto;
   bottom: auto;
   left: auto;
   right: 0;
-  width: 46px;
-  height: 100px;
+  width: 45%;
+  height: 100%;
   -moz-border-radius: 0 5px 5px 0;
   -webkit-border-radius: 0 5px 5px 0;
   -o-border-radius: 0 5px 5px 0;
   -ms-border-radius: 0 5px 5px 0;
   -khtml-border-radius: 0 5px 5px 0;
   border-radius: 0 5px 5px 0;
-  background: red;
+  background: #2e66b2;
 }
-/* line 95, style.scss */
-a#logo.badge {
-  background: transparent;
-  position: relative;
-  top: auto;
-  bottom: auto;
-  left: auto;
-  right: auto;
-  width: 100px;
-  height: 55px;
-}
-/* line 98, style.scss */
-a#logo.badge:before, a#logo.badge:after {
-  content: '';
-}
-/* line 101, style.scss */
-a#logo.badge:before {
+/* line 222, stylesheets/include/_shapes.scss */
+a#logo .national span {
+  display: block;
   position: absolute;
-  top: -25px;
-  bottom: auto;
-  left: 0;
-  right: auto;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-color: transparent transparent red transparent;
-  border-width: 0 50px 25px 50px;
-}
-/* line 107, style.scss */
-a#logo.badge:after {
-  position: absolute;
-  top: auto;
-  bottom: 0px;
-  left: 0;
-  right: auto;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-color: red transparent transparent transparent;
-  border-width: 55px 50px 0 50px;
-}
-/* line 114, style.scss */
-a#logo.inning {
-  border-style: solid;
-  border-color: transparent transparent red transparent;
-  border-width: 0 25px 25px 25px;
-  position: relative;
-  top: auto;
-  bottom: auto;
-  left: auto;
-  right: auto;
-  width: 50px;
-  height: 0;
-  margin: 20px 0 50px 0;
-}
-/* line 120, style.scss */
-a#logo.inning:after {
-  content: "";
-  position: absolute;
-  top: 25px;
-  bottom: auto;
-  left: -25px;
-  right: auto;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-color: red transparent transparent transparent;
-  border-width: 70px 50px 0 50px;
-}
-/* line 128, style.scss */
-a#logo.bolt {
-  background: transparent;
-  position: relative;
-  top: auto;
-  bottom: auto;
-  left: auto;
-  right: auto;
-  width: 100px;
-  height: 100px;
-}
-/* line 131, style.scss */
-a#logo.bolt:before {
-  content: '';
-  background: red;
-  position: absolute;
-  top: auto;
+  top: 50%;
   bottom: auto;
   left: auto;
   right: auto;
   width: 80px;
-  height: 100px;
+  height: 80px;
+  z-index: 2;
+  left: 10px;
+  margin-top: -40px;
+}
+/* line 201, stylesheets/include/_shapes.scss */
+a#logo .national span:before, a#logo .national span:after {
+  content: '';
   -moz-transform: skew(-30deg);
   -webkit-transform: skew(-30deg);
   -o-transform: skew(-30deg);
   -ms-transform: skew(-30deg);
   transform: skew(-30deg);
 }
-/* line 137, style.scss */
-a#logo.bolt:after {
-  content: '';
+/* line 205, stylesheets/include/_shapes.scss */
+a#logo .national span:before {
   position: absolute;
   top: auto;
-  bottom: -100px;
-  left: -10px;
+  bottom: auto;
+  left: 0;
+  right: auto;
+  width: 45%;
+  height: 100%;
+  -moz-border-radius: 5px 0 0 5px;
+  -webkit-border-radius: 5px 0 0 5px;
+  -o-border-radius: 5px 0 0 5px;
+  -ms-border-radius: 5px 0 0 5px;
+  -khtml-border-radius: 5px 0 0 5px;
+  border-radius: 5px 0 0 5px;
+  background: #ff5c2b;
+}
+/* line 210, stylesheets/include/_shapes.scss */
+a#logo .national span:after {
+  position: absolute;
+  top: auto;
+  bottom: auto;
+  left: auto;
+  right: 0;
+  width: 45%;
+  height: 100%;
+  -moz-border-radius: 0 5px 5px 0;
+  -webkit-border-radius: 0 5px 5px 0;
+  -o-border-radius: 0 5px 5px 0;
+  -ms-border-radius: 0 5px 5px 0;
+  -khtml-border-radius: 0 5px 5px 0;
+  border-radius: 0 5px 5px 0;
+  background: #ff5c2b;
+}
+/* line 88, style.scss */
+a#logo .bolt {
+  margin-top: -70px;
+  margin-left: 30px;
+  position: absolute;
+  top: 50%;
+  bottom: auto;
+  left: auto;
+  right: auto;
+  width: 140px;
+  height: 140px;
+}
+/* line 234, stylesheets/include/_shapes.scss */
+a#logo .bolt:before {
+  content: '';
+  background: #2e66b2;
+  position: absolute;
+  top: auto;
+  bottom: auto;
+  left: 25%;
+  right: auto;
+  width: 50%;
+  height: 40%;
+  -moz-transform: skew(-30deg);
+  -webkit-transform: skew(-30deg);
+  -o-transform: skew(-30deg);
+  -ms-transform: skew(-30deg);
+  transform: skew(-30deg);
+}
+/* line 240, stylesheets/include/_shapes.scss */
+a#logo .bolt:after {
+  content: '';
+  position: absolute;
+  top: 40%;
+  bottom: auto;
+  left: 25%;
   right: auto;
   width: 0;
   height: 0;
@@ -678,149 +750,55 @@ a#logo.bolt:after {
   -o-transform: skew(-20deg);
   -ms-transform: skew(-20deg);
   transform: skew(-20deg);
-  border-top: 125px solid red;
-  border-right: 100px solid transparent;
+  border-top: 84px solid #2e66b2;
+  border-right: 70px solid transparent;
 }
-/* line 145, style.scss */
-a#logo.hexagon {
-  background: red;
-  position: relative;
-  top: auto;
+/* line 254, stylesheets/include/_shapes.scss */
+a#logo .bolt span {
+  display: block;
+  position: absolute;
+  top: 50%;
   bottom: auto;
   left: auto;
   right: auto;
-  width: 100px;
-  height: 55px;
+  width: 130px;
+  height: 130px;
+  z-index: 2;
+  left: 10px;
+  margin-top: -65px;
 }
-/* line 148, style.scss */
-a#logo.hexagon:before, a#logo.hexagon:after {
+/* line 234, stylesheets/include/_shapes.scss */
+a#logo .bolt span:before {
   content: '';
-}
-/* line 151, style.scss */
-a#logo.hexagon:before {
+  background: #ff5c2b;
   position: absolute;
-  top: -25px;
+  top: auto;
   bottom: auto;
-  left: 0;
+  left: 25%;
+  right: auto;
+  width: 50%;
+  height: 40%;
+  -moz-transform: skew(-30deg);
+  -webkit-transform: skew(-30deg);
+  -o-transform: skew(-30deg);
+  -ms-transform: skew(-30deg);
+  transform: skew(-30deg);
+}
+/* line 240, stylesheets/include/_shapes.scss */
+a#logo .bolt span:after {
+  content: '';
+  position: absolute;
+  top: 40%;
+  bottom: auto;
+  left: 25%;
   right: auto;
   width: 0;
   height: 0;
-  border-style: solid;
-  border-color: transparent transparent red transparent;
-  border-width: 0 50px 25px 50px;
-}
-/* line 157, style.scss */
-a#logo.hexagon:after {
-  position: absolute;
-  top: auto;
-  bottom: -25px;
-  left: 0;
-  right: auto;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-color: red transparent transparent transparent;
-  border-width: 25px 50px 0 50px;
-}
-/* line 164, style.scss */
-a#logo.tapestry {
-  background: red;
-  position: relative;
-  top: auto;
-  bottom: auto;
-  left: auto;
-  right: auto;
-  width: 100px;
-  height: 100px;
-}
-/* line 167, style.scss */
-a#logo.tapestry:before, a#logo.tapestry:after {
-  content: '';
-  border-style: solid;
-  border-color: transparent transparent red transparent;
-  border-width: 0 40px 70px 40px;
-}
-/* line 173, style.scss */
-a#logo.tapestry:before {
-  position: absolute;
-  top: 70px;
-  bottom: auto;
-  left: -23px;
-  right: auto;
-  width: auto;
-  height: auto;
-  -moz-transform: rotate(-150deg);
-  -webkit-transform: rotate(-150deg);
-  -o-transform: rotate(-150deg);
-  -ms-transform: rotate(-150deg);
-  transform: rotate(-150deg);
-}
-/* line 177, style.scss */
-a#logo.tapestry:after {
-  position: absolute;
-  top: 70px;
-  bottom: auto;
-  left: auto;
-  right: -23px;
-  width: auto;
-  height: auto;
-  -moz-transform: rotate(150deg);
-  -webkit-transform: rotate(150deg);
-  -o-transform: rotate(150deg);
-  -ms-transform: rotate(150deg);
-  transform: rotate(150deg);
-}
-/* line 182, style.scss */
-a#logo.ribbon {
-  background: red;
-  position: relative;
-  top: auto;
-  bottom: auto;
-  left: auto;
-  right: auto;
-  width: 100px;
-  height: 100px;
-  -moz-border-radius: 50px;
-  -webkit-border-radius: 50px;
-  -o-border-radius: 50px;
-  -ms-border-radius: 50px;
-  -khtml-border-radius: 50px;
-  border-radius: 50px;
-}
-/* line 186, style.scss */
-a#logo.ribbon:before, a#logo.ribbon:after {
-  content: '';
-  border-style: solid;
-  border-color: transparent transparent red transparent;
-  border-width: 0 40px 70px 40px;
-}
-/* line 192, style.scss */
-a#logo.ribbon:before {
-  position: absolute;
-  top: 70px;
-  bottom: auto;
-  left: -10px;
-  right: auto;
-  width: auto;
-  height: auto;
-  -moz-transform: rotate(-140deg);
-  -webkit-transform: rotate(-140deg);
-  -o-transform: rotate(-140deg);
-  -ms-transform: rotate(-140deg);
-  transform: rotate(-140deg);
-}
-/* line 196, style.scss */
-a#logo.ribbon:after {
-  position: absolute;
-  top: 70px;
-  bottom: auto;
-  left: auto;
-  right: -10px;
-  width: auto;
-  height: auto;
-  -moz-transform: rotate(140deg);
-  -webkit-transform: rotate(140deg);
-  -o-transform: rotate(140deg);
-  -ms-transform: rotate(140deg);
-  transform: rotate(140deg);
+  -moz-transform: skew(-20deg);
+  -webkit-transform: skew(-20deg);
+  -o-transform: skew(-20deg);
+  -ms-transform: skew(-20deg);
+  transform: skew(-20deg);
+  border-top: 78px solid #ff5c2b;
+  border-right: 65px solid transparent;
 }
