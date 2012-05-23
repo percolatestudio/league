@@ -16,6 +16,12 @@ $experimental-support-for-svg: true;
 @import 'stylesheets/include/forms';
 
 $background: #fff;
+@import 'stylesheets/base/auth';
+@import 'stylesheets/base/games';
+@import 'stylesheets/base/home';
+@import 'stylesheets/base/loading';
+@import 'stylesheets/base/players';
+@import 'stylesheets/base/teams';
 
 /* html5 and form reset */
 figure {

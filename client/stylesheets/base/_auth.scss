@@ -1,0 +1,4 @@
+.container {
+  &.not_authorized .not_authorized {}
+  &.signin .signin {}
+}
