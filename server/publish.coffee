@@ -5,8 +5,7 @@ Meteor.publish 'teams', (player_id) ->
 
 Meteor.publish 'players', (team_id) -> 
   console.log "getting players for #{team_id}"
-  team = Teams.findOne(team_id)
-  Players.find({_id: {$in: team.player_ids}}) if team
+  Players.find({team_ids: team_id})
 Meteor.publish 'games', (team_id) -> 
   console.log "getting games for #{team_id}"
   Games.find({team_id: team_id})

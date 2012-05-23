@@ -3,13 +3,12 @@ Session.set 'current_friend_filter', ''
 
 grab_facebook_friends = ->
   return if self.searching # this can only be called once
-  return unless FB? # not ready to start searching yet
+  return unless AuthSystem.logged_in() # not ready to start searching yet
   
   self.searching = true
   FB.api '/me/friends', (response) ->
     all_friends = _.map(response.data, (fd) -> Player.new_from_facebook(fd) )
     Session.set 'facebook_friends', all_friends
-    Session.set 'add_player_results', all_friends
   
 Template.players.team = -> current_team()
 Template.players.players = -> Players.find().map( (p) -> new Player(p))
@@ -35,8 +34,5 @@ Template.add_player.events =
   'click .results li': (event) ->
     team = current_team()
     
-    if this.save()
-      team.add_player(this)
-      console.log "team failed to save: #{team.full_errors()}" unless team.save()
-    else
-      console.log "player failed to save: #{this.full_errors()}"
+    team.add_player(this)
+    console.log "team failed to save: #{team.full_errors()}" unless team.save()

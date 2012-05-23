@@ -1,9 +1,12 @@
 Players = new Meteor.Collection 'players'
-# { name: "Tom Coleman", email: "tom@thesnail.org", facebook_id}
+# { name: "Tom Coleman", email: "tom@thesnail.org", facebook_id: 'xxx', team_ids: [..]}
 
 class Player extends Model
   @_collection: Players
-  
+  constructor: (attrs) ->
+    super(attrs)
+    @attributes.team_ids ||= []
+    
   valid: ->
     @errors = {}
     

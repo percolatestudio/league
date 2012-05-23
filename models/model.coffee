@@ -8,17 +8,16 @@ class Model
     
     @errors = {}
   
-  valid: -> 
-    true
+  valid: -> true
+  
+  persisted: -> @id != null
   
   full_errors: ->
     ("#{name} #{error}" for name, error of @errors).join(', ')
   
   save: ->
     if @valid()
-      console.log @attributes
       if @id?
-        console.log 'here'
         @constructor._collection.update(@id, @attributes) 
       else
         console.log 'there'
