@@ -1,29 +1,36 @@
+Session.set 'facebook_friends', null
 Session.set 'add_player_results', []
 
+grab_facebook_friends = ->
+  return if self.searching # this can only be called once
+  return unless FB? # not ready to start searching yet
+  
+  self.searching = true
+  FB.api '/me/friends', (response) ->
+    all_friends = _.map(response.data, (fd) -> Player.new_from_facebook(fd) )
+    Session.set 'facebook_friends', all_friends
+    Session.set 'add_player_results', all_friends
+  
 Template.players.team = -> current_team()
 Template.players.players = -> Players.find().map( (p) -> new Player(p))
 
 Template.player.facebook_profile_url = -> 
   this.facebook_profile_url()
   
-Template.add_player.results = -> Session.get 'add_player_results'
+Template.add_player.results = -> 
+  if Session.equals('facebook_friends', null)
+    grab_facebook_friends()
+    []
+  else
+    Session.get 'add_player_results'
 
 Template.add_player.events = 
   'keyup input[name*=name]': (event) ->
-    self = this
-    # @all_friends is set if we've had a response from FB
-    if self.all_friends
+    all_friends = Session.get('facebook_friends')
+    if all_friends
       re = new RegExp $(event.target).val(), 'i'
-      results = (f for f in self.all_friends when f.attributes.name.match(re))
+      results = (f for f in all_friends when f.attributes.name.match(re))
       Session.set 'add_player_results', results
-      
-    else if not self.searching
-      self.searching = true
-      # we haven't even started searching et
-      FB.api '/me/friends', (response) ->
-        
-        # store the data and try again
-        self.all_friends = _.map(response.data, (fd) -> Player.new_from_facebook(fd) )
   
   'click .results li': (event) ->
     team = current_team()
