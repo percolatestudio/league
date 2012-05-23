@@ -28,9 +28,3 @@ class Team extends Model
     player.attributes.team_ids.splice(-1, 0, @id)
     @attributes.player_ids.splice(-1, 0, player.id)
     player.save() and @save()
-  
-  # games are simpler, as it's a one-many connection 
-  #  (so we never need to find all the teams for a given game)
-  add_game: (game) ->
-    Game = new Game() unless game?
-    

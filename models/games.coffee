@@ -35,5 +35,5 @@ class Game extends Model
   clone_one_week_later: ->
     new Game(
       team_id: @attributes.team_id
-      date: moment(@moment).add('days', 7).valueOf()
+      date: moment(@moment).add('weeks', 1).valueOf()
     )
