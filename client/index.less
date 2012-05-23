@@ -61,3 +61,140 @@ table#schedule {
     text-align: right;
   }
 }
+
+////////// FIXME: pooed down shield code just to get something going. deleteme
+/* line 80, style.scss */
+li.team {
+  float: left;
+  position: relative;
+  width: 200px;
+  height: 200px;
+  background: grey;
+  margin: 40px;
+}
+
+/* line 36, style.scss */
+a#logo {
+  display: block;
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+/* line 42, style.scss */
+a#logo h3 {
+  font-size: 26px;
+  /*position*/
+  position: absolute;
+  position: absolute;
+  top: 50%;
+  bottom: auto;
+  left: auto;
+  right: auto;
+  width: 100%;
+  height: 1em;
+  margin-top: -0.75em;
+  padding: .25em 0;
+  z-index: 3;
+  /*text*/
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: .1em;
+  color: #FF5C2B;
+  font-family: Shojumaru, cursive;
+  white-space: nowrap;
+  /*misc*/
+  background: white;
+}
+/* line 61, style.scss */
+a#logo h4 {
+  font-size: 16px;
+  /*position*/
+  position: absolute;
+  position: absolute;
+  top: auto;
+  bottom: 0;
+  left: auto;
+  right: auto;
+  width: 100%;
+  height: 1em;
+  padding: .25em 0;
+  z-index: 3;
+  /*text*/
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: .1em;
+  color: #FF5C2B;
+  font-family: Rockwell, sans-serif;
+  white-space: nowrap;
+  /*misc*/
+  background: white;
+}
+
+a#logo .shield {
+  margin-top: 50px;
+  margin-left: 40px;
+  position: relative;
+  width: 120px;
+  height: 100px;
+  /*real dimensions*/
+}
+/* line 9, stylesheets/include/_shapes.scss */
+a#logo .shield:before {
+  content: "";
+  display: block;
+  position: absolute;
+  border-style: solid;
+  border-color: #2e66b2 transparent transparent transparent;
+  border-width: 80px 10px 0;
+  width: 100px;
+}
+/* line 18, stylesheets/include/_shapes.scss */
+a#logo .shield:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 80px;
+  z-index: 1;
+  border-style: solid;
+  border-color: #2e66b2 transparent transparent transparent;
+  border-width: 16px 50px 0;
+  margin-left: 10px;
+  width: 0;
+}
+/* line 37, stylesheets/include/_shapes.scss */
+a#logo .shield span {
+  display: block;
+  position: relative;
+  width: 100px;
+  height: 80px;
+  /*real dimensions*/
+  z-index: 2;
+  left: 10px;
+  top: 10px;
+}
+/* line 9, stylesheets/include/_shapes.scss */
+a#logo .shield span:before {
+  content: "";
+  display: block;
+  position: absolute;
+  border-style: solid;
+  border-color: #ff5c2b transparent transparent transparent;
+  border-width: 64px 10px 0;
+  width: 80px;
+}
+/* line 18, stylesheets/include/_shapes.scss */
+a#logo .shield span:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 64px;
+  z-index: 1;
+  border-style: solid;
+  border-color: #ff5c2b transparent transparent transparent;
+  border-width: 12.8px 40px 0;
+  margin-left: 10px;
+  width: 0;
+}

@@ -5,9 +5,11 @@
     
     {{> team_builder }}
     
-    {{#each teams }}
-      {{> team }}
-    {{/each}}
+    <ul class="teams">
+      {{#each teams }}
+        {{> team }}
+      {{/each}}
+    </ul>
   </div>
 </template>
 
@@ -21,9 +23,16 @@
 </template>
   
 <template name="team">
-  <ul class="team">
-    <li>{{ name }}</li>
+  <li class="team">
+    {{> team_logo}}
     <a href="/{{ _id }}/season">Season</a>
     <a href="/{{ _id }}">Players</a>
-  </ul>
+  </li>
+</template>
+
+<template name="team_logo">
+  <a id="logo" title="{{name}}">
+    <h3>{{name}}</h3>
+    <figure class="shield"><span></span></figure>
+  </a>
 </template>
