@@ -4,8 +4,12 @@ $experimental-support-for-svg: true;
 @import 'compass/reset';
 @import 'compass/css3';
 @import "compass/css3/transform";
+
 @import 'stylesheets/include/helpers';
+@import 'stylesheets/include/colors';
+@import 'stylesheets/include/textures';
 @import 'stylesheets/include/paragraphs';
+@import 'stylesheets/include/bevel';
 @import 'stylesheets/include/logos/shapes';
 @import 'stylesheets/include/logos/colors';
 @import 'stylesheets/include/links/btn';
@@ -14,8 +18,9 @@ $experimental-support-for-svg: true;
 @import 'stylesheets/include/forms/stdform';
 @import 'stylesheets/include/forms/too_long';
 @import 'stylesheets/include/forms';
+@import 'stylesheets/include/layout/standard';
+@import 'stylesheets/include/layout/transition';
 
-$background: #fff;
 @import 'stylesheets/base/auth';
 @import 'stylesheets/base/games';
 @import 'stylesheets/base/home';
@@ -45,19 +50,14 @@ del{ text-decoration: line-through;}
 
 html {
   height: 100%;
-  @include background(url('images/textures/bg_noise_80x80.png') repeat, #fff);
+  @include maskbg;
 }
 body {
-  background: transparent;
-  text-align: center;
   color: #333;
   height: 100%;
   @include stdtype;
   font-size: $font-size * 1px;
   line-height: $line  * 1px;
-  #content {
-    text-align: left;
-  }
 }
 
 h1{ @include h1(no);}
@@ -67,30 +67,35 @@ h4{ @include h4(no);}
 small{ @include small(no);}
 .huge { @include huge(no);} 
 
-
-///
-.container {
-  overflow-x: auto;  
-  .loading, .not_authorized, .signin, .games, .home, .players, .teams {display: none;}
-  &.loading .loading { display: block; }
-  &.not_authorized .not_authorized { display: block; }
-  &.signin .signin { display: block; }
-  &.games .games { display: block; }
-  &.home .home { display: block; }
-  &.players .players { display: block; }
-  &.teams .teams { display: block; }
+a, button {
+  outline: none;
+  text-decoration: none;
+  font-size: inherit;
+  font-family: inherit;
+  @include transition(color 500ms ease);
+  @include stdlink;
+  &.inverse{ @include inverse;}
+  &.inset {@include inset;}
+  &.btn{
+    @include global_btn;
+    &.default{@include onset($onsetcolor);}
+    &.facebook{@include onset($fbhex);}
+    &.twitter{@include onset($twhex);}
+    &.google{@include onset($gohex);}
+    
+  }
 }
-///
-#content{
-  width: 960px;
-  margin: 0 auto;
+
+
+.team_register{
+  text-align: center;
+  margin: 0 10%;
   li{
-    float: left;
+    display: inline-block;
     position: relative;
     width: 200px;
     height: 200px;
-    background: grey;
-    margin: 40px;
+    margin: 40px;    
   }
 }
 
@@ -117,7 +122,7 @@ a#logo{
     font-family: Rockwell, sans-serif;
     white-space: nowrap;
     /*misc*/
-    background: $background;
+    @include maskbg;
   }
   h4{
     //for long titles
@@ -136,7 +141,7 @@ a#logo{
     font-family: Rockwell, sans-serif;
     white-space: nowrap;
     /*misc*/
-    background: $background;
+    @include maskbg;
   }
   .shield{@include prepare_shield(200px, 200px);}
   .flatdiamond{@include prepare_flatdiamond(200px, 200px);}
