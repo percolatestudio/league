@@ -63,35 +63,6 @@ a#logo{
   .diamond{@include prepare_diamond(200px, 200px);}
   .darrow{@include prepare_darrow(200px, 200px);}
   .uarrow{@include prepare_uarrow(200px, 200px);}
-  &.star{
-   margin: 50px 0; 
-   @include position(relative, auto, auto, auto, auto, 0, 0);
-   display: block; 
-   color: red; 
-   border-style: solid;
-   border-color: transparent transparent red transparent;
-   border-width: 0 100px 70px 100px;
-   @include transform(rotate(35deg));
-   &:before{
-    content: '';
-    display: block;
-    border-style: solid;
-    border-color: transparent transparent red transparent;
-    border-width: 0 30px 80px 30px;
-    @include position(absolute, -45px, auto, auto, -65px, 0, 0); 
-    @include transform(rotate(-35deg));
-   }
-   &:after{
-     content: '';
-     display: block; 
-     color: red;  
-     border-style: solid;
-     border-color: transparent transparent red transparent;
-     border-width: 0 100px 70px 100px;
-     @include position(absolute, 3px, auto, auto, -105px, 0, 0); 
-     @include transform(rotate(-70deg));
-   }
-  }
   &.circle{
     width: 100px; 
     height: 100px; 
