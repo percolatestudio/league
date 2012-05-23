@@ -59,11 +59,11 @@ a#logo{
     background: $background;
   }
   h4{
+    //for long titles
     font-size: 16px;
     /*position*/
     position: absolute;
     @include position(absolute, auto, auto, 0, auto, 100%, 1em);
-/*    margin-top: -.75em;*/
     padding: .25em 0;
     z-index: 3;
     /*text*/

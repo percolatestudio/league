@@ -136,7 +136,6 @@ a#logo h4 {
   right: auto;
   width: 100%;
   height: 1em;
-  /*    margin-top: -.75em;*/
   padding: .25em 0;
   z-index: 3;
   /*text*/
@@ -184,6 +183,7 @@ a#logo .shield:after {
 }
 /* line 37, stylesheets/include/_shapes.scss */
 a#logo .shield span {
+  display: block;
   position: relative;
   width: 100px;
   height: 80px;
@@ -227,7 +227,7 @@ a#logo .flatdiamond {
   width: 160px;
   height: 120px;
 }
-/* line 49, stylesheets/include/_shapes.scss */
+/* line 50, stylesheets/include/_shapes.scss */
 a#logo .flatdiamond:before {
   content: '';
   position: absolute;
@@ -242,7 +242,7 @@ a#logo .flatdiamond:before {
   border-width: 0 80px 60px 80px;
   z-index: 1;
 }
-/* line 57, stylesheets/include/_shapes.scss */
+/* line 58, stylesheets/include/_shapes.scss */
 a#logo .flatdiamond:after {
   content: '';
   position: absolute;
@@ -257,8 +257,9 @@ a#logo .flatdiamond:after {
   border-width: 60px 80px 0 80px;
   z-index: 1;
 }
-/* line 72, stylesheets/include/_shapes.scss */
+/* line 73, stylesheets/include/_shapes.scss */
 a#logo .flatdiamond span {
+  display: block;
   position: relative;
   top: auto;
   bottom: auto;
@@ -270,7 +271,7 @@ a#logo .flatdiamond span {
   left: 10px;
   top: 10px;
 }
-/* line 49, stylesheets/include/_shapes.scss */
+/* line 50, stylesheets/include/_shapes.scss */
 a#logo .flatdiamond span:before {
   content: '';
   position: absolute;
@@ -285,7 +286,7 @@ a#logo .flatdiamond span:before {
   border-width: 0 70px 50px 70px;
   z-index: 1;
 }
-/* line 57, stylesheets/include/_shapes.scss */
+/* line 58, stylesheets/include/_shapes.scss */
 a#logo .flatdiamond span:after {
   content: '';
   position: absolute;
@@ -312,7 +313,7 @@ a#logo .diamond {
   width: 120px;
   height: 160px;
 }
-/* line 49, stylesheets/include/_shapes.scss */
+/* line 50, stylesheets/include/_shapes.scss */
 a#logo .diamond:before {
   content: '';
   position: absolute;
@@ -327,7 +328,7 @@ a#logo .diamond:before {
   border-width: 0 60px 80px 60px;
   z-index: 1;
 }
-/* line 57, stylesheets/include/_shapes.scss */
+/* line 58, stylesheets/include/_shapes.scss */
 a#logo .diamond:after {
   content: '';
   position: absolute;
@@ -342,8 +343,9 @@ a#logo .diamond:after {
   border-width: 80px 60px 0 60px;
   z-index: 1;
 }
-/* line 87, stylesheets/include/_shapes.scss */
+/* line 89, stylesheets/include/_shapes.scss */
 a#logo .diamond span {
+  display: block;
   position: relative;
   top: auto;
   bottom: auto;
@@ -355,7 +357,7 @@ a#logo .diamond span {
   left: 10px;
   top: 10px;
 }
-/* line 49, stylesheets/include/_shapes.scss */
+/* line 50, stylesheets/include/_shapes.scss */
 a#logo .diamond span:before {
   content: '';
   position: absolute;
@@ -370,7 +372,7 @@ a#logo .diamond span:before {
   border-width: 0 50px 70px 50px;
   z-index: 1;
 }
-/* line 57, stylesheets/include/_shapes.scss */
+/* line 58, stylesheets/include/_shapes.scss */
 a#logo .diamond span:after {
   content: '';
   position: absolute;
@@ -401,7 +403,7 @@ a#logo .darrow {
   width: 140px;
   height: 120.4px;
 }
-/* line 99, stylesheets/include/_shapes.scss */
+/* line 102, stylesheets/include/_shapes.scss */
 a#logo .darrow:before {
   content: '';
   position: absolute;
@@ -418,7 +420,7 @@ a#logo .darrow:before {
   border-color: #2e66b2 transparent transparent transparent;
   border-width: 120.4px 70px 0 70px;
 }
-/* line 118, stylesheets/include/_shapes.scss */
+/* line 121, stylesheets/include/_shapes.scss */
 a#logo .darrow span {
   display: block;
   position: relative;
@@ -433,7 +435,7 @@ a#logo .darrow span {
   left: 10px;
   top: 5.7px;
 }
-/* line 99, stylesheets/include/_shapes.scss */
+/* line 102, stylesheets/include/_shapes.scss */
 a#logo .darrow span:before {
   content: '';
   position: absolute;
@@ -465,7 +467,7 @@ a#logo .uarrow {
   width: 140px;
   height: 120.4px;
 }
-/* line 131, stylesheets/include/_shapes.scss */
+/* line 134, stylesheets/include/_shapes.scss */
 a#logo .uarrow:before {
   content: '';
   position: absolute;
@@ -482,7 +484,7 @@ a#logo .uarrow:before {
   border-color: transparent transparent #2e66b2 transparent;
   border-width: 0 70px 120.4px 70px;
 }
-/* line 150, stylesheets/include/_shapes.scss */
+/* line 153, stylesheets/include/_shapes.scss */
 a#logo .uarrow span {
   display: block;
   position: absolute;
@@ -496,7 +498,7 @@ a#logo .uarrow span {
   left: 10px;
   margin-top: -50.2px;
 }
-/* line 131, stylesheets/include/_shapes.scss */
+/* line 134, stylesheets/include/_shapes.scss */
 a#logo .uarrow span:before {
   content: '';
   position: absolute;
@@ -533,7 +535,7 @@ a#logo .circle {
   -khtml-border-radius: 70px;
   border-radius: 70px;
 }
-/* line 172, stylesheets/include/_shapes.scss */
+/* line 175, stylesheets/include/_shapes.scss */
 a#logo .circle span {
   display: block;
   position: absolute;
@@ -573,7 +575,7 @@ a#logo .flatcircle {
   -khtml-border-radius: 50%;
   border-radius: 50%;
 }
-/* line 188, stylesheets/include/_shapes.scss */
+/* line 191, stylesheets/include/_shapes.scss */
 a#logo .flatcircle span {
   display: block;
   position: absolute;
@@ -606,7 +608,7 @@ a#logo .national {
   width: 100px;
   height: 100px;
 }
-/* line 201, stylesheets/include/_shapes.scss */
+/* line 204, stylesheets/include/_shapes.scss */
 a#logo .national:before, a#logo .national:after {
   content: '';
   -moz-transform: skew(-30deg);
@@ -615,7 +617,7 @@ a#logo .national:before, a#logo .national:after {
   -ms-transform: skew(-30deg);
   transform: skew(-30deg);
 }
-/* line 205, stylesheets/include/_shapes.scss */
+/* line 208, stylesheets/include/_shapes.scss */
 a#logo .national:before {
   position: absolute;
   top: auto;
@@ -632,7 +634,7 @@ a#logo .national:before {
   border-radius: 5px 0 0 5px;
   background: #2e66b2;
 }
-/* line 210, stylesheets/include/_shapes.scss */
+/* line 213, stylesheets/include/_shapes.scss */
 a#logo .national:after {
   position: absolute;
   top: auto;
@@ -649,7 +651,7 @@ a#logo .national:after {
   border-radius: 0 5px 5px 0;
   background: #2e66b2;
 }
-/* line 222, stylesheets/include/_shapes.scss */
+/* line 225, stylesheets/include/_shapes.scss */
 a#logo .national span {
   display: block;
   position: absolute;
@@ -663,7 +665,7 @@ a#logo .national span {
   left: 10px;
   margin-top: -40px;
 }
-/* line 201, stylesheets/include/_shapes.scss */
+/* line 204, stylesheets/include/_shapes.scss */
 a#logo .national span:before, a#logo .national span:after {
   content: '';
   -moz-transform: skew(-30deg);
@@ -672,7 +674,7 @@ a#logo .national span:before, a#logo .national span:after {
   -ms-transform: skew(-30deg);
   transform: skew(-30deg);
 }
-/* line 205, stylesheets/include/_shapes.scss */
+/* line 208, stylesheets/include/_shapes.scss */
 a#logo .national span:before {
   position: absolute;
   top: auto;
@@ -689,7 +691,7 @@ a#logo .national span:before {
   border-radius: 5px 0 0 5px;
   background: #ff5c2b;
 }
-/* line 210, stylesheets/include/_shapes.scss */
+/* line 213, stylesheets/include/_shapes.scss */
 a#logo .national span:after {
   position: absolute;
   top: auto;
@@ -718,7 +720,7 @@ a#logo .bolt {
   width: 140px;
   height: 140px;
 }
-/* line 234, stylesheets/include/_shapes.scss */
+/* line 237, stylesheets/include/_shapes.scss */
 a#logo .bolt:before {
   content: '';
   background: #2e66b2;
@@ -735,7 +737,7 @@ a#logo .bolt:before {
   -ms-transform: skew(-30deg);
   transform: skew(-30deg);
 }
-/* line 240, stylesheets/include/_shapes.scss */
+/* line 243, stylesheets/include/_shapes.scss */
 a#logo .bolt:after {
   content: '';
   position: absolute;
@@ -753,7 +755,7 @@ a#logo .bolt:after {
   border-top: 84px solid #2e66b2;
   border-right: 70px solid transparent;
 }
-/* line 254, stylesheets/include/_shapes.scss */
+/* line 257, stylesheets/include/_shapes.scss */
 a#logo .bolt span {
   display: block;
   position: absolute;
@@ -767,7 +769,7 @@ a#logo .bolt span {
   left: 10px;
   margin-top: -65px;
 }
-/* line 234, stylesheets/include/_shapes.scss */
+/* line 237, stylesheets/include/_shapes.scss */
 a#logo .bolt span:before {
   content: '';
   background: #ff5c2b;
@@ -784,7 +786,7 @@ a#logo .bolt span:before {
   -ms-transform: skew(-30deg);
   transform: skew(-30deg);
 }
-/* line 240, stylesheets/include/_shapes.scss */
+/* line 243, stylesheets/include/_shapes.scss */
 a#logo .bolt span:after {
   content: '';
   position: absolute;

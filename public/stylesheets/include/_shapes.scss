@@ -35,6 +35,7 @@
   margin-left: ($containerwidth - $outerwidth) *.5;
   @include shield($outerwidth, $outerheight, #2E66B2);
   span{
+    display: block;
     $innerwidth: $outerwidth - 10px*2;
     $innerheight: $outerheight - 10px*2;
     @include shield($innerwidth, $innerheight, #FF5C2B);
@@ -70,6 +71,7 @@
   margin-left: ($containerwidth - $outerwidth) *.5;
   @include diamond($outerwidth, $outerheight, #2E66B2);
   span{
+    display: block;
     $innerwidth: $outerwidth - 10px*2;
     $innerheight: $outerheight - 10px*2;
     @include diamond($innerwidth, $innerheight, #FF5C2B);
@@ -85,6 +87,7 @@
   margin-left: ($containerwidth - $outerwidth) *.5;
   @include diamond($outerwidth, $outerheight, #2E66B2);
   span{
+    display: block;
     $innerwidth: $outerwidth - 10px*2;
     $innerheight: $outerheight - 10px*2;
     @include diamond($innerwidth, $innerheight, #FF5C2B);
