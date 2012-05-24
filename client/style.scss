@@ -155,4 +155,5 @@ a#logo{
   .flatcircle{@include prepare_flatcircle(200px, 200px);}
   .national{@include prepare_national(200px, 200px);}
   .bolt{@include prepare_bolt(200px, 200px);}
+  .crown{@include prepare_crown(200px, 200px);}
 }

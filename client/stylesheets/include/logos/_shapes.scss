@@ -272,3 +272,51 @@
     margin-top: $innerheight *-.5;
   }
 }
+
+
+@mixin crown($width: 100px, $height:100px, $color:red){
+  @include position(absolute, 0, auto, auto, auto, 0, 0);
+  background: transparent !important;
+  border-style: solid;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  border-right-color: transparent;
+/*  border-bottom-color: transparent;*/
+  border-width: $height* .5;
+  &:before{
+    content:'';
+    @include position(absolute, auto, auto, auto, -0.5 * $width, 0, 0);
+    border-style: solid;
+    border-width: 0.25 * $height 0.25 * $width;
+    border-top-color: transparent;
+    border-right-color: transparent;    
+  }
+  &:after{
+    content:'';
+    @include position(absolute, auto, -0.5 * $width, auto, auto, 0, 0);
+    border-style: solid;
+    border-width: 0.25 * $height 0.25 * $width;
+    border-top-color: transparent;
+    border-left-color: transparent;    
+  }
+}
+
+@mixin prepare_crown($containerwidth: 200px, $containerheight: 200px){
+  $outerwidth:$containerwidth * .7;
+  $outerheight:$containerheight * .7;
+  width: 0;
+  height: 0;
+  margin-top: $outerheight * -.5;
+  margin-left: ($containerwidth - $outerwidth) *.5;
+  @include crown($outerwidth, $outerheight, #2E66B2);
+  span{
+    display: block;
+    $innerwidth: $outerwidth - 10px;
+    $innerheight: $outerheight - 20px;
+    @include crown($innerwidth, $innerheight, #FF5C2B);
+    z-index: 2;
+    left: -0.5 * $outerwidth + 10px;
+    margin-top: $innerheight *-.5 + 10px;
+  }
+
+}
