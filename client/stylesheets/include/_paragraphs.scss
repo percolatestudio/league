@@ -11,7 +11,7 @@ $h4: $font-size;
 $small: $font-size - 3;
 
 @mixin stdtype{
-  font-family: 'Cabin', Helvetica, sans-serif;
+  font-family: 'Lato', Helvetica, sans-serif;
 }
 @mixin emtype{
   font-family: 'Futura', "Trebuchet MS" , Arial, sans-serif;
