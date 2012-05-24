@@ -1,4 +1,9 @@
 # Published collections
+Meteor.publish 'users', (user_id) ->
+  console.log "connecting as #{user_id}"
+  this.set('users', user_id, Players.findOne(user_id))
+  this.flush()
+
 Meteor.publish 'teams', (player_id) -> 
   console.log "getting teams for #{player_id}"
   Teams.find({player_ids: player_id})

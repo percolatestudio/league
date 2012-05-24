@@ -16,9 +16,6 @@ Template.screens.events =
     
     Router.require_login -> 
       console.log 'ok, logged in, creating team...'
-      team = new Team(t)
-      
-      console.log team.full_errors() unless team.add_player(current_user())
-      # FIXME -- display errors..
-      
-      Router.navigate('leagues', {trigger: true})
+      console.log current_user()
+      team = current_user().create_team(t)
+      console.log team.full_errors() unless team.valid()

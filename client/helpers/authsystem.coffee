@@ -1,7 +1,7 @@
 # this is a Facebook authentication system. With more thought it could be generalised
 # and the FB system could be a subclass... thoughts for another day
 #
-# Uses two session variables, current_user and login_status
+# Uses two session variables, current_user_id and login_status
 #  TODO -- use a local var and set it up to trigger external things via deps
 #
 # There are 4 states we can be in, with different ways to get there:
@@ -22,7 +22,6 @@
 #   A. When FB first reports
 #   B. When the login dialog is successful.
 
-# FIXME: if this is set, do we just assume we are X? maybe
 Session.set('login_status', 'logging_in')
 
 class FBAuthSystem
@@ -107,7 +106,6 @@ class FBAuthSystem
 
   _handleLogin: (authResponse) ->
     Meteor.call 'login', authResponse.userID, (error, user) => 
-      console.log "woo, login #{user}"
       return @_doLogin(user) if user # the user already exists
       
       # else, better get some deets from the FB
@@ -118,12 +116,12 @@ class FBAuthSystem
   
   _doLogin: (user) ->
     Session.set('login_status', 'logged_in')
-    Session.set('current_user', user) 
+    Session.set('current_user_id', user._id)
     @_login_callback()
     
   _handleLogout: -> 
     console.log 'FB logged us out?'
-    Session.set 'current_user', null
+    Session.set 'current_user_id', null
     Session.set 'login_status', 'logged_out'
     
     console.log 'running logout_callback'
@@ -131,7 +129,7 @@ class FBAuthSystem
   
   _handleNotAuthorized: ->
     console.log 'not authorized'
-    Session.set 'current_user', null
+    Session.set 'current_user_id', null
     Session.set 'login_status', 'not_authorized'
   
 # prepare a singleton instance

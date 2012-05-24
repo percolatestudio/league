@@ -30,3 +30,8 @@ class Player extends Model
 
   facebook_profile_url: (type = 'square') ->
     "https://graph.facebook.com/#{@attributes.facebook_id}/picture?type=#{type}"
+    
+  create_team: (attributes) ->
+    team = new Team(attributes)
+    team.add_player(this)
+    team
