@@ -1,11 +1,14 @@
 WebFontConfig = {
-  fonts: [ 
+  logo_fonts: [ 
     'Graduate', 'Sonsie One', 'Shojumaru', 'Trade Winds', 'Open Sans', 'Lato',
     'Nova Square', 'Bangers', 'Carter One', 'Sansita One', 
     'Arvo', 'PT Sans', 'Cabin' 
-  ]
+  ],
+  // add some here D
+  site_fonts: []
 }
-  
+WebFontConfig.fonts = WebFontConfig.logo_fonts.concat(WebFontConfig.site_fonts)
+
 // assumes all the fonts are latin..
 WebFontConfig.google = { 
   families: _.map(WebFontConfig.fonts, function(f) { 
