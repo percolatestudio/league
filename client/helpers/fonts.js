@@ -1,11 +1,9 @@
 WebFontConfig = {
   logo_fonts: [ 
-    'Graduate', 'Sonsie One', 'Shojumaru', 'Trade Winds', 'Open Sans', 'Lato',
-    'Nova Square', 'Bangers', 'Carter One', 'Sansita One', 
-    'Arvo', 'PT Sans', 'Cabin' 
+    'Graduate', 'Sonsie One', 'Shojumaru', 'Trade Winds',  'Nova Square', 'Bangers', 'Carter One', 'Sansita One', 
+    'Arvo' 
   ],
-  // add some here D
-  site_fonts: []
+  site_fonts: ['Open Sans', 'Lato', 'PT Sans', 'Cabin']
 }
 WebFontConfig.fonts = WebFontConfig.logo_fonts.concat(WebFontConfig.site_fonts)
 

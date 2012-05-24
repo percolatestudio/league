@@ -30,7 +30,7 @@
         position: relative;
         overflow: visible;
         display: inline-block;
-        letter-spacing: -3px;
+        letter-spacing: -10px;
         &:after{
           content: '';
           display: block;
@@ -58,7 +58,7 @@
     .title{
       color: darken($orange, 5%);
       @include emtype;
-      font-size: 14em;
+      font-size: 15em;
       font-weight: bold;
       text-transform: uppercase;
       @include text-shadow(
@@ -78,6 +78,22 @@
         rgba(white, 1) 0 -1px 0,
         rgba(darken(#66ccff, 50%), .3) 0 1px 0
       );
-    }      
+    }
+    form.team_builder{
+      text-align: center;
+      >*{
+        display: inline-block;
+        margin: auto 10px;
+        font-size: 30px;
+      }
+      select{
+        width: 120px;
+      }
+      input{
+        width: 300px;
+      }
+      button{
+      }
+    }
   }
 }

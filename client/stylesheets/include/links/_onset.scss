@@ -1,7 +1,8 @@
 @mixin global_btn{
   line-height: 1em;
-  $btn_padding : (($line / ($small + 2)) - 1) / 2 * 1em;
+  $btn_padding : (( ($font-size * 2.5)   / ($font-size + 2)) - 1) / 2 * 1em;
   padding:$btn_padding $btn_padding* 2;
+  margin: .25em 0;
   letter-spacing: .1em;
   text-align: center;
   @include user_select;
@@ -9,9 +10,6 @@
   border: 1px solid transparent;
   @include border-radius(3px);
   @include opacity(1);
-  @media screen and (-webkit-min-device-pixel-ratio:0) {
-    margin-top:0;
-  }
   @include box-sizing(border-box);
   &:before{margin-right:.7em;}
   // Bug in FF that adds another inner border
