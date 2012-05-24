@@ -1,7 +1,7 @@
 class Logo
   # National doesn't work for some reason
   @shapes = ['shield', 'flatdiamond', 'darrow', 'uarrow', 'circle', 'flatcircle', 'bolt']
-  @colors_list = [['#2E66B2', '#FF5C2B'], ['black', 'red'], ['red', 'white']]
+  @colors_list = [['#2E66B2', '#FF5C2B'], ['black', 'red'], ['red', 'white'], ['black', 'silver'], ['navy', 'white']]
   
   @pick_X = (list) -> list[parseInt(Math.random() * list.length)]
   

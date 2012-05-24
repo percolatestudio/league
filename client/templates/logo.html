@@ -1,8 +1,8 @@
 <template name="logo">
   <a id="logo" title="{{name}}">
-  <h3 style="font-family: {{font}}, cursive; font-size: {{font_size}}px;">{{name}}</h3>
-    <figure style="background: {{!primary_color}}" class="{{shape}}">
-      <span style="background: {{!secondary_color}}"></span>
+  <h3 style="font-family: {{font}}, cursive; font-size: {{font_size}}px; color: {{primary_color}}">{{name}}</h3>
+    <figure style="background: {{primary_color}}; color: {{primary_color}}" class="{{shape}}">
+      <span style="background: {{secondary_color}}; color: {{secondary_color}}"></span>
     </figure>
   </a>
 </template>

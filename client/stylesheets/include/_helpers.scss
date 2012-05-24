@@ -39,3 +39,10 @@
     font-size: 0;
   }
 }
+
+@mixin border-colors($top: default, $right: default, $bottom: default, $left: default) {
+  @if $top != 'default' { border-top-color: $top; }
+  @if $right != 'default' { border-right-color: $right; }
+  @if $bottom != 'default' { border-bottom-color: $bottom; }
+  @if $left != 'default' { border-left-color: $left; }
+}

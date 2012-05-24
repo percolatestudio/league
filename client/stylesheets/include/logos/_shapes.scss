@@ -6,12 +6,14 @@
   $shielddeg: 10px;
   $rwidth: $width - 2*10px;
   $rheight: $height - $height/5;
+  color: $color;
+  background: transparent !important;
   &:before {
     content: "";
     display: block;
     position: absolute;
     border-style: solid;
-    border-color: $color transparent transparent transparent;
+    @include border-colors(default, transparent, transparent, transparent);
     border-width: $rheight $shielddeg 0;
     width: $rwidth;
   }
@@ -22,7 +24,7 @@
     top: $rheight;
     z-index: 1;
     border-style: solid;
-    border-color: $color transparent transparent transparent;
+    @include border-colors(default, transparent, transparent, transparent);
     border-width: $rheight/5 $rwidth/2 0;
     margin-left: $shielddeg;
     width: 0;
@@ -47,11 +49,12 @@
 
 @mixin diamond($width: 100px, $height:100px, $color:red){
   @include position(relative, auto, auto, auto, auto, $width, $height);
+  background: transparent !important;
   &:before{
     content:'';
     @include position(absolute, auto, auto, auto, 0, 0, 0);
     border-style: solid;
-    border-color: transparent transparent $color transparent;
+    @include border-colors(transparent, transparent, default, transparent);
     border-width: 0 $width/2 $height/2 $width/2;
     z-index: 1;
   }
@@ -59,7 +62,7 @@
     content:'';
     @include position(absolute, $height/2, auto, auto, 0, 0, 0);
     border-style: solid;
-    border-color: $color transparent transparent transparent;
+    @include border-colors(default, transparent, transparent, transparent);
     border-width: $height/2 $width/2 0 $width/2;
     z-index: 1;
   }
@@ -99,6 +102,7 @@
 @mixin darrow($width: 100px, $height:100px, $color:red){
   position: relative;
   @include position(relative, auto, auto, auto, auto, $width, $height);
+  background: transparent !important;
   &:before{
     content:'';
     @include position(absolute, auto, auto, auto, auto);
@@ -106,7 +110,7 @@
     width: 0; 
     height: 0; 
     border-style: solid;
-    border-color: $color transparent transparent transparent;
+    @include border-colors(default, transparent, transparent, transparent);
     border-width: $height  $width/2 0 $width/2;
   }
 }
@@ -131,6 +135,7 @@
 }
 @mixin uarrow($width: 100px, $height:100px, $color:red){
   @include position(absolute, 50%, auto, auto, auto, $width, $height);
+  background: transparent !important;
   &:before{
     content:'';
     @include position(absolute, auto, auto, auto, auto);
@@ -138,7 +143,7 @@
     width: 0; 
     height: 0; 
     border-style: solid;
-    border-color:transparent transparent $color transparent;
+    @include border-colors(transparent, transparent, default, transparent);
     border-width: 0  $width/2 $height $width/2;
   }
 }

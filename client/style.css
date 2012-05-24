@@ -1,4 +1,4 @@
-/* line 17, ../../../../Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 17, ../../../../../../Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -20,45 +20,45 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 20, ../../../../Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 20, ../../../../../../Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 body {
   line-height: 1;
 }
 
-/* line 22, ../../../../Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 22, ../../../../../../Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 24, ../../../../Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 24, ../../../../../../Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 26, ../../../../Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 26, ../../../../../../Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 28, ../../../../Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 28, ../../../../../../Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 101, ../../../../Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 101, ../../../../../../Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 30, ../../../../Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 30, ../../../../../../Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 114, ../../../../Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 114, ../../../../../../Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
   display: block;
 }
@@ -1041,18 +1041,22 @@ a#logo .shield {
   width: 120px;
   height: 100px;
   /*real dimensions*/
+  color: #2e66b2;
+  background: transparent !important;
 }
-/* line 9, stylesheets/include/logos/_shapes.scss */
+/* line 11, stylesheets/include/logos/_shapes.scss */
 a#logo .shield:before {
   content: "";
   display: block;
   position: absolute;
   border-style: solid;
-  border-color: #2e66b2 transparent transparent transparent;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
   border-width: 80px 10px 0;
   width: 100px;
 }
-/* line 18, stylesheets/include/logos/_shapes.scss */
+/* line 20, stylesheets/include/logos/_shapes.scss */
 a#logo .shield:after {
   content: "";
   display: block;
@@ -1060,33 +1064,39 @@ a#logo .shield:after {
   top: 80px;
   z-index: 1;
   border-style: solid;
-  border-color: #2e66b2 transparent transparent transparent;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
   border-width: 16px 50px 0;
   margin-left: 10px;
   width: 0;
 }
-/* line 37, stylesheets/include/logos/_shapes.scss */
+/* line 39, stylesheets/include/logos/_shapes.scss */
 a#logo .shield span {
   display: block;
   position: relative;
   width: 100px;
   height: 80px;
   /*real dimensions*/
+  color: #ff5c2b;
+  background: transparent !important;
   z-index: 2;
   left: 10px;
   top: 10px;
 }
-/* line 9, stylesheets/include/logos/_shapes.scss */
+/* line 11, stylesheets/include/logos/_shapes.scss */
 a#logo .shield span:before {
   content: "";
   display: block;
   position: absolute;
   border-style: solid;
-  border-color: #ff5c2b transparent transparent transparent;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
   border-width: 64px 10px 0;
   width: 80px;
 }
-/* line 18, stylesheets/include/logos/_shapes.scss */
+/* line 20, stylesheets/include/logos/_shapes.scss */
 a#logo .shield span:after {
   content: "";
   display: block;
@@ -1094,7 +1104,9 @@ a#logo .shield span:after {
   top: 64px;
   z-index: 1;
   border-style: solid;
-  border-color: #ff5c2b transparent transparent transparent;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
   border-width: 12.8px 40px 0;
   margin-left: 10px;
   width: 0;
@@ -1110,8 +1122,9 @@ a#logo .flatdiamond {
   right: auto;
   width: 160px;
   height: 120px;
+  background: transparent !important;
 }
-/* line 50, stylesheets/include/logos/_shapes.scss */
+/* line 53, stylesheets/include/logos/_shapes.scss */
 a#logo .flatdiamond:before {
   content: '';
   position: absolute;
@@ -1122,11 +1135,13 @@ a#logo .flatdiamond:before {
   width: 0;
   height: 0;
   border-style: solid;
-  border-color: transparent transparent #2e66b2 transparent;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-left-color: transparent;
   border-width: 0 80px 60px 80px;
   z-index: 1;
 }
-/* line 58, stylesheets/include/logos/_shapes.scss */
+/* line 61, stylesheets/include/logos/_shapes.scss */
 a#logo .flatdiamond:after {
   content: '';
   position: absolute;
@@ -1137,11 +1152,13 @@ a#logo .flatdiamond:after {
   width: 0;
   height: 0;
   border-style: solid;
-  border-color: #2e66b2 transparent transparent transparent;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
   border-width: 60px 80px 0 80px;
   z-index: 1;
 }
-/* line 73, stylesheets/include/logos/_shapes.scss */
+/* line 76, stylesheets/include/logos/_shapes.scss */
 a#logo .flatdiamond span {
   display: block;
   position: relative;
@@ -1151,11 +1168,12 @@ a#logo .flatdiamond span {
   right: auto;
   width: 140px;
   height: 100px;
+  background: transparent !important;
   z-index: 2;
   left: 10px;
   top: 10px;
 }
-/* line 50, stylesheets/include/logos/_shapes.scss */
+/* line 53, stylesheets/include/logos/_shapes.scss */
 a#logo .flatdiamond span:before {
   content: '';
   position: absolute;
@@ -1166,11 +1184,13 @@ a#logo .flatdiamond span:before {
   width: 0;
   height: 0;
   border-style: solid;
-  border-color: transparent transparent #ff5c2b transparent;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-left-color: transparent;
   border-width: 0 70px 50px 70px;
   z-index: 1;
 }
-/* line 58, stylesheets/include/logos/_shapes.scss */
+/* line 61, stylesheets/include/logos/_shapes.scss */
 a#logo .flatdiamond span:after {
   content: '';
   position: absolute;
@@ -1181,7 +1201,9 @@ a#logo .flatdiamond span:after {
   width: 0;
   height: 0;
   border-style: solid;
-  border-color: #ff5c2b transparent transparent transparent;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
   border-width: 50px 70px 0 70px;
   z-index: 1;
 }
@@ -1196,8 +1218,9 @@ a#logo .diamond {
   right: auto;
   width: 120px;
   height: 160px;
+  background: transparent !important;
 }
-/* line 50, stylesheets/include/logos/_shapes.scss */
+/* line 53, stylesheets/include/logos/_shapes.scss */
 a#logo .diamond:before {
   content: '';
   position: absolute;
@@ -1208,11 +1231,13 @@ a#logo .diamond:before {
   width: 0;
   height: 0;
   border-style: solid;
-  border-color: transparent transparent #2e66b2 transparent;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-left-color: transparent;
   border-width: 0 60px 80px 60px;
   z-index: 1;
 }
-/* line 58, stylesheets/include/logos/_shapes.scss */
+/* line 61, stylesheets/include/logos/_shapes.scss */
 a#logo .diamond:after {
   content: '';
   position: absolute;
@@ -1223,11 +1248,13 @@ a#logo .diamond:after {
   width: 0;
   height: 0;
   border-style: solid;
-  border-color: #2e66b2 transparent transparent transparent;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
   border-width: 80px 60px 0 60px;
   z-index: 1;
 }
-/* line 89, stylesheets/include/logos/_shapes.scss */
+/* line 92, stylesheets/include/logos/_shapes.scss */
 a#logo .diamond span {
   display: block;
   position: relative;
@@ -1237,11 +1264,12 @@ a#logo .diamond span {
   right: auto;
   width: 100px;
   height: 140px;
+  background: transparent !important;
   z-index: 2;
   left: 10px;
   top: 10px;
 }
-/* line 50, stylesheets/include/logos/_shapes.scss */
+/* line 53, stylesheets/include/logos/_shapes.scss */
 a#logo .diamond span:before {
   content: '';
   position: absolute;
@@ -1252,11 +1280,13 @@ a#logo .diamond span:before {
   width: 0;
   height: 0;
   border-style: solid;
-  border-color: transparent transparent #ff5c2b transparent;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-left-color: transparent;
   border-width: 0 50px 70px 50px;
   z-index: 1;
 }
-/* line 58, stylesheets/include/logos/_shapes.scss */
+/* line 61, stylesheets/include/logos/_shapes.scss */
 a#logo .diamond span:after {
   content: '';
   position: absolute;
@@ -1267,7 +1297,9 @@ a#logo .diamond span:after {
   width: 0;
   height: 0;
   border-style: solid;
-  border-color: #ff5c2b transparent transparent transparent;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
   border-width: 70px 50px 0 50px;
   z-index: 1;
 }
@@ -1286,8 +1318,9 @@ a#logo .darrow {
   right: auto;
   width: 140px;
   height: 120.4px;
+  background: transparent !important;
 }
-/* line 102, stylesheets/include/logos/_shapes.scss */
+/* line 106, stylesheets/include/logos/_shapes.scss */
 a#logo .darrow:before {
   content: '';
   position: absolute;
@@ -1301,10 +1334,12 @@ a#logo .darrow:before {
   width: 0;
   height: 0;
   border-style: solid;
-  border-color: #2e66b2 transparent transparent transparent;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
   border-width: 120.4px 70px 0 70px;
 }
-/* line 121, stylesheets/include/logos/_shapes.scss */
+/* line 125, stylesheets/include/logos/_shapes.scss */
 a#logo .darrow span {
   display: block;
   position: relative;
@@ -1315,11 +1350,12 @@ a#logo .darrow span {
   right: auto;
   width: 120px;
   height: 100.4px;
+  background: transparent !important;
   z-index: 2;
   left: 10px;
   top: 5.7px;
 }
-/* line 102, stylesheets/include/logos/_shapes.scss */
+/* line 106, stylesheets/include/logos/_shapes.scss */
 a#logo .darrow span:before {
   content: '';
   position: absolute;
@@ -1333,7 +1369,9 @@ a#logo .darrow span:before {
   width: 0;
   height: 0;
   border-style: solid;
-  border-color: #ff5c2b transparent transparent transparent;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
   border-width: 100.4px 60px 0 60px;
 }
 /* line 150, style.scss */
@@ -1350,8 +1388,9 @@ a#logo .uarrow {
   right: auto;
   width: 140px;
   height: 120.4px;
+  background: transparent !important;
 }
-/* line 134, stylesheets/include/logos/_shapes.scss */
+/* line 139, stylesheets/include/logos/_shapes.scss */
 a#logo .uarrow:before {
   content: '';
   position: absolute;
@@ -1365,10 +1404,12 @@ a#logo .uarrow:before {
   width: 0;
   height: 0;
   border-style: solid;
-  border-color: transparent transparent #2e66b2 transparent;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-left-color: transparent;
   border-width: 0 70px 120.4px 70px;
 }
-/* line 153, stylesheets/include/logos/_shapes.scss */
+/* line 158, stylesheets/include/logos/_shapes.scss */
 a#logo .uarrow span {
   display: block;
   position: absolute;
@@ -1378,11 +1419,12 @@ a#logo .uarrow span {
   right: auto;
   width: 120px;
   height: 100.4px;
+  background: transparent !important;
   z-index: 2;
   left: 10px;
   margin-top: -50.2px;
 }
-/* line 134, stylesheets/include/logos/_shapes.scss */
+/* line 139, stylesheets/include/logos/_shapes.scss */
 a#logo .uarrow span:before {
   content: '';
   position: absolute;
@@ -1396,7 +1438,9 @@ a#logo .uarrow span:before {
   width: 0;
   height: 0;
   border-style: solid;
-  border-color: transparent transparent #ff5c2b transparent;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-left-color: transparent;
   border-width: 0 60px 100.4px 60px;
 }
 /* line 151, style.scss */
@@ -1419,7 +1463,7 @@ a#logo .circle {
   -khtml-border-radius: 70px;
   border-radius: 70px;
 }
-/* line 175, stylesheets/include/logos/_shapes.scss */
+/* line 180, stylesheets/include/logos/_shapes.scss */
 a#logo .circle span {
   display: block;
   position: absolute;
@@ -1459,7 +1503,7 @@ a#logo .flatcircle {
   -khtml-border-radius: 50%;
   border-radius: 50%;
 }
-/* line 191, stylesheets/include/logos/_shapes.scss */
+/* line 196, stylesheets/include/logos/_shapes.scss */
 a#logo .flatcircle span {
   display: block;
   position: absolute;
@@ -1492,7 +1536,7 @@ a#logo .national {
   width: 100px;
   height: 100px;
 }
-/* line 204, stylesheets/include/logos/_shapes.scss */
+/* line 209, stylesheets/include/logos/_shapes.scss */
 a#logo .national:before, a#logo .national:after {
   content: '';
   -moz-transform: skew(-30deg);
@@ -1501,7 +1545,7 @@ a#logo .national:before, a#logo .national:after {
   -ms-transform: skew(-30deg);
   transform: skew(-30deg);
 }
-/* line 208, stylesheets/include/logos/_shapes.scss */
+/* line 213, stylesheets/include/logos/_shapes.scss */
 a#logo .national:before {
   position: absolute;
   top: auto;
@@ -1518,7 +1562,7 @@ a#logo .national:before {
   border-radius: 5px 0 0 5px;
   background: #2e66b2;
 }
-/* line 213, stylesheets/include/logos/_shapes.scss */
+/* line 218, stylesheets/include/logos/_shapes.scss */
 a#logo .national:after {
   position: absolute;
   top: auto;
@@ -1535,7 +1579,7 @@ a#logo .national:after {
   border-radius: 0 5px 5px 0;
   background: #2e66b2;
 }
-/* line 225, stylesheets/include/logos/_shapes.scss */
+/* line 230, stylesheets/include/logos/_shapes.scss */
 a#logo .national span {
   display: block;
   position: absolute;
@@ -1549,7 +1593,7 @@ a#logo .national span {
   left: 10px;
   margin-top: -40px;
 }
-/* line 204, stylesheets/include/logos/_shapes.scss */
+/* line 209, stylesheets/include/logos/_shapes.scss */
 a#logo .national span:before, a#logo .national span:after {
   content: '';
   -moz-transform: skew(-30deg);
@@ -1558,7 +1602,7 @@ a#logo .national span:before, a#logo .national span:after {
   -ms-transform: skew(-30deg);
   transform: skew(-30deg);
 }
-/* line 208, stylesheets/include/logos/_shapes.scss */
+/* line 213, stylesheets/include/logos/_shapes.scss */
 a#logo .national span:before {
   position: absolute;
   top: auto;
@@ -1575,7 +1619,7 @@ a#logo .national span:before {
   border-radius: 5px 0 0 5px;
   background: #ff5c2b;
 }
-/* line 213, stylesheets/include/logos/_shapes.scss */
+/* line 218, stylesheets/include/logos/_shapes.scss */
 a#logo .national span:after {
   position: absolute;
   top: auto;
@@ -1604,7 +1648,7 @@ a#logo .bolt {
   width: 140px;
   height: 140px;
 }
-/* line 237, stylesheets/include/logos/_shapes.scss */
+/* line 242, stylesheets/include/logos/_shapes.scss */
 a#logo .bolt:before {
   content: '';
   background: #2e66b2;
@@ -1621,7 +1665,7 @@ a#logo .bolt:before {
   -ms-transform: skew(-30deg);
   transform: skew(-30deg);
 }
-/* line 243, stylesheets/include/logos/_shapes.scss */
+/* line 248, stylesheets/include/logos/_shapes.scss */
 a#logo .bolt:after {
   content: '';
   position: absolute;
@@ -1639,7 +1683,7 @@ a#logo .bolt:after {
   border-top: 84px solid #2e66b2;
   border-right: 70px solid transparent;
 }
-/* line 257, stylesheets/include/logos/_shapes.scss */
+/* line 262, stylesheets/include/logos/_shapes.scss */
 a#logo .bolt span {
   display: block;
   position: absolute;
@@ -1653,7 +1697,7 @@ a#logo .bolt span {
   left: 10px;
   margin-top: -65px;
 }
-/* line 237, stylesheets/include/logos/_shapes.scss */
+/* line 242, stylesheets/include/logos/_shapes.scss */
 a#logo .bolt span:before {
   content: '';
   background: #ff5c2b;
@@ -1670,7 +1714,7 @@ a#logo .bolt span:before {
   -ms-transform: skew(-30deg);
   transform: skew(-30deg);
 }
-/* line 243, stylesheets/include/logos/_shapes.scss */
+/* line 248, stylesheets/include/logos/_shapes.scss */
 a#logo .bolt span:after {
   content: '';
   position: absolute;
