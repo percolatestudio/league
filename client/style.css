@@ -1647,25 +1647,27 @@ a#logo .bolt {
   right: auto;
   width: 140px;
   height: 140px;
+  background: transparent !important;
 }
-/* line 242, stylesheets/include/logos/_shapes.scss */
+/* line 243, stylesheets/include/logos/_shapes.scss */
 a#logo .bolt:before {
   content: '';
-  background: #2e66b2;
+  border-style: solid;
+  border-width: 28px 35px;
   position: absolute;
   top: auto;
   bottom: auto;
   left: 25%;
   right: auto;
-  width: 50%;
-  height: 40%;
+  width: 0;
+  height: 0;
   -moz-transform: skew(-30deg);
   -webkit-transform: skew(-30deg);
   -o-transform: skew(-30deg);
   -ms-transform: skew(-30deg);
   transform: skew(-30deg);
 }
-/* line 248, stylesheets/include/logos/_shapes.scss */
+/* line 250, stylesheets/include/logos/_shapes.scss */
 a#logo .bolt:after {
   content: '';
   position: absolute;
@@ -1680,10 +1682,11 @@ a#logo .bolt:after {
   -o-transform: skew(-20deg);
   -ms-transform: skew(-20deg);
   transform: skew(-20deg);
-  border-top: 84px solid #2e66b2;
+  border-top-style: solid;
+  border-top-width: 84px;
   border-right: 70px solid transparent;
 }
-/* line 262, stylesheets/include/logos/_shapes.scss */
+/* line 265, stylesheets/include/logos/_shapes.scss */
 a#logo .bolt span {
   display: block;
   position: absolute;
@@ -1693,28 +1696,30 @@ a#logo .bolt span {
   right: auto;
   width: 130px;
   height: 130px;
+  background: transparent !important;
   z-index: 2;
   left: 10px;
   margin-top: -65px;
 }
-/* line 242, stylesheets/include/logos/_shapes.scss */
+/* line 243, stylesheets/include/logos/_shapes.scss */
 a#logo .bolt span:before {
   content: '';
-  background: #ff5c2b;
+  border-style: solid;
+  border-width: 26px 32.5px;
   position: absolute;
   top: auto;
   bottom: auto;
   left: 25%;
   right: auto;
-  width: 50%;
-  height: 40%;
+  width: 0;
+  height: 0;
   -moz-transform: skew(-30deg);
   -webkit-transform: skew(-30deg);
   -o-transform: skew(-30deg);
   -ms-transform: skew(-30deg);
   transform: skew(-30deg);
 }
-/* line 248, stylesheets/include/logos/_shapes.scss */
+/* line 250, stylesheets/include/logos/_shapes.scss */
 a#logo .bolt span:after {
   content: '';
   position: absolute;
@@ -1729,6 +1734,7 @@ a#logo .bolt span:after {
   -o-transform: skew(-20deg);
   -ms-transform: skew(-20deg);
   transform: skew(-20deg);
-  border-top: 78px solid #ff5c2b;
+  border-top-style: solid;
+  border-top-width: 78px;
   border-right: 65px solid transparent;
 }

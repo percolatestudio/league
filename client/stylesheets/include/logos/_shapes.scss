@@ -239,17 +239,20 @@
 }
 @mixin bolt($width: 100px, $height:100px, $color:red){
   @include position(absolute, 50%, auto, auto, auto, $width, $height);
+  background: transparent !important;
   &:before{
     content:'';
-    background: $color;
-    @include position(absolute, auto, auto, auto, 50%/2, 50%, 40%);
+    border-style: solid;
+    border-width: 0.2 * $width 0.25 * $height;
+    @include position(absolute, auto, auto, auto, 50%/2, 0, 0);
     @include transform(skew(-30deg));
   }
   &:after{
     content:'';
     @include position(absolute, 40%, auto, auto, 50%/2, 0, 0);
     @include transform(skew(-20deg));
-    border-top: $height* .6 solid $color; 
+    border-top-style: solid;
+    border-top-width: $height* .6;
     border-right: $width/2 solid transparent;
   }
 }
