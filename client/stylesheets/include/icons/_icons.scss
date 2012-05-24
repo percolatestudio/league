@@ -1,0 +1,103 @@
+@mixin register_icon($parent, $class, $img, $size, $col, $row:1, $margin:1px) {
+  $x: ($col - 1) * -$size - ($col - 1) * $margin;
+  $y: ($row - 1) * -$size - ($row - 1) * $margin;
+  /* Dark on Light styles */
+  #{$parent}#{$class} {
+    &:before{
+      background: url($img) no-repeat;
+      background-position: $x $y;
+    }
+  }
+  a, button{
+    &:hover, &:focus{
+      &#{$parent}#{$class} {
+        &:before{
+          $hover: ($row + 0) * -$size - ($row + 0) * $margin;
+          background-position: $x $hover;
+        }
+      }
+    }
+    &:active{
+      &#{$parent}#{$class} {
+        &:before{
+          $active: ($row + 1) * -$size - ($row + 1) * $margin;
+          background-position: $x $active;
+        }
+      }
+    }//
+    
+    //Light on Dark styles
+    &.inverse, &.checked{
+      &#{$parent}#{$class} {
+        &:before{
+          $current: ($row + 2) * -$size - ($row + 2) * $margin;
+          background-position: $x $current;
+        }
+      }
+      &:hover{
+        &#{$parent}#{$class} {
+          &:before{
+            $current: ($row + 2) * -$size - ($row + 2) * $margin;
+            background-position: $x $current;
+          }
+        }
+      }
+      &:active, &:focus{
+        &#{$parent}#{$class} {
+          &:before{
+            $current: ($row + 1) * -$size - ($row + 1) * $margin;
+            background-position: $x $current;
+          }
+        }
+      }     
+    }//
+    &.current{
+      &#{$parent}#{$class} {
+        &:before{
+          $current: ($row + 2) * -$size - ($row + 2) * $margin;
+          background-position: $x $current;
+        }
+      }
+      &:hover, &:focus{
+        &#{$parent}#{$class} {
+          &:before{
+            $hover: ($row + 0) * -$size - ($row + 0) * $margin;
+            background-position: $x $hover;
+          }
+        }
+      }
+      &:active{
+        &#{$parent}#{$class} {
+          &:before{
+            $active: ($row + 1) * -$size - ($row + 1) * $margin;
+            background-position: $x $active;
+          }
+        }
+      }
+    }
+  }
+  /* This is for list item links it's inverted and has no hover state */
+  .current{
+    >a, >a:hover, >a:focus, >a:active{
+      &#{$parent}#{$class}{
+        &:before{
+          $current: ($row + 2) * -$size - ($row + 2) * $margin;
+          background-position: $x $current;
+        }
+      }
+    }
+  }
+  /* Disabled icon */
+  .disabled a, .disabled a:hover, .disabled a:active{
+    #{$parent}#{$class}{
+      &:before{
+        $current: ($row + 2) * -$size - ($row + 2) * $margin;
+        background-position: $x $y;
+      }
+    }
+  }  
+}
+@mixin register_icons($class, $icon_no){
+/*    @include register_icon('.icon12', $class, 'images/icons_supernormal_12x12.png', 12px, $icon_no); */
+   @include register_icon('.icon16', $class, '/images/icons_supernormal_16x16.png', 16px, $icon_no);
+}
