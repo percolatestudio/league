@@ -1,7 +1,38 @@
 class Logo
   # National doesn't work for some reason
   @shapes = ['shield', 'flatdiamond', 'darrow', 'uarrow', 'circle', 'flatcircle', 'bolt']
-  @colors_list = [['#2E66B2', '#FF5C2B'], ['black', 'red'], ['red', 'white'], ['black', 'silver'], ['navy', 'white']]
+  @colors_list = [
+    ['#2E66B2', '#FF5C2B'],
+    ['#C51230', '#241E20'],
+    ['#01487E', '#D60D39'],
+    ['#020001', '#DF4601'],
+    ['#0E2B55', '#BD3039'],
+    ['#0E3386', '#D12325'],
+    ['#023465', '#EE113D'],
+    ['#333333', '#00A5B1'],
+    ['#012143', '#C4953B'],
+    ['#042462', '#B50131'],
+    ['#004685', '#F7742C'],
+    ['#132448', '#CDCBCE'],
+    ['#00483A', '#FFBE00'],
+    ['#CA1F2C', '#226AA9'],
+    ['#000000', '#FFB40B'],
+    ['#003166', '#1C8B85'],
+    ['#01317B', '#E00016'],
+    ['#0067A6', '#A5A5A5'],
+    ['#01244C', '#D21033'],
+    ['#F26532', '#29588B'],
+    ['#006AB5', '#F0F4F7'],
+    ['#4393D1', '#FBB529'],
+    ['#ED174C', '#006BB6'],
+    ['#002E62', '#FFC225'],
+    ['#4A2583', '#F5AF1B'],
+    ['#00330A', '#C82A39'],
+    ['#004874', '#BC9B6A']
+  ]
+
+
+
   
   @pick_X = (list) -> list[parseInt(Math.random() * list.length)]
   
