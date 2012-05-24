@@ -1,9 +1,9 @@
 <template name="auth">
   <div class="signin">
     {{#if logged_in }}
-      <button class="logout">Logout</button>
+      <button class="logout default btn inverse">Logout</button>
     {{else}}
-      <button class="login">Login via Facebook</button>
+      <button class="login icon16 facebook btn inverse" title="Login with Facebook">Login</button>
     {{/if}}
   </div>
 </template>
