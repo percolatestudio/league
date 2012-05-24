@@ -1,4 +1,6 @@
-//position
+/* /// */
+/* Position */
+/* /// */
 header{
   height: 4.5em;
   position: relative;
@@ -29,10 +31,9 @@ article{
   width: 100%;
   @include clearfix;
 }
-
-
-
-//styling
+/* /// */
+/* Styling */
+/* /// */
 header{
   text-align: center;
   h1{
