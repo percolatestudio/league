@@ -85,6 +85,14 @@ a, button {
     &.facebook{@include onset($fbhex);}
     &.twitter{@include onset($twhex);}
     &.google{@include onset($gohex);}
+    &.back{
+      @include onset($ccc);
+      @include back_btn;
+    }
+    &.fwd{
+      @include onset($ccc);
+      @include fwd_btn;
+    }
     
   }
 }

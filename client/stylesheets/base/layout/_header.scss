@@ -1,12 +1,13 @@
-/* /// */
 /* Position */
-/* /// */
 header{
   height: 4.5em;
   position: relative;
   padding-top: .75em;
   @include box-sizing(border-box);
   @include skybg;
+  .back.btn{
+    @include position(absolute, .75em, auto, auto, 1.5em );
+  }
   &:before{
     content:'';
     display: block;
@@ -24,14 +25,7 @@ header{
     );
   }
 }
-article{
-  width: 100%;
-  @include maskbg;
-  @include clearfix;
-}
-/* /// */
 /* Styling */
-/* /// */
 header{
   text-align: center;
   h1{
@@ -48,4 +42,10 @@ header{
       rgba(darken($orange, 30%), .1) 0 0 10px
     );
   }
+}
+
+article{
+  width: 100%;
+  @include maskbg;
+  @include clearfix;
 }
