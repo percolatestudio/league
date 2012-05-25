@@ -63,16 +63,66 @@ class Logo
     
     # first calcuate the word sizes
     words = @name.split /\s+/
+    word_lengths = (word.length for word in words)
     
-    @_name_lines = _.reduce \
-      words,
-      ((lines, word) -> 
-        if lines.length > 0 and _.last(lines).length + word.length + 1 <= Logo.MAX_LINE_LENGTH
-          lines[lines.length-1] += ' ' + word
-        else
-          lines.push(word)
-        lines), 
-      []
+    ## ok, we are going to run a little brute force algorithm that optimizes:
+    #     1. number of lines THEN
+    #     2. minimum line length (this'll mean the lines are balanced) GIVEN
+    #     3. all lines are less than MAX_LINE_LENGTH
+    #
+    # it'll take exponential time, could probably write a dynamic programming alg in poly, but who would bother
+    
+    # evaluate which configuration is better. returns true if lines_1 is better
+    # configurations are lists of # of words, so we need to actually calculate lengths here
+    better = (lines_1, lines_2) ->
+      # it's inefficent to do this for each check, but who cares..
+      lengths = (lines) -> 
+        idx = 0 # where we are up to
+        _.map lines, (word_count) ->
+          length = word_count - 1 # the spaces
+          length += l for l in word_lengths[idx...idx+word_count]
+          idx += word_count
+          length
+          
+      lengths_1 = lengths(lines_1)
+      lengths_2 = lengths(lines_2)
+      
+      # 3.
+      return false unless _.all(lengths_1, (l) -> l < Logo.MAX_LINE_LENGTH)
+      return true unless _.all(lengths_2, (l) -> l < Logo.MAX_LINE_LENGTH)
+      
+      # 1.
+      return true if lines_1.length < lines_2.length
+      return false if lines_1.length > lines_2.length 
+      
+      # 2.
+      _.min(lengths_1) >= _.min(lengths_2)
+    
+    # Ok, the algorithm is fairly straightforward
+    find_best = (so_far, words_left, best) ->
+      # we have a configuration, test it against best
+      if words_left == 0
+        return so_far unless best
+        console.log so_far
+        console.log best
+        console.log better(so_far, best)
+        return if better(so_far, best) then so_far else best
+        
+      for count in [1 .. words_left]
+        # find the best after appending count
+        best = find_best(so_far.concat(count), words_left - count, best)
+      best
+    
+    # find the best one, the last argument marks no best found yet
+    configuration = find_best([], words.length, null)
+    
+    idx = 0 # where we are up to
+    @_name_lines = _.map configuration, (word_count) ->
+      line = words[idx...idx+word_count].join(' ')
+      idx += word_count
+      line
+    
+    
   
   # calculate the 'correct' font size by rendering offscreen
   #
