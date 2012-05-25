@@ -6,16 +6,21 @@
         <h1>Lineup</h1>
       </header>
       <article>
-        <h2>{{attributes.name}}</h2>
-        <ul class="players">
-          {{#each players }}
-            {{> player}}
-          {{/each}}
-        </ul>
-        
-        <button class="start_season">Start Season!</button>
-        
+        <div class="lineup">
+          <ul class="roster">
+            <li class="team_logo">
+              <figure title="{{attributes.name}}"></figure>
+              <a class="icon16 people inset">4 players <span class="icon16 dropdown"></span></a>
+            </li>
+            {{#each players }}
+              {{> player}}
+            {{/each}}
+          </ul>
+          <button class="start_season btn default">Start Season</button>
+        </div>
+                  
         {{> add_player}}
+        
       </article>
     </div>
   {{/with}}{{/if}}

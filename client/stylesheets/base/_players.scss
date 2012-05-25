@@ -1,3 +1,40 @@
-.container {
-  &.players .players {}
+.container.players {
+  .players {
+    .lineup{
+      width: 100%;
+      text-align: center;
+      >*{
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }/* end lineup */
+    .add_player{
+      text-align: center;
+      position: relative;
+      overflow-y: hidden;
+      >li{
+        width: 100px;
+        display: inline-block
+      }
+      &:after{
+        content: '';
+        display: block;
+        @include position(absolute, -4em, auto, auto, (100% - 100%) * -.5, 100%, 6em );
+        z-index: 1;
+        @include background(
+          radial-gradient(50% 50%, rgba(black, .15), rgba(black, .05) 50%, rgba(black, 0) 70%),
+          radial-gradient(50% 50%, rgba(white, .5), rgba(white, .2) 60%, rgba(white, 0) 80%)
+        );
+      }
+      &:before{
+        content: '';
+        display: block;
+        @include position(absolute, 0, auto, auto, (150% - 100%) * -.5, 150%, 1px );
+        z-index: 2;
+        @include background(
+          radial-gradient(50% 50%, rgba(white, 1), rgba(white, .8) 50%, rgba(white, 0) 70%)
+        );
+      }/* end pseudoclasses */
+    }
+  }/* end players */
 }
