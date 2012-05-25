@@ -88,6 +88,7 @@
     form.team_builder{
       text-align: center;
       margin-bottom: 6em;
+      position: relative;
       >*{
         display: inline-block;
         margin: auto 10px;
@@ -96,7 +97,14 @@
       }
       select{
         width: 120px;
-      }
+        & + label{
+          @include position(relative, auto, auto, -2em, -140px, 105px, 19px);
+          margin-right:-120px;
+          overflow: hidden;
+          text-indent: -999em;
+          background: url(/images/text_img_numberplayers_105x19.png);
+        }
+      }      
       input{
         width: 300px;
       }
