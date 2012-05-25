@@ -891,15 +891,12 @@ a.current:active.icon16.heart:before, button.current:active.icon16.heart:before 
   background-position: -306px 0px;
 }
 
-<<<<<<< HEAD
-=======
 /*
 Back and forward buttons
 How to use: put .back or .forward in your 
 classname, and span class .arrow inside the a 
 element 
 */
->>>>>>> tentatively repositioned/styled the back button
 textarea {
   background: white;
   -moz-box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 2px 0px inset;
@@ -1183,10 +1180,6 @@ form.disabled button {
 }
 
 /* Position */
-<<<<<<< HEAD
-/* /// */
-=======
->>>>>>> tentatively repositioned/styled the back button
 header {
   height: 4.5em;
   position: relative;
@@ -1202,8 +1195,6 @@ header {
   background: -ms-linear-gradient(top, #e4f7fa, #cef1f6 100%), url("/images/textures/bg_noise_80x80.png") repeat;
   background: linear-gradient(top, #e4f7fa, #cef1f6 100%), url("/images/textures/bg_noise_80x80.png") repeat;
 }
-<<<<<<< HEAD
-=======
 header .back.btn {
   position: absolute;
   top: 0.75em;
@@ -1213,7 +1204,6 @@ header .back.btn {
   width: auto;
   height: auto;
 }
->>>>>>> tentatively repositioned/styled the back button
 header:before {
   content: '';
   display: block;
@@ -1247,27 +1237,7 @@ header:after {
   background: radial-gradient(50% 150%, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1) 30%, rgba(0, 0, 0, 0) 70%);
 }
 
-<<<<<<< HEAD
-article {
-  width: 100%;
-  background: url("images/textures/bg_noise_80x80.png") repeat, #f9f9f9;
-  min-height: 0;
-}
-article:after {
-  clear: both;
-  content: " ";
-  display: block;
-  visibility: hidden;
-  height: 0;
-  font-size: 0;
-}
-
-/* /// */
 /* Styling */
-/* /// */
-=======
-/* Styling */
->>>>>>> tentatively repositioned/styled the back button
 header {
   text-align: center;
 }
@@ -1283,8 +1253,6 @@ header h1 {
   text-shadow: white 0 -1px 0, rgba(0, 0, 0, 0.3) 0 1px 0, rgba(195, 48, 2, 0.1) 0 0 10px;
 }
 
-<<<<<<< HEAD
-=======
 article {
   width: 100%;
   background: url("images/textures/bg_noise_80x80.png") repeat, #f9f9f9;
@@ -1299,7 +1267,6 @@ article:after {
   font-size: 0;
 }
 
->>>>>>> tentatively repositioned/styled the back button
 .container {
   /* Signin lives outside */
 }
@@ -1497,23 +1464,15 @@ article:after {
   height: 200px;
   margin: 40px;
 }
-<<<<<<< HEAD
 
 a#logo {
-=======
-.container.teams .teams a#logo {
->>>>>>> tentatively repositioned/styled the back button
   display: block;
   overflow: hidden;
   position: relative;
   height: 100%;
   width: 100%;
 }
-<<<<<<< HEAD
 a#logo h3 {
-=======
-.container.teams .teams a#logo h3 {
->>>>>>> tentatively repositioned/styled the back button
   font-size: 26px;
   /*position*/
   position: absolute;
@@ -1539,14 +1498,10 @@ a#logo h3 {
   /*misc*/
   background: url("images/textures/bg_noise_80x80.png") repeat, #f9f9f9;
 }
-<<<<<<< HEAD
 a#logo h3 span {
   display: block;
 }
 a#logo h4 {
-=======
-.container.teams .teams a#logo h4 {
->>>>>>> tentatively repositioned/styled the back button
   font-size: 16px;
   /*position*/
   position: absolute;
@@ -1570,11 +1525,7 @@ a#logo h4 {
   /*misc*/
   background: url("images/textures/bg_noise_80x80.png") repeat, #f9f9f9;
 }
-<<<<<<< HEAD
 a#logo .shield {
-=======
-.container.teams .teams a#logo .shield {
->>>>>>> tentatively repositioned/styled the back button
   margin-top: 50px;
   margin-left: 40px;
   position: relative;
@@ -1584,11 +1535,7 @@ a#logo .shield {
   color: #2e66b2;
   background: transparent !important;
 }
-<<<<<<< HEAD
 a#logo .shield:before {
-=======
-.container.teams .teams a#logo .shield:before {
->>>>>>> tentatively repositioned/styled the back button
   content: "";
   display: block;
   position: absolute;
@@ -1599,11 +1546,7 @@ a#logo .shield:before {
   border-width: 80px 10px 0;
   width: 100px;
 }
-<<<<<<< HEAD
 a#logo .shield:after {
-=======
-.container.teams .teams a#logo .shield:after {
->>>>>>> tentatively repositioned/styled the back button
   content: "";
   display: block;
   position: absolute;
@@ -1617,11 +1560,7 @@ a#logo .shield:after {
   margin-left: 10px;
   width: 0;
 }
-<<<<<<< HEAD
 a#logo .shield span {
-=======
-.container.teams .teams a#logo .shield span {
->>>>>>> tentatively repositioned/styled the back button
   display: block;
   position: relative;
   width: 100px;
@@ -1633,11 +1572,7 @@ a#logo .shield span {
   left: 10px;
   top: 10px;
 }
-<<<<<<< HEAD
 a#logo .shield span:before {
-=======
-.container.teams .teams a#logo .shield span:before {
->>>>>>> tentatively repositioned/styled the back button
   content: "";
   display: block;
   position: absolute;
@@ -1648,11 +1583,7 @@ a#logo .shield span:before {
   border-width: 64px 10px 0;
   width: 80px;
 }
-<<<<<<< HEAD
 a#logo .shield span:after {
-=======
-.container.teams .teams a#logo .shield span:after {
->>>>>>> tentatively repositioned/styled the back button
   content: "";
   display: block;
   position: absolute;
@@ -1666,11 +1597,7 @@ a#logo .shield span:after {
   margin-left: 10px;
   width: 0;
 }
-<<<<<<< HEAD
 a#logo .flatdiamond {
-=======
-.container.teams .teams a#logo .flatdiamond {
->>>>>>> tentatively repositioned/styled the back button
   margin-top: 40px;
   margin-left: 20px;
   position: relative;
@@ -1682,11 +1609,7 @@ a#logo .flatdiamond {
   height: 120px;
   background: transparent !important;
 }
-<<<<<<< HEAD
 a#logo .flatdiamond:before {
-=======
-.container.teams .teams a#logo .flatdiamond:before {
->>>>>>> tentatively repositioned/styled the back button
   content: '';
   position: absolute;
   top: auto;
@@ -1702,11 +1625,7 @@ a#logo .flatdiamond:before {
   border-width: 0 80px 60px 80px;
   z-index: 1;
 }
-<<<<<<< HEAD
 a#logo .flatdiamond:after {
-=======
-.container.teams .teams a#logo .flatdiamond:after {
->>>>>>> tentatively repositioned/styled the back button
   content: '';
   position: absolute;
   top: 60px;
@@ -1722,11 +1641,7 @@ a#logo .flatdiamond:after {
   border-width: 60px 80px 0 80px;
   z-index: 1;
 }
-<<<<<<< HEAD
 a#logo .flatdiamond span {
-=======
-.container.teams .teams a#logo .flatdiamond span {
->>>>>>> tentatively repositioned/styled the back button
   display: block;
   position: relative;
   top: auto;
@@ -1740,11 +1655,7 @@ a#logo .flatdiamond span {
   left: 10px;
   top: 10px;
 }
-<<<<<<< HEAD
 a#logo .flatdiamond span:before {
-=======
-.container.teams .teams a#logo .flatdiamond span:before {
->>>>>>> tentatively repositioned/styled the back button
   content: '';
   position: absolute;
   top: auto;
@@ -1760,11 +1671,7 @@ a#logo .flatdiamond span:before {
   border-width: 0 70px 50px 70px;
   z-index: 1;
 }
-<<<<<<< HEAD
 a#logo .flatdiamond span:after {
-=======
-.container.teams .teams a#logo .flatdiamond span:after {
->>>>>>> tentatively repositioned/styled the back button
   content: '';
   position: absolute;
   top: 50px;
@@ -1780,11 +1687,7 @@ a#logo .flatdiamond span:after {
   border-width: 50px 70px 0 70px;
   z-index: 1;
 }
-<<<<<<< HEAD
 a#logo .diamond {
-=======
-.container.teams .teams a#logo .diamond {
->>>>>>> tentatively repositioned/styled the back button
   margin-top: 20px;
   margin-left: 40px;
   position: relative;
@@ -1796,11 +1699,7 @@ a#logo .diamond {
   height: 160px;
   background: transparent !important;
 }
-<<<<<<< HEAD
 a#logo .diamond:before {
-=======
-.container.teams .teams a#logo .diamond:before {
->>>>>>> tentatively repositioned/styled the back button
   content: '';
   position: absolute;
   top: auto;
@@ -1816,11 +1715,7 @@ a#logo .diamond:before {
   border-width: 0 60px 80px 60px;
   z-index: 1;
 }
-<<<<<<< HEAD
 a#logo .diamond:after {
-=======
-.container.teams .teams a#logo .diamond:after {
->>>>>>> tentatively repositioned/styled the back button
   content: '';
   position: absolute;
   top: 80px;
@@ -1836,11 +1731,7 @@ a#logo .diamond:after {
   border-width: 80px 60px 0 60px;
   z-index: 1;
 }
-<<<<<<< HEAD
 a#logo .diamond span {
-=======
-.container.teams .teams a#logo .diamond span {
->>>>>>> tentatively repositioned/styled the back button
   display: block;
   position: relative;
   top: auto;
@@ -1854,11 +1745,7 @@ a#logo .diamond span {
   left: 10px;
   top: 10px;
 }
-<<<<<<< HEAD
 a#logo .diamond span:before {
-=======
-.container.teams .teams a#logo .diamond span:before {
->>>>>>> tentatively repositioned/styled the back button
   content: '';
   position: absolute;
   top: auto;
@@ -1874,11 +1761,7 @@ a#logo .diamond span:before {
   border-width: 0 50px 70px 50px;
   z-index: 1;
 }
-<<<<<<< HEAD
 a#logo .diamond span:after {
-=======
-.container.teams .teams a#logo .diamond span:after {
->>>>>>> tentatively repositioned/styled the back button
   content: '';
   position: absolute;
   top: 70px;
@@ -1894,11 +1777,7 @@ a#logo .diamond span:after {
   border-width: 70px 50px 0 50px;
   z-index: 1;
 }
-<<<<<<< HEAD
 a#logo .darrow {
-=======
-.container.teams .teams a#logo .darrow {
->>>>>>> tentatively repositioned/styled the back button
   /*math doesnt seem to work with scout*/
   /*change this to affect total size*/
   /*makes equilateral tri*/
@@ -1914,11 +1793,7 @@ a#logo .darrow {
   height: 120.4px;
   background: transparent !important;
 }
-<<<<<<< HEAD
 a#logo .darrow:before {
-=======
-.container.teams .teams a#logo .darrow:before {
->>>>>>> tentatively repositioned/styled the back button
   content: '';
   position: absolute;
   top: auto;
@@ -1936,11 +1811,7 @@ a#logo .darrow:before {
   border-left-color: transparent;
   border-width: 120.4px 70px 0 70px;
 }
-<<<<<<< HEAD
 a#logo .darrow span {
-=======
-.container.teams .teams a#logo .darrow span {
->>>>>>> tentatively repositioned/styled the back button
   display: block;
   position: relative;
   position: relative;
@@ -1955,11 +1826,7 @@ a#logo .darrow span {
   left: 10px;
   top: 5.7px;
 }
-<<<<<<< HEAD
 a#logo .darrow span:before {
-=======
-.container.teams .teams a#logo .darrow span:before {
->>>>>>> tentatively repositioned/styled the back button
   content: '';
   position: absolute;
   top: auto;
@@ -1977,11 +1844,7 @@ a#logo .darrow span:before {
   border-left-color: transparent;
   border-width: 100.4px 60px 0 60px;
 }
-<<<<<<< HEAD
 a#logo .uarrow {
-=======
-.container.teams .teams a#logo .uarrow {
->>>>>>> tentatively repositioned/styled the back button
   /*math doesnt seem to work with scout*/
   /*change this to affect total size*/
   /*makes equilateral tri*/
@@ -1996,11 +1859,7 @@ a#logo .uarrow {
   height: 120.4px;
   background: transparent !important;
 }
-<<<<<<< HEAD
 a#logo .uarrow:before {
-=======
-.container.teams .teams a#logo .uarrow:before {
->>>>>>> tentatively repositioned/styled the back button
   content: '';
   position: absolute;
   top: auto;
@@ -2018,11 +1877,7 @@ a#logo .uarrow:before {
   border-left-color: transparent;
   border-width: 0 70px 120.4px 70px;
 }
-<<<<<<< HEAD
 a#logo .uarrow span {
-=======
-.container.teams .teams a#logo .uarrow span {
->>>>>>> tentatively repositioned/styled the back button
   display: block;
   position: absolute;
   top: 50%;
@@ -2036,11 +1891,7 @@ a#logo .uarrow span {
   left: 10px;
   margin-top: -50.2px;
 }
-<<<<<<< HEAD
 a#logo .uarrow span:before {
-=======
-.container.teams .teams a#logo .uarrow span:before {
->>>>>>> tentatively repositioned/styled the back button
   content: '';
   position: absolute;
   top: auto;
@@ -2058,11 +1909,7 @@ a#logo .uarrow span:before {
   border-left-color: transparent;
   border-width: 0 60px 100.4px 60px;
 }
-<<<<<<< HEAD
 a#logo .circle {
-=======
-.container.teams .teams a#logo .circle {
->>>>>>> tentatively repositioned/styled the back button
   /*change this to affect total size*/
   margin-top: -70px;
   margin-left: 30px;
@@ -2081,11 +1928,7 @@ a#logo .circle {
   -khtml-border-radius: 70px;
   border-radius: 70px;
 }
-<<<<<<< HEAD
 a#logo .circle span {
-=======
-.container.teams .teams a#logo .circle span {
->>>>>>> tentatively repositioned/styled the back button
   display: block;
   position: absolute;
   top: 50%;
@@ -2105,11 +1948,7 @@ a#logo .circle span {
   left: 10px;
   margin-top: -60px;
 }
-<<<<<<< HEAD
 a#logo .flatcircle {
-=======
-.container.teams .teams a#logo .flatcircle {
->>>>>>> tentatively repositioned/styled the back button
   margin-top: -50px;
   margin-left: 20px;
   position: absolute;
@@ -2127,11 +1966,7 @@ a#logo .flatcircle {
   -khtml-border-radius: 50%;
   border-radius: 50%;
 }
-<<<<<<< HEAD
 a#logo .flatcircle span {
-=======
-.container.teams .teams a#logo .flatcircle span {
->>>>>>> tentatively repositioned/styled the back button
   display: block;
   position: absolute;
   top: 50%;
@@ -2151,11 +1986,7 @@ a#logo .flatcircle span {
   left: 10px;
   margin-top: -40px;
 }
-<<<<<<< HEAD
 a#logo .national {
-=======
-.container.teams .teams a#logo .national {
->>>>>>> tentatively repositioned/styled the back button
   margin-top: -50px;
   margin-left: 50px;
   position: absolute;
@@ -2166,11 +1997,7 @@ a#logo .national {
   width: 100px;
   height: 100px;
 }
-<<<<<<< HEAD
 a#logo .national:before, a#logo .national:after {
-=======
-.container.teams .teams a#logo .national:before, .container.teams .teams a#logo .national:after {
->>>>>>> tentatively repositioned/styled the back button
   content: '';
   -moz-transform: skew(-30deg);
   -webkit-transform: skew(-30deg);
@@ -2178,11 +2005,7 @@ a#logo .national:before, a#logo .national:after {
   -ms-transform: skew(-30deg);
   transform: skew(-30deg);
 }
-<<<<<<< HEAD
 a#logo .national:before {
-=======
-.container.teams .teams a#logo .national:before {
->>>>>>> tentatively repositioned/styled the back button
   position: absolute;
   top: auto;
   bottom: auto;
@@ -2198,11 +2021,7 @@ a#logo .national:before {
   border-radius: 5px 0 0 5px;
   background: #2e66b2;
 }
-<<<<<<< HEAD
 a#logo .national:after {
-=======
-.container.teams .teams a#logo .national:after {
->>>>>>> tentatively repositioned/styled the back button
   position: absolute;
   top: auto;
   bottom: auto;
@@ -2218,11 +2037,7 @@ a#logo .national:after {
   border-radius: 0 5px 5px 0;
   background: #2e66b2;
 }
-<<<<<<< HEAD
 a#logo .national span {
-=======
-.container.teams .teams a#logo .national span {
->>>>>>> tentatively repositioned/styled the back button
   display: block;
   position: absolute;
   top: 50%;
@@ -2235,11 +2050,7 @@ a#logo .national span {
   left: 10px;
   margin-top: -40px;
 }
-<<<<<<< HEAD
 a#logo .national span:before, a#logo .national span:after {
-=======
-.container.teams .teams a#logo .national span:before, .container.teams .teams a#logo .national span:after {
->>>>>>> tentatively repositioned/styled the back button
   content: '';
   -moz-transform: skew(-30deg);
   -webkit-transform: skew(-30deg);
@@ -2247,11 +2058,7 @@ a#logo .national span:before, a#logo .national span:after {
   -ms-transform: skew(-30deg);
   transform: skew(-30deg);
 }
-<<<<<<< HEAD
 a#logo .national span:before {
-=======
-.container.teams .teams a#logo .national span:before {
->>>>>>> tentatively repositioned/styled the back button
   position: absolute;
   top: auto;
   bottom: auto;
@@ -2267,11 +2074,7 @@ a#logo .national span:before {
   border-radius: 5px 0 0 5px;
   background: #ff5c2b;
 }
-<<<<<<< HEAD
 a#logo .national span:after {
-=======
-.container.teams .teams a#logo .national span:after {
->>>>>>> tentatively repositioned/styled the back button
   position: absolute;
   top: auto;
   bottom: auto;
@@ -2287,11 +2090,7 @@ a#logo .national span:after {
   border-radius: 0 5px 5px 0;
   background: #ff5c2b;
 }
-<<<<<<< HEAD
 a#logo .bolt {
-=======
-.container.teams .teams a#logo .bolt {
->>>>>>> tentatively repositioned/styled the back button
   margin-top: -70px;
   margin-left: 30px;
   position: absolute;
@@ -2303,11 +2102,7 @@ a#logo .bolt {
   height: 140px;
   background: transparent !important;
 }
-<<<<<<< HEAD
 a#logo .bolt:before {
-=======
-.container.teams .teams a#logo .bolt:before {
->>>>>>> tentatively repositioned/styled the back button
   content: '';
   border-style: solid;
   border-width: 28px 35px;
@@ -2324,11 +2119,7 @@ a#logo .bolt:before {
   -ms-transform: skew(-30deg);
   transform: skew(-30deg);
 }
-<<<<<<< HEAD
 a#logo .bolt:after {
-=======
-.container.teams .teams a#logo .bolt:after {
->>>>>>> tentatively repositioned/styled the back button
   content: '';
   position: absolute;
   top: 40%;
@@ -2346,11 +2137,7 @@ a#logo .bolt:after {
   border-top-width: 84px;
   border-right: 70px solid transparent;
 }
-<<<<<<< HEAD
 a#logo .bolt span {
-=======
-.container.teams .teams a#logo .bolt span {
->>>>>>> tentatively repositioned/styled the back button
   display: block;
   position: absolute;
   top: 50%;
@@ -2364,11 +2151,7 @@ a#logo .bolt span {
   left: 10px;
   margin-top: -65px;
 }
-<<<<<<< HEAD
 a#logo .bolt span:before {
-=======
-.container.teams .teams a#logo .bolt span:before {
->>>>>>> tentatively repositioned/styled the back button
   content: '';
   border-style: solid;
   border-width: 26px 32.5px;
@@ -2385,11 +2168,7 @@ a#logo .bolt span:before {
   -ms-transform: skew(-30deg);
   transform: skew(-30deg);
 }
-<<<<<<< HEAD
 a#logo .bolt span:after {
-=======
-.container.teams .teams a#logo .bolt span:after {
->>>>>>> tentatively repositioned/styled the back button
   content: '';
   position: absolute;
   top: 40%;
@@ -2407,11 +2186,7 @@ a#logo .bolt span:after {
   border-top-width: 78px;
   border-right: 65px solid transparent;
 }
-<<<<<<< HEAD
 a#logo .crown {
-=======
-.container.teams .teams a#logo .crown {
->>>>>>> tentatively repositioned/styled the back button
   width: 0;
   height: 0;
   margin-top: -70px;
@@ -2431,11 +2206,7 @@ a#logo .crown {
   /*  border-bottom-color: transparent;*/
   border-width: 70px;
 }
-<<<<<<< HEAD
 a#logo .crown:before {
-=======
-.container.teams .teams a#logo .crown:before {
->>>>>>> tentatively repositioned/styled the back button
   content: '';
   position: absolute;
   top: auto;
@@ -2449,11 +2220,7 @@ a#logo .crown:before {
   border-top-color: transparent;
   border-right-color: transparent;
 }
-<<<<<<< HEAD
 a#logo .crown:after {
-=======
-.container.teams .teams a#logo .crown:after {
->>>>>>> tentatively repositioned/styled the back button
   content: '';
   position: absolute;
   top: auto;
@@ -2467,11 +2234,7 @@ a#logo .crown:after {
   border-top-color: transparent;
   border-left-color: transparent;
 }
-<<<<<<< HEAD
 a#logo .crown span {
-=======
-.container.teams .teams a#logo .crown span {
->>>>>>> tentatively repositioned/styled the back button
   display: block;
   position: absolute;
   top: 25%;
@@ -2491,11 +2254,7 @@ a#logo .crown span {
   left: -70px;
   margin-top: -60px;
 }
-<<<<<<< HEAD
 a#logo .crown span:before {
-=======
-.container.teams .teams a#logo .crown span:before {
->>>>>>> tentatively repositioned/styled the back button
   content: '';
   position: absolute;
   top: auto;
@@ -2509,11 +2268,7 @@ a#logo .crown span:before {
   border-top-color: transparent;
   border-right-color: transparent;
 }
-<<<<<<< HEAD
 a#logo .crown span:after {
-=======
-.container.teams .teams a#logo .crown span:after {
->>>>>>> tentatively repositioned/styled the back button
   content: '';
   position: absolute;
   top: auto;
@@ -3007,37 +2762,37 @@ a.btn.google[disabled]:hover, a.btn.google[disabled]:active, a.btn.google.disabl
   box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px 0 inset;
 }
 a.btn.back, button.btn.back {
-  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzMzYWRmZiIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjMDA5OWZmIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMDA3YWNjIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g'), #0099ff;
-  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #33adff), color-stop(50%, #0099ff), color-stop(100%, #007acc)), #0099ff;
-  background: -webkit-linear-gradient(top, #33adff, #0099ff 50%, #007acc 100%), #0099ff;
-  background: -moz-linear-gradient(top, #33adff, #0099ff 50%, #007acc 100%), #0099ff;
-  background: -o-linear-gradient(top, #33adff, #0099ff 50%, #007acc 100%), #0099ff;
-  background: -ms-linear-gradient(top, #33adff, #0099ff 50%, #007acc 100%), #0099ff;
-  background: linear-gradient(top, #33adff, #0099ff 50%, #007acc 100%), #0099ff;
-  border-right: 1px solid #007acc;
-  border-left: 1px solid #007acc;
-  border-top: 1px solid #4db8ff;
-  border-bottom: 1px solid #003d66;
+  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2U5ZTJlMiIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjY2NjY2NjIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjYjNiM2IzIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g'), #cccccc;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e9e2e2), color-stop(50%, #cccccc), color-stop(100%, #b3b3b3)), #cccccc;
+  background: -webkit-linear-gradient(top, #e9e2e2, #cccccc 50%, #b3b3b3 100%), #cccccc;
+  background: -moz-linear-gradient(top, #e9e2e2, #cccccc 50%, #b3b3b3 100%), #cccccc;
+  background: -o-linear-gradient(top, #e9e2e2, #cccccc 50%, #b3b3b3 100%), #cccccc;
+  background: -ms-linear-gradient(top, #e9e2e2, #cccccc 50%, #b3b3b3 100%), #cccccc;
+  background: linear-gradient(top, #e9e2e2, #cccccc 50%, #b3b3b3 100%), #cccccc;
+  border-right: 1px solid #b3b3b3;
+  border-left: 1px solid #b3b3b3;
+  border-top: 1px solid #f2f2f2;
+  border-bottom: 1px solid gray;
   color: #fff;
   text-shadow: rgba(0, 0, 0, 0.7) 0 1px 0;
 }
 a.btn.back:hover, button.btn.back:hover {
   color: #fff;
-  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSI3MCUiIHN0b3AtY29sb3I9IiMwMDk5ZmYiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDhhZTYiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA='), #0099ff;
-  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(70%, #0099ff), color-stop(100%, #008ae6)), #0099ff;
-  background: -webkit-linear-gradient(top, #0099ff 70%, #008ae6 100%), #0099ff;
-  background: -moz-linear-gradient(top, #0099ff 70%, #008ae6 100%), #0099ff;
-  background: -o-linear-gradient(top, #0099ff 70%, #008ae6 100%), #0099ff;
-  background: -ms-linear-gradient(top, #0099ff 70%, #008ae6 100%), #0099ff;
-  background: linear-gradient(top, #0099ff 70%, #008ae6 100%), #0099ff;
+  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSI3MCUiIHN0b3AtY29sb3I9IiNkNmMyYzIiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNiZmJmYmYiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA='), #cccccc;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(70%, #d6c2c2), color-stop(100%, #bfbfbf)), #cccccc;
+  background: -webkit-linear-gradient(top, #d6c2c2 70%, #bfbfbf 100%), #cccccc;
+  background: -moz-linear-gradient(top, #d6c2c2 70%, #bfbfbf 100%), #cccccc;
+  background: -o-linear-gradient(top, #d6c2c2 70%, #bfbfbf 100%), #cccccc;
+  background: -ms-linear-gradient(top, #d6c2c2 70%, #bfbfbf 100%), #cccccc;
+  background: linear-gradient(top, #d6c2c2 70%, #bfbfbf 100%), #cccccc;
 }
 a.btn.back:active, button.btn.back:active {
   color: #fff;
   text-shadow: rgba(0, 0, 0, 0.7) 0 1px 0;
-  border-right: 1px solid #007acc;
-  border-left: 1px solid #007acc;
-  border-bottom: 1px solid #99d6ff;
-  border-top: 1px solid #003d66;
+  border-right: 1px solid #b3b3b3;
+  border-left: 1px solid #b3b3b3;
+  border-bottom: 1px solid white;
+  border-top: 1px solid gray;
   -moz-box-shadow: rgba(0, 0, 0, 0.2) 0 2px 3px 0 inset, rgba(255, 255, 255, 0.7) 0 1px 0px 0;
   -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 2px 3px 0 inset, rgba(255, 255, 255, 0.7) 0 1px 0px 0;
   -o-box-shadow: rgba(0, 0, 0, 0.2) 0 2px 3px 0 inset, rgba(255, 255, 255, 0.7) 0 1px 0px 0;
@@ -3053,10 +2808,10 @@ a.btn.back[disabled], a.btn.back.disabled, button.btn.back[disabled], button.btn
   background-image: -o-linear-gradient(top, rgba(238, 238, 238, 0), rgba(238, 238, 238, 0.6) 100%);
   background-image: -ms-linear-gradient(top, rgba(238, 238, 238, 0), rgba(238, 238, 238, 0.6) 100%);
   background-image: linear-gradient(top, rgba(238, 238, 238, 0), rgba(238, 238, 238, 0.6) 100%);
-  border-right: 1px solid #007acc;
-  border-left: 1px solid #007acc;
-  border-bottom: 1px solid #99d6ff;
-  border-top: 1px solid #003d66;
+  border-right: 1px solid #b3b3b3;
+  border-left: 1px solid #b3b3b3;
+  border-bottom: 1px solid white;
+  border-top: 1px solid gray;
   -moz-box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px 0 inset;
   -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px 0 inset;
   -o-box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px 0 inset;
@@ -3117,37 +2872,37 @@ a.btn.back:active:after, button.btn.back:active:after {
   position: absolute;
 }
 a.btn.fwd, button.btn.fwd {
-  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzMzYWRmZiIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjMDA5OWZmIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMDA3YWNjIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g'), #0099ff;
-  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #33adff), color-stop(50%, #0099ff), color-stop(100%, #007acc)), #0099ff;
-  background: -webkit-linear-gradient(top, #33adff, #0099ff 50%, #007acc 100%), #0099ff;
-  background: -moz-linear-gradient(top, #33adff, #0099ff 50%, #007acc 100%), #0099ff;
-  background: -o-linear-gradient(top, #33adff, #0099ff 50%, #007acc 100%), #0099ff;
-  background: -ms-linear-gradient(top, #33adff, #0099ff 50%, #007acc 100%), #0099ff;
-  background: linear-gradient(top, #33adff, #0099ff 50%, #007acc 100%), #0099ff;
-  border-right: 1px solid #007acc;
-  border-left: 1px solid #007acc;
-  border-top: 1px solid #4db8ff;
-  border-bottom: 1px solid #003d66;
+  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2U5ZTJlMiIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjY2NjY2NjIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjYjNiM2IzIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g'), #cccccc;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e9e2e2), color-stop(50%, #cccccc), color-stop(100%, #b3b3b3)), #cccccc;
+  background: -webkit-linear-gradient(top, #e9e2e2, #cccccc 50%, #b3b3b3 100%), #cccccc;
+  background: -moz-linear-gradient(top, #e9e2e2, #cccccc 50%, #b3b3b3 100%), #cccccc;
+  background: -o-linear-gradient(top, #e9e2e2, #cccccc 50%, #b3b3b3 100%), #cccccc;
+  background: -ms-linear-gradient(top, #e9e2e2, #cccccc 50%, #b3b3b3 100%), #cccccc;
+  background: linear-gradient(top, #e9e2e2, #cccccc 50%, #b3b3b3 100%), #cccccc;
+  border-right: 1px solid #b3b3b3;
+  border-left: 1px solid #b3b3b3;
+  border-top: 1px solid #f2f2f2;
+  border-bottom: 1px solid gray;
   color: #fff;
   text-shadow: rgba(0, 0, 0, 0.7) 0 1px 0;
 }
 a.btn.fwd:hover, button.btn.fwd:hover {
   color: #fff;
-  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSI3MCUiIHN0b3AtY29sb3I9IiMwMDk5ZmYiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDhhZTYiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA='), #0099ff;
-  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(70%, #0099ff), color-stop(100%, #008ae6)), #0099ff;
-  background: -webkit-linear-gradient(top, #0099ff 70%, #008ae6 100%), #0099ff;
-  background: -moz-linear-gradient(top, #0099ff 70%, #008ae6 100%), #0099ff;
-  background: -o-linear-gradient(top, #0099ff 70%, #008ae6 100%), #0099ff;
-  background: -ms-linear-gradient(top, #0099ff 70%, #008ae6 100%), #0099ff;
-  background: linear-gradient(top, #0099ff 70%, #008ae6 100%), #0099ff;
+  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSI3MCUiIHN0b3AtY29sb3I9IiNkNmMyYzIiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNiZmJmYmYiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA='), #cccccc;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(70%, #d6c2c2), color-stop(100%, #bfbfbf)), #cccccc;
+  background: -webkit-linear-gradient(top, #d6c2c2 70%, #bfbfbf 100%), #cccccc;
+  background: -moz-linear-gradient(top, #d6c2c2 70%, #bfbfbf 100%), #cccccc;
+  background: -o-linear-gradient(top, #d6c2c2 70%, #bfbfbf 100%), #cccccc;
+  background: -ms-linear-gradient(top, #d6c2c2 70%, #bfbfbf 100%), #cccccc;
+  background: linear-gradient(top, #d6c2c2 70%, #bfbfbf 100%), #cccccc;
 }
 a.btn.fwd:active, button.btn.fwd:active {
   color: #fff;
   text-shadow: rgba(0, 0, 0, 0.7) 0 1px 0;
-  border-right: 1px solid #007acc;
-  border-left: 1px solid #007acc;
-  border-bottom: 1px solid #99d6ff;
-  border-top: 1px solid #003d66;
+  border-right: 1px solid #b3b3b3;
+  border-left: 1px solid #b3b3b3;
+  border-bottom: 1px solid white;
+  border-top: 1px solid gray;
   -moz-box-shadow: rgba(0, 0, 0, 0.2) 0 2px 3px 0 inset, rgba(255, 255, 255, 0.7) 0 1px 0px 0;
   -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 2px 3px 0 inset, rgba(255, 255, 255, 0.7) 0 1px 0px 0;
   -o-box-shadow: rgba(0, 0, 0, 0.2) 0 2px 3px 0 inset, rgba(255, 255, 255, 0.7) 0 1px 0px 0;
@@ -3163,10 +2918,10 @@ a.btn.fwd[disabled], a.btn.fwd.disabled, button.btn.fwd[disabled], button.btn.fw
   background-image: -o-linear-gradient(top, rgba(238, 238, 238, 0), rgba(238, 238, 238, 0.6) 100%);
   background-image: -ms-linear-gradient(top, rgba(238, 238, 238, 0), rgba(238, 238, 238, 0.6) 100%);
   background-image: linear-gradient(top, rgba(238, 238, 238, 0), rgba(238, 238, 238, 0.6) 100%);
-  border-right: 1px solid #007acc;
-  border-left: 1px solid #007acc;
-  border-bottom: 1px solid #99d6ff;
-  border-top: 1px solid #003d66;
+  border-right: 1px solid #b3b3b3;
+  border-left: 1px solid #b3b3b3;
+  border-bottom: 1px solid white;
+  border-top: 1px solid gray;
   -moz-box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px 0 inset;
   -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px 0 inset;
   -o-box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px 0 inset;
