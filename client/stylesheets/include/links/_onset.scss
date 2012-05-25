@@ -23,34 +23,55 @@
     $color
   );
   @include border($color, 1px);
-  color: #fff;
-  @include emboss;
+  @include letterpress($color);
+  @if lightness($color) > 50% {
+    color: darken($color, 90%);
+  }@else {
+    color: lighten($color, 90%);
+  }
   &:hover{
-    color: #fff;
+    @if lightness($color) > 50% {
+      color: darken($color, 30%);
+    }@else {
+      color: lighten($color, 50%);
+    }
     @include background( 
       linear-gradient(top, saturate($color, 20%) 70%, darken($color, 5%) 100%),
       $color
     );
   }
   &:active {
-    color: #fff;
-    @include emboss;
+    @if lightness($color) > 50% {
+      color: darken($color, 90%);
+    }@else {
+      color: lighten($color, 90%);
+    }
     @include border($color, 1px, impress);
-    @include box-shadow(rgba(0,0,0, .2) 0 2px 3px 0 inset, rgba(255,255,255, .7) 0 1px 0px 0);
+    @include box-shadow(
+      rgba(darken($color, 90%), .2) 0 2px 5px 0 inset, 
+      rgba(lighten($color, 90%), .7) 0 1px 0px 0
+    );
   }
   &[disabled], &.disabled{
-    @include emboss_neg;
-    @include background-image( linear-gradient(top, rgba(238,238,238, 0), rgba(238,238,238, .6) 100%));
-    @include border($color, 1px, impress);
-    @include box-shadow(rgba(0,0,0, .3) 0 1px 3px 0 inset );    
-    background-color: #ccc;
-    color: #999;
-    cursor: not-allowed;
-    &:hover, &:active{
-      background-color: #ccc;
-      color: #999;
-      @include background-image( linear-gradient(top, rgba(238,238,238, 0), rgba(238,238,238, .6) 100%));
-      @include box-shadow(rgba(0,0,0, .3) 0 1px 3px 0 inset );    
+    @if lightness($color) > 50% {
+      color: darken($color, 50%);
+    }@else {
+      color: lighten($color, 50%);
     }
+    @include letterpress(desaturate($color, 30%));
+    @include background( 
+      linear-gradient(top, 
+        rgba(saturate(lighten($color, 10%), 15%), .5), 
+        rgba($color, .5) 50%, 
+        rgba(darken($color, 10%), .5) 100%
+      ),
+      desaturate($color, 80%)
+    );
+    @include border($color, 1px, impress);
+    @include box-shadow(
+      rgba(darken($color, 90%), .2) 0 2px 5px 0 inset, 
+      rgba(lighten($color, 90%), .7) 0 1px 0px 0
+    );
+    cursor: not-allowed;
   }
 }

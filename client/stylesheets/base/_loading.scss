@@ -29,7 +29,7 @@
       line-height: 1em;
       font-weight: bold;
       color: rgba($skyblued, 1);
-      @include impress(darken($skyblue, 70%));
+      @include letterpress(darken($skyblue, 70%));
     }
   }
 }

@@ -1,17 +1,14 @@
-@mixin impress($color){
-  @include text-shadow(
-    rgba(lighten($color, 90%), .7) 0 1px 0,
-    rgba(darken($color, 30%), .3) 0 -1px 0
-  );
-}
-@mixin emboss{
-  @include text-shadow(rgba(0,0,0, .7) 0 1px 0);
-}
-@mixin emboss_neg{
-  @include text-shadow(rgba(255,255,255, .7) 0 -1px 0);
-}
-@mixin raised{
-  @include text-shadow(rgba(0,0,0, .7) 0 1px 3px);
+@mixin letterpress($color){
+  @if lightness($color) > 50% {
+    @include text-shadow(
+      rgba(lighten($color, 90%), .7) 0 1px 0,
+      rgba(darken($color, 30%), .3) 0 -1px 0
+    );    
+  } @else {
+    @include text-shadow(    
+      rgba(darken($color, 30%), .5) 0 1px 0  
+    );
+  }
 }
 @mixin border($color, $width: 1px, $emboss: 'emboss'){
   border-right: 1px solid darken($color, 10%);
@@ -32,7 +29,7 @@
     linear-gradient(top, rgba(0, 0, 0, .9), rgba(0, 0, 0, .6) 5%, rgba(0, 0, 0, .3) 40% , rgba(101, 104, 120, .5) 90%),
     #3f464b
   );
-  @include raised;      
+  @include text-shadow(rgba(0,0,0, .7) 0 1px 3px);
   color: #fff;
   clear: both;
 }

@@ -13,7 +13,7 @@
   &:active{color: $color;}
 }
 @mixin inset($color:#666){
-  @include impress($color);
+  @include letterpress($color);
   color: $color;
   &:hover {color: $lblue;}
   &:active {color: $blend;}
@@ -24,7 +24,7 @@
   }
 }
 @mixin seclink{
-  @include impress($orange);
+  @include letterpress($orange);
   color: $orange;
   &:hover {color: $orange;}
   &:active {color: $orange;}
@@ -37,5 +37,5 @@
 @mixin inverse{
   color: white;
   &:hover {color:$lblue;}
-  &:active {color: black; @include impress(black); }
+  &:active {color: black; @include letterpress(black); }
 }
