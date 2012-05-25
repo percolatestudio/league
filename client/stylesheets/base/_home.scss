@@ -81,10 +81,12 @@
     }
     form.team_builder{
       text-align: center;
+      margin-bottom: 6em;
       >*{
         display: inline-block;
         margin: auto 10px;
         font-size: 30px;
+        float: none;
       }
       select{
         width: 120px;
@@ -93,6 +95,7 @@
         width: 300px;
       }
       button{
+        font-weight: bold;
       }
     }
   }
