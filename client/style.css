@@ -1,4 +1,3 @@
-/* line 17, /Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -20,45 +19,37 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 20, /Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 body {
   line-height: 1;
 }
 
-/* line 22, /Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 24, /Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 26, /Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 28, /Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 101, /Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 30, /Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 114, /Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
   display: block;
 }
@@ -78,7 +69,6 @@ $twhex: rgba(45, 173, 216, 1);
 $gohex: rgba(170,170,170, 1);
 $onsetcolor: rgba(255,204,102, 1);*/
 /*--- icons ---*/
-/* line 3, /Users/tom/Development/Percolate/league/client/stylesheets/include/_icons.scss */
 .icon12:before, .icon16:before {
   content: '';
   display: inline-block;
@@ -87,19 +77,16 @@ $onsetcolor: rgba(255,204,102, 1);*/
   margin-bottom: -2px;
   overflow: hidden;
 }
-/* line 12, /Users/tom/Development/Percolate/league/client/stylesheets/include/_icons.scss */
 .icon12:empty:before, .icon16:empty:before {
   margin-right: 0px;
 }
 
-/* line 18, /Users/tom/Development/Percolate/league/client/stylesheets/include/_icons.scss */
 .icon12:before {
   height: 12px;
   width: 12px;
   margin-right: 4px;
 }
 
-/* line 25, /Users/tom/Development/Percolate/league/client/stylesheets/include/_icons.scss */
 .icon16:before {
   width: 16px;
   height: 16px;
@@ -108,1012 +95,802 @@ $onsetcolor: rgba(255,204,102, 1);*/
 
 /*    @include register_icon('.icon12', $class, 'images/icons_supernormal_12x12.png', 12px, $icon_no); */
 /* Dark on Light styles */
-/* line 6, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 .icon16.add:before {
   background: url("/images/icons_supernormal_16x16.png") no-repeat;
   background-position: 0px 0px;
 }
 
-/* line 14, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a:hover.icon16.add:before, a:focus.icon16.add:before, button:hover.icon16.add:before, button:focus.icon16.add:before {
   background-position: 0px -17px;
 }
-/* line 22, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a:active.icon16.add:before, button:active.icon16.add:before {
   background-position: 0px -34px;
 }
-/* line 32, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.inverse.icon16.add:before, a.checked.icon16.add:before, button.inverse.icon16.add:before, button.checked.icon16.add:before {
   background-position: 0px -51px;
 }
-/* line 39, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.inverse:hover.icon16.add:before, a.checked:hover.icon16.add:before, button.inverse:hover.icon16.add:before, button.checked:hover.icon16.add:before {
   background-position: 0px -51px;
 }
-/* line 47, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.inverse:active.icon16.add:before, a.inverse:focus.icon16.add:before, a.checked:active.icon16.add:before, a.checked:focus.icon16.add:before, button.inverse:active.icon16.add:before, button.inverse:focus.icon16.add:before, button.checked:active.icon16.add:before, button.checked:focus.icon16.add:before {
   background-position: 0px -34px;
 }
-/* line 56, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.current.icon16.add:before, button.current.icon16.add:before {
   background-position: 0px -51px;
 }
-/* line 63, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.current:hover.icon16.add:before, a.current:focus.icon16.add:before, button.current:hover.icon16.add:before, button.current:focus.icon16.add:before {
   background-position: 0px -17px;
 }
-/* line 71, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.current:active.icon16.add:before, button.current:active.icon16.add:before {
   background-position: 0px -34px;
 }
 
 /* This is for list item links it's inverted and has no hover state */
-/* line 83, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 .current > a.icon16.add:before, .current > a:hover.icon16.add:before, .current > a:focus.icon16.add:before, .current > a:active.icon16.add:before {
   background-position: 0px -51px;
 }
 
 /* Disabled icon */
-/* line 93, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 .disabled a .icon16.add:before, .disabled a:hover .icon16.add:before, .disabled a:active .icon16.add:before {
   background-position: 0px 0px;
 }
 
 /*    @include register_icon('.icon12', $class, 'images/icons_supernormal_12x12.png', 12px, $icon_no); */
 /* Dark on Light styles */
-/* line 6, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 .icon16.subtract:before {
   background: url("/images/icons_supernormal_16x16.png") no-repeat;
   background-position: -17px 0px;
 }
 
-/* line 14, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a:hover.icon16.subtract:before, a:focus.icon16.subtract:before, button:hover.icon16.subtract:before, button:focus.icon16.subtract:before {
   background-position: -17px -17px;
 }
-/* line 22, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a:active.icon16.subtract:before, button:active.icon16.subtract:before {
   background-position: -17px -34px;
 }
-/* line 32, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.inverse.icon16.subtract:before, a.checked.icon16.subtract:before, button.inverse.icon16.subtract:before, button.checked.icon16.subtract:before {
   background-position: -17px -51px;
 }
-/* line 39, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.inverse:hover.icon16.subtract:before, a.checked:hover.icon16.subtract:before, button.inverse:hover.icon16.subtract:before, button.checked:hover.icon16.subtract:before {
   background-position: -17px -51px;
 }
-/* line 47, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.inverse:active.icon16.subtract:before, a.inverse:focus.icon16.subtract:before, a.checked:active.icon16.subtract:before, a.checked:focus.icon16.subtract:before, button.inverse:active.icon16.subtract:before, button.inverse:focus.icon16.subtract:before, button.checked:active.icon16.subtract:before, button.checked:focus.icon16.subtract:before {
   background-position: -17px -34px;
 }
-/* line 56, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.current.icon16.subtract:before, button.current.icon16.subtract:before {
   background-position: -17px -51px;
 }
-/* line 63, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.current:hover.icon16.subtract:before, a.current:focus.icon16.subtract:before, button.current:hover.icon16.subtract:before, button.current:focus.icon16.subtract:before {
   background-position: -17px -17px;
 }
-/* line 71, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.current:active.icon16.subtract:before, button.current:active.icon16.subtract:before {
   background-position: -17px -34px;
 }
 
 /* This is for list item links it's inverted and has no hover state */
-/* line 83, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 .current > a.icon16.subtract:before, .current > a:hover.icon16.subtract:before, .current > a:focus.icon16.subtract:before, .current > a:active.icon16.subtract:before {
   background-position: -17px -51px;
 }
 
 /* Disabled icon */
-/* line 93, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 .disabled a .icon16.subtract:before, .disabled a:hover .icon16.subtract:before, .disabled a:active .icon16.subtract:before {
   background-position: -17px 0px;
 }
 
 /*    @include register_icon('.icon12', $class, 'images/icons_supernormal_12x12.png', 12px, $icon_no); */
 /* Dark on Light styles */
-/* line 6, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 .icon16.facebook:before {
   background: url("/images/icons_supernormal_16x16.png") no-repeat;
   background-position: -34px 0px;
 }
 
-/* line 14, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a:hover.icon16.facebook:before, a:focus.icon16.facebook:before, button:hover.icon16.facebook:before, button:focus.icon16.facebook:before {
   background-position: -34px -17px;
 }
-/* line 22, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a:active.icon16.facebook:before, button:active.icon16.facebook:before {
   background-position: -34px -34px;
 }
-/* line 32, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.inverse.icon16.facebook:before, a.checked.icon16.facebook:before, button.inverse.icon16.facebook:before, button.checked.icon16.facebook:before {
   background-position: -34px -51px;
 }
-/* line 39, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.inverse:hover.icon16.facebook:before, a.checked:hover.icon16.facebook:before, button.inverse:hover.icon16.facebook:before, button.checked:hover.icon16.facebook:before {
   background-position: -34px -51px;
 }
-/* line 47, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.inverse:active.icon16.facebook:before, a.inverse:focus.icon16.facebook:before, a.checked:active.icon16.facebook:before, a.checked:focus.icon16.facebook:before, button.inverse:active.icon16.facebook:before, button.inverse:focus.icon16.facebook:before, button.checked:active.icon16.facebook:before, button.checked:focus.icon16.facebook:before {
   background-position: -34px -34px;
 }
-/* line 56, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.current.icon16.facebook:before, button.current.icon16.facebook:before {
   background-position: -34px -51px;
 }
-/* line 63, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.current:hover.icon16.facebook:before, a.current:focus.icon16.facebook:before, button.current:hover.icon16.facebook:before, button.current:focus.icon16.facebook:before {
   background-position: -34px -17px;
 }
-/* line 71, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.current:active.icon16.facebook:before, button.current:active.icon16.facebook:before {
   background-position: -34px -34px;
 }
 
 /* This is for list item links it's inverted and has no hover state */
-/* line 83, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 .current > a.icon16.facebook:before, .current > a:hover.icon16.facebook:before, .current > a:focus.icon16.facebook:before, .current > a:active.icon16.facebook:before {
   background-position: -34px -51px;
 }
 
 /* Disabled icon */
-/* line 93, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 .disabled a .icon16.facebook:before, .disabled a:hover .icon16.facebook:before, .disabled a:active .icon16.facebook:before {
   background-position: -34px 0px;
 }
 
 /*    @include register_icon('.icon12', $class, 'images/icons_supernormal_12x12.png', 12px, $icon_no); */
 /* Dark on Light styles */
-/* line 6, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 .icon16.twitter:before {
   background: url("/images/icons_supernormal_16x16.png") no-repeat;
   background-position: -51px 0px;
 }
 
-/* line 14, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a:hover.icon16.twitter:before, a:focus.icon16.twitter:before, button:hover.icon16.twitter:before, button:focus.icon16.twitter:before {
   background-position: -51px -17px;
 }
-/* line 22, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a:active.icon16.twitter:before, button:active.icon16.twitter:before {
   background-position: -51px -34px;
 }
-/* line 32, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.inverse.icon16.twitter:before, a.checked.icon16.twitter:before, button.inverse.icon16.twitter:before, button.checked.icon16.twitter:before {
   background-position: -51px -51px;
 }
-/* line 39, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.inverse:hover.icon16.twitter:before, a.checked:hover.icon16.twitter:before, button.inverse:hover.icon16.twitter:before, button.checked:hover.icon16.twitter:before {
   background-position: -51px -51px;
 }
-/* line 47, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.inverse:active.icon16.twitter:before, a.inverse:focus.icon16.twitter:before, a.checked:active.icon16.twitter:before, a.checked:focus.icon16.twitter:before, button.inverse:active.icon16.twitter:before, button.inverse:focus.icon16.twitter:before, button.checked:active.icon16.twitter:before, button.checked:focus.icon16.twitter:before {
   background-position: -51px -34px;
 }
-/* line 56, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.current.icon16.twitter:before, button.current.icon16.twitter:before {
   background-position: -51px -51px;
 }
-/* line 63, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.current:hover.icon16.twitter:before, a.current:focus.icon16.twitter:before, button.current:hover.icon16.twitter:before, button.current:focus.icon16.twitter:before {
   background-position: -51px -17px;
 }
-/* line 71, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.current:active.icon16.twitter:before, button.current:active.icon16.twitter:before {
   background-position: -51px -34px;
 }
 
 /* This is for list item links it's inverted and has no hover state */
-/* line 83, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 .current > a.icon16.twitter:before, .current > a:hover.icon16.twitter:before, .current > a:focus.icon16.twitter:before, .current > a:active.icon16.twitter:before {
   background-position: -51px -51px;
 }
 
 /* Disabled icon */
-/* line 93, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 .disabled a .icon16.twitter:before, .disabled a:hover .icon16.twitter:before, .disabled a:active .icon16.twitter:before {
   background-position: -51px 0px;
 }
 
 /*    @include register_icon('.icon12', $class, 'images/icons_supernormal_12x12.png', 12px, $icon_no); */
 /* Dark on Light styles */
-/* line 6, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 .icon16.envelope:before {
   background: url("/images/icons_supernormal_16x16.png") no-repeat;
   background-position: -68px 0px;
 }
 
-/* line 14, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a:hover.icon16.envelope:before, a:focus.icon16.envelope:before, button:hover.icon16.envelope:before, button:focus.icon16.envelope:before {
   background-position: -68px -17px;
 }
-/* line 22, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a:active.icon16.envelope:before, button:active.icon16.envelope:before {
   background-position: -68px -34px;
 }
-/* line 32, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.inverse.icon16.envelope:before, a.checked.icon16.envelope:before, button.inverse.icon16.envelope:before, button.checked.icon16.envelope:before {
   background-position: -68px -51px;
 }
-/* line 39, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.inverse:hover.icon16.envelope:before, a.checked:hover.icon16.envelope:before, button.inverse:hover.icon16.envelope:before, button.checked:hover.icon16.envelope:before {
   background-position: -68px -51px;
 }
-/* line 47, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.inverse:active.icon16.envelope:before, a.inverse:focus.icon16.envelope:before, a.checked:active.icon16.envelope:before, a.checked:focus.icon16.envelope:before, button.inverse:active.icon16.envelope:before, button.inverse:focus.icon16.envelope:before, button.checked:active.icon16.envelope:before, button.checked:focus.icon16.envelope:before {
   background-position: -68px -34px;
 }
-/* line 56, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.current.icon16.envelope:before, button.current.icon16.envelope:before {
   background-position: -68px -51px;
 }
-/* line 63, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.current:hover.icon16.envelope:before, a.current:focus.icon16.envelope:before, button.current:hover.icon16.envelope:before, button.current:focus.icon16.envelope:before {
   background-position: -68px -17px;
 }
-/* line 71, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.current:active.icon16.envelope:before, button.current:active.icon16.envelope:before {
   background-position: -68px -34px;
 }
 
 /* This is for list item links it's inverted and has no hover state */
-/* line 83, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 .current > a.icon16.envelope:before, .current > a:hover.icon16.envelope:before, .current > a:focus.icon16.envelope:before, .current > a:active.icon16.envelope:before {
   background-position: -68px -51px;
 }
 
 /* Disabled icon */
-/* line 93, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 .disabled a .icon16.envelope:before, .disabled a:hover .icon16.envelope:before, .disabled a:active .icon16.envelope:before {
   background-position: -68px 0px;
 }
 
 /*    @include register_icon('.icon12', $class, 'images/icons_supernormal_12x12.png', 12px, $icon_no); */
 /* Dark on Light styles */
-/* line 6, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 .icon16.google:before {
   background: url("/images/icons_supernormal_16x16.png") no-repeat;
   background-position: -85px 0px;
 }
 
-/* line 14, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a:hover.icon16.google:before, a:focus.icon16.google:before, button:hover.icon16.google:before, button:focus.icon16.google:before {
   background-position: -85px -17px;
 }
-/* line 22, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a:active.icon16.google:before, button:active.icon16.google:before {
   background-position: -85px -34px;
 }
-/* line 32, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.inverse.icon16.google:before, a.checked.icon16.google:before, button.inverse.icon16.google:before, button.checked.icon16.google:before {
   background-position: -85px -51px;
 }
-/* line 39, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.inverse:hover.icon16.google:before, a.checked:hover.icon16.google:before, button.inverse:hover.icon16.google:before, button.checked:hover.icon16.google:before {
   background-position: -85px -51px;
 }
-/* line 47, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.inverse:active.icon16.google:before, a.inverse:focus.icon16.google:before, a.checked:active.icon16.google:before, a.checked:focus.icon16.google:before, button.inverse:active.icon16.google:before, button.inverse:focus.icon16.google:before, button.checked:active.icon16.google:before, button.checked:focus.icon16.google:before {
   background-position: -85px -34px;
 }
-/* line 56, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.current.icon16.google:before, button.current.icon16.google:before {
   background-position: -85px -51px;
 }
-/* line 63, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.current:hover.icon16.google:before, a.current:focus.icon16.google:before, button.current:hover.icon16.google:before, button.current:focus.icon16.google:before {
   background-position: -85px -17px;
 }
-/* line 71, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.current:active.icon16.google:before, button.current:active.icon16.google:before {
   background-position: -85px -34px;
 }
 
 /* This is for list item links it's inverted and has no hover state */
-/* line 83, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 .current > a.icon16.google:before, .current > a:hover.icon16.google:before, .current > a:focus.icon16.google:before, .current > a:active.icon16.google:before {
   background-position: -85px -51px;
 }
 
 /* Disabled icon */
-/* line 93, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 .disabled a .icon16.google:before, .disabled a:hover .icon16.google:before, .disabled a:active .icon16.google:before {
   background-position: -85px 0px;
 }
 
 /*    @include register_icon('.icon12', $class, 'images/icons_supernormal_12x12.png', 12px, $icon_no); */
 /* Dark on Light styles */
-/* line 6, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 .icon16.comment:before {
   background: url("/images/icons_supernormal_16x16.png") no-repeat;
   background-position: -102px 0px;
 }
 
-/* line 14, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a:hover.icon16.comment:before, a:focus.icon16.comment:before, button:hover.icon16.comment:before, button:focus.icon16.comment:before {
   background-position: -102px -17px;
 }
-/* line 22, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a:active.icon16.comment:before, button:active.icon16.comment:before {
   background-position: -102px -34px;
 }
-/* line 32, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.inverse.icon16.comment:before, a.checked.icon16.comment:before, button.inverse.icon16.comment:before, button.checked.icon16.comment:before {
   background-position: -102px -51px;
 }
-/* line 39, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.inverse:hover.icon16.comment:before, a.checked:hover.icon16.comment:before, button.inverse:hover.icon16.comment:before, button.checked:hover.icon16.comment:before {
   background-position: -102px -51px;
 }
-/* line 47, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.inverse:active.icon16.comment:before, a.inverse:focus.icon16.comment:before, a.checked:active.icon16.comment:before, a.checked:focus.icon16.comment:before, button.inverse:active.icon16.comment:before, button.inverse:focus.icon16.comment:before, button.checked:active.icon16.comment:before, button.checked:focus.icon16.comment:before {
   background-position: -102px -34px;
 }
-/* line 56, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.current.icon16.comment:before, button.current.icon16.comment:before {
   background-position: -102px -51px;
 }
-/* line 63, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.current:hover.icon16.comment:before, a.current:focus.icon16.comment:before, button.current:hover.icon16.comment:before, button.current:focus.icon16.comment:before {
   background-position: -102px -17px;
 }
-/* line 71, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.current:active.icon16.comment:before, button.current:active.icon16.comment:before {
   background-position: -102px -34px;
 }
 
 /* This is for list item links it's inverted and has no hover state */
-/* line 83, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 .current > a.icon16.comment:before, .current > a:hover.icon16.comment:before, .current > a:focus.icon16.comment:before, .current > a:active.icon16.comment:before {
   background-position: -102px -51px;
 }
 
 /* Disabled icon */
-/* line 93, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 .disabled a .icon16.comment:before, .disabled a:hover .icon16.comment:before, .disabled a:active .icon16.comment:before {
   background-position: -102px 0px;
 }
 
 /*    @include register_icon('.icon12', $class, 'images/icons_supernormal_12x12.png', 12px, $icon_no); */
 /* Dark on Light styles */
-/* line 6, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 .icon16.rss:before {
   background: url("/images/icons_supernormal_16x16.png") no-repeat;
   background-position: -119px 0px;
 }
 
-/* line 14, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a:hover.icon16.rss:before, a:focus.icon16.rss:before, button:hover.icon16.rss:before, button:focus.icon16.rss:before {
   background-position: -119px -17px;
 }
-/* line 22, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a:active.icon16.rss:before, button:active.icon16.rss:before {
   background-position: -119px -34px;
 }
-/* line 32, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.inverse.icon16.rss:before, a.checked.icon16.rss:before, button.inverse.icon16.rss:before, button.checked.icon16.rss:before {
   background-position: -119px -51px;
 }
-/* line 39, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.inverse:hover.icon16.rss:before, a.checked:hover.icon16.rss:before, button.inverse:hover.icon16.rss:before, button.checked:hover.icon16.rss:before {
   background-position: -119px -51px;
 }
-/* line 47, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.inverse:active.icon16.rss:before, a.inverse:focus.icon16.rss:before, a.checked:active.icon16.rss:before, a.checked:focus.icon16.rss:before, button.inverse:active.icon16.rss:before, button.inverse:focus.icon16.rss:before, button.checked:active.icon16.rss:before, button.checked:focus.icon16.rss:before {
   background-position: -119px -34px;
 }
-/* line 56, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.current.icon16.rss:before, button.current.icon16.rss:before {
   background-position: -119px -51px;
 }
-/* line 63, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.current:hover.icon16.rss:before, a.current:focus.icon16.rss:before, button.current:hover.icon16.rss:before, button.current:focus.icon16.rss:before {
   background-position: -119px -17px;
 }
-/* line 71, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.current:active.icon16.rss:before, button.current:active.icon16.rss:before {
   background-position: -119px -34px;
 }
 
 /* This is for list item links it's inverted and has no hover state */
-/* line 83, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 .current > a.icon16.rss:before, .current > a:hover.icon16.rss:before, .current > a:focus.icon16.rss:before, .current > a:active.icon16.rss:before {
   background-position: -119px -51px;
 }
 
 /* Disabled icon */
-/* line 93, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 .disabled a .icon16.rss:before, .disabled a:hover .icon16.rss:before, .disabled a:active .icon16.rss:before {
   background-position: -119px 0px;
 }
 
 /*    @include register_icon('.icon12', $class, 'images/icons_supernormal_12x12.png', 12px, $icon_no); */
 /* Dark on Light styles */
-/* line 6, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 .icon16.portrait:before {
   background: url("/images/icons_supernormal_16x16.png") no-repeat;
   background-position: -136px 0px;
 }
 
-/* line 14, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a:hover.icon16.portrait:before, a:focus.icon16.portrait:before, button:hover.icon16.portrait:before, button:focus.icon16.portrait:before {
   background-position: -136px -17px;
 }
-/* line 22, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a:active.icon16.portrait:before, button:active.icon16.portrait:before {
   background-position: -136px -34px;
 }
-/* line 32, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.inverse.icon16.portrait:before, a.checked.icon16.portrait:before, button.inverse.icon16.portrait:before, button.checked.icon16.portrait:before {
   background-position: -136px -51px;
 }
-/* line 39, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.inverse:hover.icon16.portrait:before, a.checked:hover.icon16.portrait:before, button.inverse:hover.icon16.portrait:before, button.checked:hover.icon16.portrait:before {
   background-position: -136px -51px;
 }
-/* line 47, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.inverse:active.icon16.portrait:before, a.inverse:focus.icon16.portrait:before, a.checked:active.icon16.portrait:before, a.checked:focus.icon16.portrait:before, button.inverse:active.icon16.portrait:before, button.inverse:focus.icon16.portrait:before, button.checked:active.icon16.portrait:before, button.checked:focus.icon16.portrait:before {
   background-position: -136px -34px;
 }
-/* line 56, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.current.icon16.portrait:before, button.current.icon16.portrait:before {
   background-position: -136px -51px;
 }
-/* line 63, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.current:hover.icon16.portrait:before, a.current:focus.icon16.portrait:before, button.current:hover.icon16.portrait:before, button.current:focus.icon16.portrait:before {
   background-position: -136px -17px;
 }
-/* line 71, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.current:active.icon16.portrait:before, button.current:active.icon16.portrait:before {
   background-position: -136px -34px;
 }
 
 /* This is for list item links it's inverted and has no hover state */
-/* line 83, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 .current > a.icon16.portrait:before, .current > a:hover.icon16.portrait:before, .current > a:focus.icon16.portrait:before, .current > a:active.icon16.portrait:before {
   background-position: -136px -51px;
 }
 
 /* Disabled icon */
-/* line 93, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 .disabled a .icon16.portrait:before, .disabled a:hover .icon16.portrait:before, .disabled a:active .icon16.portrait:before {
   background-position: -136px 0px;
 }
 
 /*    @include register_icon('.icon12', $class, 'images/icons_supernormal_12x12.png', 12px, $icon_no); */
 /* Dark on Light styles */
-/* line 6, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 .icon16.people:before {
   background: url("/images/icons_supernormal_16x16.png") no-repeat;
   background-position: -153px 0px;
 }
 
-/* line 14, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a:hover.icon16.people:before, a:focus.icon16.people:before, button:hover.icon16.people:before, button:focus.icon16.people:before {
   background-position: -153px -17px;
 }
-/* line 22, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a:active.icon16.people:before, button:active.icon16.people:before {
   background-position: -153px -34px;
 }
-/* line 32, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.inverse.icon16.people:before, a.checked.icon16.people:before, button.inverse.icon16.people:before, button.checked.icon16.people:before {
   background-position: -153px -51px;
 }
-/* line 39, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.inverse:hover.icon16.people:before, a.checked:hover.icon16.people:before, button.inverse:hover.icon16.people:before, button.checked:hover.icon16.people:before {
   background-position: -153px -51px;
 }
-/* line 47, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.inverse:active.icon16.people:before, a.inverse:focus.icon16.people:before, a.checked:active.icon16.people:before, a.checked:focus.icon16.people:before, button.inverse:active.icon16.people:before, button.inverse:focus.icon16.people:before, button.checked:active.icon16.people:before, button.checked:focus.icon16.people:before {
   background-position: -153px -34px;
 }
-/* line 56, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.current.icon16.people:before, button.current.icon16.people:before {
   background-position: -153px -51px;
 }
-/* line 63, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.current:hover.icon16.people:before, a.current:focus.icon16.people:before, button.current:hover.icon16.people:before, button.current:focus.icon16.people:before {
   background-position: -153px -17px;
 }
-/* line 71, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.current:active.icon16.people:before, button.current:active.icon16.people:before {
   background-position: -153px -34px;
 }
 
 /* This is for list item links it's inverted and has no hover state */
-/* line 83, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 .current > a.icon16.people:before, .current > a:hover.icon16.people:before, .current > a:focus.icon16.people:before, .current > a:active.icon16.people:before {
   background-position: -153px -51px;
 }
 
 /* Disabled icon */
-/* line 93, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 .disabled a .icon16.people:before, .disabled a:hover .icon16.people:before, .disabled a:active .icon16.people:before {
   background-position: -153px 0px;
 }
 
 /*    @include register_icon('.icon12', $class, 'images/icons_supernormal_12x12.png', 12px, $icon_no); */
 /* Dark on Light styles */
-/* line 6, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 .icon16.search:before {
   background: url("/images/icons_supernormal_16x16.png") no-repeat;
   background-position: -170px 0px;
 }
 
-/* line 14, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a:hover.icon16.search:before, a:focus.icon16.search:before, button:hover.icon16.search:before, button:focus.icon16.search:before {
   background-position: -170px -17px;
 }
-/* line 22, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a:active.icon16.search:before, button:active.icon16.search:before {
   background-position: -170px -34px;
 }
-/* line 32, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.inverse.icon16.search:before, a.checked.icon16.search:before, button.inverse.icon16.search:before, button.checked.icon16.search:before {
   background-position: -170px -51px;
 }
-/* line 39, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.inverse:hover.icon16.search:before, a.checked:hover.icon16.search:before, button.inverse:hover.icon16.search:before, button.checked:hover.icon16.search:before {
   background-position: -170px -51px;
 }
-/* line 47, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.inverse:active.icon16.search:before, a.inverse:focus.icon16.search:before, a.checked:active.icon16.search:before, a.checked:focus.icon16.search:before, button.inverse:active.icon16.search:before, button.inverse:focus.icon16.search:before, button.checked:active.icon16.search:before, button.checked:focus.icon16.search:before {
   background-position: -170px -34px;
 }
-/* line 56, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.current.icon16.search:before, button.current.icon16.search:before {
   background-position: -170px -51px;
 }
-/* line 63, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.current:hover.icon16.search:before, a.current:focus.icon16.search:before, button.current:hover.icon16.search:before, button.current:focus.icon16.search:before {
   background-position: -170px -17px;
 }
-/* line 71, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.current:active.icon16.search:before, button.current:active.icon16.search:before {
   background-position: -170px -34px;
 }
 
 /* This is for list item links it's inverted and has no hover state */
-/* line 83, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 .current > a.icon16.search:before, .current > a:hover.icon16.search:before, .current > a:focus.icon16.search:before, .current > a:active.icon16.search:before {
   background-position: -170px -51px;
 }
 
 /* Disabled icon */
-/* line 93, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 .disabled a .icon16.search:before, .disabled a:hover .icon16.search:before, .disabled a:active .icon16.search:before {
   background-position: -170px 0px;
 }
 
 /*    @include register_icon('.icon12', $class, 'images/icons_supernormal_12x12.png', 12px, $icon_no); */
 /* Dark on Light styles */
-/* line 6, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 .icon16.list:before {
   background: url("/images/icons_supernormal_16x16.png") no-repeat;
   background-position: -187px 0px;
 }
 
-/* line 14, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a:hover.icon16.list:before, a:focus.icon16.list:before, button:hover.icon16.list:before, button:focus.icon16.list:before {
   background-position: -187px -17px;
 }
-/* line 22, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a:active.icon16.list:before, button:active.icon16.list:before {
   background-position: -187px -34px;
 }
-/* line 32, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.inverse.icon16.list:before, a.checked.icon16.list:before, button.inverse.icon16.list:before, button.checked.icon16.list:before {
   background-position: -187px -51px;
 }
-/* line 39, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.inverse:hover.icon16.list:before, a.checked:hover.icon16.list:before, button.inverse:hover.icon16.list:before, button.checked:hover.icon16.list:before {
   background-position: -187px -51px;
 }
-/* line 47, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.inverse:active.icon16.list:before, a.inverse:focus.icon16.list:before, a.checked:active.icon16.list:before, a.checked:focus.icon16.list:before, button.inverse:active.icon16.list:before, button.inverse:focus.icon16.list:before, button.checked:active.icon16.list:before, button.checked:focus.icon16.list:before {
   background-position: -187px -34px;
 }
-/* line 56, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.current.icon16.list:before, button.current.icon16.list:before {
   background-position: -187px -51px;
 }
-/* line 63, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.current:hover.icon16.list:before, a.current:focus.icon16.list:before, button.current:hover.icon16.list:before, button.current:focus.icon16.list:before {
   background-position: -187px -17px;
 }
-/* line 71, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.current:active.icon16.list:before, button.current:active.icon16.list:before {
   background-position: -187px -34px;
 }
 
 /* This is for list item links it's inverted and has no hover state */
-/* line 83, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 .current > a.icon16.list:before, .current > a:hover.icon16.list:before, .current > a:focus.icon16.list:before, .current > a:active.icon16.list:before {
   background-position: -187px -51px;
 }
 
 /* Disabled icon */
-/* line 93, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 .disabled a .icon16.list:before, .disabled a:hover .icon16.list:before, .disabled a:active .icon16.list:before {
   background-position: -187px 0px;
 }
 
 /*    @include register_icon('.icon12', $class, 'images/icons_supernormal_12x12.png', 12px, $icon_no); */
 /* Dark on Light styles */
-/* line 6, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 .icon16.eye:before {
   background: url("/images/icons_supernormal_16x16.png") no-repeat;
   background-position: -204px 0px;
 }
 
-/* line 14, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a:hover.icon16.eye:before, a:focus.icon16.eye:before, button:hover.icon16.eye:before, button:focus.icon16.eye:before {
   background-position: -204px -17px;
 }
-/* line 22, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a:active.icon16.eye:before, button:active.icon16.eye:before {
   background-position: -204px -34px;
 }
-/* line 32, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.inverse.icon16.eye:before, a.checked.icon16.eye:before, button.inverse.icon16.eye:before, button.checked.icon16.eye:before {
   background-position: -204px -51px;
 }
-/* line 39, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.inverse:hover.icon16.eye:before, a.checked:hover.icon16.eye:before, button.inverse:hover.icon16.eye:before, button.checked:hover.icon16.eye:before {
   background-position: -204px -51px;
 }
-/* line 47, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.inverse:active.icon16.eye:before, a.inverse:focus.icon16.eye:before, a.checked:active.icon16.eye:before, a.checked:focus.icon16.eye:before, button.inverse:active.icon16.eye:before, button.inverse:focus.icon16.eye:before, button.checked:active.icon16.eye:before, button.checked:focus.icon16.eye:before {
   background-position: -204px -34px;
 }
-/* line 56, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.current.icon16.eye:before, button.current.icon16.eye:before {
   background-position: -204px -51px;
 }
-/* line 63, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.current:hover.icon16.eye:before, a.current:focus.icon16.eye:before, button.current:hover.icon16.eye:before, button.current:focus.icon16.eye:before {
   background-position: -204px -17px;
 }
-/* line 71, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.current:active.icon16.eye:before, button.current:active.icon16.eye:before {
   background-position: -204px -34px;
 }
 
 /* This is for list item links it's inverted and has no hover state */
-/* line 83, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 .current > a.icon16.eye:before, .current > a:hover.icon16.eye:before, .current > a:focus.icon16.eye:before, .current > a:active.icon16.eye:before {
   background-position: -204px -51px;
 }
 
 /* Disabled icon */
-/* line 93, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 .disabled a .icon16.eye:before, .disabled a:hover .icon16.eye:before, .disabled a:active .icon16.eye:before {
   background-position: -204px 0px;
 }
 
 /*    @include register_icon('.icon12', $class, 'images/icons_supernormal_12x12.png', 12px, $icon_no); */
 /* Dark on Light styles */
-/* line 6, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 .icon16.tag:before {
   background: url("/images/icons_supernormal_16x16.png") no-repeat;
   background-position: -221px 0px;
 }
 
-/* line 14, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a:hover.icon16.tag:before, a:focus.icon16.tag:before, button:hover.icon16.tag:before, button:focus.icon16.tag:before {
   background-position: -221px -17px;
 }
-/* line 22, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a:active.icon16.tag:before, button:active.icon16.tag:before {
   background-position: -221px -34px;
 }
-/* line 32, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.inverse.icon16.tag:before, a.checked.icon16.tag:before, button.inverse.icon16.tag:before, button.checked.icon16.tag:before {
   background-position: -221px -51px;
 }
-/* line 39, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.inverse:hover.icon16.tag:before, a.checked:hover.icon16.tag:before, button.inverse:hover.icon16.tag:before, button.checked:hover.icon16.tag:before {
   background-position: -221px -51px;
 }
-/* line 47, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.inverse:active.icon16.tag:before, a.inverse:focus.icon16.tag:before, a.checked:active.icon16.tag:before, a.checked:focus.icon16.tag:before, button.inverse:active.icon16.tag:before, button.inverse:focus.icon16.tag:before, button.checked:active.icon16.tag:before, button.checked:focus.icon16.tag:before {
   background-position: -221px -34px;
 }
-/* line 56, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.current.icon16.tag:before, button.current.icon16.tag:before {
   background-position: -221px -51px;
 }
-/* line 63, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.current:hover.icon16.tag:before, a.current:focus.icon16.tag:before, button.current:hover.icon16.tag:before, button.current:focus.icon16.tag:before {
   background-position: -221px -17px;
 }
-/* line 71, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.current:active.icon16.tag:before, button.current:active.icon16.tag:before {
   background-position: -221px -34px;
 }
 
 /* This is for list item links it's inverted and has no hover state */
-/* line 83, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 .current > a.icon16.tag:before, .current > a:hover.icon16.tag:before, .current > a:focus.icon16.tag:before, .current > a:active.icon16.tag:before {
   background-position: -221px -51px;
 }
 
 /* Disabled icon */
-/* line 93, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 .disabled a .icon16.tag:before, .disabled a:hover .icon16.tag:before, .disabled a:active .icon16.tag:before {
   background-position: -221px 0px;
 }
 
 /*    @include register_icon('.icon12', $class, 'images/icons_supernormal_12x12.png', 12px, $icon_no); */
 /* Dark on Light styles */
-/* line 6, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 .icon16.home:before {
   background: url("/images/icons_supernormal_16x16.png") no-repeat;
   background-position: -238px 0px;
 }
 
-/* line 14, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a:hover.icon16.home:before, a:focus.icon16.home:before, button:hover.icon16.home:before, button:focus.icon16.home:before {
   background-position: -238px -17px;
 }
-/* line 22, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a:active.icon16.home:before, button:active.icon16.home:before {
   background-position: -238px -34px;
 }
-/* line 32, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.inverse.icon16.home:before, a.checked.icon16.home:before, button.inverse.icon16.home:before, button.checked.icon16.home:before {
   background-position: -238px -51px;
 }
-/* line 39, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.inverse:hover.icon16.home:before, a.checked:hover.icon16.home:before, button.inverse:hover.icon16.home:before, button.checked:hover.icon16.home:before {
   background-position: -238px -51px;
 }
-/* line 47, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.inverse:active.icon16.home:before, a.inverse:focus.icon16.home:before, a.checked:active.icon16.home:before, a.checked:focus.icon16.home:before, button.inverse:active.icon16.home:before, button.inverse:focus.icon16.home:before, button.checked:active.icon16.home:before, button.checked:focus.icon16.home:before {
   background-position: -238px -34px;
 }
-/* line 56, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.current.icon16.home:before, button.current.icon16.home:before {
   background-position: -238px -51px;
 }
-/* line 63, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.current:hover.icon16.home:before, a.current:focus.icon16.home:before, button.current:hover.icon16.home:before, button.current:focus.icon16.home:before {
   background-position: -238px -17px;
 }
-/* line 71, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.current:active.icon16.home:before, button.current:active.icon16.home:before {
   background-position: -238px -34px;
 }
 
 /* This is for list item links it's inverted and has no hover state */
-/* line 83, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 .current > a.icon16.home:before, .current > a:hover.icon16.home:before, .current > a:focus.icon16.home:before, .current > a:active.icon16.home:before {
   background-position: -238px -51px;
 }
 
 /* Disabled icon */
-/* line 93, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 .disabled a .icon16.home:before, .disabled a:hover .icon16.home:before, .disabled a:active .icon16.home:before {
   background-position: -238px 0px;
 }
 
 /*    @include register_icon('.icon12', $class, 'images/icons_supernormal_12x12.png', 12px, $icon_no); */
 /* Dark on Light styles */
-/* line 6, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 .icon16.dropdown:before {
   background: url("/images/icons_supernormal_16x16.png") no-repeat;
   background-position: -255px 0px;
 }
 
-/* line 14, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a:hover.icon16.dropdown:before, a:focus.icon16.dropdown:before, button:hover.icon16.dropdown:before, button:focus.icon16.dropdown:before {
   background-position: -255px -17px;
 }
-/* line 22, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a:active.icon16.dropdown:before, button:active.icon16.dropdown:before {
   background-position: -255px -34px;
 }
-/* line 32, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.inverse.icon16.dropdown:before, a.checked.icon16.dropdown:before, button.inverse.icon16.dropdown:before, button.checked.icon16.dropdown:before {
   background-position: -255px -51px;
 }
-/* line 39, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.inverse:hover.icon16.dropdown:before, a.checked:hover.icon16.dropdown:before, button.inverse:hover.icon16.dropdown:before, button.checked:hover.icon16.dropdown:before {
   background-position: -255px -51px;
 }
-/* line 47, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.inverse:active.icon16.dropdown:before, a.inverse:focus.icon16.dropdown:before, a.checked:active.icon16.dropdown:before, a.checked:focus.icon16.dropdown:before, button.inverse:active.icon16.dropdown:before, button.inverse:focus.icon16.dropdown:before, button.checked:active.icon16.dropdown:before, button.checked:focus.icon16.dropdown:before {
   background-position: -255px -34px;
 }
-/* line 56, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.current.icon16.dropdown:before, button.current.icon16.dropdown:before {
   background-position: -255px -51px;
 }
-/* line 63, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.current:hover.icon16.dropdown:before, a.current:focus.icon16.dropdown:before, button.current:hover.icon16.dropdown:before, button.current:focus.icon16.dropdown:before {
   background-position: -255px -17px;
 }
-/* line 71, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.current:active.icon16.dropdown:before, button.current:active.icon16.dropdown:before {
   background-position: -255px -34px;
 }
 
 /* This is for list item links it's inverted and has no hover state */
-/* line 83, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 .current > a.icon16.dropdown:before, .current > a:hover.icon16.dropdown:before, .current > a:focus.icon16.dropdown:before, .current > a:active.icon16.dropdown:before {
   background-position: -255px -51px;
 }
 
 /* Disabled icon */
-/* line 93, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 .disabled a .icon16.dropdown:before, .disabled a:hover .icon16.dropdown:before, .disabled a:active .icon16.dropdown:before {
   background-position: -255px 0px;
 }
 
 /*    @include register_icon('.icon12', $class, 'images/icons_supernormal_12x12.png', 12px, $icon_no); */
 /* Dark on Light styles */
-/* line 6, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 .icon16.dropup:before {
   background: url("/images/icons_supernormal_16x16.png") no-repeat;
   background-position: -272px 0px;
 }
 
-/* line 14, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a:hover.icon16.dropup:before, a:focus.icon16.dropup:before, button:hover.icon16.dropup:before, button:focus.icon16.dropup:before {
   background-position: -272px -17px;
 }
-/* line 22, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a:active.icon16.dropup:before, button:active.icon16.dropup:before {
   background-position: -272px -34px;
 }
-/* line 32, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.inverse.icon16.dropup:before, a.checked.icon16.dropup:before, button.inverse.icon16.dropup:before, button.checked.icon16.dropup:before {
   background-position: -272px -51px;
 }
-/* line 39, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.inverse:hover.icon16.dropup:before, a.checked:hover.icon16.dropup:before, button.inverse:hover.icon16.dropup:before, button.checked:hover.icon16.dropup:before {
   background-position: -272px -51px;
 }
-/* line 47, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.inverse:active.icon16.dropup:before, a.inverse:focus.icon16.dropup:before, a.checked:active.icon16.dropup:before, a.checked:focus.icon16.dropup:before, button.inverse:active.icon16.dropup:before, button.inverse:focus.icon16.dropup:before, button.checked:active.icon16.dropup:before, button.checked:focus.icon16.dropup:before {
   background-position: -272px -34px;
 }
-/* line 56, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.current.icon16.dropup:before, button.current.icon16.dropup:before {
   background-position: -272px -51px;
 }
-/* line 63, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.current:hover.icon16.dropup:before, a.current:focus.icon16.dropup:before, button.current:hover.icon16.dropup:before, button.current:focus.icon16.dropup:before {
   background-position: -272px -17px;
 }
-/* line 71, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.current:active.icon16.dropup:before, button.current:active.icon16.dropup:before {
   background-position: -272px -34px;
 }
 
 /* This is for list item links it's inverted and has no hover state */
-/* line 83, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 .current > a.icon16.dropup:before, .current > a:hover.icon16.dropup:before, .current > a:focus.icon16.dropup:before, .current > a:active.icon16.dropup:before {
   background-position: -272px -51px;
 }
 
 /* Disabled icon */
-/* line 93, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 .disabled a .icon16.dropup:before, .disabled a:hover .icon16.dropup:before, .disabled a:active .icon16.dropup:before {
   background-position: -272px 0px;
 }
 
 /*    @include register_icon('.icon12', $class, 'images/icons_supernormal_12x12.png', 12px, $icon_no); */
 /* Dark on Light styles */
-/* line 6, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 .icon16.close:before {
   background: url("/images/icons_supernormal_16x16.png") no-repeat;
   background-position: -289px 0px;
 }
 
-/* line 14, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a:hover.icon16.close:before, a:focus.icon16.close:before, button:hover.icon16.close:before, button:focus.icon16.close:before {
   background-position: -289px -17px;
 }
-/* line 22, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a:active.icon16.close:before, button:active.icon16.close:before {
   background-position: -289px -34px;
 }
-/* line 32, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.inverse.icon16.close:before, a.checked.icon16.close:before, button.inverse.icon16.close:before, button.checked.icon16.close:before {
   background-position: -289px -51px;
 }
-/* line 39, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.inverse:hover.icon16.close:before, a.checked:hover.icon16.close:before, button.inverse:hover.icon16.close:before, button.checked:hover.icon16.close:before {
   background-position: -289px -51px;
 }
-/* line 47, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.inverse:active.icon16.close:before, a.inverse:focus.icon16.close:before, a.checked:active.icon16.close:before, a.checked:focus.icon16.close:before, button.inverse:active.icon16.close:before, button.inverse:focus.icon16.close:before, button.checked:active.icon16.close:before, button.checked:focus.icon16.close:before {
   background-position: -289px -34px;
 }
-/* line 56, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.current.icon16.close:before, button.current.icon16.close:before {
   background-position: -289px -51px;
 }
-/* line 63, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.current:hover.icon16.close:before, a.current:focus.icon16.close:before, button.current:hover.icon16.close:before, button.current:focus.icon16.close:before {
   background-position: -289px -17px;
 }
-/* line 71, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.current:active.icon16.close:before, button.current:active.icon16.close:before {
   background-position: -289px -34px;
 }
 
 /* This is for list item links it's inverted and has no hover state */
-/* line 83, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 .current > a.icon16.close:before, .current > a:hover.icon16.close:before, .current > a:focus.icon16.close:before, .current > a:active.icon16.close:before {
   background-position: -289px -51px;
 }
 
 /* Disabled icon */
-/* line 93, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 .disabled a .icon16.close:before, .disabled a:hover .icon16.close:before, .disabled a:active .icon16.close:before {
   background-position: -289px 0px;
 }
 
 /*    @include register_icon('.icon12', $class, 'images/icons_supernormal_12x12.png', 12px, $icon_no); */
 /* Dark on Light styles */
-/* line 6, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 .icon16.heart:before {
   background: url("/images/icons_supernormal_16x16.png") no-repeat;
   background-position: -306px 0px;
 }
 
-/* line 14, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a:hover.icon16.heart:before, a:focus.icon16.heart:before, button:hover.icon16.heart:before, button:focus.icon16.heart:before {
   background-position: -306px -17px;
 }
-/* line 22, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a:active.icon16.heart:before, button:active.icon16.heart:before {
   background-position: -306px -34px;
 }
-/* line 32, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.inverse.icon16.heart:before, a.checked.icon16.heart:before, button.inverse.icon16.heart:before, button.checked.icon16.heart:before {
   background-position: -306px -51px;
 }
-/* line 39, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.inverse:hover.icon16.heart:before, a.checked:hover.icon16.heart:before, button.inverse:hover.icon16.heart:before, button.checked:hover.icon16.heart:before {
   background-position: -306px -51px;
 }
-/* line 47, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.inverse:active.icon16.heart:before, a.inverse:focus.icon16.heart:before, a.checked:active.icon16.heart:before, a.checked:focus.icon16.heart:before, button.inverse:active.icon16.heart:before, button.inverse:focus.icon16.heart:before, button.checked:active.icon16.heart:before, button.checked:focus.icon16.heart:before {
   background-position: -306px -34px;
 }
-/* line 56, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.current.icon16.heart:before, button.current.icon16.heart:before {
   background-position: -306px -51px;
 }
-/* line 63, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.current:hover.icon16.heart:before, a.current:focus.icon16.heart:before, button.current:hover.icon16.heart:before, button.current:focus.icon16.heart:before {
   background-position: -306px -17px;
 }
-/* line 71, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 a.current:active.icon16.heart:before, button.current:active.icon16.heart:before {
   background-position: -306px -34px;
 }
 
 /* This is for list item links it's inverted and has no hover state */
-/* line 83, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 .current > a.icon16.heart:before, .current > a:hover.icon16.heart:before, .current > a:focus.icon16.heart:before, .current > a:active.icon16.heart:before {
   background-position: -306px -51px;
 }
 
 /* Disabled icon */
-/* line 93, /Users/tom/Development/Percolate/league/client/stylesheets/include/icons/_icons.scss */
 .disabled a .icon16.heart:before, .disabled a:hover .icon16.heart:before, .disabled a:active .icon16.heart:before {
   background-position: -306px 0px;
 }
 
-/* line 1, /Users/tom/Development/Percolate/league/client/stylesheets/include/_forms.scss */
 textarea {
   background: white;
   -moz-box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 2px 0px inset;
@@ -1151,7 +928,6 @@ textarea {
   display: block;
   text-align: left;
 }
-/* line 14, /Users/tom/Development/Percolate/league/client/stylesheets/include/forms/_stdform.scss */
 textarea:focus {
   border: 1px solid rgba(102, 204, 255, 0.9);
   -moz-box-shadow: rgba(102, 204, 255, 0.3) 0 0px 3px 1px, rgba(0, 0, 0, 0.3) 0px 1px 3px 0px inset;
@@ -1159,7 +935,6 @@ textarea:focus {
   -o-box-shadow: rgba(102, 204, 255, 0.3) 0 0px 3px 1px, rgba(0, 0, 0, 0.3) 0px 1px 3px 0px inset;
   box-shadow: rgba(102, 204, 255, 0.3) 0 0px 3px 1px, rgba(0, 0, 0, 0.3) 0px 1px 3px 0px inset;
 }
-/* line 19, /Users/tom/Development/Percolate/league/client/stylesheets/include/forms/_stdform.scss */
 textarea:required:valid {
   background: url("icon_valid_16x16.png") no-repeat 98% center, url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y5ZjlmOSIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjZmZmZmZmIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
   background: url("icon_valid_16x16.png") no-repeat 98% center, -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f9f9f9), color-stop(50%, #ffffff));
@@ -1169,7 +944,6 @@ textarea:required:valid {
   background: url("icon_valid_16x16.png") no-repeat 98% center, -ms-linear-gradient(top, #f9f9f9, #ffffff 50%);
   background: url("icon_valid_16x16.png") no-repeat 98% center, linear-gradient(top, #f9f9f9, #ffffff 50%);
 }
-/* line 25, /Users/tom/Development/Percolate/league/client/stylesheets/include/forms/_stdform.scss */
 textarea:required::-webkit-validation-bubble-message {
   color: #333;
   background: #ff6;
@@ -1185,12 +959,10 @@ textarea:required::-webkit-validation-bubble-message {
   -o-box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 5px 0px;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 5px 0px;
 }
-/* line 33, /Users/tom/Development/Percolate/league/client/stylesheets/include/forms/_stdform.scss */
 textarea:required::-webkit-validation-bubble-arrow {
   background: #ff6;
   border: 0px solid transparent;
 }
-/* line 38, /Users/tom/Development/Percolate/league/client/stylesheets/include/forms/_stdform.scss */
 textarea:required.has_been_focussed:valid {
   background: url("icon_valid_16x16.png") no-repeat 98% center, url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y5ZjlmOSIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjZmZmZmZmIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
   background: url("icon_valid_16x16.png") no-repeat 98% center, -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f9f9f9), color-stop(50%, #ffffff));
@@ -1200,7 +972,6 @@ textarea:required.has_been_focussed:valid {
   background: url("icon_valid_16x16.png") no-repeat 98% center, -ms-linear-gradient(top, #f9f9f9, #ffffff 50%);
   background: url("icon_valid_16x16.png") no-repeat 98% center, linear-gradient(top, #f9f9f9, #ffffff 50%);
 }
-/* line 44, /Users/tom/Development/Percolate/league/client/stylesheets/include/forms/_stdform.scss */
 textarea:required.has_been_focussed:invalid {
   background: url("icon_invalid_16x16.png") no-repeat 98% center, url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y5ZjlmOSIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjZmZmZmZmIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
   background: url("icon_invalid_16x16.png") no-repeat 98% center, -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f9f9f9), color-stop(50%, #ffffff));
@@ -1210,22 +981,18 @@ textarea:required.has_been_focussed:invalid {
   background: url("icon_invalid_16x16.png") no-repeat 98% center, -ms-linear-gradient(top, #f9f9f9, #ffffff 50%);
   background: url("icon_invalid_16x16.png") no-repeat 98% center, linear-gradient(top, #f9f9f9, #ffffff 50%);
 }
-/* line 57, /Users/tom/Development/Percolate/league/client/stylesheets/include/forms/_stdform.scss */
 textarea:-moz-placeholder {
   color: #ccc;
   font-style: italic;
 }
-/* line 61, /Users/tom/Development/Percolate/league/client/stylesheets/include/forms/_stdform.scss */
 textarea::-webkit-input-placeholder {
   color: #ccc;
   font-style: italic;
 }
-/* line 6, /Users/tom/Development/Percolate/league/client/stylesheets/include/_forms.scss */
 textarea.new {
   color: #AA5959;
 }
 
-/* line 10, /Users/tom/Development/Percolate/league/client/stylesheets/include/_forms.scss */
 input {
   background: white;
   -moz-box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 2px 0px inset;
@@ -1261,7 +1028,6 @@ input {
   text-align: center;
   line-height: 1em;
 }
-/* line 14, /Users/tom/Development/Percolate/league/client/stylesheets/include/forms/_stdform.scss */
 input:focus {
   border: 1px solid rgba(102, 204, 255, 0.9);
   -moz-box-shadow: rgba(102, 204, 255, 0.3) 0 0px 3px 1px, rgba(0, 0, 0, 0.3) 0px 1px 3px 0px inset;
@@ -1269,7 +1035,6 @@ input:focus {
   -o-box-shadow: rgba(102, 204, 255, 0.3) 0 0px 3px 1px, rgba(0, 0, 0, 0.3) 0px 1px 3px 0px inset;
   box-shadow: rgba(102, 204, 255, 0.3) 0 0px 3px 1px, rgba(0, 0, 0, 0.3) 0px 1px 3px 0px inset;
 }
-/* line 19, /Users/tom/Development/Percolate/league/client/stylesheets/include/forms/_stdform.scss */
 input:required:valid {
   background: url("icon_valid_16x16.png") no-repeat 98% center, url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y5ZjlmOSIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjZmZmZmZmIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
   background: url("icon_valid_16x16.png") no-repeat 98% center, -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f9f9f9), color-stop(50%, #ffffff));
@@ -1279,7 +1044,6 @@ input:required:valid {
   background: url("icon_valid_16x16.png") no-repeat 98% center, -ms-linear-gradient(top, #f9f9f9, #ffffff 50%);
   background: url("icon_valid_16x16.png") no-repeat 98% center, linear-gradient(top, #f9f9f9, #ffffff 50%);
 }
-/* line 25, /Users/tom/Development/Percolate/league/client/stylesheets/include/forms/_stdform.scss */
 input:required::-webkit-validation-bubble-message {
   color: #333;
   background: #ff6;
@@ -1295,12 +1059,10 @@ input:required::-webkit-validation-bubble-message {
   -o-box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 5px 0px;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 5px 0px;
 }
-/* line 33, /Users/tom/Development/Percolate/league/client/stylesheets/include/forms/_stdform.scss */
 input:required::-webkit-validation-bubble-arrow {
   background: #ff6;
   border: 0px solid transparent;
 }
-/* line 38, /Users/tom/Development/Percolate/league/client/stylesheets/include/forms/_stdform.scss */
 input:required.has_been_focussed:valid {
   background: url("icon_valid_16x16.png") no-repeat 98% center, url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y5ZjlmOSIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjZmZmZmZmIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
   background: url("icon_valid_16x16.png") no-repeat 98% center, -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f9f9f9), color-stop(50%, #ffffff));
@@ -1310,7 +1072,6 @@ input:required.has_been_focussed:valid {
   background: url("icon_valid_16x16.png") no-repeat 98% center, -ms-linear-gradient(top, #f9f9f9, #ffffff 50%);
   background: url("icon_valid_16x16.png") no-repeat 98% center, linear-gradient(top, #f9f9f9, #ffffff 50%);
 }
-/* line 44, /Users/tom/Development/Percolate/league/client/stylesheets/include/forms/_stdform.scss */
 input:required.has_been_focussed:invalid {
   background: url("icon_invalid_16x16.png") no-repeat 98% center, url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y5ZjlmOSIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjZmZmZmZmIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
   background: url("icon_invalid_16x16.png") no-repeat 98% center, -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f9f9f9), color-stop(50%, #ffffff));
@@ -1320,31 +1081,26 @@ input:required.has_been_focussed:invalid {
   background: url("icon_invalid_16x16.png") no-repeat 98% center, -ms-linear-gradient(top, #f9f9f9, #ffffff 50%);
   background: url("icon_invalid_16x16.png") no-repeat 98% center, linear-gradient(top, #f9f9f9, #ffffff 50%);
 }
-/* line 57, /Users/tom/Development/Percolate/league/client/stylesheets/include/forms/_stdform.scss */
 input:-moz-placeholder {
   color: #ccc;
   font-style: italic;
 }
-/* line 61, /Users/tom/Development/Percolate/league/client/stylesheets/include/forms/_stdform.scss */
 input::-webkit-input-placeholder {
   color: #ccc;
   font-style: italic;
 }
 
-/* line 14, /Users/tom/Development/Percolate/league/client/stylesheets/include/_forms.scss */
 label {
   color: #333;
   font-weight: bold;
   display: inline-block;
 }
 
-/* line 19, /Users/tom/Development/Percolate/league/client/stylesheets/include/_forms.scss */
 form {
   text-align: left;
   min-height: 0;
   /* Exceptions */
 }
-/* line 33, /Users/tom/Development/Percolate/league/client/stylesheets/include/_helpers.scss */
 form:after {
   clear: both;
   content: " ";
@@ -1353,18 +1109,15 @@ form:after {
   height: 0;
   font-size: 0;
 }
-/* line 22, /Users/tom/Development/Percolate/league/client/stylesheets/include/_forms.scss */
 form label {
   float: left;
 }
-/* line 26, /Users/tom/Development/Percolate/league/client/stylesheets/include/_forms.scss */
 form input[type=checkbox] + label, form input[type=radio] + label {
   display: inline;
   line-height: 1em;
   color: #333;
   font-weight: normal;
 }
-/* line 32, /Users/tom/Development/Percolate/league/client/stylesheets/include/_forms.scss */
 form textarea, form input, form select {
   text-align: left;
   float: left;
@@ -1372,65 +1125,50 @@ form textarea, form input, form select {
   font-size: 0.813em;
   line-height: 1.846em;
 }
-/* line 38, /Users/tom/Development/Percolate/league/client/stylesheets/include/_forms.scss */
 form select {
   margin-bottom: 10px;
 }
-/* line 42, /Users/tom/Development/Percolate/league/client/stylesheets/include/_forms.scss */
 form input[type=checkbox] {
   width: auto;
   margin-right: 6px;
 }
-/* line 47, /Users/tom/Development/Percolate/league/client/stylesheets/include/_forms.scss */
 form p {
   margin-bottom: 10px;
 }
-/* line 50, /Users/tom/Development/Percolate/league/client/stylesheets/include/_forms.scss */
 form button {
   float: left;
 }
-/* line 54, /Users/tom/Development/Percolate/league/client/stylesheets/include/_forms.scss */
 form.disabled > * {
   opacity: .5;
 }
-/* line 57, /Users/tom/Development/Percolate/league/client/stylesheets/include/_forms.scss */
 form.disabled button {
   opacity: 1;
 }
 
-/* line 1, /Users/tom/Development/Percolate/league/client/stylesheets/base/layout/_transition.scss */
 .container {
   overflow-x: auto;
 }
-/* line 3, /Users/tom/Development/Percolate/league/client/stylesheets/base/layout/_transition.scss */
 .container .loading, .container .not_authorized, .container .signin, .container .games, .container .home, .container .players, .container .teams {
   display: none;
 }
-/* line 4, /Users/tom/Development/Percolate/league/client/stylesheets/base/layout/_transition.scss */
 .container.loading .loading {
   display: block;
 }
-/* line 5, /Users/tom/Development/Percolate/league/client/stylesheets/base/layout/_transition.scss */
 .container.not_authorized .not_authorized {
   display: block;
 }
-/* line 6, /Users/tom/Development/Percolate/league/client/stylesheets/base/layout/_transition.scss */
 .container.signin .signin {
   display: block;
 }
-/* line 7, /Users/tom/Development/Percolate/league/client/stylesheets/base/layout/_transition.scss */
 .container.games .games {
   display: block;
 }
-/* line 8, /Users/tom/Development/Percolate/league/client/stylesheets/base/layout/_transition.scss */
 .container.home .home {
   display: block;
 }
-/* line 9, /Users/tom/Development/Percolate/league/client/stylesheets/base/layout/_transition.scss */
 .container.players .players {
   display: block;
 }
-/* line 10, /Users/tom/Development/Percolate/league/client/stylesheets/base/layout/_transition.scss */
 .container.teams .teams {
   display: block;
 }
@@ -1438,7 +1176,6 @@ form.disabled button {
 /* /// */
 /* Position */
 /* /// */
-/* line 4, /Users/tom/Development/Percolate/league/client/stylesheets/base/layout/_header.scss */
 header {
   height: 4.5em;
   position: relative;
@@ -1454,7 +1191,6 @@ header {
   background: -ms-linear-gradient(top, #e4f7fa, #cef1f6 100%), url("/images/textures/bg_noise_80x80.png") repeat;
   background: linear-gradient(top, #e4f7fa, #cef1f6 100%), url("/images/textures/bg_noise_80x80.png") repeat;
 }
-/* line 10, /Users/tom/Development/Percolate/league/client/stylesheets/base/layout/_header.scss */
 header:before {
   content: '';
   display: block;
@@ -1468,7 +1204,6 @@ header:before {
   width: auto;
   height: 1px;
 }
-/* line 17, /Users/tom/Development/Percolate/league/client/stylesheets/base/layout/_header.scss */
 header:after {
   content: '';
   display: block;
@@ -1489,13 +1224,11 @@ header:after {
   background: radial-gradient(50% 150%, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1) 30%, rgba(0, 0, 0, 0) 70%);
 }
 
-/* line 27, /Users/tom/Development/Percolate/league/client/stylesheets/base/layout/_header.scss */
 article {
   width: 100%;
   background: url("images/textures/bg_noise_80x80.png") repeat, #f9f9f9;
   min-height: 0;
 }
-/* line 33, /Users/tom/Development/Percolate/league/client/stylesheets/include/_helpers.scss */
 article:after {
   clear: both;
   content: " ";
@@ -1508,11 +1241,9 @@ article:after {
 /* /// */
 /* Styling */
 /* /// */
-/* line 35, /Users/tom/Development/Percolate/league/client/stylesheets/base/layout/_header.scss */
 header {
   text-align: center;
 }
-/* line 37, /Users/tom/Development/Percolate/league/client/stylesheets/base/layout/_header.scss */
 header h1 {
   font-size: 3em;
   line-height: 1em;
@@ -1525,12 +1256,10 @@ header h1 {
   text-shadow: white 0 -1px 0, rgba(0, 0, 0, 0.3) 0 1px 0, rgba(195, 48, 2, 0.1) 0 0 10px;
 }
 
-/* line 1, /Users/tom/Development/Percolate/league/client/stylesheets/base/_auth.scss */
 .container {
   /* Signin lives outside */
 }
 
-/* line 1, /Users/tom/Development/Percolate/league/client/stylesheets/base/_home.scss */
 .container.home {
   position: relative;
   top: auto;
@@ -1540,7 +1269,6 @@ header h1 {
   width: 100%;
   height: 100%;
 }
-/* line 3, /Users/tom/Development/Percolate/league/client/stylesheets/base/_home.scss */
 .container.home .home {
   text-align: center;
   overflow-x: hidden;
@@ -1562,14 +1290,12 @@ header h1 {
   /* Home title styling */
   /* /// */
 }
-/* line 12, /Users/tom/Development/Percolate/league/client/stylesheets/base/_home.scss */
 .container.home .home .title {
   position: relative;
   overflow: visible;
   z-index: 3;
   /* height of pseudoclasses */
 }
-/* line 18, /Users/tom/Development/Percolate/league/client/stylesheets/base/_home.scss */
 .container.home .home .title:after {
   content: '';
   display: block;
@@ -1589,13 +1315,11 @@ header h1 {
   background: -ms-radial-gradient(50% -50%, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.5) 40%, rgba(255, 255, 255, 0) 70%);
   background: radial-gradient(50% -50%, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.5) 40%, rgba(255, 255, 255, 0) 70%);
 }
-/* line 27, /Users/tom/Development/Percolate/league/client/stylesheets/base/_home.scss */
 .container.home .home .title > span {
   position: relative;
   overflow: visible;
   display: inline-block;
 }
-/* line 31, /Users/tom/Development/Percolate/league/client/stylesheets/base/_home.scss */
 .container.home .home .title > span:after {
   content: '';
   display: block;
@@ -1615,7 +1339,6 @@ header h1 {
   background: -ms-radial-gradient(50% 50%, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.05) 50%, rgba(0, 0, 0, 0) 70%), -ms-radial-gradient(50% 50%, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.2) 60%, rgba(255, 255, 255, 0) 80%);
   background: radial-gradient(50% 50%, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.05) 50%, rgba(0, 0, 0, 0) 70%), radial-gradient(50% 50%, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.2) 60%, rgba(255, 255, 255, 0) 80%);
 }
-/* line 41, /Users/tom/Development/Percolate/league/client/stylesheets/base/_home.scss */
 .container.home .home .title > span:before {
   content: '';
   display: block;
@@ -1635,7 +1358,6 @@ header h1 {
   background: -ms-radial-gradient(50% 50%, #ffffff, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 70%);
   background: radial-gradient(50% 50%, #ffffff, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 70%);
 }
-/* line 55, /Users/tom/Development/Percolate/league/client/stylesheets/base/_home.scss */
 .container.home .home .title {
   color: #fd7348;
   font-family: 'Futura', "Trebuchet MS" , Arial, sans-serif;
@@ -1644,13 +1366,11 @@ header h1 {
   text-transform: uppercase;
   text-shadow: #fed3c6 0 -1px 0, rgba(0, 0, 0, 0.3) 0 1px 0, #ffac92 0 -7px 0, rgba(255, 255, 255, 0.7) 0 -10px 20px, rgba(94, 23, 1, 0.3) 0 2px 5px;
 }
-/* line 68, /Users/tom/Development/Percolate/league/client/stylesheets/base/_home.scss */
 .container.home .home .title > span {
   /* for kerning */
   visibility: hidden;
   -letter-kern: 2px 6px -10px -4px -10px 0;
 }
-/* line 74, /Users/tom/Development/Percolate/league/client/stylesheets/base/_home.scss */
 .container.home .home .tag {
   font-size: 3em;
   line-height: 1em;
@@ -1660,7 +1380,6 @@ header h1 {
   color: #33bbff;
   text-shadow: white 0 -1px 0, rgba(0, 68, 102, 0.3) 0 1px 0;
 }
-/* line 84, /Users/tom/Development/Percolate/league/client/stylesheets/base/_home.scss */
 .container.home .home .login {
   font-weight: bold;
   text-transform: uppercase;
@@ -1672,38 +1391,31 @@ header h1 {
   width: auto;
   height: auto;
 }
-/* line 89, /Users/tom/Development/Percolate/league/client/stylesheets/base/_home.scss */
 .container.home .home form.team_builder {
   text-align: center;
   margin-bottom: 6em;
 }
-/* line 92, /Users/tom/Development/Percolate/league/client/stylesheets/base/_home.scss */
 .container.home .home form.team_builder > * {
   display: inline-block;
   margin: auto 10px;
   font-size: 30px;
   float: none;
 }
-/* line 98, /Users/tom/Development/Percolate/league/client/stylesheets/base/_home.scss */
 .container.home .home form.team_builder select {
   width: 120px;
 }
-/* line 101, /Users/tom/Development/Percolate/league/client/stylesheets/base/_home.scss */
 .container.home .home form.team_builder input {
   width: 300px;
 }
-/* line 104, /Users/tom/Development/Percolate/league/client/stylesheets/base/_home.scss */
 .container.home .home form.team_builder button {
   font-weight: bold;
 }
 
-/* line 2, /Users/tom/Development/Percolate/league/client/stylesheets/base/_loading.scss */
 .container.loading .loading {
   padding-top: 6em;
   overflow: hidden;
   text-align: center;
 }
-/* line 6, /Users/tom/Development/Percolate/league/client/stylesheets/base/_loading.scss */
 .container.loading .loading p {
   font-size: 1.75em;
   line-height: 1.714em;
@@ -1718,12 +1430,10 @@ header h1 {
   visibility: hidden;
   -letter-kern: 3px 3px 0px 0px 0px 0;
 }
-/* line 23, /Users/tom/Development/Percolate/league/client/stylesheets/base/_loading.scss */
 .container.loading .loading > div {
   clear: both;
   font-style: italic;
 }
-/* line 27, /Users/tom/Development/Percolate/league/client/stylesheets/base/_loading.scss */
 .container.loading .loading h1 {
   font-size: 12em;
   line-height: 1em;
@@ -1732,12 +1442,10 @@ header h1 {
   text-shadow: rgba(255, 255, 255, 0.7) 0 1px 0, rgba(0, 0, 0, 0.3) 0 -1px 0;
 }
 
-/* line 3, /Users/tom/Development/Percolate/league/client/stylesheets/base/_teams.scss */
 .container.teams .teams .team_register {
   text-align: center;
   margin: 0 10%;
 }
-/* line 6, /Users/tom/Development/Percolate/league/client/stylesheets/base/_teams.scss */
 .container.teams .teams .team_register li {
   display: inline-block;
   position: relative;
@@ -1745,16 +1453,15 @@ header h1 {
   height: 200px;
   margin: 40px;
 }
-/* line 14, /Users/tom/Development/Percolate/league/client/stylesheets/base/_teams.scss */
-.container.teams .teams a#logo {
+
+a#logo {
   display: block;
   overflow: hidden;
   position: relative;
   height: 100%;
   width: 100%;
 }
-/* line 20, /Users/tom/Development/Percolate/league/client/stylesheets/base/_teams.scss */
-.container.teams .teams a#logo h3 {
+a#logo h3 {
   font-size: 26px;
   /*position*/
   position: absolute;
@@ -1780,12 +1487,10 @@ header h1 {
   /*misc*/
   background: url("images/textures/bg_noise_80x80.png") repeat, #f9f9f9;
 }
-/* line 39, /Users/tom/Development/Percolate/league/client/stylesheets/base/_teams.scss */
-.container.teams .teams a#logo h3 span {
+a#logo h3 span {
   display: block;
 }
-/* line 43, /Users/tom/Development/Percolate/league/client/stylesheets/base/_teams.scss */
-.container.teams .teams a#logo h4 {
+a#logo h4 {
   font-size: 16px;
   /*position*/
   position: absolute;
@@ -1809,8 +1514,7 @@ header h1 {
   /*misc*/
   background: url("images/textures/bg_noise_80x80.png") repeat, #f9f9f9;
 }
-/* line 62, /Users/tom/Development/Percolate/league/client/stylesheets/base/_teams.scss */
-.container.teams .teams a#logo .shield {
+a#logo .shield {
   margin-top: 50px;
   margin-left: 40px;
   position: relative;
@@ -1820,8 +1524,7 @@ header h1 {
   color: #2e66b2;
   background: transparent !important;
 }
-/* line 11, /Users/tom/Development/Percolate/league/client/stylesheets/include/logos/_shapes.scss */
-.container.teams .teams a#logo .shield:before {
+a#logo .shield:before {
   content: "";
   display: block;
   position: absolute;
@@ -1832,8 +1535,7 @@ header h1 {
   border-width: 80px 10px 0;
   width: 100px;
 }
-/* line 20, /Users/tom/Development/Percolate/league/client/stylesheets/include/logos/_shapes.scss */
-.container.teams .teams a#logo .shield:after {
+a#logo .shield:after {
   content: "";
   display: block;
   position: absolute;
@@ -1847,8 +1549,7 @@ header h1 {
   margin-left: 10px;
   width: 0;
 }
-/* line 39, /Users/tom/Development/Percolate/league/client/stylesheets/include/logos/_shapes.scss */
-.container.teams .teams a#logo .shield span {
+a#logo .shield span {
   display: block;
   position: relative;
   width: 100px;
@@ -1860,8 +1561,7 @@ header h1 {
   left: 10px;
   top: 10px;
 }
-/* line 11, /Users/tom/Development/Percolate/league/client/stylesheets/include/logos/_shapes.scss */
-.container.teams .teams a#logo .shield span:before {
+a#logo .shield span:before {
   content: "";
   display: block;
   position: absolute;
@@ -1872,8 +1572,7 @@ header h1 {
   border-width: 64px 10px 0;
   width: 80px;
 }
-/* line 20, /Users/tom/Development/Percolate/league/client/stylesheets/include/logos/_shapes.scss */
-.container.teams .teams a#logo .shield span:after {
+a#logo .shield span:after {
   content: "";
   display: block;
   position: absolute;
@@ -1887,8 +1586,7 @@ header h1 {
   margin-left: 10px;
   width: 0;
 }
-/* line 63, /Users/tom/Development/Percolate/league/client/stylesheets/base/_teams.scss */
-.container.teams .teams a#logo .flatdiamond {
+a#logo .flatdiamond {
   margin-top: 40px;
   margin-left: 20px;
   position: relative;
@@ -1900,8 +1598,7 @@ header h1 {
   height: 120px;
   background: transparent !important;
 }
-/* line 53, /Users/tom/Development/Percolate/league/client/stylesheets/include/logos/_shapes.scss */
-.container.teams .teams a#logo .flatdiamond:before {
+a#logo .flatdiamond:before {
   content: '';
   position: absolute;
   top: auto;
@@ -1917,8 +1614,7 @@ header h1 {
   border-width: 0 80px 60px 80px;
   z-index: 1;
 }
-/* line 61, /Users/tom/Development/Percolate/league/client/stylesheets/include/logos/_shapes.scss */
-.container.teams .teams a#logo .flatdiamond:after {
+a#logo .flatdiamond:after {
   content: '';
   position: absolute;
   top: 60px;
@@ -1934,8 +1630,7 @@ header h1 {
   border-width: 60px 80px 0 80px;
   z-index: 1;
 }
-/* line 76, /Users/tom/Development/Percolate/league/client/stylesheets/include/logos/_shapes.scss */
-.container.teams .teams a#logo .flatdiamond span {
+a#logo .flatdiamond span {
   display: block;
   position: relative;
   top: auto;
@@ -1949,8 +1644,7 @@ header h1 {
   left: 10px;
   top: 10px;
 }
-/* line 53, /Users/tom/Development/Percolate/league/client/stylesheets/include/logos/_shapes.scss */
-.container.teams .teams a#logo .flatdiamond span:before {
+a#logo .flatdiamond span:before {
   content: '';
   position: absolute;
   top: auto;
@@ -1966,8 +1660,7 @@ header h1 {
   border-width: 0 70px 50px 70px;
   z-index: 1;
 }
-/* line 61, /Users/tom/Development/Percolate/league/client/stylesheets/include/logos/_shapes.scss */
-.container.teams .teams a#logo .flatdiamond span:after {
+a#logo .flatdiamond span:after {
   content: '';
   position: absolute;
   top: 50px;
@@ -1983,8 +1676,7 @@ header h1 {
   border-width: 50px 70px 0 70px;
   z-index: 1;
 }
-/* line 64, /Users/tom/Development/Percolate/league/client/stylesheets/base/_teams.scss */
-.container.teams .teams a#logo .diamond {
+a#logo .diamond {
   margin-top: 20px;
   margin-left: 40px;
   position: relative;
@@ -1996,8 +1688,7 @@ header h1 {
   height: 160px;
   background: transparent !important;
 }
-/* line 53, /Users/tom/Development/Percolate/league/client/stylesheets/include/logos/_shapes.scss */
-.container.teams .teams a#logo .diamond:before {
+a#logo .diamond:before {
   content: '';
   position: absolute;
   top: auto;
@@ -2013,8 +1704,7 @@ header h1 {
   border-width: 0 60px 80px 60px;
   z-index: 1;
 }
-/* line 61, /Users/tom/Development/Percolate/league/client/stylesheets/include/logos/_shapes.scss */
-.container.teams .teams a#logo .diamond:after {
+a#logo .diamond:after {
   content: '';
   position: absolute;
   top: 80px;
@@ -2030,8 +1720,7 @@ header h1 {
   border-width: 80px 60px 0 60px;
   z-index: 1;
 }
-/* line 92, /Users/tom/Development/Percolate/league/client/stylesheets/include/logos/_shapes.scss */
-.container.teams .teams a#logo .diamond span {
+a#logo .diamond span {
   display: block;
   position: relative;
   top: auto;
@@ -2045,8 +1734,7 @@ header h1 {
   left: 10px;
   top: 10px;
 }
-/* line 53, /Users/tom/Development/Percolate/league/client/stylesheets/include/logos/_shapes.scss */
-.container.teams .teams a#logo .diamond span:before {
+a#logo .diamond span:before {
   content: '';
   position: absolute;
   top: auto;
@@ -2062,8 +1750,7 @@ header h1 {
   border-width: 0 50px 70px 50px;
   z-index: 1;
 }
-/* line 61, /Users/tom/Development/Percolate/league/client/stylesheets/include/logos/_shapes.scss */
-.container.teams .teams a#logo .diamond span:after {
+a#logo .diamond span:after {
   content: '';
   position: absolute;
   top: 70px;
@@ -2079,8 +1766,7 @@ header h1 {
   border-width: 70px 50px 0 50px;
   z-index: 1;
 }
-/* line 65, /Users/tom/Development/Percolate/league/client/stylesheets/base/_teams.scss */
-.container.teams .teams a#logo .darrow {
+a#logo .darrow {
   /*math doesnt seem to work with scout*/
   /*change this to affect total size*/
   /*makes equilateral tri*/
@@ -2096,8 +1782,7 @@ header h1 {
   height: 120.4px;
   background: transparent !important;
 }
-/* line 106, /Users/tom/Development/Percolate/league/client/stylesheets/include/logos/_shapes.scss */
-.container.teams .teams a#logo .darrow:before {
+a#logo .darrow:before {
   content: '';
   position: absolute;
   top: auto;
@@ -2115,8 +1800,7 @@ header h1 {
   border-left-color: transparent;
   border-width: 120.4px 70px 0 70px;
 }
-/* line 125, /Users/tom/Development/Percolate/league/client/stylesheets/include/logos/_shapes.scss */
-.container.teams .teams a#logo .darrow span {
+a#logo .darrow span {
   display: block;
   position: relative;
   position: relative;
@@ -2131,8 +1815,7 @@ header h1 {
   left: 10px;
   top: 5.7px;
 }
-/* line 106, /Users/tom/Development/Percolate/league/client/stylesheets/include/logos/_shapes.scss */
-.container.teams .teams a#logo .darrow span:before {
+a#logo .darrow span:before {
   content: '';
   position: absolute;
   top: auto;
@@ -2150,8 +1833,7 @@ header h1 {
   border-left-color: transparent;
   border-width: 100.4px 60px 0 60px;
 }
-/* line 66, /Users/tom/Development/Percolate/league/client/stylesheets/base/_teams.scss */
-.container.teams .teams a#logo .uarrow {
+a#logo .uarrow {
   /*math doesnt seem to work with scout*/
   /*change this to affect total size*/
   /*makes equilateral tri*/
@@ -2166,8 +1848,7 @@ header h1 {
   height: 120.4px;
   background: transparent !important;
 }
-/* line 139, /Users/tom/Development/Percolate/league/client/stylesheets/include/logos/_shapes.scss */
-.container.teams .teams a#logo .uarrow:before {
+a#logo .uarrow:before {
   content: '';
   position: absolute;
   top: auto;
@@ -2185,8 +1866,7 @@ header h1 {
   border-left-color: transparent;
   border-width: 0 70px 120.4px 70px;
 }
-/* line 158, /Users/tom/Development/Percolate/league/client/stylesheets/include/logos/_shapes.scss */
-.container.teams .teams a#logo .uarrow span {
+a#logo .uarrow span {
   display: block;
   position: absolute;
   top: 50%;
@@ -2200,8 +1880,7 @@ header h1 {
   left: 10px;
   margin-top: -50.2px;
 }
-/* line 139, /Users/tom/Development/Percolate/league/client/stylesheets/include/logos/_shapes.scss */
-.container.teams .teams a#logo .uarrow span:before {
+a#logo .uarrow span:before {
   content: '';
   position: absolute;
   top: auto;
@@ -2219,8 +1898,7 @@ header h1 {
   border-left-color: transparent;
   border-width: 0 60px 100.4px 60px;
 }
-/* line 67, /Users/tom/Development/Percolate/league/client/stylesheets/base/_teams.scss */
-.container.teams .teams a#logo .circle {
+a#logo .circle {
   /*change this to affect total size*/
   margin-top: -70px;
   margin-left: 30px;
@@ -2239,8 +1917,7 @@ header h1 {
   -khtml-border-radius: 70px;
   border-radius: 70px;
 }
-/* line 180, /Users/tom/Development/Percolate/league/client/stylesheets/include/logos/_shapes.scss */
-.container.teams .teams a#logo .circle span {
+a#logo .circle span {
   display: block;
   position: absolute;
   top: 50%;
@@ -2260,8 +1937,7 @@ header h1 {
   left: 10px;
   margin-top: -60px;
 }
-/* line 68, /Users/tom/Development/Percolate/league/client/stylesheets/base/_teams.scss */
-.container.teams .teams a#logo .flatcircle {
+a#logo .flatcircle {
   margin-top: -50px;
   margin-left: 20px;
   position: absolute;
@@ -2279,8 +1955,7 @@ header h1 {
   -khtml-border-radius: 50%;
   border-radius: 50%;
 }
-/* line 196, /Users/tom/Development/Percolate/league/client/stylesheets/include/logos/_shapes.scss */
-.container.teams .teams a#logo .flatcircle span {
+a#logo .flatcircle span {
   display: block;
   position: absolute;
   top: 50%;
@@ -2300,8 +1975,7 @@ header h1 {
   left: 10px;
   margin-top: -40px;
 }
-/* line 69, /Users/tom/Development/Percolate/league/client/stylesheets/base/_teams.scss */
-.container.teams .teams a#logo .national {
+a#logo .national {
   margin-top: -50px;
   margin-left: 50px;
   position: absolute;
@@ -2312,8 +1986,7 @@ header h1 {
   width: 100px;
   height: 100px;
 }
-/* line 209, /Users/tom/Development/Percolate/league/client/stylesheets/include/logos/_shapes.scss */
-.container.teams .teams a#logo .national:before, .container.teams .teams a#logo .national:after {
+a#logo .national:before, a#logo .national:after {
   content: '';
   -moz-transform: skew(-30deg);
   -webkit-transform: skew(-30deg);
@@ -2321,8 +1994,7 @@ header h1 {
   -ms-transform: skew(-30deg);
   transform: skew(-30deg);
 }
-/* line 213, /Users/tom/Development/Percolate/league/client/stylesheets/include/logos/_shapes.scss */
-.container.teams .teams a#logo .national:before {
+a#logo .national:before {
   position: absolute;
   top: auto;
   bottom: auto;
@@ -2338,8 +2010,7 @@ header h1 {
   border-radius: 5px 0 0 5px;
   background: #2e66b2;
 }
-/* line 218, /Users/tom/Development/Percolate/league/client/stylesheets/include/logos/_shapes.scss */
-.container.teams .teams a#logo .national:after {
+a#logo .national:after {
   position: absolute;
   top: auto;
   bottom: auto;
@@ -2355,8 +2026,7 @@ header h1 {
   border-radius: 0 5px 5px 0;
   background: #2e66b2;
 }
-/* line 230, /Users/tom/Development/Percolate/league/client/stylesheets/include/logos/_shapes.scss */
-.container.teams .teams a#logo .national span {
+a#logo .national span {
   display: block;
   position: absolute;
   top: 50%;
@@ -2369,8 +2039,7 @@ header h1 {
   left: 10px;
   margin-top: -40px;
 }
-/* line 209, /Users/tom/Development/Percolate/league/client/stylesheets/include/logos/_shapes.scss */
-.container.teams .teams a#logo .national span:before, .container.teams .teams a#logo .national span:after {
+a#logo .national span:before, a#logo .national span:after {
   content: '';
   -moz-transform: skew(-30deg);
   -webkit-transform: skew(-30deg);
@@ -2378,8 +2047,7 @@ header h1 {
   -ms-transform: skew(-30deg);
   transform: skew(-30deg);
 }
-/* line 213, /Users/tom/Development/Percolate/league/client/stylesheets/include/logos/_shapes.scss */
-.container.teams .teams a#logo .national span:before {
+a#logo .national span:before {
   position: absolute;
   top: auto;
   bottom: auto;
@@ -2395,8 +2063,7 @@ header h1 {
   border-radius: 5px 0 0 5px;
   background: #ff5c2b;
 }
-/* line 218, /Users/tom/Development/Percolate/league/client/stylesheets/include/logos/_shapes.scss */
-.container.teams .teams a#logo .national span:after {
+a#logo .national span:after {
   position: absolute;
   top: auto;
   bottom: auto;
@@ -2412,8 +2079,7 @@ header h1 {
   border-radius: 0 5px 5px 0;
   background: #ff5c2b;
 }
-/* line 70, /Users/tom/Development/Percolate/league/client/stylesheets/base/_teams.scss */
-.container.teams .teams a#logo .bolt {
+a#logo .bolt {
   margin-top: -70px;
   margin-left: 30px;
   position: absolute;
@@ -2425,8 +2091,7 @@ header h1 {
   height: 140px;
   background: transparent !important;
 }
-/* line 243, /Users/tom/Development/Percolate/league/client/stylesheets/include/logos/_shapes.scss */
-.container.teams .teams a#logo .bolt:before {
+a#logo .bolt:before {
   content: '';
   border-style: solid;
   border-width: 28px 35px;
@@ -2443,8 +2108,7 @@ header h1 {
   -ms-transform: skew(-30deg);
   transform: skew(-30deg);
 }
-/* line 250, /Users/tom/Development/Percolate/league/client/stylesheets/include/logos/_shapes.scss */
-.container.teams .teams a#logo .bolt:after {
+a#logo .bolt:after {
   content: '';
   position: absolute;
   top: 40%;
@@ -2462,8 +2126,7 @@ header h1 {
   border-top-width: 84px;
   border-right: 70px solid transparent;
 }
-/* line 265, /Users/tom/Development/Percolate/league/client/stylesheets/include/logos/_shapes.scss */
-.container.teams .teams a#logo .bolt span {
+a#logo .bolt span {
   display: block;
   position: absolute;
   top: 50%;
@@ -2477,8 +2140,7 @@ header h1 {
   left: 10px;
   margin-top: -65px;
 }
-/* line 243, /Users/tom/Development/Percolate/league/client/stylesheets/include/logos/_shapes.scss */
-.container.teams .teams a#logo .bolt span:before {
+a#logo .bolt span:before {
   content: '';
   border-style: solid;
   border-width: 26px 32.5px;
@@ -2495,8 +2157,7 @@ header h1 {
   -ms-transform: skew(-30deg);
   transform: skew(-30deg);
 }
-/* line 250, /Users/tom/Development/Percolate/league/client/stylesheets/include/logos/_shapes.scss */
-.container.teams .teams a#logo .bolt span:after {
+a#logo .bolt span:after {
   content: '';
   position: absolute;
   top: 40%;
@@ -2514,8 +2175,7 @@ header h1 {
   border-top-width: 78px;
   border-right: 65px solid transparent;
 }
-/* line 71, /Users/tom/Development/Percolate/league/client/stylesheets/base/_teams.scss */
-.container.teams .teams a#logo .crown {
+a#logo .crown {
   width: 0;
   height: 0;
   margin-top: -70px;
@@ -2535,8 +2195,7 @@ header h1 {
   /*  border-bottom-color: transparent;*/
   border-width: 70px;
 }
-/* line 286, /Users/tom/Development/Percolate/league/client/stylesheets/include/logos/_shapes.scss */
-.container.teams .teams a#logo .crown:before {
+a#logo .crown:before {
   content: '';
   position: absolute;
   top: auto;
@@ -2550,8 +2209,7 @@ header h1 {
   border-top-color: transparent;
   border-right-color: transparent;
 }
-/* line 294, /Users/tom/Development/Percolate/league/client/stylesheets/include/logos/_shapes.scss */
-.container.teams .teams a#logo .crown:after {
+a#logo .crown:after {
   content: '';
   position: absolute;
   top: auto;
@@ -2565,8 +2223,7 @@ header h1 {
   border-top-color: transparent;
   border-left-color: transparent;
 }
-/* line 312, /Users/tom/Development/Percolate/league/client/stylesheets/include/logos/_shapes.scss */
-.container.teams .teams a#logo .crown span {
+a#logo .crown span {
   display: block;
   position: absolute;
   top: 25%;
@@ -2586,8 +2243,7 @@ header h1 {
   left: -70px;
   margin-top: -60px;
 }
-/* line 286, /Users/tom/Development/Percolate/league/client/stylesheets/include/logos/_shapes.scss */
-.container.teams .teams a#logo .crown span:before {
+a#logo .crown span:before {
   content: '';
   position: absolute;
   top: auto;
@@ -2601,8 +2257,7 @@ header h1 {
   border-top-color: transparent;
   border-right-color: transparent;
 }
-/* line 294, /Users/tom/Development/Percolate/league/client/stylesheets/include/logos/_shapes.scss */
-.container.teams .teams a#logo .crown span:after {
+a#logo .crown span:after {
   content: '';
   position: absolute;
   top: auto;
@@ -2618,23 +2273,19 @@ header h1 {
 }
 
 /* html5 and form reset */
-/* line 35, style.scss */
 figure {
   position: relative;
 }
-/* line 37, style.scss */
 figure img, figure object, figure embed, figure video {
   max-width: 100%;
   display: block;
 }
 
-/* line 39, style.scss */
 img {
   border: 0;
   -ms-interpolation-mode: bicubic;
 }
 
-/* line 40, style.scss */
 input, textarea {
   moz-appearance: none;
   -webkit-appearance: none;
@@ -2642,43 +2293,35 @@ input, textarea {
   border: 0;
 }
 
-/* line 46, style.scss */
 b, strong {
   font-weight: bold;
 }
 
-/* line 47, style.scss */
 sub, sup {
   position: relative;
   font-size: .8em;
 }
 
-/* line 48, style.scss */
 sub {
   bottom: -0.2em;
 }
 
-/* line 49, style.scss */
 sup {
   top: -0.2em;
 }
 
-/* line 50, style.scss */
 i, em {
   font-style: italic;
 }
 
-/* line 51, style.scss */
 u {
   text-decoration: underline;
 }
 
-/* line 52, style.scss */
 del {
   text-decoration: line-through;
 }
 
-/* line 55, style.scss */
 html {
   background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2U0ZjdmYSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2NlZjFmNiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA=='), url("/images/textures/bg_noise_80x80.png") repeat;
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e4f7fa), color-stop(100%, #cef1f6)), url("/images/textures/bg_noise_80x80.png") repeat;
@@ -2689,7 +2332,6 @@ html {
   background: linear-gradient(top, #e4f7fa, #cef1f6 100%), url("/images/textures/bg_noise_80x80.png") repeat;
 }
 
-/* line 58, style.scss */
 body {
   color: #333;
   height: 100%;
@@ -2698,43 +2340,36 @@ body {
   line-height: 24px;
 }
 
-/* line 66, style.scss */
 h1 {
   font-size: 1.75em;
   line-height: 1.714em;
 }
 
-/* line 67, style.scss */
 h2 {
   font-size: 1.375em;
   line-height: 1.091em;
 }
 
-/* line 68, style.scss */
 h3 {
   font-size: 1.125em;
   line-height: 1.333em;
 }
 
-/* line 69, style.scss */
 h4 {
   font-size: 1em;
   line-height: 1.5em;
 }
 
-/* line 70, style.scss */
 small {
   font-size: 0.813em;
   line-height: 1.846em;
 }
 
-/* line 71, style.scss */
 .huge {
   font-size: 3em;
   line-height: 1em;
 }
 
-/* line 73, style.scss */
 a, button {
   outline: none;
   text-decoration: none;
@@ -2752,48 +2387,38 @@ a, button {
   cursor: pointer;
   color: #0197ce;
 }
-/* line 5, /Users/tom/Development/Percolate/league/client/stylesheets/include/links/_textlink.scss */
 a:hover, button:hover {
   color: #0066cc;
 }
-/* line 6, /Users/tom/Development/Percolate/league/client/stylesheets/include/links/_textlink.scss */
 a:active, button:active {
   color: #656878;
 }
-/* line 80, style.scss */
 a.inverse, button.inverse {
   color: white;
 }
-/* line 39, /Users/tom/Development/Percolate/league/client/stylesheets/include/links/_textlink.scss */
 a.inverse:hover, button.inverse:hover {
   color: #0197ce;
 }
-/* line 40, /Users/tom/Development/Percolate/league/client/stylesheets/include/links/_textlink.scss */
 a.inverse:active, button.inverse:active {
   color: black;
   text-shadow: rgba(230, 230, 230, 0.7) 0 1px 0, rgba(0, 0, 0, 0.3) 0 -1px 0;
 }
-/* line 81, style.scss */
 a.inset, button.inset {
   text-shadow: rgba(255, 255, 255, 0.7) 0 1px 0, rgba(26, 26, 26, 0.3) 0 -1px 0;
   color: #666666;
 }
-/* line 18, /Users/tom/Development/Percolate/league/client/stylesheets/include/links/_textlink.scss */
 a.inset:hover, button.inset:hover {
   color: #0197ce;
 }
-/* line 19, /Users/tom/Development/Percolate/league/client/stylesheets/include/links/_textlink.scss */
 a.inset:active, button.inset:active {
   color: #656878;
 }
-/* line 20, /Users/tom/Development/Percolate/league/client/stylesheets/include/links/_textlink.scss */
 a.inset[disabled], a.inset.disabled, button.inset[disabled], button.inset.disabled {
   color: #666;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
   opacity: 0.5;
   cursor: not-allowed;
 }
-/* line 82, style.scss */
 a.btn, button.btn {
   line-height: 1em;
   padding: 0.611em 1.222em;
@@ -2819,15 +2444,12 @@ a.btn, button.btn {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
 }
-/* line 14, /Users/tom/Development/Percolate/league/client/stylesheets/include/links/_onset.scss */
 a.btn:before, button.btn:before {
   margin-right: .7em;
 }
-/* line 16, /Users/tom/Development/Percolate/league/client/stylesheets/include/links/_onset.scss */
 a.btn::-moz-focus-inner, button.btn::-moz-focus-inner {
   border: 0;
 }
-/* line 84, style.scss */
 a.btn.default, button.btn.default {
   background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzMzYWRmZiIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjMDA5OWZmIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMDA3YWNjIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g'), #0099ff;
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #33adff), color-stop(50%, #0099ff), color-stop(100%, #007acc)), #0099ff;
@@ -2843,7 +2465,6 @@ a.btn.default, button.btn.default {
   color: #fff;
   text-shadow: rgba(0, 0, 0, 0.7) 0 1px 0;
 }
-/* line 28, /Users/tom/Development/Percolate/league/client/stylesheets/include/links/_onset.scss */
 a.btn.default:hover, button.btn.default:hover {
   color: #fff;
   background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSI3MCUiIHN0b3AtY29sb3I9IiMwMDk5ZmYiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDhhZTYiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA='), #0099ff;
@@ -2854,7 +2475,6 @@ a.btn.default:hover, button.btn.default:hover {
   background: -ms-linear-gradient(top, #0099ff 70%, #008ae6 100%), #0099ff;
   background: linear-gradient(top, #0099ff 70%, #008ae6 100%), #0099ff;
 }
-/* line 35, /Users/tom/Development/Percolate/league/client/stylesheets/include/links/_onset.scss */
 a.btn.default:active, button.btn.default:active {
   color: #fff;
   text-shadow: rgba(0, 0, 0, 0.7) 0 1px 0;
@@ -2867,7 +2487,6 @@ a.btn.default:active, button.btn.default:active {
   -o-box-shadow: rgba(0, 0, 0, 0.2) 0 2px 3px 0 inset, rgba(255, 255, 255, 0.7) 0 1px 0px 0;
   box-shadow: rgba(0, 0, 0, 0.2) 0 2px 3px 0 inset, rgba(255, 255, 255, 0.7) 0 1px 0px 0;
 }
-/* line 41, /Users/tom/Development/Percolate/league/client/stylesheets/include/links/_onset.scss */
 a.btn.default[disabled], a.btn.default.disabled, button.btn.default[disabled], button.btn.default.disabled {
   text-shadow: rgba(255, 255, 255, 0.7) 0 -1px 0;
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0icmdiYSgyMzgsIDIzOCwgMjM4LCAwKSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0icmdiYSgyMzgsIDIzOCwgMjM4LCAwLjYpIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
@@ -2890,7 +2509,6 @@ a.btn.default[disabled], a.btn.default.disabled, button.btn.default[disabled], b
   color: #999;
   cursor: not-allowed;
 }
-/* line 49, /Users/tom/Development/Percolate/league/client/stylesheets/include/links/_onset.scss */
 a.btn.default[disabled]:hover, a.btn.default[disabled]:active, a.btn.default.disabled:hover, a.btn.default.disabled:active, button.btn.default[disabled]:hover, button.btn.default[disabled]:active, button.btn.default.disabled:hover, button.btn.default.disabled:active {
   background-color: #ccc;
   color: #999;
@@ -2907,7 +2525,6 @@ a.btn.default[disabled]:hover, a.btn.default[disabled]:active, a.btn.default.dis
   -o-box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px 0 inset;
   box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px 0 inset;
 }
-/* line 85, style.scss */
 a.btn.facebook, button.btn.facebook {
   background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzI4N2VlYyIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjMjM2N2JlIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMWI1MDkzIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g'), #2367be;
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #287eec), color-stop(50%, #2367be), color-stop(100%, #1b5093)), #2367be;
@@ -2923,7 +2540,6 @@ a.btn.facebook, button.btn.facebook {
   color: #fff;
   text-shadow: rgba(0, 0, 0, 0.7) 0 1px 0;
 }
-/* line 28, /Users/tom/Development/Percolate/league/client/stylesheets/include/links/_onset.scss */
 a.btn.facebook:hover, button.btn.facebook:hover {
   color: #fff;
   background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSI3MCUiIHN0b3AtY29sb3I9IiMwZDY0ZDQiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMxZjViYTgiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA='), #2367be;
@@ -2934,7 +2550,6 @@ a.btn.facebook:hover, button.btn.facebook:hover {
   background: -ms-linear-gradient(top, #0d64d4 70%, #1f5ba8 100%), #2367be;
   background: linear-gradient(top, #0d64d4 70%, #1f5ba8 100%), #2367be;
 }
-/* line 35, /Users/tom/Development/Percolate/league/client/stylesheets/include/links/_onset.scss */
 a.btn.facebook:active, button.btn.facebook:active {
   color: #fff;
   text-shadow: rgba(0, 0, 0, 0.7) 0 1px 0;
@@ -2947,7 +2562,6 @@ a.btn.facebook:active, button.btn.facebook:active {
   -o-box-shadow: rgba(0, 0, 0, 0.2) 0 2px 3px 0 inset, rgba(255, 255, 255, 0.7) 0 1px 0px 0;
   box-shadow: rgba(0, 0, 0, 0.2) 0 2px 3px 0 inset, rgba(255, 255, 255, 0.7) 0 1px 0px 0;
 }
-/* line 41, /Users/tom/Development/Percolate/league/client/stylesheets/include/links/_onset.scss */
 a.btn.facebook[disabled], a.btn.facebook.disabled, button.btn.facebook[disabled], button.btn.facebook.disabled {
   text-shadow: rgba(255, 255, 255, 0.7) 0 -1px 0;
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0icmdiYSgyMzgsIDIzOCwgMjM4LCAwKSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0icmdiYSgyMzgsIDIzOCwgMjM4LCAwLjYpIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
@@ -2970,7 +2584,6 @@ a.btn.facebook[disabled], a.btn.facebook.disabled, button.btn.facebook[disabled]
   color: #999;
   cursor: not-allowed;
 }
-/* line 49, /Users/tom/Development/Percolate/league/client/stylesheets/include/links/_onset.scss */
 a.btn.facebook[disabled]:hover, a.btn.facebook[disabled]:active, a.btn.facebook.disabled:hover, a.btn.facebook.disabled:active, button.btn.facebook[disabled]:hover, button.btn.facebook[disabled]:active, button.btn.facebook.disabled:hover, button.btn.facebook.disabled:active {
   background-color: #ccc;
   color: #999;
@@ -2987,7 +2600,6 @@ a.btn.facebook[disabled]:hover, a.btn.facebook[disabled]:active, a.btn.facebook.
   -o-box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px 0 inset;
   box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px 0 inset;
 }
-/* line 86, style.scss */
 a.btn.twitter, button.btn.twitter {
   background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzQ5YzVlZiIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjMmRhZGQ4Ii8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMjE4ZGIxIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g'), #2dadd8;
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #49c5ef), color-stop(50%, #2dadd8), color-stop(100%, #218db1)), #2dadd8;
@@ -3003,7 +2615,6 @@ a.btn.twitter, button.btn.twitter {
   color: #fff;
   text-shadow: rgba(0, 0, 0, 0.7) 0 1px 0;
 }
-/* line 28, /Users/tom/Development/Percolate/league/client/stylesheets/include/links/_onset.scss */
 a.btn.twitter:hover, button.btn.twitter:hover {
   color: #fff;
   background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSI3MCUiIHN0b3AtY29sb3I9IiMxNGI5ZjEiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMyNTllYzciLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA='), #2dadd8;
@@ -3014,7 +2625,6 @@ a.btn.twitter:hover, button.btn.twitter:hover {
   background: -ms-linear-gradient(top, #14b9f1 70%, #259ec7 100%), #2dadd8;
   background: linear-gradient(top, #14b9f1 70%, #259ec7 100%), #2dadd8;
 }
-/* line 35, /Users/tom/Development/Percolate/league/client/stylesheets/include/links/_onset.scss */
 a.btn.twitter:active, button.btn.twitter:active {
   color: #fff;
   text-shadow: rgba(0, 0, 0, 0.7) 0 1px 0;
@@ -3027,7 +2637,6 @@ a.btn.twitter:active, button.btn.twitter:active {
   -o-box-shadow: rgba(0, 0, 0, 0.2) 0 2px 3px 0 inset, rgba(255, 255, 255, 0.7) 0 1px 0px 0;
   box-shadow: rgba(0, 0, 0, 0.2) 0 2px 3px 0 inset, rgba(255, 255, 255, 0.7) 0 1px 0px 0;
 }
-/* line 41, /Users/tom/Development/Percolate/league/client/stylesheets/include/links/_onset.scss */
 a.btn.twitter[disabled], a.btn.twitter.disabled, button.btn.twitter[disabled], button.btn.twitter.disabled {
   text-shadow: rgba(255, 255, 255, 0.7) 0 -1px 0;
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0icmdiYSgyMzgsIDIzOCwgMjM4LCAwKSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0icmdiYSgyMzgsIDIzOCwgMjM4LCAwLjYpIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
@@ -3050,7 +2659,6 @@ a.btn.twitter[disabled], a.btn.twitter.disabled, button.btn.twitter[disabled], b
   color: #999;
   cursor: not-allowed;
 }
-/* line 49, /Users/tom/Development/Percolate/league/client/stylesheets/include/links/_onset.scss */
 a.btn.twitter[disabled]:hover, a.btn.twitter[disabled]:active, a.btn.twitter.disabled:hover, a.btn.twitter.disabled:active, button.btn.twitter[disabled]:hover, button.btn.twitter[disabled]:active, button.btn.twitter.disabled:hover, button.btn.twitter.disabled:active {
   background-color: #ccc;
   color: #999;
@@ -3067,7 +2675,6 @@ a.btn.twitter[disabled]:hover, a.btn.twitter[disabled]:active, a.btn.twitter.dis
   -o-box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px 0 inset;
   box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px 0 inset;
 }
-/* line 87, style.scss */
 a.btn.google, button.btn.google {
   background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2NjYmJiYiIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjYWFhYWFhIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjOTA5MDkwIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g'), #aaaaaa;
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ccbbbb), color-stop(50%, #aaaaaa), color-stop(100%, #909090)), #aaaaaa;
@@ -3083,7 +2690,6 @@ a.btn.google, button.btn.google {
   color: #fff;
   text-shadow: rgba(0, 0, 0, 0.7) 0 1px 0;
 }
-/* line 28, /Users/tom/Development/Percolate/league/client/stylesheets/include/links/_onset.scss */
 a.btn.google:hover, button.btn.google:hover {
   color: #fff;
   background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSI3MCUiIHN0b3AtY29sb3I9IiNiYjk5OTkiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM5ZDlkOWQiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA='), #aaaaaa;
@@ -3094,7 +2700,6 @@ a.btn.google:hover, button.btn.google:hover {
   background: -ms-linear-gradient(top, #bb9999 70%, #9d9d9d 100%), #aaaaaa;
   background: linear-gradient(top, #bb9999 70%, #9d9d9d 100%), #aaaaaa;
 }
-/* line 35, /Users/tom/Development/Percolate/league/client/stylesheets/include/links/_onset.scss */
 a.btn.google:active, button.btn.google:active {
   color: #fff;
   text-shadow: rgba(0, 0, 0, 0.7) 0 1px 0;
@@ -3107,7 +2712,6 @@ a.btn.google:active, button.btn.google:active {
   -o-box-shadow: rgba(0, 0, 0, 0.2) 0 2px 3px 0 inset, rgba(255, 255, 255, 0.7) 0 1px 0px 0;
   box-shadow: rgba(0, 0, 0, 0.2) 0 2px 3px 0 inset, rgba(255, 255, 255, 0.7) 0 1px 0px 0;
 }
-/* line 41, /Users/tom/Development/Percolate/league/client/stylesheets/include/links/_onset.scss */
 a.btn.google[disabled], a.btn.google.disabled, button.btn.google[disabled], button.btn.google.disabled {
   text-shadow: rgba(255, 255, 255, 0.7) 0 -1px 0;
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0icmdiYSgyMzgsIDIzOCwgMjM4LCAwKSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0icmdiYSgyMzgsIDIzOCwgMjM4LCAwLjYpIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
@@ -3130,7 +2734,6 @@ a.btn.google[disabled], a.btn.google.disabled, button.btn.google[disabled], butt
   color: #999;
   cursor: not-allowed;
 }
-/* line 49, /Users/tom/Development/Percolate/league/client/stylesheets/include/links/_onset.scss */
 a.btn.google[disabled]:hover, a.btn.google[disabled]:active, a.btn.google.disabled:hover, a.btn.google.disabled:active, button.btn.google[disabled]:hover, button.btn.google[disabled]:active, button.btn.google.disabled:hover, button.btn.google.disabled:active {
   background-color: #ccc;
   color: #999;
