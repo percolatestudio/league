@@ -22,8 +22,9 @@ $experimental-support-for-svg: true;
 @import 'stylesheets/include/forms';
 
 @import 'stylesheets/base/layout/transition';
-
 @import 'stylesheets/base/layout/header';
+@import 'stylesheets/base/lists/lists';
+
 @import 'stylesheets/base/auth';
 @import 'stylesheets/base/games';
 @import 'stylesheets/base/home';
@@ -40,8 +41,6 @@ img {	border: 0;-ms-interpolation-mode: bicubic;}
 input, textarea{
   moz-appearance:none;
   -webkit-appearance:none;
-  outline:0;
-  border:0;
 }
 b, strong{ font-weight: bold;}
 sub, sup{ position: relative; font-size: .8em;}
