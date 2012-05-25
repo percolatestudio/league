@@ -124,6 +124,7 @@ a#logo{
     color: #FF5C2B;
     font-family: Rockwell, sans-serif;
     white-space: nowrap;
+    line-height: 1em;
     /*misc*/
     @include maskbg;
   }

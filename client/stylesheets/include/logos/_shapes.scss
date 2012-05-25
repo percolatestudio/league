@@ -311,11 +311,11 @@
   @include crown($outerwidth, $outerheight, #2E66B2);
   span{
     display: block;
-    $innerwidth: $outerwidth - 10px;
-    $innerheight: $outerheight - 20px;
+    $innerwidth: $outerwidth;
+    $innerheight: $outerheight;
     @include crown($innerwidth, $innerheight, #FF5C2B);
     z-index: 2;
-    left: -0.5 * $outerwidth + 10px;
+    left: -0.5 * $outerwidth;
     margin-top: $innerheight *-.5 + 10px;
   }
 
