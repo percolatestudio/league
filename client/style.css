@@ -1115,11 +1115,11 @@ a.current:active.icon16.heart:before, button.current:active.icon16.heart:before 
 
 /* line 1, stylesheets/include/_forms.scss */
 textarea {
+  background: white;
   -moz-box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 2px 0px inset;
   -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 2px 0px inset;
   -o-box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 2px 0px inset;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 2px 0px inset;
-  background: #eee;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -1131,6 +1131,12 @@ textarea {
   -webkit-transition: border-color 1s ease;
   -o-transition: border-color 1s ease;
   transition: border-color 1s ease;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  border-radius: 5px;
   margin: 0 0 .75em 0;
   line-height: 1em;
   padding: .25em;
@@ -1145,7 +1151,7 @@ textarea {
   display: block;
   text-align: left;
 }
-/* line 13, stylesheets/include/forms/_stdform.scss */
+/* line 14, stylesheets/include/forms/_stdform.scss */
 textarea:focus {
   border: 1px solid rgba(102, 204, 255, 0.9);
   -moz-box-shadow: rgba(102, 204, 255, 0.3) 0 0px 3px 1px, rgba(0, 0, 0, 0.3) 0px 1px 3px 0px inset;
@@ -1153,7 +1159,7 @@ textarea:focus {
   -o-box-shadow: rgba(102, 204, 255, 0.3) 0 0px 3px 1px, rgba(0, 0, 0, 0.3) 0px 1px 3px 0px inset;
   box-shadow: rgba(102, 204, 255, 0.3) 0 0px 3px 1px, rgba(0, 0, 0, 0.3) 0px 1px 3px 0px inset;
 }
-/* line 18, stylesheets/include/forms/_stdform.scss */
+/* line 19, stylesheets/include/forms/_stdform.scss */
 textarea:required:valid {
   background: url("icon_valid_16x16.png") no-repeat 98% center, url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y5ZjlmOSIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjZmZmZmZmIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
   background: url("icon_valid_16x16.png") no-repeat 98% center, -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f9f9f9), color-stop(50%, #ffffff));
@@ -1163,7 +1169,7 @@ textarea:required:valid {
   background: url("icon_valid_16x16.png") no-repeat 98% center, -ms-linear-gradient(top, #f9f9f9, #ffffff 50%);
   background: url("icon_valid_16x16.png") no-repeat 98% center, linear-gradient(top, #f9f9f9, #ffffff 50%);
 }
-/* line 24, stylesheets/include/forms/_stdform.scss */
+/* line 25, stylesheets/include/forms/_stdform.scss */
 textarea:required::-webkit-validation-bubble-message {
   color: #333;
   background: #ff6;
@@ -1179,12 +1185,12 @@ textarea:required::-webkit-validation-bubble-message {
   -o-box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 5px 0px;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 5px 0px;
 }
-/* line 32, stylesheets/include/forms/_stdform.scss */
+/* line 33, stylesheets/include/forms/_stdform.scss */
 textarea:required::-webkit-validation-bubble-arrow {
   background: #ff6;
   border: 0px solid transparent;
 }
-/* line 37, stylesheets/include/forms/_stdform.scss */
+/* line 38, stylesheets/include/forms/_stdform.scss */
 textarea:required.has_been_focussed:valid {
   background: url("icon_valid_16x16.png") no-repeat 98% center, url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y5ZjlmOSIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjZmZmZmZmIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
   background: url("icon_valid_16x16.png") no-repeat 98% center, -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f9f9f9), color-stop(50%, #ffffff));
@@ -1194,7 +1200,7 @@ textarea:required.has_been_focussed:valid {
   background: url("icon_valid_16x16.png") no-repeat 98% center, -ms-linear-gradient(top, #f9f9f9, #ffffff 50%);
   background: url("icon_valid_16x16.png") no-repeat 98% center, linear-gradient(top, #f9f9f9, #ffffff 50%);
 }
-/* line 43, stylesheets/include/forms/_stdform.scss */
+/* line 44, stylesheets/include/forms/_stdform.scss */
 textarea:required.has_been_focussed:invalid {
   background: url("icon_invalid_16x16.png") no-repeat 98% center, url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y5ZjlmOSIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjZmZmZmZmIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
   background: url("icon_invalid_16x16.png") no-repeat 98% center, -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f9f9f9), color-stop(50%, #ffffff));
@@ -1204,13 +1210,15 @@ textarea:required.has_been_focussed:invalid {
   background: url("icon_invalid_16x16.png") no-repeat 98% center, -ms-linear-gradient(top, #f9f9f9, #ffffff 50%);
   background: url("icon_invalid_16x16.png") no-repeat 98% center, linear-gradient(top, #f9f9f9, #ffffff 50%);
 }
-/* line 56, stylesheets/include/forms/_stdform.scss */
+/* line 57, stylesheets/include/forms/_stdform.scss */
 textarea:-moz-placeholder {
   color: #ccc;
+  font-style: italic;
 }
-/* line 59, stylesheets/include/forms/_stdform.scss */
+/* line 61, stylesheets/include/forms/_stdform.scss */
 textarea::-webkit-input-placeholder {
   color: #ccc;
+  font-style: italic;
 }
 /* line 6, stylesheets/include/_forms.scss */
 textarea.new {
@@ -1219,11 +1227,11 @@ textarea.new {
 
 /* line 10, stylesheets/include/_forms.scss */
 input {
+  background: white;
   -moz-box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 2px 0px inset;
   -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 2px 0px inset;
   -o-box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 2px 0px inset;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 2px 0px inset;
-  background: #eee;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -1235,6 +1243,12 @@ input {
   -webkit-transition: border-color 1s ease;
   -o-transition: border-color 1s ease;
   transition: border-color 1s ease;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  border-radius: 5px;
   margin: 0 0 .75em 0;
   line-height: 1em;
   padding: .25em;
@@ -1247,7 +1261,7 @@ input {
   text-align: center;
   line-height: 1em;
 }
-/* line 13, stylesheets/include/forms/_stdform.scss */
+/* line 14, stylesheets/include/forms/_stdform.scss */
 input:focus {
   border: 1px solid rgba(102, 204, 255, 0.9);
   -moz-box-shadow: rgba(102, 204, 255, 0.3) 0 0px 3px 1px, rgba(0, 0, 0, 0.3) 0px 1px 3px 0px inset;
@@ -1255,7 +1269,7 @@ input:focus {
   -o-box-shadow: rgba(102, 204, 255, 0.3) 0 0px 3px 1px, rgba(0, 0, 0, 0.3) 0px 1px 3px 0px inset;
   box-shadow: rgba(102, 204, 255, 0.3) 0 0px 3px 1px, rgba(0, 0, 0, 0.3) 0px 1px 3px 0px inset;
 }
-/* line 18, stylesheets/include/forms/_stdform.scss */
+/* line 19, stylesheets/include/forms/_stdform.scss */
 input:required:valid {
   background: url("icon_valid_16x16.png") no-repeat 98% center, url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y5ZjlmOSIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjZmZmZmZmIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
   background: url("icon_valid_16x16.png") no-repeat 98% center, -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f9f9f9), color-stop(50%, #ffffff));
@@ -1265,7 +1279,7 @@ input:required:valid {
   background: url("icon_valid_16x16.png") no-repeat 98% center, -ms-linear-gradient(top, #f9f9f9, #ffffff 50%);
   background: url("icon_valid_16x16.png") no-repeat 98% center, linear-gradient(top, #f9f9f9, #ffffff 50%);
 }
-/* line 24, stylesheets/include/forms/_stdform.scss */
+/* line 25, stylesheets/include/forms/_stdform.scss */
 input:required::-webkit-validation-bubble-message {
   color: #333;
   background: #ff6;
@@ -1281,12 +1295,12 @@ input:required::-webkit-validation-bubble-message {
   -o-box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 5px 0px;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 5px 0px;
 }
-/* line 32, stylesheets/include/forms/_stdform.scss */
+/* line 33, stylesheets/include/forms/_stdform.scss */
 input:required::-webkit-validation-bubble-arrow {
   background: #ff6;
   border: 0px solid transparent;
 }
-/* line 37, stylesheets/include/forms/_stdform.scss */
+/* line 38, stylesheets/include/forms/_stdform.scss */
 input:required.has_been_focussed:valid {
   background: url("icon_valid_16x16.png") no-repeat 98% center, url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y5ZjlmOSIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjZmZmZmZmIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
   background: url("icon_valid_16x16.png") no-repeat 98% center, -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f9f9f9), color-stop(50%, #ffffff));
@@ -1296,7 +1310,7 @@ input:required.has_been_focussed:valid {
   background: url("icon_valid_16x16.png") no-repeat 98% center, -ms-linear-gradient(top, #f9f9f9, #ffffff 50%);
   background: url("icon_valid_16x16.png") no-repeat 98% center, linear-gradient(top, #f9f9f9, #ffffff 50%);
 }
-/* line 43, stylesheets/include/forms/_stdform.scss */
+/* line 44, stylesheets/include/forms/_stdform.scss */
 input:required.has_been_focussed:invalid {
   background: url("icon_invalid_16x16.png") no-repeat 98% center, url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y5ZjlmOSIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjZmZmZmZmIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
   background: url("icon_invalid_16x16.png") no-repeat 98% center, -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f9f9f9), color-stop(50%, #ffffff));
@@ -1306,13 +1320,15 @@ input:required.has_been_focussed:invalid {
   background: url("icon_invalid_16x16.png") no-repeat 98% center, -ms-linear-gradient(top, #f9f9f9, #ffffff 50%);
   background: url("icon_invalid_16x16.png") no-repeat 98% center, linear-gradient(top, #f9f9f9, #ffffff 50%);
 }
-/* line 56, stylesheets/include/forms/_stdform.scss */
+/* line 57, stylesheets/include/forms/_stdform.scss */
 input:-moz-placeholder {
   color: #ccc;
+  font-style: italic;
 }
-/* line 59, stylesheets/include/forms/_stdform.scss */
+/* line 61, stylesheets/include/forms/_stdform.scss */
 input::-webkit-input-placeholder {
   color: #ccc;
+  font-style: italic;
 }
 
 /* line 14, stylesheets/include/_forms.scss */
@@ -1657,20 +1673,26 @@ header h1 {
 /* line 82, stylesheets/base/_home.scss */
 .container.home .home form.team_builder {
   text-align: center;
+  margin-bottom: 6em;
 }
-/* line 84, stylesheets/base/_home.scss */
+/* line 85, stylesheets/base/_home.scss */
 .container.home .home form.team_builder > * {
   display: inline-block;
   margin: auto 10px;
   font-size: 30px;
+  float: none;
 }
-/* line 89, stylesheets/base/_home.scss */
+/* line 91, stylesheets/base/_home.scss */
 .container.home .home form.team_builder select {
   width: 120px;
 }
-/* line 92, stylesheets/base/_home.scss */
+/* line 94, stylesheets/base/_home.scss */
 .container.home .home form.team_builder input {
   width: 300px;
+}
+/* line 97, stylesheets/base/_home.scss */
+.container.home .home form.team_builder button {
+  font-weight: bold;
 }
 
 /* html5 and form reset */
@@ -1695,51 +1717,52 @@ input, textarea {
   moz-appearance: none;
   -webkit-appearance: none;
   outline: 0;
+  border: 0;
 }
 
-/* line 45, style.scss */
+/* line 46, style.scss */
 b, strong {
   font-weight: bold;
 }
 
-/* line 46, style.scss */
+/* line 47, style.scss */
 sub, sup {
   position: relative;
   font-size: .8em;
 }
 
-/* line 47, style.scss */
+/* line 48, style.scss */
 sub {
   bottom: -0.2em;
 }
 
-/* line 48, style.scss */
+/* line 49, style.scss */
 sup {
   top: -0.2em;
 }
 
-/* line 49, style.scss */
+/* line 50, style.scss */
 i, em {
   font-style: italic;
 }
 
-/* line 50, style.scss */
+/* line 51, style.scss */
 u {
   text-decoration: underline;
 }
 
-/* line 51, style.scss */
+/* line 52, style.scss */
 del {
   text-decoration: line-through;
 }
 
-/* line 54, style.scss */
+/* line 55, style.scss */
 html {
   height: 100%;
   background: url("images/textures/bg_noise_80x80.png") repeat, #f9f9f9;
 }
 
-/* line 58, style.scss */
+/* line 59, style.scss */
 body {
   color: #333;
   height: 100%;
@@ -1748,43 +1771,43 @@ body {
   line-height: 24px;
 }
 
-/* line 66, style.scss */
+/* line 67, style.scss */
 h1 {
   font-size: 1.75em;
   line-height: 1.714em;
 }
 
-/* line 67, style.scss */
+/* line 68, style.scss */
 h2 {
   font-size: 1.375em;
   line-height: 1.091em;
 }
 
-/* line 68, style.scss */
+/* line 69, style.scss */
 h3 {
   font-size: 1.125em;
   line-height: 1.333em;
 }
 
-/* line 69, style.scss */
+/* line 70, style.scss */
 h4 {
   font-size: 1em;
   line-height: 1.5em;
 }
 
-/* line 70, style.scss */
+/* line 71, style.scss */
 small {
   font-size: 0.813em;
   line-height: 1.846em;
 }
 
-/* line 71, style.scss */
+/* line 72, style.scss */
 .huge {
   font-size: 3em;
   line-height: 1em;
 }
 
-/* line 73, style.scss */
+/* line 74, style.scss */
 a, button {
   outline: none;
   text-decoration: none;
@@ -1810,7 +1833,7 @@ a:hover, button:hover {
 a:active, button:active {
   color: #656878;
 }
-/* line 80, style.scss */
+/* line 81, style.scss */
 a.inverse, button.inverse {
   color: white;
 }
@@ -1823,7 +1846,7 @@ a.inverse:active, button.inverse:active {
   color: black;
   text-shadow: rgba(255, 255, 255, 0.7) 0 1px 0;
 }
-/* line 81, style.scss */
+/* line 82, style.scss */
 a.inset, button.inset {
   text-shadow: rgba(255, 255, 255, 0.7) 0 1px 0;
   color: #666666;
@@ -1843,7 +1866,7 @@ a.inset[disabled], a.inset.disabled, button.inset[disabled], button.inset.disabl
   opacity: 0.5;
   cursor: not-allowed;
 }
-/* line 82, style.scss */
+/* line 83, style.scss */
 a.btn, button.btn {
   line-height: 1em;
   padding: 0.611em 1.222em;
@@ -1877,39 +1900,47 @@ a.btn:before, button.btn:before {
 a.btn::-moz-focus-inner, button.btn::-moz-focus-inner {
   border: 0;
 }
-/* line 84, style.scss */
+/* line 85, style.scss */
 a.btn.default, button.btn.default {
-  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSI3MCUiIHN0b3AtY29sb3I9IiNmZmNjNjYiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZmMzNGQiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA='), #ffcc66;
-  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(70%, #ffcc66), color-stop(100%, #ffc34d)), #ffcc66;
-  background: -webkit-linear-gradient(top, #ffcc66 70%, #ffc34d 100%), #ffcc66;
-  background: -moz-linear-gradient(top, #ffcc66 70%, #ffc34d 100%), #ffcc66;
-  background: -o-linear-gradient(top, #ffcc66 70%, #ffc34d 100%), #ffcc66;
-  background: -ms-linear-gradient(top, #ffcc66 70%, #ffc34d 100%), #ffcc66;
-  background: linear-gradient(top, #ffcc66 70%, #ffc34d 100%), #ffcc66;
-  border: 1px solid #ffcc66;
+  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzMzYWRmZiIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjMDA5OWZmIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMDA3YWNjIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g'), #0099ff;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #33adff), color-stop(50%, #0099ff), color-stop(100%, #007acc)), #0099ff;
+  background: -webkit-linear-gradient(top, #33adff, #0099ff 50%, #007acc 100%), #0099ff;
+  background: -moz-linear-gradient(top, #33adff, #0099ff 50%, #007acc 100%), #0099ff;
+  background: -o-linear-gradient(top, #33adff, #0099ff 50%, #007acc 100%), #0099ff;
+  background: -ms-linear-gradient(top, #33adff, #0099ff 50%, #007acc 100%), #0099ff;
+  background: linear-gradient(top, #33adff, #0099ff 50%, #007acc 100%), #0099ff;
+  border-right: 1px solid #007acc;
+  border-left: 1px solid #007acc;
+  border-top: 1px solid #4db8ff;
+  border-bottom: 1px solid #003d66;
   color: #fff;
+  text-shadow: rgba(0, 0, 0, 0.7) 0 1px 0;
 }
-/* line 27, stylesheets/include/links/_onset.scss */
+/* line 28, stylesheets/include/links/_onset.scss */
 a.btn.default:hover, button.btn.default:hover {
   color: #fff;
-  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSI3MCUiIHN0b3AtY29sb3I9IiNmZmNjNjYiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZmMzNGQiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA='), #ffcc66;
-  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(70%, #ffcc66), color-stop(100%, #ffc34d)), #ffcc66;
-  background: -webkit-linear-gradient(top, #ffcc66 70%, #ffc34d 100%), #ffcc66;
-  background: -moz-linear-gradient(top, #ffcc66 70%, #ffc34d 100%), #ffcc66;
-  background: -o-linear-gradient(top, #ffcc66 70%, #ffc34d 100%), #ffcc66;
-  background: -ms-linear-gradient(top, #ffcc66 70%, #ffc34d 100%), #ffcc66;
-  background: linear-gradient(top, #ffcc66 70%, #ffc34d 100%), #ffcc66;
+  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSI3MCUiIHN0b3AtY29sb3I9IiMwMDk5ZmYiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDhhZTYiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA='), #0099ff;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(70%, #0099ff), color-stop(100%, #008ae6)), #0099ff;
+  background: -webkit-linear-gradient(top, #0099ff 70%, #008ae6 100%), #0099ff;
+  background: -moz-linear-gradient(top, #0099ff 70%, #008ae6 100%), #0099ff;
+  background: -o-linear-gradient(top, #0099ff 70%, #008ae6 100%), #0099ff;
+  background: -ms-linear-gradient(top, #0099ff 70%, #008ae6 100%), #0099ff;
+  background: linear-gradient(top, #0099ff 70%, #008ae6 100%), #0099ff;
 }
-/* line 34, stylesheets/include/links/_onset.scss */
+/* line 35, stylesheets/include/links/_onset.scss */
 a.btn.default:active, button.btn.default:active {
   color: #fff;
   text-shadow: rgba(0, 0, 0, 0.7) 0 1px 0;
+  border-right: 1px solid #007acc;
+  border-left: 1px solid #007acc;
+  border-bottom: 1px solid #99d6ff;
+  border-top: 1px solid #003d66;
   -moz-box-shadow: rgba(0, 0, 0, 0.2) 0 2px 3px 0 inset, rgba(255, 255, 255, 0.7) 0 1px 0px 0;
   -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 2px 3px 0 inset, rgba(255, 255, 255, 0.7) 0 1px 0px 0;
   -o-box-shadow: rgba(0, 0, 0, 0.2) 0 2px 3px 0 inset, rgba(255, 255, 255, 0.7) 0 1px 0px 0;
   box-shadow: rgba(0, 0, 0, 0.2) 0 2px 3px 0 inset, rgba(255, 255, 255, 0.7) 0 1px 0px 0;
 }
-/* line 39, stylesheets/include/links/_onset.scss */
+/* line 41, stylesheets/include/links/_onset.scss */
 a.btn.default[disabled], a.btn.default.disabled, button.btn.default[disabled], button.btn.default.disabled {
   text-shadow: rgba(255, 255, 255, 0.7) 0 -1px 0;
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0icmdiYSgyMzgsIDIzOCwgMjM4LCAwKSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0icmdiYSgyMzgsIDIzOCwgMjM4LCAwLjYpIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
@@ -1920,10 +1951,10 @@ a.btn.default[disabled], a.btn.default.disabled, button.btn.default[disabled], b
   background-image: -o-linear-gradient(top, rgba(238, 238, 238, 0), rgba(238, 238, 238, 0.6) 100%);
   background-image: -ms-linear-gradient(top, rgba(238, 238, 238, 0), rgba(238, 238, 238, 0.6) 100%);
   background-image: linear-gradient(top, rgba(238, 238, 238, 0), rgba(238, 238, 238, 0.6) 100%);
-  border-top: 1px solid rgba(0, 0, 0, 0.3);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  border-right: 1px solid rgba(0, 0, 0, 0.2);
-  border-left: 1px solid rgba(0, 0, 0, 0.2);
+  border-right: 1px solid #007acc;
+  border-left: 1px solid #007acc;
+  border-bottom: 1px solid #99d6ff;
+  border-top: 1px solid #003d66;
   -moz-box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px 0 inset;
   -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px 0 inset;
   -o-box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px 0 inset;
@@ -1932,7 +1963,7 @@ a.btn.default[disabled], a.btn.default.disabled, button.btn.default[disabled], b
   color: #999;
   cursor: not-allowed;
 }
-/* line 47, stylesheets/include/links/_onset.scss */
+/* line 49, stylesheets/include/links/_onset.scss */
 a.btn.default[disabled]:hover, a.btn.default[disabled]:active, a.btn.default.disabled:hover, a.btn.default.disabled:active, button.btn.default[disabled]:hover, button.btn.default[disabled]:active, button.btn.default.disabled:hover, button.btn.default.disabled:active {
   background-color: #ccc;
   color: #999;
@@ -1949,19 +1980,23 @@ a.btn.default[disabled]:hover, a.btn.default[disabled]:active, a.btn.default.dis
   -o-box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px 0 inset;
   box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px 0 inset;
 }
-/* line 85, style.scss */
+/* line 86, style.scss */
 a.btn.facebook, button.btn.facebook {
-  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSI3MCUiIHN0b3AtY29sb3I9IiMyMzY3YmUiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMxZjViYTgiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA='), #2367be;
-  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(70%, #2367be), color-stop(100%, #1f5ba8)), #2367be;
-  background: -webkit-linear-gradient(top, #2367be 70%, #1f5ba8 100%), #2367be;
-  background: -moz-linear-gradient(top, #2367be 70%, #1f5ba8 100%), #2367be;
-  background: -o-linear-gradient(top, #2367be 70%, #1f5ba8 100%), #2367be;
-  background: -ms-linear-gradient(top, #2367be 70%, #1f5ba8 100%), #2367be;
-  background: linear-gradient(top, #2367be 70%, #1f5ba8 100%), #2367be;
-  border: 1px solid #0d64d4;
+  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzI4N2VlYyIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjMjM2N2JlIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMWI1MDkzIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g'), #2367be;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #287eec), color-stop(50%, #2367be), color-stop(100%, #1b5093)), #2367be;
+  background: -webkit-linear-gradient(top, #287eec, #2367be 50%, #1b5093 100%), #2367be;
+  background: -moz-linear-gradient(top, #287eec, #2367be 50%, #1b5093 100%), #2367be;
+  background: -o-linear-gradient(top, #287eec, #2367be 50%, #1b5093 100%), #2367be;
+  background: -ms-linear-gradient(top, #287eec, #2367be 50%, #1b5093 100%), #2367be;
+  background: linear-gradient(top, #287eec, #2367be 50%, #1b5093 100%), #2367be;
+  border-right: 1px solid #1b5093;
+  border-left: 1px solid #1b5093;
+  border-top: 1px solid #4f8edf;
+  border-bottom: 1px solid #0b213d;
   color: #fff;
+  text-shadow: rgba(0, 0, 0, 0.7) 0 1px 0;
 }
-/* line 27, stylesheets/include/links/_onset.scss */
+/* line 28, stylesheets/include/links/_onset.scss */
 a.btn.facebook:hover, button.btn.facebook:hover {
   color: #fff;
   background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSI3MCUiIHN0b3AtY29sb3I9IiMwZDY0ZDQiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMxZjViYTgiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA='), #2367be;
@@ -1972,16 +2007,20 @@ a.btn.facebook:hover, button.btn.facebook:hover {
   background: -ms-linear-gradient(top, #0d64d4 70%, #1f5ba8 100%), #2367be;
   background: linear-gradient(top, #0d64d4 70%, #1f5ba8 100%), #2367be;
 }
-/* line 34, stylesheets/include/links/_onset.scss */
+/* line 35, stylesheets/include/links/_onset.scss */
 a.btn.facebook:active, button.btn.facebook:active {
   color: #fff;
   text-shadow: rgba(0, 0, 0, 0.7) 0 1px 0;
+  border-right: 1px solid #1b5093;
+  border-left: 1px solid #1b5093;
+  border-bottom: 1px solid #90b7ea;
+  border-top: 1px solid #0b213d;
   -moz-box-shadow: rgba(0, 0, 0, 0.2) 0 2px 3px 0 inset, rgba(255, 255, 255, 0.7) 0 1px 0px 0;
   -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 2px 3px 0 inset, rgba(255, 255, 255, 0.7) 0 1px 0px 0;
   -o-box-shadow: rgba(0, 0, 0, 0.2) 0 2px 3px 0 inset, rgba(255, 255, 255, 0.7) 0 1px 0px 0;
   box-shadow: rgba(0, 0, 0, 0.2) 0 2px 3px 0 inset, rgba(255, 255, 255, 0.7) 0 1px 0px 0;
 }
-/* line 39, stylesheets/include/links/_onset.scss */
+/* line 41, stylesheets/include/links/_onset.scss */
 a.btn.facebook[disabled], a.btn.facebook.disabled, button.btn.facebook[disabled], button.btn.facebook.disabled {
   text-shadow: rgba(255, 255, 255, 0.7) 0 -1px 0;
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0icmdiYSgyMzgsIDIzOCwgMjM4LCAwKSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0icmdiYSgyMzgsIDIzOCwgMjM4LCAwLjYpIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
@@ -1992,10 +2031,10 @@ a.btn.facebook[disabled], a.btn.facebook.disabled, button.btn.facebook[disabled]
   background-image: -o-linear-gradient(top, rgba(238, 238, 238, 0), rgba(238, 238, 238, 0.6) 100%);
   background-image: -ms-linear-gradient(top, rgba(238, 238, 238, 0), rgba(238, 238, 238, 0.6) 100%);
   background-image: linear-gradient(top, rgba(238, 238, 238, 0), rgba(238, 238, 238, 0.6) 100%);
-  border-top: 1px solid rgba(0, 0, 0, 0.3);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  border-right: 1px solid rgba(0, 0, 0, 0.2);
-  border-left: 1px solid rgba(0, 0, 0, 0.2);
+  border-right: 1px solid #1b5093;
+  border-left: 1px solid #1b5093;
+  border-bottom: 1px solid #90b7ea;
+  border-top: 1px solid #0b213d;
   -moz-box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px 0 inset;
   -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px 0 inset;
   -o-box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px 0 inset;
@@ -2004,7 +2043,7 @@ a.btn.facebook[disabled], a.btn.facebook.disabled, button.btn.facebook[disabled]
   color: #999;
   cursor: not-allowed;
 }
-/* line 47, stylesheets/include/links/_onset.scss */
+/* line 49, stylesheets/include/links/_onset.scss */
 a.btn.facebook[disabled]:hover, a.btn.facebook[disabled]:active, a.btn.facebook.disabled:hover, a.btn.facebook.disabled:active, button.btn.facebook[disabled]:hover, button.btn.facebook[disabled]:active, button.btn.facebook.disabled:hover, button.btn.facebook.disabled:active {
   background-color: #ccc;
   color: #999;
@@ -2021,19 +2060,23 @@ a.btn.facebook[disabled]:hover, a.btn.facebook[disabled]:active, a.btn.facebook.
   -o-box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px 0 inset;
   box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px 0 inset;
 }
-/* line 86, style.scss */
+/* line 87, style.scss */
 a.btn.twitter, button.btn.twitter {
-  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSI3MCUiIHN0b3AtY29sb3I9IiMyZGFkZDgiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMyNTllYzciLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA='), #2dadd8;
-  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(70%, #2dadd8), color-stop(100%, #259ec7)), #2dadd8;
-  background: -webkit-linear-gradient(top, #2dadd8 70%, #259ec7 100%), #2dadd8;
-  background: -moz-linear-gradient(top, #2dadd8 70%, #259ec7 100%), #2dadd8;
-  background: -o-linear-gradient(top, #2dadd8 70%, #259ec7 100%), #2dadd8;
-  background: -ms-linear-gradient(top, #2dadd8 70%, #259ec7 100%), #2dadd8;
-  background: linear-gradient(top, #2dadd8 70%, #259ec7 100%), #2dadd8;
-  border: 1px solid #14b9f1;
+  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzQ5YzVlZiIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjMmRhZGQ4Ii8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMjE4ZGIxIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g'), #2dadd8;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #49c5ef), color-stop(50%, #2dadd8), color-stop(100%, #218db1)), #2dadd8;
+  background: -webkit-linear-gradient(top, #49c5ef, #2dadd8 50%, #218db1 100%), #2dadd8;
+  background: -moz-linear-gradient(top, #49c5ef, #2dadd8 50%, #218db1 100%), #2dadd8;
+  background: -o-linear-gradient(top, #49c5ef, #2dadd8 50%, #218db1 100%), #2dadd8;
+  background: -ms-linear-gradient(top, #49c5ef, #2dadd8 50%, #218db1 100%), #2dadd8;
+  background: linear-gradient(top, #49c5ef, #2dadd8 50%, #218db1 100%), #2dadd8;
+  border-right: 1px solid #218db1;
+  border-left: 1px solid #218db1;
+  border-top: 1px solid #6ec6e4;
+  border-bottom: 1px solid #11485b;
   color: #fff;
+  text-shadow: rgba(0, 0, 0, 0.7) 0 1px 0;
 }
-/* line 27, stylesheets/include/links/_onset.scss */
+/* line 28, stylesheets/include/links/_onset.scss */
 a.btn.twitter:hover, button.btn.twitter:hover {
   color: #fff;
   background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSI3MCUiIHN0b3AtY29sb3I9IiMxNGI5ZjEiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMyNTllYzciLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA='), #2dadd8;
@@ -2044,16 +2087,20 @@ a.btn.twitter:hover, button.btn.twitter:hover {
   background: -ms-linear-gradient(top, #14b9f1 70%, #259ec7 100%), #2dadd8;
   background: linear-gradient(top, #14b9f1 70%, #259ec7 100%), #2dadd8;
 }
-/* line 34, stylesheets/include/links/_onset.scss */
+/* line 35, stylesheets/include/links/_onset.scss */
 a.btn.twitter:active, button.btn.twitter:active {
   color: #fff;
   text-shadow: rgba(0, 0, 0, 0.7) 0 1px 0;
+  border-right: 1px solid #218db1;
+  border-left: 1px solid #218db1;
+  border-bottom: 1px solid #aedff0;
+  border-top: 1px solid #11485b;
   -moz-box-shadow: rgba(0, 0, 0, 0.2) 0 2px 3px 0 inset, rgba(255, 255, 255, 0.7) 0 1px 0px 0;
   -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 2px 3px 0 inset, rgba(255, 255, 255, 0.7) 0 1px 0px 0;
   -o-box-shadow: rgba(0, 0, 0, 0.2) 0 2px 3px 0 inset, rgba(255, 255, 255, 0.7) 0 1px 0px 0;
   box-shadow: rgba(0, 0, 0, 0.2) 0 2px 3px 0 inset, rgba(255, 255, 255, 0.7) 0 1px 0px 0;
 }
-/* line 39, stylesheets/include/links/_onset.scss */
+/* line 41, stylesheets/include/links/_onset.scss */
 a.btn.twitter[disabled], a.btn.twitter.disabled, button.btn.twitter[disabled], button.btn.twitter.disabled {
   text-shadow: rgba(255, 255, 255, 0.7) 0 -1px 0;
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0icmdiYSgyMzgsIDIzOCwgMjM4LCAwKSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0icmdiYSgyMzgsIDIzOCwgMjM4LCAwLjYpIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
@@ -2064,10 +2111,10 @@ a.btn.twitter[disabled], a.btn.twitter.disabled, button.btn.twitter[disabled], b
   background-image: -o-linear-gradient(top, rgba(238, 238, 238, 0), rgba(238, 238, 238, 0.6) 100%);
   background-image: -ms-linear-gradient(top, rgba(238, 238, 238, 0), rgba(238, 238, 238, 0.6) 100%);
   background-image: linear-gradient(top, rgba(238, 238, 238, 0), rgba(238, 238, 238, 0.6) 100%);
-  border-top: 1px solid rgba(0, 0, 0, 0.3);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  border-right: 1px solid rgba(0, 0, 0, 0.2);
-  border-left: 1px solid rgba(0, 0, 0, 0.2);
+  border-right: 1px solid #218db1;
+  border-left: 1px solid #218db1;
+  border-bottom: 1px solid #aedff0;
+  border-top: 1px solid #11485b;
   -moz-box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px 0 inset;
   -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px 0 inset;
   -o-box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px 0 inset;
@@ -2076,7 +2123,7 @@ a.btn.twitter[disabled], a.btn.twitter.disabled, button.btn.twitter[disabled], b
   color: #999;
   cursor: not-allowed;
 }
-/* line 47, stylesheets/include/links/_onset.scss */
+/* line 49, stylesheets/include/links/_onset.scss */
 a.btn.twitter[disabled]:hover, a.btn.twitter[disabled]:active, a.btn.twitter.disabled:hover, a.btn.twitter.disabled:active, button.btn.twitter[disabled]:hover, button.btn.twitter[disabled]:active, button.btn.twitter.disabled:hover, button.btn.twitter.disabled:active {
   background-color: #ccc;
   color: #999;
@@ -2093,19 +2140,23 @@ a.btn.twitter[disabled]:hover, a.btn.twitter[disabled]:active, a.btn.twitter.dis
   -o-box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px 0 inset;
   box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px 0 inset;
 }
-/* line 87, style.scss */
+/* line 88, style.scss */
 a.btn.google, button.btn.google {
-  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSI3MCUiIHN0b3AtY29sb3I9IiNhYWFhYWEiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM5ZDlkOWQiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA='), #aaaaaa;
-  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(70%, #aaaaaa), color-stop(100%, #9d9d9d)), #aaaaaa;
-  background: -webkit-linear-gradient(top, #aaaaaa 70%, #9d9d9d 100%), #aaaaaa;
-  background: -moz-linear-gradient(top, #aaaaaa 70%, #9d9d9d 100%), #aaaaaa;
-  background: -o-linear-gradient(top, #aaaaaa 70%, #9d9d9d 100%), #aaaaaa;
-  background: -ms-linear-gradient(top, #aaaaaa 70%, #9d9d9d 100%), #aaaaaa;
-  background: linear-gradient(top, #aaaaaa 70%, #9d9d9d 100%), #aaaaaa;
-  border: 1px solid #bb9999;
+  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2NjYmJiYiIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjYWFhYWFhIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjOTA5MDkwIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g'), #aaaaaa;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ccbbbb), color-stop(50%, #aaaaaa), color-stop(100%, #909090)), #aaaaaa;
+  background: -webkit-linear-gradient(top, #ccbbbb, #aaaaaa 50%, #909090 100%), #aaaaaa;
+  background: -moz-linear-gradient(top, #ccbbbb, #aaaaaa 50%, #909090 100%), #aaaaaa;
+  background: -o-linear-gradient(top, #ccbbbb, #aaaaaa 50%, #909090 100%), #aaaaaa;
+  background: -ms-linear-gradient(top, #ccbbbb, #aaaaaa 50%, #909090 100%), #aaaaaa;
+  background: linear-gradient(top, #ccbbbb, #aaaaaa 50%, #909090 100%), #aaaaaa;
+  border-right: 1px solid #909090;
+  border-left: 1px solid #909090;
+  border-top: 1px solid #d0d0d0;
+  border-bottom: 1px solid #5d5d5d;
   color: #fff;
+  text-shadow: rgba(0, 0, 0, 0.7) 0 1px 0;
 }
-/* line 27, stylesheets/include/links/_onset.scss */
+/* line 28, stylesheets/include/links/_onset.scss */
 a.btn.google:hover, button.btn.google:hover {
   color: #fff;
   background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSI3MCUiIHN0b3AtY29sb3I9IiNiYjk5OTkiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM5ZDlkOWQiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA='), #aaaaaa;
@@ -2116,16 +2167,20 @@ a.btn.google:hover, button.btn.google:hover {
   background: -ms-linear-gradient(top, #bb9999 70%, #9d9d9d 100%), #aaaaaa;
   background: linear-gradient(top, #bb9999 70%, #9d9d9d 100%), #aaaaaa;
 }
-/* line 34, stylesheets/include/links/_onset.scss */
+/* line 35, stylesheets/include/links/_onset.scss */
 a.btn.google:active, button.btn.google:active {
   color: #fff;
   text-shadow: rgba(0, 0, 0, 0.7) 0 1px 0;
+  border-right: 1px solid #909090;
+  border-left: 1px solid #909090;
+  border-bottom: 1px solid #f6f6f6;
+  border-top: 1px solid #5d5d5d;
   -moz-box-shadow: rgba(0, 0, 0, 0.2) 0 2px 3px 0 inset, rgba(255, 255, 255, 0.7) 0 1px 0px 0;
   -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 2px 3px 0 inset, rgba(255, 255, 255, 0.7) 0 1px 0px 0;
   -o-box-shadow: rgba(0, 0, 0, 0.2) 0 2px 3px 0 inset, rgba(255, 255, 255, 0.7) 0 1px 0px 0;
   box-shadow: rgba(0, 0, 0, 0.2) 0 2px 3px 0 inset, rgba(255, 255, 255, 0.7) 0 1px 0px 0;
 }
-/* line 39, stylesheets/include/links/_onset.scss */
+/* line 41, stylesheets/include/links/_onset.scss */
 a.btn.google[disabled], a.btn.google.disabled, button.btn.google[disabled], button.btn.google.disabled {
   text-shadow: rgba(255, 255, 255, 0.7) 0 -1px 0;
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0icmdiYSgyMzgsIDIzOCwgMjM4LCAwKSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0icmdiYSgyMzgsIDIzOCwgMjM4LCAwLjYpIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
@@ -2136,10 +2191,10 @@ a.btn.google[disabled], a.btn.google.disabled, button.btn.google[disabled], butt
   background-image: -o-linear-gradient(top, rgba(238, 238, 238, 0), rgba(238, 238, 238, 0.6) 100%);
   background-image: -ms-linear-gradient(top, rgba(238, 238, 238, 0), rgba(238, 238, 238, 0.6) 100%);
   background-image: linear-gradient(top, rgba(238, 238, 238, 0), rgba(238, 238, 238, 0.6) 100%);
-  border-top: 1px solid rgba(0, 0, 0, 0.3);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  border-right: 1px solid rgba(0, 0, 0, 0.2);
-  border-left: 1px solid rgba(0, 0, 0, 0.2);
+  border-right: 1px solid #909090;
+  border-left: 1px solid #909090;
+  border-bottom: 1px solid #f6f6f6;
+  border-top: 1px solid #5d5d5d;
   -moz-box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px 0 inset;
   -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px 0 inset;
   -o-box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px 0 inset;
@@ -2148,7 +2203,7 @@ a.btn.google[disabled], a.btn.google.disabled, button.btn.google[disabled], butt
   color: #999;
   cursor: not-allowed;
 }
-/* line 47, stylesheets/include/links/_onset.scss */
+/* line 49, stylesheets/include/links/_onset.scss */
 a.btn.google[disabled]:hover, a.btn.google[disabled]:active, a.btn.google.disabled:hover, a.btn.google.disabled:active, button.btn.google[disabled]:hover, button.btn.google[disabled]:active, button.btn.google.disabled:hover, button.btn.google.disabled:active {
   background-color: #ccc;
   color: #999;
@@ -2166,12 +2221,12 @@ a.btn.google[disabled]:hover, a.btn.google[disabled]:active, a.btn.google.disabl
   box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px 0 inset;
 }
 
-/* line 93, style.scss */
+/* line 94, style.scss */
 .team_register {
   text-align: center;
   margin: 0 10%;
 }
-/* line 96, style.scss */
+/* line 97, style.scss */
 .team_register li {
   display: inline-block;
   position: relative;
@@ -2180,7 +2235,7 @@ a.btn.google[disabled]:hover, a.btn.google[disabled]:active, a.btn.google.disabl
   margin: 40px;
 }
 
-/* line 105, style.scss */
+/* line 106, style.scss */
 a#logo {
   display: block;
   overflow: hidden;
@@ -2188,7 +2243,7 @@ a#logo {
   height: 100%;
   width: 100%;
 }
-/* line 111, style.scss */
+/* line 112, style.scss */
 a#logo h3 {
   font-size: 26px;
   /*position*/
@@ -2215,7 +2270,7 @@ a#logo h3 {
   /*misc*/
   background: url("images/textures/bg_noise_80x80.png") repeat, #f9f9f9;
 }
-/* line 131, style.scss */
+/* line 132, style.scss */
 a#logo h4 {
   font-size: 16px;
   /*position*/
@@ -2240,7 +2295,7 @@ a#logo h4 {
   /*misc*/
   background: url("images/textures/bg_noise_80x80.png") repeat, #f9f9f9;
 }
-/* line 150, style.scss */
+/* line 151, style.scss */
 a#logo .shield {
   margin-top: 50px;
   margin-left: 40px;
@@ -2318,7 +2373,7 @@ a#logo .shield span:after {
   margin-left: 10px;
   width: 0;
 }
-/* line 151, style.scss */
+/* line 152, style.scss */
 a#logo .flatdiamond {
   margin-top: 40px;
   margin-left: 20px;
@@ -2414,7 +2469,7 @@ a#logo .flatdiamond span:after {
   border-width: 50px 70px 0 70px;
   z-index: 1;
 }
-/* line 152, style.scss */
+/* line 153, style.scss */
 a#logo .diamond {
   margin-top: 20px;
   margin-left: 40px;
@@ -2510,7 +2565,7 @@ a#logo .diamond span:after {
   border-width: 70px 50px 0 50px;
   z-index: 1;
 }
-/* line 153, style.scss */
+/* line 154, style.scss */
 a#logo .darrow {
   /*math doesnt seem to work with scout*/
   /*change this to affect total size*/
@@ -2581,7 +2636,7 @@ a#logo .darrow span:before {
   border-left-color: transparent;
   border-width: 100.4px 60px 0 60px;
 }
-/* line 154, style.scss */
+/* line 155, style.scss */
 a#logo .uarrow {
   /*math doesnt seem to work with scout*/
   /*change this to affect total size*/
@@ -2650,7 +2705,7 @@ a#logo .uarrow span:before {
   border-left-color: transparent;
   border-width: 0 60px 100.4px 60px;
 }
-/* line 155, style.scss */
+/* line 156, style.scss */
 a#logo .circle {
   /*change this to affect total size*/
   margin-top: -70px;
@@ -2691,7 +2746,7 @@ a#logo .circle span {
   left: 10px;
   margin-top: -60px;
 }
-/* line 156, style.scss */
+/* line 157, style.scss */
 a#logo .flatcircle {
   margin-top: -50px;
   margin-left: 20px;
@@ -2731,7 +2786,7 @@ a#logo .flatcircle span {
   left: 10px;
   margin-top: -40px;
 }
-/* line 157, style.scss */
+/* line 158, style.scss */
 a#logo .national {
   margin-top: -50px;
   margin-left: 50px;
@@ -2843,7 +2898,7 @@ a#logo .national span:after {
   border-radius: 0 5px 5px 0;
   background: #ff5c2b;
 }
-/* line 158, style.scss */
+/* line 159, style.scss */
 a#logo .bolt {
   margin-top: -70px;
   margin-left: 30px;
@@ -2945,14 +3000,14 @@ a#logo .bolt span:after {
   border-top-width: 78px;
   border-right: 65px solid transparent;
 }
-/* line 159, style.scss */
+/* line 160, style.scss */
 a#logo .crown {
   width: 0;
   height: 0;
   margin-top: -70px;
   margin-left: 30px;
   position: absolute;
-  top: 0;
+  top: 25%;
   bottom: auto;
   left: auto;
   right: auto;
@@ -3000,7 +3055,7 @@ a#logo .crown:after {
 a#logo .crown span {
   display: block;
   position: absolute;
-  top: 0;
+  top: 25%;
   bottom: auto;
   left: auto;
   right: auto;
