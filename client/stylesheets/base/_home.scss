@@ -22,11 +22,13 @@
           radial-gradient(50% -50%, rgba(white, .7), rgba(white, .5) 40%, rgba(white, 0) 70%)  
         );
       }
-      span{
+      >span{
         position: relative;
         overflow: visible;
         display: inline-block;
-        letter-spacing: -10px;
+        /* for kerning */
+        visibility: hidden;
+        -letter-kern: 2px 6px -10px -4px -10px 0;
         &:after{
           content: '';
           display: block;
