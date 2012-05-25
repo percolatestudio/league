@@ -1,3 +1,71 @@
-.container {
-  &.teams .teams {}
+.container.teams{
+  .teams {
+    .team_register{
+      text-align: center;
+      margin: 0 10%;
+      li{
+        display: inline-block;
+        position: relative;
+        width: 200px;
+        height: 200px;
+        margin: 40px;    
+      }
+    }
+    a#logo{
+      display: block;
+      overflow: hidden;
+      position: relative;
+      height: 100%;
+      width: 100%;
+      h3{
+        font-size: 26px;
+        /*position*/
+        position: absolute;
+        @include position(absolute, 50%, auto, auto, auto, 100%, 1em);
+        margin-top: -.75em;
+        padding: .25em 0;
+        z-index: 3;
+        /*text*/
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: bold;
+        letter-spacing: .1em;
+        color: #FF5C2B;
+        font-family: Rockwell, sans-serif;
+        white-space: nowrap;
+        line-height: 1em;
+        /*misc*/
+        @include maskbg;
+      }
+      h4{
+        //for long titles
+        font-size: 16px;
+        /*position*/
+        position: absolute;
+        @include position(absolute, auto, auto, 0, auto, 100%, 1em);
+        padding: .25em 0;
+        z-index: 3;
+        /*text*/
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: bold;
+        letter-spacing: .1em;
+        color: #FF5C2B;
+        font-family: Rockwell, sans-serif;
+        white-space: nowrap;
+        /*misc*/
+        @include maskbg;
+      }
+      .shield{@include prepare_shield(200px, 200px);}
+      .flatdiamond{@include prepare_flatdiamond(200px, 200px);}
+      .diamond{@include prepare_diamond(200px, 200px);}
+      .darrow{@include prepare_darrow(200px, 200px);}
+      .uarrow{@include prepare_uarrow(200px, 200px);}
+      .circle{@include prepare_circle(200px, 200px);}
+      .flatcircle{@include prepare_flatcircle(200px, 200px);}
+      .national{@include prepare_national(200px, 200px);}
+      .bolt{@include prepare_bolt(200px, 200px);}
+      .crown{@include prepare_crown(200px, 200px);}
+    }
+  }
 }
