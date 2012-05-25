@@ -1,9 +1,10 @@
 @mixin stdform_bg{
+  background: white;
   @include box-shadow(rgba(0, 0, 0, .3) 0px 1px 2px 0px inset);
-  background: #eee;
   @include box-sizing(border-box);
   @include background-size(auto);
   @include transition(border-color 1s ease);
+  @include border-radius(5px);
   margin: 0 0 .75em 0;
   line-height: 1em;
   padding: .25em;
@@ -55,9 +56,11 @@
   text-align: center;
     &:-moz-placeholder {
       color: #ccc;
+      font-style: italic;
     } 
     &::-webkit-input-placeholder{
       color: #ccc;
+      font-style: italic;
     }
 }
 @mixin stdform{

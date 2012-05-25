@@ -19,11 +19,12 @@
 }
 @mixin onset($color: $onsetcolor){
   @include background( 
-    linear-gradient(top, $color 70%, darken($color, 5%) 100%),
+    linear-gradient(top, saturate(lighten($color, 10%), 15%), $color 50%, darken($color, 10%) 100%),
     $color
   );
-  border: 1px solid saturate($color, 20%);
+  @include border($color, 1px);
   color: #fff;
+  @include emboss;
   &:hover{
     color: #fff;
     @include background( 
@@ -34,12 +35,13 @@
   &:active {
     color: #fff;
     @include emboss;
+    @include border($color, 1px, impress);
     @include box-shadow(rgba(0,0,0, .2) 0 2px 3px 0 inset, rgba(255,255,255, .7) 0 1px 0px 0);
   }
   &[disabled], &.disabled{
     @include emboss_neg;
     @include background-image( linear-gradient(top, rgba(238,238,238, 0), rgba(238,238,238, .6) 100%));
-    @include impress_border;
+    @include border($color, 1px, impress);
     @include box-shadow(rgba(0,0,0, .3) 0 1px 3px 0 inset );    
     background-color: #ccc;
     color: #999;

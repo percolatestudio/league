@@ -10,17 +10,16 @@
 @mixin raised{
   @include text-shadow(rgba(0,0,0, .7) 0 1px 3px);
 }
-@mixin emboss_border{
-  border-top: 1px solid rgba(255,255,255, .3);
-  border-bottom: 1px solid rgba(0,0,0, .3);
-  border-right: 1px solid rgba(0,0,0, .1);
-  border-left: 1px solid rgba(0,0,0, .1);
-}
-@mixin impress_border($width:1px){
-  border-top: $width solid rgba(0,0,0, .3);
-  border-bottom: $width solid rgba(255,255,255,.3);
-  border-right: $width solid rgba(0,0,0, .2);
-  border-left: $width solid rgba(0,0,0, .2); 
+@mixin border($color, $width: 1px, $emboss: 'emboss'){
+  border-right: 1px solid darken($color, 10%);
+  border-left: 1px solid darken($color, 10%);
+  @if $emboss == 'emboss'{
+    border-top: 1px solid lighten($color, 15%);
+    border-bottom: 1px solid darken($color, 30%);    
+  } @else {
+    border-bottom: 1px solid lighten($color, 30%);
+    border-top: 1px solid darken($color, 30%);
+  }
 }
 @mixin reveal{
   border-top: 1px solid #565b62;
