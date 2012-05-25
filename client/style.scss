@@ -53,6 +53,7 @@ del{ text-decoration: line-through;}
 
 
 html {
+  @include skybg;
 }
 body {
   color: #333;
