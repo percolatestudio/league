@@ -275,7 +275,7 @@
 
 
 @mixin crown($width: 100px, $height:100px, $color:red){
-  @include position(absolute, 0, auto, auto, auto, 0, 0);
+  @include position(absolute, 25%, auto, auto, auto, 0, 0);
   background: transparent !important;
   border-style: solid;
   border-top-color: transparent;
