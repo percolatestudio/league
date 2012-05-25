@@ -1,12 +1,6 @@
 .container {
   /* Signin lives outside */
   .signin{
-    button{ 
-      font-weight: bold;
-      text-transform: uppercase;
-      @include emboss;
-      @include position(absolute, 1.5em, 1.5em, auto, auto);
-    }
   }
   &.not_authorized .not_authorized {}
   

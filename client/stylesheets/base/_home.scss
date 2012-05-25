@@ -3,7 +3,9 @@
   .home{
     text-align: center;
     overflow-x: hidden;
-    @include position(relative, 6em, auto, auto, auto); 
+    @include position(relative, auto, auto, auto, auto); 
+    padding-top: 6em;
+    @include box-sizing(border-box);
     /* /// */
     /* Home title position */
     /* /// */
@@ -76,6 +78,11 @@
         rgba(white, 1) 0 -1px 0,
         rgba(darken(#66ccff, 50%), .3) 0 1px 0
       );
+    }
+    .login{
+      font-weight: bold;
+      text-transform: uppercase;
+      @include position(absolute, 1.5em, 1.5em, auto, auto);      
     }
     form.team_builder{
       text-align: center;

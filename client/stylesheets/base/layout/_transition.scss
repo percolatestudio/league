@@ -5,9 +5,7 @@
   &.not_authorized .not_authorized { display: block; }
   &.signin .signin { display: block; }
   &.games .games { display: block; }
-  &.home { 
-    .home, .signin{display: block;}
-  }
+  &.home .home{ display: block;}
   &.players .players { display: block; }
   &.teams .teams { display: block; }
 }
