@@ -80,18 +80,17 @@ a, button {
   &.inverse{ @include inverse;}
   &.inset {@include inset;}
   &.btn{
+    font-weight: bold;
     @include global_btn;
     &.default{@include onset($onsetcolor);}
     &.facebook{@include onset($fbhex);}
     &.twitter{@include onset($twhex);}
     &.google{@include onset($gohex);}
     &.back{
-      @include onset(#ccc);
-      @include back_btn;
+      @include onset(#eee);
     }
     &.fwd{
-      @include onset(#ccc);
-      @include fwd_btn;
+      @include onset(#eee);
     }
     
   }
