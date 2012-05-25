@@ -28,9 +28,6 @@
         position: relative;
         overflow: visible;
         display: inline-block;
-        /* for kerning */
-        visibility: hidden;
-        -letter-kern: 2px 6px -10px -4px -10px 0;
         &:after{
           content: '';
           display: block;
@@ -68,6 +65,11 @@
         rgba(lighten($orange, 50%), .7) 0 -10px 20px,
         rgba(darken($orange, 50%), .3) 0 2px 5px
       );
+      >span{
+        /* for kerning */
+        visibility: hidden;
+        -letter-kern: 2px 6px -10px -4px -10px 0;
+      }
     }
     .tag{
       @include huge(yes);
