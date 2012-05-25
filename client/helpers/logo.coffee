@@ -1,4 +1,6 @@
 class Logo
+  @MAX_LINE_LENGTH = 25 # in chars
+
   # National doesn't work for some reason
   @shapes = ['crown', 'shield', 'flatdiamond', 'darrow', 'uarrow', 'circle', 'flatcircle', 'bolt']
   @colors_list = [
@@ -51,7 +53,29 @@ class Logo
   primary_color: -> @colors[0]
   secondary_color: -> @colors[1]
   
+  # calculate if the name should be split over 2 or more lines.
+  #
+  # we don't look at the actual size of the text here, just the number of chars
+  #   as we can't reliably tell when the fonts have loaded anyway, so it's best 
+  #   to be a bit conservative..
+  name_lines: ->
+    return @_name_lines if @_name_lines
+    
+    # first calcuate the word sizes
+    words = @name.split /\s+/
+    
+    @_name_lines = _.reduce \
+      words,
+      ((lines, word) -> 
+        if lines.length > 0 and _.last(lines).length + word.length + 1 <= Logo.MAX_LINE_LENGTH
+          lines[lines.length-1] += ' ' + word
+        else
+          lines.push(word)
+        lines), 
+      []
+  
   # calculate the 'correct' font size by rendering offscreen
+  #
   # note that the way fonts work mean that multiplying font-size by 10 doesn't
   #   mean that the width will be exactly 10 times bigger. So we need to use
   #   an recursive 'cartesian method'

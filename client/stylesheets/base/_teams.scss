@@ -36,6 +36,9 @@
         line-height: 1em;
         /*misc*/
         @include maskbg;
+        span {
+          display: block;
+        }
       }
       h4{
         //for long titles
