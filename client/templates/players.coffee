@@ -11,7 +11,19 @@ grab_facebook_friends = ->
     Session.set 'facebook_friends', all_friends
   
 Template.players.team = -> current_team()
-Template.players.players = -> Players.find().map( (p) -> new Player(p))
+Template.players.players = -> current_players()
+
+Template.players.events =
+  'click .start_season': (event) ->
+    event.preventDefault()
+    
+    # we need to make a FB request here.. 
+    # FIXME -- filter players who are good already
+    ids = _.map(current_players(), (p) -> p.attributes.facebook_id)
+    message = "#{current_user().attributes.name} has invited you to their new league team: #{current_team().attributes.name}"
+    FB.ui {to: ids, method: 'apprequests', message: message}, (status) ->
+      console.log 'request made'
+      console.log status
 
 Template.player.facebook_profile_url = -> 
   this.facebook_profile_url()
