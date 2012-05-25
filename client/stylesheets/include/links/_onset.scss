@@ -25,13 +25,13 @@
   @include border($color, 1px);
   @include letterpress($color);
   @if lightness($color) > 50% {
-    color: darken($color, 90%);
+    color: darken($color, 50%);
   }@else {
     color: lighten($color, 90%);
   }
   &:hover{
     @if lightness($color) > 50% {
-      color: darken($color, 30%);
+      color: darken($color, 90%);
     }@else {
       color: lighten($color, 50%);
     }
