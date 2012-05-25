@@ -28,8 +28,8 @@
       font-size: 12em;
       line-height: 1em;
       font-weight: bold;
-      color: rgba($skyblued, 1);
-      @include letterpress(darken($skyblue, 70%));
+      color: rgba(darken($skyblue, 7%), 1);
+      @include letterpress($skyblue);
     }
   }
 }

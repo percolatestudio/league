@@ -86,12 +86,12 @@ a, button {
     &.facebook{@include onset($fbhex);}
     &.twitter{@include onset($twhex);}
     &.google{@include onset($gohex);}
-    &.back{
+    &.back, &.fwd{
       @include onset(#eee);
+      &:before{margin-right: .3em}
     }
-    &.fwd{
-      @include onset(#eee);
-    }
+    &.back:before{content: '\2190';}
+    &.fwd:before{content: '\2192';}
     
   }
 }

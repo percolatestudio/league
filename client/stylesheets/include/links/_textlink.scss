@@ -13,7 +13,7 @@
   &:active{color: $color;}
 }
 @mixin inset($color:#666){
-  @include letterpress($color);
+  @include letterpress(invert($color));
   color: $color;
   &:hover {color: $lblue;}
   &:active {color: $blend;}

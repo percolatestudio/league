@@ -6,7 +6,7 @@
 }
 @mixin skybg{
   @include background(
-    linear-gradient(top, $skyblue, $skyblued 100%),
+    linear-gradient(top, $skyblue, darken($skyblue, 5%) 100%),
     url('/images/textures/bg_noise_80x80.png') repeat
   );
 }
