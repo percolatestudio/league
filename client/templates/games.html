@@ -1,25 +1,27 @@
 <template name="games">
   <div class="games">
     {{#if team }}{{#with team }}
-      <div class="header">
+      <header>
         <a href="/leagues">Leagues</a>
         <h1>Season Games</h1>
-      </div>
+      </header>
       
-      {{#if next_game}}
-        {{> next_game }}
-        
-        <div class="upcoming_games">
-          <h2>Upcoming Games</h2>
-          {{#each upcoming_games }}
-            {{> game }}
-          {{/each}}
-          <a class="create_game">Schedule next game</a>
-        </div>
-      {{else}}
-        <p>No games yet!</p>
-        <p>Click <a class="create_game">here</a> to create one</p>
-      {{/if}}
+      <article>
+        {{#if next_game}}
+          {{> next_game }}
+          
+          <div class="upcoming_games">
+            <h2>Upcoming Games</h2>
+            {{#each upcoming_games }}
+              {{> game }}
+            {{/each}}
+            <a class="create_game">Schedule next game</a>
+          </div>
+        {{else}}
+          <p>No games yet!</p>
+          <p>Click <a class="create_game">here</a> to create one</p>
+        {{/if}}
+      </article>
       
     {{/with}}{{/if}}
   </div>

@@ -6,10 +6,7 @@ header{
   position: relative;
   padding-top: .75em;
   @include box-sizing(border-box);
-  @include background(
-    linear-gradient(top, $skyblue, $skyblued 100%),
-    url('images/textures/bg_noise_80x80.png') repeat
-  );
+  @include skybg;
   &:before{
     content:'';
     display: block;
