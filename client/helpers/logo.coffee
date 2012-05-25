@@ -37,7 +37,9 @@ class Logo
   @pick_colors = -> @pick_X(@colors_list)
   @pick_font = -> @pick_X(WebFontConfig.logo_fonts)
   
-  constructor: (@name, @shape, @colors, @font) ->
+  constructor: (@team, @shape, @colors, @font) ->
+    @name = @team.attributes.name
+    
     # TODO -- pick a shape that can fit text
     @shape = Logo.pick_shape() unless @shape
     @colors = Logo.pick_colors() unless @colors

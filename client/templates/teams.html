@@ -27,7 +27,7 @@
 <template name="team">
   <li class="team">
     {{{team_logo}}}
-    <a href="/{{ _id }}/season" class="inset">Season</a>
-    <a href="/{{ _id }}" class="inset">Players</a>
+    <a href="{{ games_link this }}" class="inset">Season</a>
+    <a href="/{{ players_link this }}" class="inset">Players</a>
   </li>
 </template>
