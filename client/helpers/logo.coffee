@@ -1,5 +1,5 @@
 class Logo
-  @MAX_LINE_LENGTH = 25 # in chars
+  @MAX_LINE_LENGTH = 20 # in chars
 
   # National doesn't work for some reason
   @shapes = ['crown', 'shield', 'flatdiamond', 'darrow', 'uarrow', 'circle', 'flatcircle', 'bolt']
