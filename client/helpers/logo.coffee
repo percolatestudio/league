@@ -103,9 +103,6 @@ class Logo
       # we have a configuration, test it against best
       if words_left == 0
         return so_far unless best
-        console.log so_far
-        console.log best
-        console.log better(so_far, best)
         return if better(so_far, best) then so_far else best
         
       for count in [1 .. words_left]
