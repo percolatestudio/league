@@ -1,7 +1,6 @@
 WebFontConfig = {
   logo_fonts: [ 
-    'Graduate', 'Sonsie One', 'Shojumaru', 'Trade Winds',  'Nova Square', 'Bangers', 'Carter One', 'Sansita One', 
-    'Arvo' 
+    'Graduate', 'Sonsie One', 'Shojumaru', 'Nova Square', 'Bangers', 'Carter One', 'Sansita One', 'Arvo', 'Lobster'
   ],
   site_fonts: ['Open Sans', 'Lato', 'PT Sans', 'Cabin']
 }
