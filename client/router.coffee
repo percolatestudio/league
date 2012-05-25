@@ -5,6 +5,7 @@ SportGridRouter = Backbone.Router.extend
   
   routes: 
     '': 'home'
+    'loading': 'loading'
     'leagues': 'leagues'
     ':team_id': 'players'
     ':team_id/season': 'games'

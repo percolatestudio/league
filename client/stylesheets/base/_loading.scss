@@ -1,8 +1,10 @@
 .container.loading {
   .loading {
+    padding-top: 6em;
+    overflow: hidden;
     text-align: center;
     p{
-      @include huge(no);
+      @include h1(no);
       @include emtype;
       font-weight: bolder;
       letter-spacing: -.05em;
@@ -14,13 +16,20 @@
         rgba(black, .3) 0 1px 0,
         rgba(darken($orange, 30%), .1) 0 0 10px
       );
+      /* for kerning */
+      visibility: hidden;
+      -letter-kern: 3px 3px 0px 0px 0px 0;
     }
-    span{
+    >div{
       clear: both;
       font-style: italic;
     }
     h1{
-      @include huge(no);
+      font-size: 12em;
+      line-height: 1em;
+      font-weight: bold;
+      color: rgba($skyblued, 1);
+      @include impress(darken($skyblue, 70%));
     }
   }
 }

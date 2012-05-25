@@ -1594,11 +1594,8 @@ header h1 {
   position: relative;
   overflow: visible;
   display: inline-block;
-  /* for kerning */
-  visibility: hidden;
-  -letter-kern: 2px 6px -10px -4px -10px 0;
 }
-/* line 34, stylesheets/base/_home.scss */
+/* line 31, stylesheets/base/_home.scss */
 .container.home .home .title > span:after {
   content: '';
   display: block;
@@ -1618,7 +1615,7 @@ header h1 {
   background: -ms-radial-gradient(50% 50%, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.05) 50%, rgba(0, 0, 0, 0) 70%), -ms-radial-gradient(50% 50%, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.2) 60%, rgba(255, 255, 255, 0) 80%);
   background: radial-gradient(50% 50%, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.05) 50%, rgba(0, 0, 0, 0) 70%), radial-gradient(50% 50%, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.2) 60%, rgba(255, 255, 255, 0) 80%);
 }
-/* line 44, stylesheets/base/_home.scss */
+/* line 41, stylesheets/base/_home.scss */
 .container.home .home .title > span:before {
   content: '';
   display: block;
@@ -1638,7 +1635,7 @@ header h1 {
   background: -ms-radial-gradient(50% 50%, #ffffff, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 70%);
   background: radial-gradient(50% 50%, #ffffff, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 70%);
 }
-/* line 58, stylesheets/base/_home.scss */
+/* line 55, stylesheets/base/_home.scss */
 .container.home .home .title {
   color: #fd7348;
   font-family: 'Futura', "Trebuchet MS" , Arial, sans-serif;
@@ -1647,7 +1644,13 @@ header h1 {
   text-transform: uppercase;
   text-shadow: #fed3c6 0 -1px 0, rgba(0, 0, 0, 0.3) 0 1px 0, #ffac92 0 -7px 0, rgba(255, 255, 255, 0.7) 0 -10px 20px, rgba(94, 23, 1, 0.3) 0 2px 5px;
 }
-/* line 72, stylesheets/base/_home.scss */
+/* line 68, stylesheets/base/_home.scss */
+.container.home .home .title > span {
+  /* for kerning */
+  visibility: hidden;
+  -letter-kern: 2px 6px -10px -4px -10px 0;
+}
+/* line 74, stylesheets/base/_home.scss */
 .container.home .home .tag {
   font-size: 3em;
   line-height: 1em;
@@ -1657,7 +1660,7 @@ header h1 {
   color: #33bbff;
   text-shadow: white 0 -1px 0, rgba(0, 68, 102, 0.3) 0 1px 0;
 }
-/* line 82, stylesheets/base/_home.scss */
+/* line 84, stylesheets/base/_home.scss */
 .container.home .home .login {
   font-weight: bold;
   text-transform: uppercase;
@@ -1669,39 +1672,41 @@ header h1 {
   width: auto;
   height: auto;
 }
-/* line 87, stylesheets/base/_home.scss */
+/* line 89, stylesheets/base/_home.scss */
 .container.home .home form.team_builder {
   text-align: center;
   margin-bottom: 6em;
 }
-/* line 90, stylesheets/base/_home.scss */
+/* line 92, stylesheets/base/_home.scss */
 .container.home .home form.team_builder > * {
   display: inline-block;
   margin: auto 10px;
   font-size: 30px;
   float: none;
 }
-/* line 96, stylesheets/base/_home.scss */
+/* line 98, stylesheets/base/_home.scss */
 .container.home .home form.team_builder select {
   width: 120px;
 }
-/* line 99, stylesheets/base/_home.scss */
+/* line 101, stylesheets/base/_home.scss */
 .container.home .home form.team_builder input {
   width: 300px;
 }
-/* line 102, stylesheets/base/_home.scss */
+/* line 104, stylesheets/base/_home.scss */
 .container.home .home form.team_builder button {
   font-weight: bold;
 }
 
 /* line 2, stylesheets/base/_loading.scss */
 .container.loading .loading {
+  padding-top: 6em;
+  overflow: hidden;
   text-align: center;
 }
-/* line 4, stylesheets/base/_loading.scss */
+/* line 6, stylesheets/base/_loading.scss */
 .container.loading .loading p {
-  font-size: 3em;
-  line-height: 1em;
+  font-size: 1.75em;
+  line-height: 1.714em;
   font-family: 'Futura', "Trebuchet MS" , Arial, sans-serif;
   font-weight: bolder;
   letter-spacing: -0.05em;
@@ -1709,16 +1714,22 @@ header h1 {
   text-transform: uppercase;
   color: #fd7348;
   text-shadow: white 0 -1px 0, rgba(0, 0, 0, 0.3) 0 1px 0, rgba(195, 48, 2, 0.1) 0 0 10px;
+  /* for kerning */
+  visibility: hidden;
+  -letter-kern: 3px 3px 0px 0px 0px 0;
 }
-/* line 18, stylesheets/base/_loading.scss */
-.container.loading .loading span {
+/* line 23, stylesheets/base/_loading.scss */
+.container.loading .loading > div {
   clear: both;
   font-style: italic;
 }
-/* line 22, stylesheets/base/_loading.scss */
+/* line 27, stylesheets/base/_loading.scss */
 .container.loading .loading h1 {
-  font-size: 3em;
+  font-size: 12em;
   line-height: 1em;
+  font-weight: bold;
+  color: #cef1f6;
+  text-shadow: rgba(255, 255, 255, 0.7) 0 1px 0, rgba(0, 0, 0, 0.3) 0 -1px 0;
 }
 
 /* line 3, stylesheets/base/_teams.scss */
@@ -2756,11 +2767,11 @@ a.inverse:hover, button.inverse:hover {
 /* line 40, stylesheets/include/links/_textlink.scss */
 a.inverse:active, button.inverse:active {
   color: black;
-  text-shadow: rgba(255, 255, 255, 0.7) 0 1px 0;
+  text-shadow: rgba(230, 230, 230, 0.7) 0 1px 0, rgba(0, 0, 0, 0.3) 0 -1px 0;
 }
 /* line 81, style.scss */
 a.inset, button.inset {
-  text-shadow: rgba(255, 255, 255, 0.7) 0 1px 0;
+  text-shadow: rgba(255, 255, 255, 0.7) 0 1px 0, rgba(26, 26, 26, 0.3) 0 -1px 0;
   color: #666666;
 }
 /* line 18, stylesheets/include/links/_textlink.scss */
