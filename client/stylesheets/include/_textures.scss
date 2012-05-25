@@ -4,3 +4,9 @@
     #f9f9f9
   );
 }
+@mixin skybg{
+  @include background(
+    linear-gradient(top, $skyblue, $skyblued 100%),
+    url('/images/textures/bg_noise_80x80.png') repeat
+  );
+}

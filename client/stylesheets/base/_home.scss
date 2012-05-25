@@ -1,9 +1,5 @@
 .container.home {
   @include position(relative, auto, auto, auto, auto, 100%, 100%);
-  @include background(
-    linear-gradient(top, $skyblue, $skyblued 100%),
-    url('/images/textures/bg_noise_80x80.png') repeat
-  );
   .home{
     text-align: center;
     overflow-x: hidden;

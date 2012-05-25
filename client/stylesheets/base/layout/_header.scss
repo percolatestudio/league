@@ -29,6 +29,7 @@ header{
 }
 article{
   width: 100%;
+  @include maskbg;
   @include clearfix;
 }
 /* /// */
