@@ -6,7 +6,9 @@ header{
   @include box-sizing(border-box);
   @include skybg;
   .back.btn{
-    @include position(absolute, .75em, auto, auto, 1.5em );
+    font-size: 13px;
+    margin-top: -1.25em + .25em;/* according to how btns are constructed see onset */
+    @include position(absolute, 50%, auto, auto, 1.5em );
   }
   &:before{
     content:'';
