@@ -1,5 +1,6 @@
 .container {
   >.signin,
+  >.not_authorized,
   >.loading{
     padding-top: 6em;
     overflow: hidden;
@@ -25,10 +26,7 @@
       clear: both;
       font-style: italic;
       color: darken(#66ccff, 10%);
-      @include text-shadow(
-        rgba(white, 1) 0 -1px 0,
-        rgba(darken(#66ccff, 50%), .3) 0 1px 0
-      );
+      @include letterpress(#66ccff);
     }
     h1{
       font-size: 12em;

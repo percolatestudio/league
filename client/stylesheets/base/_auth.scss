@@ -14,5 +14,18 @@
       }
     }
   }
-  &.not_authorized .not_authorized {}
+}
+.container.not_authorized {
+  .not_authorized{
+    >div.error{
+      width: 300px;
+      padding: .75em;
+      margin: .75em auto 0;
+      @include border-radius(5px);
+      @include border(saturate($orange, 20%));
+      background: saturate($orange, 30%);
+      color: #fff;
+      @include letterpress(saturate($orange, 30%));
+    }
+  }
 }
