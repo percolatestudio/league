@@ -27,7 +27,14 @@
 <template name="team">
   <li class="team">
     {{{team_logo}}}
-    <a href="{{ games_link this }}" class="inset">Season</a>
-    <a href="{{ players_link this }}" class="inset">Players</a>
+    <div class="dropmenu current">
+      <a href="{{ games_link this }}" class="btn">View Season</a>
+      <a class="icon12 dropdown btn"></a>
+      <ul>
+        <li><a href="{{ players_link this }}" class="inset">Players</a></li>
+        <li><a href="{{ players_link this }}" class="inset">Leagues</a></li>
+        <li><a href="{{ players_link this }}" class="inset">Massacres</a></li>
+      </ul>
+    </div>
   </li>
 </template>

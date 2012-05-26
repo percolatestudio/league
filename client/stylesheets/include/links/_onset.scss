@@ -75,3 +75,16 @@
     cursor: not-allowed;
   }
 }
+/* Really only for dropmenu */
+@mixin onset_current($color: $onsetcolor){
+  @if lightness($color) > 50% {
+    color: darken($color, 90%);
+  }@else {
+    color: lighten($color, 90%);
+  }
+  @include border($color, 1px, impress);
+  @include box-shadow(
+    rgba(darken($color, 90%), .2) 0 2px 5px 0 inset, 
+    rgba(lighten($color, 90%), .7) 0 1px 0px 0
+  );
+}

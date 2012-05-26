@@ -25,6 +25,7 @@ $experimental-support-for-svg: true;
 @import 'stylesheets/base/layout/intermediate';
 @import 'stylesheets/base/layout/header';
 @import 'stylesheets/base/lists/lists';
+@import 'stylesheets/base/lists/dropmenu';
 
 @import 'stylesheets/base/auth';
 @import 'stylesheets/base/games';
@@ -92,6 +93,5 @@ a, button {
     }
     &.back:before{content: '\2190';}
     &.fwd:before{content: '\2192';}
-    
   }
 }

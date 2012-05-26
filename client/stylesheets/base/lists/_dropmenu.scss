@@ -1,0 +1,51 @@
+.dropmenu{
+  position: relative;
+  display: inline-block;
+  @include small;
+  >a.btn{
+    @include onset(#ccc);
+    float: left;
+    padding: .611em;
+    margin: 0;
+    position: relative;
+    z-index: 2;
+    &:first-child{
+      @include border-radius(3px 0 0 3px);
+    }
+    &:nth-child(2){
+      @include border-radius(0 3px 3px 0);
+      padding-left: .611em *.5;
+      margin-left: -1px;
+    }
+  }
+  >ul{
+    display: none; 
+    @include position(absolute, 100%, auto, auto, auto, 100%);
+    position: absolute;
+    z-index: 1;
+    background: #eee;
+    @include border(#eee);
+    @include border-radius(0 0 3px 3px);
+    @include box-shadow(rgba(0,0,0,.1) 0 1px 3px 0);
+    @include text-shadow(none);
+      li{
+        @include box-sizing(border-box);
+        overflow: hidden;
+        text-align: center;
+        margin: 0;
+        padding: 0 .25em;
+      }
+  }
+  &.current{
+    >a.btn{
+      &:nth-child(2){
+        @include onset_current(#ccc);
+        @include border-radius(0 3px 3px 0);
+        padding-left: .611em *.5;
+        margin-left: -1px;
+      }
+    }
+    >ul{display: block;}
+    
+  }
+}
