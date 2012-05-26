@@ -28,7 +28,7 @@ class Player extends Model
     delete facebook_data.id
     new this(facebook_data)
 
-  facebook_profile_url: (type = 'square') ->
+  facebook_profile_url: (type = 'normal') ->
     "https://graph.facebook.com/#{@attributes.facebook_id}/picture?type=#{type}"
     
   create_team: (attributes) ->
