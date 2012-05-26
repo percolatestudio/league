@@ -26,10 +26,12 @@ li.player{
   display: inline-block;
   overflow: visible;
   text-align: center;
-  font-weight: bold;
-  white-space: nowrap;
   .name{
-    display: inline-block;
+    font-weight: bold;
+    white-space: nowrap;
+    display: block;
+    overflow: hidden;
+    width: 100%;
     @include small;
     @include too_long(#f9f9f9);
   }
