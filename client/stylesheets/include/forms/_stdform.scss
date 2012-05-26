@@ -1,6 +1,6 @@
 @mixin stdform_bg{
   background: white;
-  @include box-shadow(rgba(0, 0, 0, .3) 0px 1px 2px 0px inset);
+  @include box-shadow(rgba(0, 0, 0, .3) 0px 1px 3px 0px inset);
   @include box-sizing(border-box);
   @include background-size(auto);
   @include transition(border-color 1s ease);
@@ -8,7 +8,8 @@
   margin: 0 0 .75em 0;
   line-height: 1em;
   padding: .25em;
-  border: 1px solid transparent;
+  /* border: 1px solid transparent; */
+  @include border(#fff, 1px, impress);
   outline: none;
   position: relative;
   &:focus{

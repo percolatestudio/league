@@ -3,26 +3,43 @@
     .lineup{
       width: 100%;
       text-align: center;
+      padding-top: 1.5em;
       >*{
         display: inline-block;
         vertical-align: middle;
       }
     }/* end lineup */
     .add_player{
+      width: 80%;
+      margin: 0 auto 6em;
       text-align: center;
       position: relative;
-      overflow-y: hidden;
-      >li{
-        width: 100px;
-        display: inline-block
+      overflow: hidden;
+      > *{
+        z-index: 3;
+        position: relative;
+      }
+      .search{
+        padding: 1.5em 0 1.5em;
+        input{
+          @include h3;
+          @include box-sizing(border-box);
+          padding-left: 1.5em + .25em;
+          text-align: left;
+        }
+        &:before{
+          margin-right: -1.5em - .25em;
+          margin-bottom: -.25em;
+          z-index: 2;
+        }
       }
       &:after{
         content: '';
         display: block;
-        @include position(absolute, -4em, auto, auto, (100% - 100%) * -.5, 100%, 6em );
+        @include position(absolute, -4.5em, auto, auto, (100% - 100%) * -.5, 100%, 6em );
         z-index: 1;
         @include background(
-          radial-gradient(50% 50%, rgba(black, .15), rgba(black, .05) 50%, rgba(black, 0) 70%),
+          radial-gradient(50% 50%, rgba(black, .10), rgba(black, .03) 50%, rgba(black, 0) 70%),
           radial-gradient(50% 50%, rgba(white, .5), rgba(white, .2) 60%, rgba(white, 0) 80%)
         );
       }

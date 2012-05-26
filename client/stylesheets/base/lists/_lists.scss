@@ -1,26 +1,13 @@
 .roster{
   overflow: visible;
-  padding: 3em 0;
   >li{
-    width: 100px;
-    margin: 0 .75em;
-    display: inline-block;
-    overflow: visible;
-    text-align: center;
-    font-weight: bold;
-    white-space: nowrap;
-    img{
-      display: block;
-      width: 6em;
-      height: 6em;
-      padding: 5px;
-      margin-bottom: .75em;
-      @include box-sizing(border-box);
-      @include box-shadow(rgba(black, .3) 0 2px 5px 0);
-    }
     &:first-child.team_logo{margin: 0 3em 0 0;}
     &:last-child{margin-right: 3em;}
     &.team_logo{
+      width: 100px;
+      display: inline-block;
+      overflow: visible;
+      white-space: nowrap;
       figure{
         display: block;
         background: #eee;
@@ -32,4 +19,27 @@
     }
     
   }
+}
+li.player{
+  width: 100px;
+  margin: 0 1.5em 1.5em;
+  display: inline-block;
+  overflow: visible;
+  text-align: center;
+  font-weight: bold;
+  white-space: nowrap;
+  .name{
+    display: inline-block;
+    @include small;
+    @include too_long(#f9f9f9);
+  }
+  img{
+    display: block;
+    width: 6em;
+    height: 6em;
+    padding: 5px;
+    margin-bottom: .75em;
+    @include box-sizing(border-box);
+    @include box-shadow(rgba(black, .3) 0 2px 5px 0);
+  }  
 }

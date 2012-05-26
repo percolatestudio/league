@@ -27,15 +27,17 @@
 </template>
 
 <template name="player">
-  <li>
+  <li class="player">
     <img src="{{ facebook_profile_url }}"></img>
-    {{attributes.name}}
+    <span class="name">{{attributes.name}}</span>
   </li>
 </template>
 
 <template name="add_player">
   <div class="add_player">
-    <input name="player[name]" placeholder="Type a players name"></input>
+    <div class="icon16 search">
+      <input name="player[name]" placeholder="Type a players name"></input>
+    </div>
     <ul class="results">
       {{#unless results}}
         Loading friends...
