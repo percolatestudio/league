@@ -8,6 +8,7 @@
       display: inline-block;
       overflow: visible;
       white-space: nowrap;
+      vertical-align: middle;
       figure{
         display: block;
         background: #eee;
@@ -16,12 +17,40 @@
         margin-bottom: .75em;
         @include border-radius(50px);
       }
-    }
-    
+    } 
+  }
+}
+.results{
+  .player{
+    &.in_team{
+      img, .name{ @include opacity(.7);}
+      .icon16{
+        @include opacity(1);
+        z-index: 1;
+        &:before{
+          z-index: 4;
+          margin-left: -16px * .5;
+          margin-top: -16px * .5;
+          @include position(absolute, auto, auto, auto, auto, 16px, 16px);
+        }
+        &:after{
+          content: "";
+          text-align: center;
+          margin-left: -12px;
+          margin-top: -12px;
+          background-color: #33cc00;
+          @include background-image(linear-gradient(top, rgba(0,225,0, .7), rgba(0,153,0, .5) 50%)); 
+          @include position(absolute, auto, auto, auto, auto, 24px, 24px);
+          @include border-radius(12px);
+          @include box-shadow(rgba(0,0,0,.3) 0 1px 3px 0);
+          z-index: 3;
+        }
+      }
+    }      
   }
 }
 li.player{
-  width: 100px;
+  width: 6em;
   margin: 0 1.5em 1.5em;
   display: inline-block;
   overflow: visible;
@@ -37,51 +66,32 @@ li.player{
     @include too_long(#f9f9f9);
   }
   .image{
-    $image_dimension:6em;
+    $border-width:2px;
+    $image_dimension:(6 * $font-size * 1px) - ($border-width) * 2;
     text-align: center;
     height: $image_dimension;
+    width: $image_dimension;
+    overflow: hidden;
+    display: inline-block;
     line-height: $image_dimension;
     margin-bottom: .75em;
+    @include box-sizing(border-box);
+    border: $border-width solid white;
+    @include box-shadow(rgba(black, .3) 0 2px 5px 0);
+    position: relative;
     img{
-      max-width: $image_dimension;
+      min-width: $image_dimension;
       width: $image_dimension;
-      max-height: $image_dimension;                
-      vertical-align: middle;
-      @include box-sizing(border-box);
-      padding: 5px;
-      @include box-shadow(rgba(black, .3) 0 2px 5px 0);
+      min-height: $image_dimension;
+      vertical-align: middle;      
     }
     .icon16{
       @include opacity(0);
       @include transition(color 500ms ease);
+      position: absolute;
       z-index: -1;
       top: 50%;
       left: 50%;
     }
   }
-  &.in_team{
-    .icon16{
-      @include opacity(1);
-      z-index: 1;
-      position: relative;
-      &:before{
-        z-index: 4;
-        margin-left: -16px * .5;
-        margin-top: -16px * .5;
-        @include position(absolute, auto, auto, auto, auto, 16px, 16px);
-      }
-      &:after{
-        content: "";
-        text-align: center;
-        margin-left: -12px;
-        margin-top: -12px;
-        background-color: #33cc00;
-        @include background-image(linear-gradient(top, rgba(0,225,0, .7), rgba(0,153,0, .5) 50%)); 
-        @include position(absolute, auto, auto, auto, auto, 24px, 24px);
-        @include border-radius(12px);
-        @include box-shadow(rgba(0,0,0,.3) 0 1px 3px 0);
-        z-index: 3;
-      }
-    }
-  }  
 }
