@@ -13,6 +13,7 @@ grab_facebook_friends = ->
   
 Template.players.team = -> current_team()
 Template.players.players = -> current_players()
+Template.players.alone_in_team = -> current_players().length <= 1
 
 Template.players.events =
   'click .start_season': (event) ->

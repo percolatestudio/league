@@ -16,7 +16,11 @@
               {{> player}}
             {{/each}}
           </ul>
-          <button class="start_season btn default">Start Season</button>
+          {{#if alone_in_team}}
+            <p>Hey.. add some friends bozo...</p>
+          {{else}}
+            <button class="start_season btn default">Start Season</button>
+          {{/if}}
         </div>
                   
         {{> add_player}}
