@@ -1,0 +1,41 @@
+.container {
+  >.signin,
+  >.loading{
+    padding-top: 6em;
+    overflow: hidden;
+    text-align: center;
+    p{
+      @include h1(no);
+      @include emtype;
+      font-weight: bolder;
+      letter-spacing: -.05em;
+      display: inline-block;
+      text-transform: uppercase;
+      color: darken($orange, 5%);
+      @include text-shadow(
+        rgba(white, 1) 0 -1px 0,
+        rgba(black, .3) 0 1px 0,
+        rgba(darken($orange, 30%), .1) 0 0 10px
+      );
+      /* for kerning */
+      visibility: hidden;
+      -letter-kern: 3px 3px 0px 0px 0px 0;
+    }
+    >div{
+      clear: both;
+      font-style: italic;
+      color: darken(#66ccff, 10%);
+      @include text-shadow(
+        rgba(white, 1) 0 -1px 0,
+        rgba(darken(#66ccff, 50%), .3) 0 1px 0
+      );
+    }
+    h1{
+      font-size: 12em;
+      line-height: 1em;
+      font-weight: bold;
+      color: rgba(darken($skyblue, 7%), 1);
+      @include letterpress($skyblue);
+    }
+  }
+}
