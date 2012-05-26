@@ -19,9 +19,13 @@ Template.players.events =
     
     # we need to make a FB request here.. 
     # FIXME -- filter players who are good already
-    ids = _.map(current_players(), (p) -> p.attributes.facebook_id)
-    message = "#{current_user().attributes.name} has invited you to their new league team: #{current_team().attributes.name}"
-    FB.ui {to: ids, method: 'apprequests', message: message}, (status) ->
+    data = 
+      method: 'send'
+      to: _.map(current_players(), (p) -> p.attributes.facebook_id)
+      message: "#{current_user().attributes.name} has invited you to their new league team: #{current_team().attributes.name}"
+      link: 'http://google.com'
+    console.log data
+    FB.ui data, (status) ->
       console.log 'request made'
       console.log status
 
