@@ -1,6 +1,6 @@
 @mixin stdform_bg{
   background: white;
-  @include box-shadow(rgba(0, 0, 0, .3) 0px 1px 3px 0px inset);
+  @include box-shadow(rgba(0, 0, 0, .3) 0px 2px 5px 0px inset);
   @include box-sizing(border-box);
   @include background-size(auto);
   @include transition(border-color 1s ease);

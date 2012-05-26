@@ -3,12 +3,13 @@
     .team_register{
       text-align: center;
       margin: 0 10%;
-      li{
+      .team{
         display: inline-block;
         position: relative;
         width: 200px;
         height: 200px;
-        margin: 40px;    
+        margin: 40px;
+
       }
     }
   }

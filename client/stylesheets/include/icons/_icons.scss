@@ -4,11 +4,17 @@
   /* Dark on Light styles */
   #{$parent}#{$class} {
     &:before{
+      $active: ($row + 1) * -$size - ($row + 1) * $margin;
       background: url($img) no-repeat;
-      background-position: $x $y;
+      background-position: $x $active;
     }
   }
   a, button{
+    &#{$parent}#{$class} {
+      &:before{
+        background-position: $x $y;
+      }
+    }
     &:hover, &:focus{
       &#{$parent}#{$class} {
         &:before{
@@ -98,6 +104,6 @@
   }  
 }
 @mixin register_icons($class, $icon_no){
-/*    @include register_icon('.icon12', $class, 'images/icons_supernormal_12x12.png', 12px, $icon_no); */
+   @include register_icon('.icon12', $class, '/images/icons_supernormal_12x12.png', 12px, $icon_no);
    @include register_icon('.icon16', $class, '/images/icons_supernormal_16x16.png', 16px, $icon_no);
 }
