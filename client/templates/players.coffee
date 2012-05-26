@@ -7,6 +7,7 @@ grab_facebook_friends = ->
   
   self.searching = true
   FB.api '/me/friends', (response) ->
+    # FIXME-- this could be paginated.. this is NOT all friends
     all_friends = _.map(response.data, (fd) -> Player.new_from_facebook(fd) )
     Session.set 'facebook_friends', all_friends
   
@@ -31,6 +32,9 @@ Template.players.events =
 
 Template.player.facebook_profile_url = -> 
   this.facebook_profile_url()
+
+Template.player.in_team_class = -> 
+  (Players.find({facebook_id: this.attributes.facebook_id}).count() > 0) && 'in_team'
   
 Template.add_player.results = -> 
   if Session.equals('facebook_friends', null)
@@ -38,9 +42,7 @@ Template.add_player.results = ->
     []
   else
     all_friends = Session.get('facebook_friends')
-    match = (f) -> 
-      f.attributes.name.match(Session.get('current_friend_filter')) and \
-        Players.find({facebook_id: f.attributes.facebook_id}).count() == 0
+    match = (f) -> f.attributes.name.match(Session.get('current_friend_filter'))
       
     f for f in all_friends when match(f)
 
