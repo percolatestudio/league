@@ -32,7 +32,10 @@
 
 <template name="player">
   <li class="player {{in_team_class}}">
-    <img src="{{ facebook_profile_url }}"></img>
+    <div class="image">
+      <span class="icon16 twitter"></span>
+      <img src="{{ facebook_profile_url }}"/>
+    </div>
     <span class="name">{{attributes.name}}</span>
   </li>
 </template>

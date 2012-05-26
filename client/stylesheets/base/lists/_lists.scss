@@ -26,6 +26,7 @@ li.player{
   display: inline-block;
   overflow: visible;
   text-align: center;
+  vertical-align: middle;
   .name{
     font-weight: bold;
     white-space: nowrap;
@@ -35,13 +36,52 @@ li.player{
     @include small;
     @include too_long(#f9f9f9);
   }
-  img{
-    display: block;
-    width: 6em;
-    height: 6em;
-    padding: 5px;
+  .image{
+    $image_dimension:6em;
+    text-align: center;
+    height: $image_dimension;
+    line-height: $image_dimension;
     margin-bottom: .75em;
-    @include box-sizing(border-box);
-    @include box-shadow(rgba(black, .3) 0 2px 5px 0);
+    img{
+      max-width: $image_dimension;
+      width: $image_dimension;
+      max-height: $image_dimension;                
+      vertical-align: middle;
+      @include box-sizing(border-box);
+      padding: 5px;
+      @include box-shadow(rgba(black, .3) 0 2px 5px 0);
+    }
+    .icon16{
+      @include opacity(0);
+      @include transition(color 500ms ease);
+      z-index: -1;
+      top: 50%;
+      left: 50%;
+    }
+  }
+  &.in_team{
+    .icon16{
+      @include opacity(1);
+      z-index: 1;
+      position: relative;
+      &:before{
+        z-index: 4;
+        margin-left: -16px * .5;
+        margin-top: -16px * .5;
+        @include position(absolute, auto, auto, auto, auto, 16px, 16px);
+      }
+      &:after{
+        content: "";
+        text-align: center;
+        margin-left: -12px;
+        margin-top: -12px;
+        background-color: #33cc00;
+        @include background-image(linear-gradient(top, rgba(0,225,0, .7), rgba(0,153,0, .5) 50%)); 
+        @include position(absolute, auto, auto, auto, auto, 24px, 24px);
+        @include border-radius(12px);
+        @include box-shadow(rgba(0,0,0,.3) 0 1px 3px 0);
+        z-index: 3;
+      }
+    }
   }  
 }
