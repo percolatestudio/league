@@ -9,8 +9,19 @@
         <div class="lineup">
           <ul class="roster">
             <li class="team_logo">
-              {{{ team_logo }}}
-              <a class="icon16 people inset">4 players <span class="icon16 dropdown"></span></a>
+              <div class="image">
+                {{{ team_logo }}}
+              </div>
+              <div class="dropmenu">
+                <a href="{{ games_link this }}" class="btn icon12 people">4</a>
+                <a class="icon12 dropdown btn"></a>
+                <ul>
+                  <li><a href="" class="inset">1</a></li>
+                  <li><a href="" class="inset">2</a></li>
+                  <li><a href="" class="inset">3</a></li>
+                  <li><a href="" class="inset">4</a></li>
+                </ul>
+              </div>
             </li>
             {{#each players }}
               {{> player}}
