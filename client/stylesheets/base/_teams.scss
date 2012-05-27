@@ -117,23 +117,21 @@ a#logo{
   position: relative;
   height: 100%;
   width: 100%;
-  /*
-&:before{
+  &:before{
     content: attr(data-alert);
     display: block;
-    @include h3;
+    @include h4;
     font-weight: bold;
     color: white;
     border: 2px solid white;
-    padding: .25em;
+    padding: .25em .5em;
     white-space: nowrap;
     @include position(absolute, 0, 0, auto, auto);
     @include background-image(linear-gradient(top, lighten(red, 10%), darken(red, 10%) 70%)); 
-    @include border-radius(50%);
+    @include border-radius(1em);
     @include box-shadow(rgba(0,0,0,.3) 0 2px 5px 0);
     z-index: 3;
   }
-*/
   h3{
     font-size: 26px;
     /*position*/

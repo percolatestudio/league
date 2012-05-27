@@ -1,6 +1,6 @@
 (function( $ ){
 /*   Fixme, why isnt this working */
-  $(".dropdown").click(function() {
+  $(".dropdown").live("click", function() {
     $(this).closest('.dropmenu').toggleClass('current');
   });
   
