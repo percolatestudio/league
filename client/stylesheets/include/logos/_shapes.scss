@@ -30,20 +30,21 @@
     width: 0;
   }
 }//
-@mixin prepare_shield($containerwidth: 200px, $containerheight: 200px){
+@mixin prepare_shield($containerwidth: 200px, $containerheight: 200px, $stroke:10px){
   $outerwidth:$containerwidth * .6;
   $outerheight:$containerheight * .5;
+  $border: $stroke;
   @include shield($outerwidth, $outerheight, #2E66B2);
   top: ($containerheight - $outerheight) *.5;
   left: ($containerwidth - $outerwidth) *.5;
   span{
     display: block;
-    $innerwidth: $outerwidth - 10px*2;
-    $innerheight: $outerheight - 10px*2;
+    $innerwidth: $outerwidth - $border * 2;
+    $innerheight: $outerheight - $border * 2;
     @include shield($innerwidth, $innerheight, #FF5C2B);
     z-index: 2;
-    left: 10px;
-    top: 10px;
+    left: $border;
+    top: $border;
   }
 }
 
@@ -67,36 +68,38 @@
     z-index: 1;
   }
 }
-@mixin prepare_flatdiamond($containerwidth: 200px, $containerheight: 200px){
+@mixin prepare_flatdiamond($containerwidth: 200px, $containerheight: 200px, $stroke: 10px){
   $outerwidth:$containerwidth * .8;
   $outerheight:$containerheight * .6;
+  $border: $stroke;
   @include diamond($outerwidth, $outerheight, #2E66B2);
   top: ($containerheight - $outerheight) *.5;
   left: ($containerwidth - $outerwidth) *.5;
   span{
     display: block;
-    $innerwidth: $outerwidth - 10px*2;
-    $innerheight: $outerheight - 10px*2;
+    $innerwidth: $outerwidth - $border *2;
+    $innerheight: $outerheight - $border*2;
     @include diamond($innerwidth, $innerheight, #FF5C2B);
     z-index: 2;
-    left: 10px;
-    top: 10px;
+    left: $border;
+    top: $border;
   }
 }
-@mixin prepare_diamond($containerwidth: 200px, $containerheight: 200px){
+@mixin prepare_diamond($containerwidth: 200px, $containerheight: 200px, $stroke: 10px){
   $outerwidth:$containerwidth * .6;
   $outerheight:$containerheight * .8;
+  $border: $stroke;
   @include diamond($outerwidth, $outerheight, #2E66B2);
   top: ($containerheight - $outerheight) *.5;
   left: ($containerwidth - $outerwidth) *.5;
   span{
     display: block;
-    $innerwidth: $outerwidth - 10px*2;
-    $innerheight: $outerheight - 10px*2;
+    $innerwidth: $outerwidth - $border *2;
+    $innerheight: $outerheight - $border *2;
     @include diamond($innerwidth, $innerheight, #FF5C2B);
     z-index: 2;
-    left: 10px;
-    top: 10px;
+    left: $border;
+    top: $border;
   }
 }
 @mixin darrow($width: 100px, $height:100px, $color:red){
@@ -114,23 +117,24 @@
     border-width: $height  $width/2 0 $width/2;
   }
 }
-@mixin prepare_darrow($containerwidth: 200px, $containerheight: 200px){
+@mixin prepare_darrow($containerwidth: 200px, $containerheight: 200px, $stroke: 10px){
   $cossixty:.86;/*math doesnt seem to work with scout*/
   $scale: .7; /*change this to affect total size*/
   $outerwidth:$containerwidth * $scale;
   $outerheight:$containerheight * $scale * $cossixty; /*makes equilateral tri*/
+  $border: $stroke;
   @include darrow($outerwidth, $outerheight, #2E66B2);
   top: ($containerheight - $outerheight) * .6;
   left: ($containerwidth - $outerwidth) *.5;
   span{
     $tanthirty: .57;
     display: block;
-    $innerwidth: $outerwidth - 10px*2;
-    $innerheight: $outerheight - 10px*2;
+    $innerwidth: $outerwidth - $border*2;
+    $innerheight: $outerheight - $border*2;
     @include darrow($innerwidth, $innerheight, #FF5C2B);
     z-index: 2;
-    left: 10px;
-    top: 10px * $tanthirty;
+    left: $border;
+    top: $border * $tanthirty;
   }
 }
 @mixin uarrow($width: 100px, $height:100px, $color:red){
@@ -147,22 +151,23 @@
     border-width: 0  $width/2 $height $width/2;
   }
 }
-@mixin prepare_uarrow($containerwidth: 200px, $containerheight: 200px){
+@mixin prepare_uarrow($containerwidth: 200px, $containerheight: 200px, $stroke: 10px){
   $cossixty:.86;/*math doesnt seem to work with scout*/
   $scale: .7; /*change this to affect total size*/
   $outerwidth:$containerwidth * $scale;
   $outerheight:$containerheight * $scale * $cossixty; /*makes equilateral tri*/
+  $border: $stroke;
   @include uarrow($outerwidth, $outerheight, #2E66B2);
   top: ($containerheight - $outerheight) * .3;
   left: ($containerwidth - $outerwidth) *.5;
   span{
     display: block;
-    $innerwidth: $outerwidth - 10px*2;
-    $innerheight: $outerheight - 10px*2;
+    $innerwidth: $outerwidth - $border*2;
+    $innerheight: $outerheight - $border*2;
     @include uarrow($innerwidth, $innerheight, #FF5C2B);
     z-index: 2;
-    left: 10px;
-    top: 10px;
+    left: $border;
+    top: $border;
   } 
 }
 @mixin circle($width: 100px, $height:100px, $color:red, $radius: $width/2){
@@ -170,37 +175,39 @@
   background: $color;
   @include border-radius($radius);
 }
-@mixin prepare_circle($containerwidth: 200px, $containerheight: 200px){
+@mixin prepare_circle($containerwidth: 200px, $containerheight: 200px, $stroke: 10px){
   $scale: .7; /*change this to affect total size*/
   $outerwidth:$containerwidth * $scale;
   $outerheight:$containerheight * $scale;
+  $border: $stroke;
   @include circle($outerwidth, $outerheight, #2E66B2);
   top: ($containerheight - $outerheight) * .5;
   left: ($containerwidth - $outerwidth) *.5;
   span{
     display: block;
-    $innerwidth: $outerwidth - 10px*2;
-    $innerheight: $outerheight - 10px*2;
+    $innerwidth: $outerwidth - $border*2;
+    $innerheight: $outerheight - $border*2;
     @include circle($innerwidth, $innerheight, #FF5C2B);
     z-index: 2;
-    left: 10px;
-    top: 10px;
+    left: $border;
+    top: $border;
   }
 }
-@mixin prepare_flatcircle($containerwidth: 200px, $containerheight: 200px){
+@mixin prepare_flatcircle($containerwidth: 200px, $containerheight: 200px, $stroke: 10px){
   $outerwidth:$containerwidth * .8;
   $outerheight:$containerheight * .5;
+  $border: $stroke;
   @include circle($outerwidth, $outerheight, #2E66B2, 50%);
   top: $outerheight * .5;
   left: ($containerwidth - $outerwidth) *.5;
   span{
     display: block;
-    $innerwidth: $outerwidth - 10px*2;
-    $innerheight: $outerheight - 10px*2;
+    $innerwidth: $outerwidth - $border*2;
+    $innerheight: $outerheight - $border*2;
     @include circle($innerwidth, $innerheight, #FF5C2B, 50%);
     z-index: 2;
-    left: 10px;
-    top: 10px;
+    left: $border;
+    top: $border;
   }
 }
 
@@ -221,20 +228,21 @@
     background: $color;
   }
 }
-@mixin prepare_national($containerwidth: 200px, $containerheight: 200px){
+@mixin prepare_national($containerwidth: 200px, $containerheight: 200px, $stroke: 10px){
   $outerwidth:$containerwidth * .5;
   $outerheight:$containerheight * .5;
+  $border: $stroke;
   @include national($outerwidth, $outerheight, #2E66B2);
   top: $outerheight * -.5;
   left: ($containerwidth - $outerwidth) *.5;
   span{
     display: block;
-    $innerwidth: $outerwidth - 10px*2;
-    $innerheight: $outerheight - 10px*2;
+    $innerwidth: $outerwidth - $border*2;
+    $innerheight: $outerheight - $border*2;
     @include national($innerwidth, $innerheight, #FF5C2B);
     z-index: 2;
-    left: 10px;
-    margin-top: 10px;
+    left: $border;
+    top: $border;
   }
 }
 @mixin bolt($width: 100px, $height:100px, $color:red){
@@ -256,20 +264,21 @@
     border-right: $width/2 solid transparent;
   }
 }
-@mixin prepare_bolt($containerwidth: 200px, $containerheight: 200px){
+@mixin prepare_bolt($containerwidth: 200px, $containerheight: 200px, $stroke: 10px){
   $outerwidth:$containerwidth * .7;
   $outerheight:$containerheight * .7;
+  $border: $stroke;
   @include bolt($outerwidth, $outerheight, #2E66B2);
   top: ($containerheight - $outerheight) * .5;
   left: ($containerwidth - $outerwidth) *.5;
   span{
     display: block;
-    $innerwidth: $outerwidth - 10px;
-    $innerheight: $outerheight - 10px;
+    $innerwidth: $outerwidth - $border;
+    $innerheight: $outerheight - $border;
     @include bolt($innerwidth, $innerheight, #FF5C2B);
     z-index: 2;
-    left: 10px;
-    top: 5px;
+    left: $border;
+    top: $border * .5;
   }
 }
 
@@ -301,9 +310,10 @@
   }
 }
 
-@mixin prepare_crown($containerwidth: 200px, $containerheight: 200px){
+@mixin prepare_crown($containerwidth: 200px, $containerheight: 200px, $stroke: 10px){
   $outerwidth:$containerwidth * .7;
   $outerheight:$containerheight * .7;
+  $border: $stroke;
   width: 0;
   height: 0;
   margin-top: $outerheight * -.5;
@@ -315,8 +325,8 @@
     $innerheight: $outerheight;
     @include crown($innerwidth, $innerheight, #FF5C2B);
     z-index: 2;
-    left: -0.5 * $outerwidth;
-    margin-top: $innerheight *-.5 + 10px;
+    left: $outerwidth * -.5;
+    margin-top: $innerheight *-.5 + $border;
   }
 
 }

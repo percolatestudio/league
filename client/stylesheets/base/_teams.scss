@@ -117,21 +117,6 @@ a#logo{
   position: relative;
   height: 100%;
   width: 100%;
-  &:before{
-    content: attr(data-alert);
-    display: block;
-    @include h4;
-    font-weight: bold;
-    color: white;
-    border: 2px solid white;
-    padding: .25em .5em;
-    white-space: nowrap;
-    @include position(absolute, 0, 0, auto, auto);
-    @include background-image(linear-gradient(top, lighten(red, 10%), darken(red, 10%) 70%)); 
-    @include border-radius(1em);
-    @include box-shadow(rgba(0,0,0,.3) 0 2px 5px 0);
-    z-index: 3;
-  }
   h3{
     font-size: 26px;
     /*position*/
@@ -140,6 +125,7 @@ a#logo{
     margin-top: -.75em;
     padding: .25em 0;
     z-index: 3;
+    overflow: hidden;
     /*text*/
     text-align: center;
     text-transform: uppercase;
@@ -168,7 +154,6 @@ a#logo{
     font-weight: bold;
     letter-spacing: .1em;
     color: #FF5C2B;
-    font-family: Rockwell, sans-serif;
     white-space: nowrap;
     /*misc*/
     @include maskbg;
@@ -183,4 +168,35 @@ a#logo{
   .national{@include prepare_national(200px, 200px);}
   .bolt{@include prepare_bolt(200px, 200px);}
   .crown{@include prepare_crown(200px, 200px);}
+}
+a#logo{
+  &.enable_alert{
+    &:before{
+      content: attr(data-alert);
+      display: block;
+      @include h4;
+      font-weight: bold;
+      color: white;
+      border: 2px solid white;
+      padding: .25em .5em;
+      white-space: nowrap;
+      @include position(absolute, 0, 0, auto, auto);
+      @include background-image(linear-gradient(top, lighten(red, 10%), darken(red, 10%) 70%)); 
+      @include border-radius(1em);
+      @include box-shadow(rgba(0,0,0,.3) 0 2px 5px 0);
+      z-index: 3;
+    }    
+  }
+  &.small{
+    .shield{@include prepare_shield(100px, 100px, 5px);}
+    .flatdiamond{@include prepare_flatdiamond(100px, 100px, 5px);}
+    .diamond{@include prepare_diamond(100px, 100px, 5px);}
+    .darrow{@include prepare_darrow(100px, 100px, 5px);}
+    .uarrow{@include prepare_uarrow(100px, 100px, 5px);}
+    .circle{@include prepare_circle(100px, 100px, 5px);}
+    .flatcircle{@include prepare_flatcircle(100px, 100px, 5px);}
+    .national{@include prepare_national(100px, 100px, 5px);}
+    .bolt{@include prepare_bolt(100px, 100px, 5px);}
+    .crown{@include prepare_crown(100px, 100px, 5px);}
+  }
 }
