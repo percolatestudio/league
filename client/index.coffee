@@ -22,7 +22,9 @@ future_games = ->
   match = {team_id: Session.get('team_id'), date: {$gt: new Date().getTime()}}
   Games.find(match, {sort: {date: 1}}).map (g) -> new Game(g)
 
-current_team = -> new Team(Teams.findOne(Session.get 'team_id'))
+current_team = -> 
+  data = Teams.findOne(Session.get 'team_id')
+  new Team(data) if data
 
 current_players = -> Players.find().map((p) -> new Player(p))
 
