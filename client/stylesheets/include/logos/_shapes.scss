@@ -33,9 +33,9 @@
 @mixin prepare_shield($containerwidth: 200px, $containerheight: 200px){
   $outerwidth:$containerwidth * .6;
   $outerheight:$containerheight * .5;
-  margin-top: ($containerheight - $outerheight) *.5;
-  margin-left: ($containerwidth - $outerwidth) *.5;
   @include shield($outerwidth, $outerheight, #2E66B2);
+  top: ($containerheight - $outerheight) *.5;
+  left: ($containerwidth - $outerwidth) *.5;
   span{
     display: block;
     $innerwidth: $outerwidth - 10px*2;
@@ -70,9 +70,9 @@
 @mixin prepare_flatdiamond($containerwidth: 200px, $containerheight: 200px){
   $outerwidth:$containerwidth * .8;
   $outerheight:$containerheight * .6;
-  margin-top: ($containerheight - $outerheight) *.5;
-  margin-left: ($containerwidth - $outerwidth) *.5;
   @include diamond($outerwidth, $outerheight, #2E66B2);
+  top: ($containerheight - $outerheight) *.5;
+  left: ($containerwidth - $outerwidth) *.5;
   span{
     display: block;
     $innerwidth: $outerwidth - 10px*2;
@@ -86,9 +86,9 @@
 @mixin prepare_diamond($containerwidth: 200px, $containerheight: 200px){
   $outerwidth:$containerwidth * .6;
   $outerheight:$containerheight * .8;
-  margin-top: ($containerheight - $outerheight) *.5;
-  margin-left: ($containerwidth - $outerwidth) *.5;
   @include diamond($outerwidth, $outerheight, #2E66B2);
+  top: ($containerheight - $outerheight) *.5;
+  left: ($containerwidth - $outerwidth) *.5;
   span{
     display: block;
     $innerwidth: $outerwidth - 10px*2;
@@ -119,9 +119,9 @@
   $scale: .7; /*change this to affect total size*/
   $outerwidth:$containerwidth * $scale;
   $outerheight:$containerheight * $scale * $cossixty; /*makes equilateral tri*/
-  margin-top: ($containerheight - $outerheight) * .6;
-  margin-left: ($containerwidth - $outerwidth) *.5;
   @include darrow($outerwidth, $outerheight, #2E66B2);
+  top: ($containerheight - $outerheight) * .6;
+  left: ($containerwidth - $outerwidth) *.5;
   span{
     $tanthirty: .57;
     display: block;
@@ -134,7 +134,7 @@
   }
 }
 @mixin uarrow($width: 100px, $height:100px, $color:red){
-  @include position(absolute, 50%, auto, auto, auto, $width, $height);
+  @include position(absolute, auto, auto, auto, auto, $width, $height);
   background: transparent !important;
   &:before{
     content:'';
@@ -152,9 +152,9 @@
   $scale: .7; /*change this to affect total size*/
   $outerwidth:$containerwidth * $scale;
   $outerheight:$containerheight * $scale * $cossixty; /*makes equilateral tri*/
-  margin-top: ($containerheight - $outerheight) * -.8;
-  margin-left: ($containerwidth - $outerwidth) *.5;
   @include uarrow($outerwidth, $outerheight, #2E66B2);
+  top: ($containerheight - $outerheight) * .3;
+  left: ($containerwidth - $outerwidth) *.5;
   span{
     display: block;
     $innerwidth: $outerwidth - 10px*2;
@@ -162,11 +162,11 @@
     @include uarrow($innerwidth, $innerheight, #FF5C2B);
     z-index: 2;
     left: 10px;
-    margin-top: $innerheight * -.5;
+    top: 10px;
   } 
 }
 @mixin circle($width: 100px, $height:100px, $color:red, $radius: $width/2){
-  @include position(absolute, 50%, auto, auto, auto, $width, $height);
+  @include position(absolute, auto, auto, auto, auto, $width, $height);
   background: $color;
   @include border-radius($radius);
 }
@@ -174,9 +174,9 @@
   $scale: .7; /*change this to affect total size*/
   $outerwidth:$containerwidth * $scale;
   $outerheight:$containerheight * $scale;
-  margin-top: $outerheight * -.5;
-  margin-left: ($containerwidth - $outerwidth) *.5;
   @include circle($outerwidth, $outerheight, #2E66B2);
+  top: ($containerheight - $outerheight) * .5;
+  left: ($containerwidth - $outerwidth) *.5;
   span{
     display: block;
     $innerwidth: $outerwidth - 10px*2;
@@ -184,15 +184,15 @@
     @include circle($innerwidth, $innerheight, #FF5C2B);
     z-index: 2;
     left: 10px;
-    margin-top: $innerheight *-.5;
+    top: 10px;
   }
 }
 @mixin prepare_flatcircle($containerwidth: 200px, $containerheight: 200px){
   $outerwidth:$containerwidth * .8;
   $outerheight:$containerheight * .5;
-  margin-top: $outerheight * -.5;
-  margin-left: ($containerwidth - $outerwidth) *.5;
   @include circle($outerwidth, $outerheight, #2E66B2, 50%);
+  top: $outerheight * .5;
+  left: ($containerwidth - $outerwidth) *.5;
   span{
     display: block;
     $innerwidth: $outerwidth - 10px*2;
@@ -200,7 +200,7 @@
     @include circle($innerwidth, $innerheight, #FF5C2B, 50%);
     z-index: 2;
     left: 10px;
-    margin-top: $innerheight *-.5;
+    top: 10px;
   }
 }
 
@@ -224,9 +224,9 @@
 @mixin prepare_national($containerwidth: 200px, $containerheight: 200px){
   $outerwidth:$containerwidth * .5;
   $outerheight:$containerheight * .5;
-  margin-top: $outerheight * -.5;
-  margin-left: ($containerwidth - $outerwidth) *.5;
   @include national($outerwidth, $outerheight, #2E66B2);
+  top: $outerheight * -.5;
+  left: ($containerwidth - $outerwidth) *.5;
   span{
     display: block;
     $innerwidth: $outerwidth - 10px*2;
@@ -234,11 +234,11 @@
     @include national($innerwidth, $innerheight, #FF5C2B);
     z-index: 2;
     left: 10px;
-    margin-top: $innerheight *-.5;
+    margin-top: 10px;
   }
 }
 @mixin bolt($width: 100px, $height:100px, $color:red){
-  @include position(absolute, 50%, auto, auto, auto, $width, $height);
+  @include position(absolute, auto, auto, auto, auto, $width, $height);
   background: transparent !important;
   &:before{
     content:'';
@@ -259,9 +259,9 @@
 @mixin prepare_bolt($containerwidth: 200px, $containerheight: 200px){
   $outerwidth:$containerwidth * .7;
   $outerheight:$containerheight * .7;
-  margin-top: $outerheight * -.5;
-  margin-left: ($containerwidth - $outerwidth) *.5;
   @include bolt($outerwidth, $outerheight, #2E66B2);
+  top: ($containerheight - $outerheight) * .5;
+  left: ($containerwidth - $outerwidth) *.5;
   span{
     display: block;
     $innerwidth: $outerwidth - 10px;
@@ -269,7 +269,7 @@
     @include bolt($innerwidth, $innerheight, #FF5C2B);
     z-index: 2;
     left: 10px;
-    margin-top: $innerheight *-.5;
+    top: 5px;
   }
 }
 
