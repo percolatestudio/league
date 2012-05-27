@@ -1,3 +1,55 @@
-.container {
-  &.games .games {}
+.container.games{
+  .games{
+    aside{
+      $color:  #30c0ef;
+      $height: 3em;
+      height: $height;
+      padding: 0 1.5em;
+      left: $height *.25;
+      position: relative;
+      display: inline-block;
+      background:$color;
+      line-height: $height;
+      color: white;
+      &:before{
+        content: '';
+        display: block;
+        border-style:solid;
+        @include position(absolute, 0, $height *-.25, auto, auto, 0, 0);
+        border-color: $color transparent $color $color;
+        border-width:$height *.5 $height *.25 $height *.5 0px;
+        z-index: 1;
+      }
+      &:after{
+        content: '';
+        display: block;
+        border-style:solid;
+        @include position(absolute, 0, auto, auto, $height *-.25, 0, 0);
+        border-color: $color $color $color transparent;
+        border-width:$height *.5 0px $height *.5 $height *.25;
+        z-index: 1;
+      }
+    }
+    #logo{
+      margin-bottom: 1.5em;
+    }
+    .preposition{
+      color: #999;
+      @include emtype;
+      margin-bottom: 1.5em;
+    }
+    .game_title{
+      color: #3b404d;
+      font-size: 12em;
+      text-transform: uppercase;
+      text-align: center;
+      display: inline-block;
+      border-top: $font-size * .75px solid #3b404d;
+      border-bottom: $font-size * .75px solid #3b404d;
+      margin-bottom: 1.5em;
+    }
+    .game_date{
+      font-size: 3em;
+    }
+  }
 }
