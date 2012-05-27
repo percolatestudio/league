@@ -1,6 +1,6 @@
 WebFontConfig = {
   logo_fonts: [ 
-    'Graduate', 'Nova Square', 'Bangers', 'Carter One', 'Sansita One', 'Arvo', 'Lobster Two'
+    'Graduate', 'Nova Square', 'Bangers', 'Carter One', 'Sansita One', 'Arvo'
   ],
   site_fonts: ['Lato']
 }
