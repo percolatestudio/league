@@ -6,8 +6,13 @@
         {{#each teams }}
           {{> team }}
         {{/each}}
-        <li>
-          <button class="add_team">Add a Team</button>
+        <li class="add_team current">
+          <div class="cta">
+            <div class="image">
+              <figure></figure>
+            </div>
+            <button class="add_team btn default">Add a Team</button>
+          </div>
           {{> team_builder }}
         </li>
       </ul>
@@ -17,17 +22,17 @@
 
 <template name="team_builder">
   <form class="team_builder">
-    <h2>Team Builder</h2>
+    <h3>Team Builder</h3>
     <input name="name" placeholder="Team name"></input>
     {{> players_required_select }}
-    <button type="submit">Create</button>
+    <button type="submit" class="btn default">Create</button>
   </form>
 </template>
   
 <template name="team">
   <li class="team">
-    {{{team_logo}}}
-    <div class="dropmenu current">
+    <div class="image">{{{team_logo}}}</div>
+    <div class="dropmenu">
       <a href="{{ games_link this }}" class="btn">View Season</a>
       <a class="icon12 dropdown btn"></a>
       <ul>
