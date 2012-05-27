@@ -1,4 +1,5 @@
 Template.home.events =
+  'click .login': -> AuthSystem.require_login()
   'submit .create_team': (event) -> 
     $(event).preventDefault();
     $form = $(this)
