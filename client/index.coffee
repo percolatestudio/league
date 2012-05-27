@@ -29,6 +29,6 @@ current_team = ->
   data = Teams.findOne(team_id)
   _teams[team_id] ||= new Team(data) if data
 
-current_players = -> Players.find().map((p) -> new Player(p))
+current_players = -> current_team().players()
 
 current_user = -> new Player(Users.findOne())

@@ -18,8 +18,13 @@ Template.players.team_logo = ->
 
 Template.players.players = -> current_players()
 Template.players.alone_in_team = -> current_players().length <= 1
-
+Template.players.is_self = -> this.id == current_user().id
 Template.players.events =
+  'click .remove_player': (event) ->
+    t = current_team()
+    t.remove_player(this)
+    t.save()
+
   'click .start_season': (event) ->
     event.preventDefault()
     

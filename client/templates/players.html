@@ -14,6 +14,9 @@
             </li>
             {{#each players }}
               {{> player}}
+              {{#unless is_self}}
+                <a class="remove_player">Remove</a>
+              {{/unless}}
             {{/each}}
           </ul>
           {{#if alone_in_team}}
