@@ -7,6 +7,23 @@ class Team extends Model
     super(attrs)
     @attributes.player_ids ||= []
   
+  save: (validate) ->
+    players = @players()
+    
+    # save out all the players, and fill out the player_ids array from them
+    return false unless _.all(players, (player) ->
+      (player.persisted() and player.valid()) or player.save())
+    
+    @attributes.player_ids = (player.id for player in players)
+    
+    return false unless super(validate)
+    
+    # now that we are saved, ensure all the players have a link to our id
+    for player in players
+      Players.update({_id: player.id}, {$addToSet: {team_ids: @id}})
+    
+    return true
+    
   valid: ->
     @errors = {}
     
@@ -17,26 +34,30 @@ class Team extends Model
     unless @attributes.players_required? and parseInt(@attributes.players_required) > 0
       @errors.players_required = 'must be a positive number'
     
-    unless @attributes.player_ids? and @attributes.player_ids.length > 0
-      @errors.player_ids  = 'must not be empty'
+    unless @players().length > 0
+      @errors.players  = 'must not be empty'
     
     _.isEmpty(@errors)
   
-  # we need to de-normalise and link both teams -> players and players -> teams.
-  # this is due to mongo's non-relational nature 
-  #   (otherwise it'd be hard to get all teams of a player or visa/versa)
+  # many-many association. TODO: generalize this I guess
+  players: ->
+    @_players ||= Players.find({_id: {$in: @attributes.player_ids}}).map (player_attrs) ->
+      new Player(player_attrs)
+  
   add_player: (player) ->
-    return false unless (player.persisted() and player.valid()) or player.save()
-    
-    @attributes.player_ids.splice(-1, 0, player.id)
-    return false unless @save()
-    
-    player.attributes.team_ids.splice(-1, 0, @id)
-    player.save()
+    @remove_player(player)
+    @_players.push(player)
+  
+  remove_player: (player) ->
+    @_players = _.reject @players(), (p) -> p == player
   
   create_game: (attributes) ->
     game = new Game(attributes)
     game.team_id = this.id
     game.save()
     return game
-    
+  
+  
+  # destroy: ->
+  #   # remove us from all players teams
+  #   for player in @players()

@@ -20,7 +20,8 @@ Meteor.startup ->
     return
   
   # add players to teams
-  unless team.add_player(players[1])
+  team.add_player(players[1])
+  unless team.save()
     console.log "Couldn't add player: #{player.full_errors()} / #{team.full_errors()}"
     return
     

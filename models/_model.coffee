@@ -10,14 +10,14 @@ class Model
   
   valid: -> true
   
-  persisted: -> @id != null
+  persisted: -> @id? and @id != null
   
   full_errors: ->
     ("#{name} #{error}" for name, error of @errors).join(', ')
   
   save: (validate = true) ->
     if not validate or @valid()
-      if @id?
+      if @persisted()
         @constructor._collection.update(@id, @attributes) 
       else
         @id = @constructor._collection.insert(@attributes)
@@ -25,6 +25,9 @@ class Model
       true
     else
       false
+  
+  destroy: ->
+    @constructor._collection.delete(@id) if @persisted
   
   @create: (attrs)->
     record = new this(attrs)
