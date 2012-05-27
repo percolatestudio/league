@@ -3,13 +3,109 @@
     .team_register{
       text-align: center;
       margin: 0 10%;
-      .team{
+      > li{
         display: inline-block;
         position: relative;
-        width: 200px;
-        height: 200px;
         margin: 40px;
-
+        overflow: visible;
+        vertical-align: middle;
+        .image{
+          width: 200px;
+          height: 200px;
+        }
+      }
+      li.add_team{
+        width: 200px;
+        min-height: 200px;
+        form.team_builder{
+          @include maskbg(#ccc);
+          padding:1.5em;
+          display: none;
+          @include border-radius(3px);
+          @include box-shadow(rgba(black, .3) 0 2px 5px 0 inset);
+          @include box-sizing(border-box);
+          h3{
+            margin: $line * -1px $line * -1px $line * 1px;
+            height: $font-size *3px;
+            line-height: $font-size *3px;
+            font-weight: bold;
+            text-align: center;
+            @include letterpress(rgba(saturate($orange, 30%), 1));
+            @include border(rgba(saturate($orange, 30%), 1));
+            @include border-radius(3px 3px 0 0);
+            @include box-shadow(
+              rgba(lighten($orange, 30%), .3) 0 -1px 0 0 inset,
+              rgba(black, .3) 0 2px 5px 0 
+            );
+            @include background(linear-gradient(top, rgba(saturate($orange, 30%), 1), darken($orange, 10%) 100%));
+          }
+          label{
+            overflow: hidden;
+            text-indent: -999em;
+            display: inline-block;
+            float: none;
+            @include position(absolute, auto, auto, auto, auto, 0, 0);
+          }
+          button[type='submit']{width: 100%;}
+        }
+        &.current{
+          form.team_builder{display: block;}
+          .cta{display: none;}
+        }
+        .cta{
+          .image{
+            $border-radius:20px;
+            $border-width:5px;
+            $border-color: #eee;
+            $scale: .5;
+            $container_width:200px;
+            $container_height:200px;
+            $width: ($container_width * $scale) - 2 * $border-width ;
+            $height: ($container_height * $scale) - 2 * $border-width ;
+            $xoffset: ($container_width - ($container_width * $scale)) * .5;
+            $yoffset: ($container_height - ($container_height * $scale)) * .5;
+            position: relative;
+            &:before, &:after{
+              content:'';
+              display: block;
+              @include border-radius($border-radius);
+              border: $border-width dashed $border-color;
+            }
+            &:before{
+              @include position(absolute, $yoffset , 0, 0, $xoffset, $width, $height);
+              z-index: 1;
+            }
+            &:after{
+              @include position(absolute, $yoffset - 1px, 0, 0, $xoffset, $width, $height);
+              border: $border-width dashed darken($border-color, 10%);
+              z-index: 0;
+            }
+            figure{
+              $dimension1: 50px;
+              $dimension2: $dimension1 * .3;
+              display: block;
+              @include position(absolute, ($container_width - $dimension1) * .5, auto, auto, ($container_width - $dimension1) * .5, $dimension1, $dimension1);
+              &:before, &:after{
+                content:'';
+                display: block;
+                background: $skyblue;
+                border-top: 1px solid darken($skyblue, 10%);
+                border-bottom: 1px solid lighten($skyblue, 10%);
+              }
+              &:before{
+                /* horiz */
+                @include position(absolute, ($dimension1 - $dimension2) * .5, auto, auto, 0, $dimension1, $dimension2);
+              }
+              &:after{
+                /* vert */
+                z-index: 1;
+                @include position(absolute, 0, auto, auto, ($dimension1 - $dimension2) * .5, $dimension2, $dimension1);
+              }
+            }
+          }
+          /* fixme: refactor me */
+          button{@include small;line-height: 1em;margin: 0;}
+        }
       }
     }
   }
@@ -17,10 +113,27 @@
 
 a#logo{
   display: block;
-  overflow: hidden;
+  overflow: visible;
   position: relative;
   height: 100%;
   width: 100%;
+  /*
+&:before{
+    content: attr(data-alert);
+    display: block;
+    @include h3;
+    font-weight: bold;
+    color: white;
+    border: 2px solid white;
+    padding: .25em;
+    white-space: nowrap;
+    @include position(absolute, 0, 0, auto, auto);
+    @include background-image(linear-gradient(top, lighten(red, 10%), darken(red, 10%) 70%)); 
+    @include border-radius(50%);
+    @include box-shadow(rgba(0,0,0,.3) 0 2px 5px 0);
+    z-index: 3;
+  }
+*/
   h3{
     font-size: 26px;
     /*position*/
