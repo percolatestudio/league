@@ -3,7 +3,6 @@
 // author : Tim Wood
 // license : MIT
 // momentjs.com
-
 (function (Date, undefined) {
 
     var moment,
@@ -915,4 +914,7 @@
             return moment;
         });
     }
+    
+    // TOM HACK
+    this.moment = moment;
 })(Date);

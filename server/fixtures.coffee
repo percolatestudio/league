@@ -4,46 +4,40 @@ Meteor.startup ->
   console.log 'Initializing Fixtures'
   
   player_data = [['Tom Coleman', 'tom@thesnail.org', '680541486'], ['Dominic Nguyen', 'd@dominicnguyen.net', '1230930']]
-  player_ids = for player in player_data
-    Players.insert
+  players = for player in player_data
+    player = Player.create
       name: player[0]
       email: player[1]
       facebook_id: player[2]
       team_ids: []
   
-  day = 1
-  team_id = Teams.insert
+  team = players[0].create_team
     name: "Tom's Fault"
     players_required: 5
-    player_ids: []
+  
+  unless team.valid()
+    console.log "Couldn't create team: #{team.full_errors()}"
+    return
   
   # add players to teams
-  team = new Team(Teams.findOne(team_id))
-  for id in player_ids
-    player = new Player(Players.findOne(id))
-    unless team.add_player(player)
-      console.log "Couldn't add player: #{player.full_errors()} / #{team.full_errors()}"
+  unless team.add_player(players[1])
+    console.log "Couldn't add player: #{player.full_errors()} / #{team.full_errors()}"
+    return
     
   
-  next_date = get_day_after(day)
-  players = {}
-  players[player_ids[0]] = 1
-  players[player_ids[1]] = 2
-  game = Games.insert
-    team_id: team_id
-    date: next_date.getTime()
-    time: '8:40'
+  availabilities = {}
+  availabilities[players[0].id] = 1
+  availabilities[players[1].id] = 2
+  team.create_game
+    date: moment().add('weeks', 1).day(0).hours(20).minutes(40).valueOf()
     location: 'Brunswick'
-    players: players
+    availabilities: availabilities
   
-  players = {}
-  players[player_ids[0]] = 1
-  game = Games.insert
-    team_id: team_id
-    date: get_day_after(day, new Date().setDate(next_date.getDate() + 7)).getTime()
-    time: '8:00'
+  availabilities = {}
+  availabilities[players[0].id] = 1
+  team.create_game
+    date: moment().add('weeks', 2).day(0).hours(20).minutes(0).valueOf()
     location: 'Princes Hill'
-    players: players
-  
+    availabilities: availabilities
   
   

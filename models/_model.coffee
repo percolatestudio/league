@@ -15,8 +15,8 @@ class Model
   full_errors: ->
     ("#{name} #{error}" for name, error of @errors).join(', ')
   
-  save: ->
-    if @valid()
+  save: (validate = true) ->
+    if not validate or @valid()
       if @id?
         @constructor._collection.update(@id, @attributes) 
       else
