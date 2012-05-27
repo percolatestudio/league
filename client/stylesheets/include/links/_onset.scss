@@ -36,7 +36,7 @@
       color: lighten($color, 50%);
     }
     @include background( 
-      linear-gradient(top, saturate($color, 20%) 70%, darken($color, 5%) 100%),
+      linear-gradient(top, saturate(lighten($color, 20%), 5%), $color 50%, darken($color, 20%) 100%),
       $color
     );
   }
