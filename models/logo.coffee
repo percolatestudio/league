@@ -38,14 +38,15 @@ class Logo
   @pick_colors = -> @pick_X(@colors_list)
   @pick_font = -> @pick_X(WebFontConfig.logo_fonts)
   
-  constructor: (@team, @shape, @colors, @font) ->
-    @name = @team.attributes.name
-    @shape = @team.attributes.logo_shape
+  constructor: (@team, attributes = {}) ->
+    @shape = attributes.shape || Logo.pick_shape()
+    @colors = attributes.colors || Logo.pick_colors()
+    @font = attributes.font || Logo.pick_font()
     
-    # TODO -- pick a shape that can fit text
-    @shape = Logo.pick_shape() unless @shape
-    @colors = Logo.pick_colors() unless @colors
-    @font = Logo.pick_font() unless @font
+    @lines = attributes.lines || @calculate_lines()
+  
+  to_object: ->
+    {shape: @shape, colors: @colors, font: @font, lines: @lines}
   
   render: ->
     return Template.logo(this)
@@ -60,11 +61,9 @@ class Logo
   # we don't look at the actual size of the text here, just the number of chars
   #   as we can't reliably tell when the fonts have loaded anyway, so it's best 
   #   to be a bit conservative..
-  name_lines: ->
-    return @_name_lines if @_name_lines
-    
+  calculate_lines: ->
     # first calcuate the word sizes
-    words = @name.split /\s+/
+    words = @team.attributes.name.split /\s+/
     word_lengths = (word.length for word in words)
     
     ## ok, we are going to run a little brute force algorithm that optimizes:
@@ -116,12 +115,10 @@ class Logo
     configuration = find_best([], words.length, null)
     
     idx = 0 # where we are up to
-    @_name_lines = _.map configuration, (word_count) ->
+    _.map configuration, (word_count) ->
       line = words[idx...idx+word_count].join(' ')
       idx += word_count
       line
-    
-    
   
   # calculate the 'correct' font size by rendering offscreen
   #
@@ -134,7 +131,7 @@ class Logo
       @_font_size = null 
     
     return @_font_size if @_font_size
-    console.log "calculating font_size for #{@name}(#{@team.id})"
+    console.log "calculating font_size for #{@team.attributes.name}"
     
     # these are the ranges that we've tried
     [min_tried, max_tried, last_tried] = [8, 36, 0]

@@ -15,7 +15,6 @@ Meteor.startup ->
     name: "Tom's Fault"
     players_required: 5
   
-  
   # add players to teams
   team.add_player(players[1])
   

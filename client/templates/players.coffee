@@ -12,8 +12,6 @@ grab_facebook_friends = ->
     Session.set 'facebook_friends', all_friends
   
 Template.players.team = -> current_team()
-Template.players.team_logo = -> 
-  (new Logo(this)).render()
 
 Template.players.players = -> current_players()
 Template.players.alone_in_team = -> current_players().length <= 1

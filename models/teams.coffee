@@ -1,11 +1,13 @@
 Teams = new Meteor.Collection 'teams'
-# { name: "Tom's Fault", players_required: 5, player_ids: [...] }
+# { name: "Tom's Fault", players_required: 5, player_ids: [...], 
+#    logo: {lines: ["Tom's Fault"], shape: 'diamond', colors: ["#xxx", "#yyy"], font: 'Foogle'} }
 
 class Team extends Model
   @_collection: Teams
   constructor: (attrs) ->
     super(attrs)
     @attributes.player_ids ||= []
+    @prepare_logo()
   
   valid: ->
     @errors = {}
@@ -52,5 +54,9 @@ class Team extends Model
     attributes.team_id = this.id
     Game.create(attributes)
   
-  # FIXME: this should be saved to the db
-  logo: -> new Logo(this)
+  prepare_logo: (regenerate = false) ->
+    if @attributes.logo? and not regenerate
+      @logo = new Logo(this, @attributes.logo)
+    else
+      @logo = new Logo(this, @attributes.logo)
+      @attributes.logo = @logo.to_object()
