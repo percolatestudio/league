@@ -48,10 +48,9 @@ class Logo
   to_object: ->
     {shape: @shape, colors: @colors, font: @font, lines: @lines}
   
-  render: ->
+  render: (size = 'large') ->
+    @size = size
     return Template.logo(this)
-  
-  toString: -> @render()
   
   primary_color: -> @colors[0]
   secondary_color: -> @colors[1]
@@ -126,51 +125,52 @@ class Logo
   #   mean that the width will be exactly 10 times bigger. So we need to use
   #   an recursive 'cartesian method'
   font_size: ->
+    @_font_sizes ||= {}
+    
     if !@fonts_were_active and Session.get('fonts_active')
       @fonts_were_active = true
-      @_font_size = null 
+      @_font_sizes = {}
     
-    return @_font_size if @_font_size
-    console.log "calculating font_size for #{@team.attributes.name}"
+    return @_font_sizes[@size] if @_font_sizes[@size]
+    console.log "calculating font_size @ #{@size} for #{@team.attributes.name}"
     
     # these are the ranges that we've tried
     [min_tried, max_tried, last_tried] = [8, 36, 0]
     
     # set a starting font_size that's a maximum
-    @_font_size = max_tried
+    @_font_sizes[@size] = max_tried
   
-    # FIXME -- 200px is hard-coded here for now
-    logo_width = 200
-    $hidden_div = $('<div>').css({width: "#{logo_width}px", visibility: 'hidden'})
-    $('body').append($hidden_div.append(@render()))
+    $hidden_div = $('<div>').css({visibility: 'hidden'})
+    $('body').append($hidden_div.append(@render(@size)))
+    logo_width = $hidden_div.find('#logo').width()
     
     iterations = 10
     # stop when we are no longer getting closer to the 'correct size'
-    while @_font_size != last_tried and iterations > 0
-      console.log "trying #{iterations}: #{@_font_size}"
+    while @_font_sizes[@size] != last_tried and iterations > 0
+      console.log "trying #{iterations}: #{@_font_sizes[@size]}"
       # and loop
-      last_tried = @_font_size
+      last_tried = @_font_sizes[@size]
       iterations -= 1
       
       change = logo_width / $hidden_div.find('h3').get(0).scrollWidth
       
       # now scale by the right amount to make us fit; this is our next try
-      @_font_size *= change
-      @_font_size = Math.floor(@_font_size)
+      @_font_sizes[@size] *= change
+      @_font_sizes[@size] = Math.floor(@_font_sizes[@size])
       
-      $hidden_div.find('h3').css('font-size', @_font_size)
+      $hidden_div.find('h3').css('font-size', @_font_sizes[@size])
       
-      if @_font_size > last_tried
+      if @_font_sizes[@size] > last_tried
         # make sure we aren't jumping around; keep us in our 'valid' range
-        @_font_size = Math.min(@_font_size, max_tried)
+        @_font_sizes[@size] = Math.min(@_font_sizes[@size], max_tried)
         
         # last tried was too small, so it's our new minimum
         min_tried = last_tried
       else
-        @_font_size = Math.max(@_font_size, min_tried)
+        @_font_sizes[@size] = Math.max(@_font_sizes[@size], min_tried)
         max_tried = last_tried
       
       
     $hidden_div.detach()
-    @_font_size
+    @_font_sizes[@size]
     

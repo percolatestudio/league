@@ -60,3 +60,6 @@ class Team extends Model
     else
       @logo = new Logo(this)
       @attributes.logo = @logo.to_object()
+  
+  render_small_logo: -> @logo.render('small')
+  render_large_logo: -> @logo.render('large')

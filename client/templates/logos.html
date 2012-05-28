@@ -9,7 +9,7 @@
 </template>
 
 <template name="logo">
-  <a href="{{ games_link }}" id="logo" title="{{team.name}}" data-alert="-10">
+  <a href="{{ games_link }}" id="logo" title="{{team.name}}" data-alert="-10" class="{{size}}">
     <h3 style="font-family: {{font}}, cursive; font-size: {{font_size}}px; color: {{primary_color}}">
       {{#each lines}}
         <span>{{this}}</span>
