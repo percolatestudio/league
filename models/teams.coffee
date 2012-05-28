@@ -39,7 +39,7 @@ class Team extends Model
   
   remove_player: (player) ->
     # remove player from this
-    @update_attribute('player_ids', _.without(@attributes, player.id))
+    @update_attribute('player_ids', _.without(@attributes.player_ids, player.id))
     
     # remote this from player
     player.update_attribute('team_ids', _.without(player.attributes.team_ids, @id))
