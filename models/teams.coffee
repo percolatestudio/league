@@ -51,3 +51,6 @@ class Team extends Model
     
     attributes.team_id = this.id
     Game.create(attributes)
+  
+  # FIXME: this should be saved to the db
+  logo: -> new Logo(this)

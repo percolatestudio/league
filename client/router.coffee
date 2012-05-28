@@ -7,8 +7,12 @@ SportGridRouter = Backbone.Router.extend
     '': 'home'
     'loading': 'loading'
     'leagues': 'leagues'
+    'logo_tester': 'logo_tester'
     ':team_id': 'players'
     ':team_id/season': 'games'
+    
+  logo_tester: -> 
+    Session.set 'visible_page', 'logo_tester'
     
   home: ->
     @authSystem.if_logged_in(
@@ -18,7 +22,8 @@ SportGridRouter = Backbone.Router.extend
       ->
         console.log 'at home'
         Session.set 'visible_page', 'home')
-    
+  
+  
   leagues: -> 
     console.log 'at leagues'
     @require_login ->

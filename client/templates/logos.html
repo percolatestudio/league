@@ -1,3 +1,11 @@
+<template name="logo_tester">
+  <ul>
+    {{#each teams}}
+      {{{logo}}}
+    {{/each}}
+  </ul>
+</template>
+
 <template name="logo">
   <a href="{{ games_link }}" id="logo" title="{{name}}" data-alert="-10" class="small">
     <h3 style="font-family: {{font}}, cursive; font-size: {{font_size}}px; color: {{primary_color}}">

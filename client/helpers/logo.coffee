@@ -49,6 +49,8 @@ class Logo
   render: ->
     return Template.logo(this)
   
+  toString: -> @render()
+  
   primary_color: -> @colors[0]
   secondary_color: -> @colors[1]
   
