@@ -33,7 +33,13 @@
           {{#if alone_in_team}}
             <p>Hey.. add some friends bozo...</p>
           {{else}}
-            <button class="start_season btn default">Start Season</button>
+            <button class="start_season btn default">
+              {{#if attributes.started}}
+                Continue Season
+              {{else}}
+                Start Season
+              {{/if}}
+            </button>
           {{/if}}
         </div>
                   
