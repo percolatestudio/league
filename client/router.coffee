@@ -33,6 +33,9 @@ SportGridRouter = Backbone.Router.extend
       Session.set 'team_id', team_id
       Session.set 'visible_page', 'games'
       
+      # FIXME: how can we guarantee that the team has loaded properly when we get here?
+      current_team().update_attribute('started', true)
+      
     
   # I'm pretty sure this _isn't_ the right spot for this logic
   loading: -> 

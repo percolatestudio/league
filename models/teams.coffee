@@ -7,23 +7,6 @@ class Team extends Model
     super(attrs)
     @attributes.player_ids ||= []
   
-  save: (validate) ->
-    players = @players()
-    
-    # save out all the players, and fill out the player_ids array from them
-    return false unless _.all(players, (player) ->
-      (player.persisted() and player.valid()) or player.save())
-    
-    @attributes.player_ids = (player.id for player in players)
-    
-    return false unless super(validate)
-    
-    # now that we are saved, ensure all the players have a link to our id
-    for player in players
-      Players.update({_id: player.id}, {$addToSet: {team_ids: @id}})
-    
-    return true
-    
   valid: ->
     @errors = {}
     
@@ -41,21 +24,33 @@ class Team extends Model
   
   # many-many association. TODO: generalize this I guess
   players: ->
-    @_players ||= Players.find({_id: {$in: @attributes.player_ids}}).map (player_attrs) ->
+    Players.find({_id: {$in: @attributes.player_ids}}).map (player_attrs) ->
       new Player(player_attrs)
   
   add_player: (player) ->
-    @remove_player(player)
-    @_players.push(player)
+    # add player to this
+    player.save() unless player.persisted()
+    @update_attribute('player_ids', _.union(@attributes.player_ids, [player.id]))
+    
+    # add this to player
+    player.update_attribute('team_ids', _.union(player.attributes.team_ids, [@id]))
+    
+    this
   
   remove_player: (player) ->
-    @_players = _.reject @players(), (p) -> p == player
+    # remove player from this
+    @update_attribute('player_ids', _.without(@attributes, player.id))
+    
+    # remote this from player
+    player.update_attribute('team_ids', _.without(player.attributes.team_ids, @id))
+    
+    this
   
   create_game: (attributes) ->
-    game = new Game(attributes)
-    game.team_id = this.id
-    game.save()
-    return game
+    @save() unless @persisted()
+    
+    attributes.team_id = this.id
+    Game.create(attributes)
   
   
   # destroy: ->

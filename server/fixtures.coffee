@@ -15,16 +15,9 @@ Meteor.startup ->
     name: "Tom's Fault"
     players_required: 5
   
-  unless team.valid()
-    console.log "Couldn't create team: #{team.full_errors()}"
-    return
   
   # add players to teams
   team.add_player(players[1])
-  unless team.save()
-    console.log "Couldn't add player: #{player.full_errors()} / #{team.full_errors()}"
-    return
-    
   
   availabilities = {}
   availabilities[players[0].id] = 1

@@ -34,5 +34,3 @@ class Player extends Model
   create_team: (attributes) ->
     team = new Team(attributes)
     team.add_player(this)
-    console.log "Team failed to save #{team.full_errors}" unless team.save()
-    team

@@ -1,3 +1,10 @@
+class InvalidModelException
+  constructor: (@record) ->
+    @errors = @record.errors
+  
+  toString: ->
+    "Invalid model: #{@record}: #{@record.full_errors()}"
+  
 class Model
   @_collection: null
   constructor: (attributes) ->
@@ -16,15 +23,14 @@ class Model
     ("#{name} #{error}" for name, error of @errors).join(', ')
   
   save: (validate = true) ->
-    if not validate or @valid()
-      if @persisted()
-        @constructor._collection.update(@id, @attributes) 
-      else
-        @id = @constructor._collection.insert(@attributes)
-      
-      true
+    throw new InvalidModelException(this) unless not validate or @valid()
+    
+    if @persisted()
+      @constructor._collection.update(@id, @attributes) 
     else
-      false
+      @id = @constructor._collection.insert(@attributes)
+    
+    this
   
   update_attributes: (attrs = {}) ->
     @attributes[key] = value for key, value of attrs
