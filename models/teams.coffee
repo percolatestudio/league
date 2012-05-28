@@ -29,6 +29,16 @@ class Team extends Model
     Players.find({_id: {$in: @attributes.player_ids}}).map (player_attrs) ->
       new Player(player_attrs)
   
+  games: (conditions = {}) -> 
+    conditions.team_id = @id
+    Games.find(conditions, {sort: {date: 1}}).map (g_attrs) -> new Game(g_attrs)
+  
+  future_games: -> @games({date: {$gt: moment().valueOf()}})
+  
+  next_game: -> @future_games[0]
+  
+  player_deficit: -> if @next_game() then @next_game().player_deficit() else 0
+  
   add_player: (player) ->
     # add player to this
     player.save() unless player.persisted()

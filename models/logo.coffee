@@ -55,6 +55,8 @@ class Logo
   primary_color: -> @colors[0]
   secondary_color: -> @colors[1]
   
+  player_deficit: -> @team.player_deficit()
+  
   # calculate if the name should be split over 2 or more lines.
   #
   # we don't look at the actual size of the text here, just the number of chars

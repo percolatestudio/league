@@ -56,4 +56,16 @@ class Game extends Model
   unconfirmed: (player) -> 
     @attributes.availabilities[player.id] = 0
     @save()
-    
+  
+  #  Various methods to calculate if we have enough players
+  team: ->
+    new Team(@attributes.team_id)
+  
+  players: ->
+    team().players()
+  
+  availability_count: (state) ->
+    (p for p in @players() when @availability(p) == state)
+  
+  player_deficit: ->
+    @players().count - @availability_count(2) - @team().players_required

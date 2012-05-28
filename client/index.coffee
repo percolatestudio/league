@@ -18,17 +18,10 @@ Users = new Meteor.Collection('users')
 current_user = -> new Player(Users.findOne())
 
 
-# not sure if this is a good idea. Rethink
 current_team = ->
   data = Teams.findOne(Session.get 'team_id')
   new Team(data) if data
 
-current_players = -> current_team().players()
+current_players = -> current_team().players() if current_team()
 
-
-
-
-future_games = -> 
-  match = {team_id: Session.get('team_id'), date: {$gt: new Date().getTime()}}
-  Games.find(match, {sort: {date: 1}}).map (g) -> new Game(g)
-
+future_games = -> current_team().future_games() if current_team()
