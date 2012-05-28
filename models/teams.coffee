@@ -51,8 +51,3 @@ class Team extends Model
     
     attributes.team_id = this.id
     Game.create(attributes)
-  
-  
-  # destroy: ->
-  #   # remove us from all players teams
-  #   for player in @players()
