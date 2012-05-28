@@ -26,6 +26,15 @@ class Model
     else
       false
   
+  update_attributes: (attrs = {}) ->
+    @attributes[key] = value for key, value of attrs
+    @save()
+  
+  update_attribute: (key, value) ->
+    attrs = {}
+    attrs[key] = value
+    @update_attributes(attrs)
+  
   destroy: ->
     @constructor._collection.delete(@id) if @persisted
   
