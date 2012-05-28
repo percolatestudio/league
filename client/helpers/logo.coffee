@@ -40,6 +40,7 @@ class Logo
   
   constructor: (@team, @shape, @colors, @font) ->
     @name = @team.attributes.name
+    @shape = @team.attributes.logo_shape
     
     # TODO -- pick a shape that can fit text
     @shape = Logo.pick_shape() unless @shape
