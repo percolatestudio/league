@@ -42,7 +42,7 @@ class Model
     @update_attributes(attrs)
   
   destroy: ->
-    @constructor._collection.delete(@id) if @persisted
+    @constructor._collection.remove(@id) if @persisted
   
   @create: (attrs)->
     record = new this(attrs)
