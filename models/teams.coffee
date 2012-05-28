@@ -35,7 +35,7 @@ class Team extends Model
   
   future_games: -> @games({date: {$gt: moment().valueOf()}})
   
-  next_game: -> @future_games[0]
+  next_game: -> @future_games()[0]
   
   player_deficit: -> if @next_game() then @next_game().player_deficit() else 0
   

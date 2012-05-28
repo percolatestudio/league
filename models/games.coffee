@@ -58,14 +58,13 @@ class Game extends Model
     @save()
   
   #  Various methods to calculate if we have enough players
-  team: ->
-    new Team(@attributes.team_id)
+  team: -> new Team(Teams.findOne(@attributes.team_id))
   
   players: ->
-    team().players()
+    @team().players()
   
   availability_count: (state) ->
-    (p for p in @players() when @availability(p) == state)
+    (p for p in @players() when @availability(p) == state).length
   
   player_deficit: ->
-    @players().count - @availability_count(2) - @team().players_required
+    @players().length - @availability_count(2) - @team().attributes.players_required
