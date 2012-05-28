@@ -58,5 +58,5 @@ class Team extends Model
     if @attributes.logo? and not regenerate
       @logo = new Logo(this, @attributes.logo)
     else
-      @logo = new Logo(this, @attributes.logo)
+      @logo = new Logo(this)
       @attributes.logo = @logo.to_object()
