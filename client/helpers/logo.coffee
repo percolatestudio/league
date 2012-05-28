@@ -128,7 +128,12 @@ class Logo
   #   mean that the width will be exactly 10 times bigger. So we need to use
   #   an recursive 'cartesian method'
   font_size: ->
+    if !@fonts_were_active and Session.get('fonts_active')
+      @fonts_were_active = true
+      @_font_size = null 
+    
     return @_font_size if @_font_size
+    console.log "calculating font_size for #{@name}(#{@team.id})"
     
     # these are the ranges that we've tried
     [min_tried, max_tried, last_tried] = [8, 36, 0]

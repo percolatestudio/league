@@ -169,6 +169,8 @@ a#logo{
   .crown{@include prepare_crown(200px, 200px);}
 }
 a#logo{
+  width: 200px;
+  height: 200px;
   &.enable_alert{
     &:before{
       content: attr(data-alert);
@@ -187,6 +189,8 @@ a#logo{
     }    
   }
   &.small{
+    width: 100px;
+    height: 100px;
     .shield{@include prepare_shield(100px, 100px, 5px);}
     .flatdiamond{@include prepare_flatdiamond(100px, 100px, 5px);}
     .diamond{@include prepare_diamond(100px, 100px, 5px);}
