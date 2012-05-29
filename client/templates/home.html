@@ -6,7 +6,9 @@
     </h2>
     <h1 class="tag">organize your grown-up sports</h1>
     <form class="team_builder">
-      {{> players_required_select }}
+      {{#with players_required_data}}
+        {{> select }}
+      {{/with}}
       <input name="name" placeholder="Your team name"></input>
       <button class="btn default" type="submit">Create</button>
     </form>

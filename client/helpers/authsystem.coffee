@@ -131,6 +131,9 @@ class FBAuthSystem
     console.log 'not authorized'
     Session.set 'current_user_id', null
     Session.set 'login_status', 'not_authorized'
+    
+    console.log 'running logout_callback'
+    @_logout_callback()
   
 # prepare a singleton instance
 AuthSystem = new FBAuthSystem

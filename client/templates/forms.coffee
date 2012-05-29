@@ -1,1 +1,0 @@
-Template.players_required_select.potential_counts = [3..18]

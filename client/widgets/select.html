@@ -1,0 +1,10 @@
+<template name="select">
+  <ul class="select {{open}}">
+    <li class="selected_value">{{selected_value}}</li>
+    {{#each options}}
+      <li class="{{selected}}">
+        {{this}}
+      </li>
+    {{/each}}
+  </ul>
+</template>

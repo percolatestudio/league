@@ -24,7 +24,9 @@
   <form class="team_builder">
     <h3>Team Builder</h3>
     <input name="name" placeholder="Team name"></input>
-    {{> players_required_select }}
+    {{#with players_required_data}}
+      {{> select }}
+    {{/with}}
     <button type="submit" class="btn default">Create</button>
   </form>
 </template>

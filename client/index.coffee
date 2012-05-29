@@ -17,11 +17,11 @@ Meteor.startup ->
 Users = new Meteor.Collection('users')
 current_user = -> new Player(Users.findOne())
 
-
 current_team = ->
   data = Teams.findOne(Session.get 'team_id')
   new Team(data) if data
 
 current_players = -> current_team().players() if current_team()
-
 future_games = -> current_team().future_games() if current_team()
+
+players_required_data = {options: [3..18]}
