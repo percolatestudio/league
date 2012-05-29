@@ -6,6 +6,7 @@ Session.set 'select.open', false
 Template.select.selected_value = -> Session.get('select.selected_value')
 Template.select.open = -> 'open' if Session.get('select.open')
 Template.select.selected = -> 
+  Session.set('select.selected_value', this.valueOf()) if Session.equals('select.selected_value', undefined)
   'selected' if Session.equals('select.selected_value', this.valueOf())
 Template.select.events = 
   'click li:not(:first-child)': ->
