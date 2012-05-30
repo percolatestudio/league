@@ -13,7 +13,7 @@
                 {{{ render_small_logo }}}
               </div>
               <div class="dropmenu">
-                <a href="{{ games_link this }}" class="btn icon12 people">4</a>
+                <a href="{{ games_link this }}" class="btn icon12 player">4</a>
                 <a class="icon12 dropdown btn"></a>
                 <ul>
                   <li><a href="" class="inset">1</a></li>
@@ -50,7 +50,7 @@
 <template name="player">
   <li class="player {{in_team_class}}">
     <div class="image">
-      <span class="icon16 twitter"></span>
+      <span class="icon16 checkmark"></span>
       <img src="{{ facebook_profile_url }}"/>
     </div>
     <span class="name">{{attributes.name}}</span>
