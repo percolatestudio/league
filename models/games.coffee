@@ -28,10 +28,17 @@ class Game extends Model
     @moment = m
     @attributes.date = @moment.valueOf()
   
-  day: -> moment.weekdays[@moment.day()]
+  day: -> 
+    days_away = @moment.diff(moment(), 'days')
+    if days_away == 0
+      'Today'
+    else if days_away == 1
+      'Tomorrow'
+    else
+      moment.weekdays[@moment.day()]
   time: -> @moment.format('h:mm a')
     
-  formatted_date: -> @moment.format('Do MMMM, YYYY')
+  formatted_date: -> @moment.format('MMMM Do, YYYY')
   
   clone_one_week_later: ->
     new Game(
