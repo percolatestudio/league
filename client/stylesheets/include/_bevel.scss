@@ -11,14 +11,14 @@
   }
 }
 @mixin border($color, $width: 1px, $emboss: 'emboss'){
-  border-right: 1px solid darken($color, 10%);
-  border-left: 1px solid darken($color, 10%);
+  border-right: $width solid darken($color, 10%);
+  border-left: $width solid darken($color, 10%);
   @if $emboss == 'emboss'{
-    border-top: 1px solid lighten($color, 15%);
-    border-bottom: 1px solid darken($color, 30%);    
+    border-top: $width solid lighten($color, 15%);
+    border-bottom: $width solid darken($color, 30%);    
   } @else {
-    border-bottom: 1px solid lighten($color, 30%);
-    border-top: 1px solid darken($color, 30%);
+    border-bottom: $width solid lighten($color, 30%);
+    border-top: $width solid darken($color, 30%);
   }
 }
 @mixin reveal{

@@ -41,12 +41,19 @@
 
 <template name="upcoming_games">
   <div class="upcoming_games">
-    <aside class="">Upcoming</aside>
-    <h2>Upcoming Games</h2>
-    {{#each upcoming_games }}
-      {{> game }}
-    {{/each}}
-    <a class="create_game">Schedule next game</a>
+    <aside class="upcoming">Upcoming</aside>
+    <div class="season_wrapper">
+      <div class="season">
+        <h2>Your Season</h2>
+        <a class="edit inset btn icon16 heart">Edit games</a>
+        <div>
+          {{#each upcoming_games }}
+            {{> game }}
+          {{/each}}
+          <a class="create_game btn default">Add games</a>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 

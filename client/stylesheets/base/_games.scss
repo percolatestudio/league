@@ -11,6 +11,40 @@
       padding: 3em 0;
     }
     .upcoming_games{
+      padding: 3em 0;
+      .season_wrapper{
+        $color: #b66726;
+        background: $color;
+        padding: 3em;
+        @include border-radius(5px);
+        @include box-sizing(border-box);
+        @include border($color, 5px);
+        .season{
+          position: relative;
+          z-index: 1;
+          @include maskbg(white);
+          @include box-sizing(border-box);
+          @include border(white);
+          @include box-shadow(rgba(black, .3) 0 2px 5px 0);
+          padding: 3em;
+          &:before, &:after{
+            content: '';
+            display: block;
+            @include position(absolute, 0, auto, auto, 0, 100%, 100%);
+            @include maskbg(white);
+            @include border(white);
+            @include box-shadow(rgba(black, .3) 0 2px 5px 0);
+          }
+          &:before{
+            @include transform(rotate(1deg));
+            z-index: -1;
+          }
+          &:after{
+            @include transform(rotate(-1deg));
+            z-index: -1;
+          }
+        }
+      }
     }
     
     /* Styles */
@@ -18,7 +52,7 @@
       $color:  #30c0ef;
       $height: 2.5em;
       margin: .25em 0;
-      @include position(absolute, auto, auto, auto, $height *.25, auto, $height);
+      @include position(absolute, 0, auto, auto, $height *.25, auto, $height);
       padding: 0 1.5em;
       background:$color;
       color: transparent; /* hides the element without text-indent hack */
@@ -49,11 +83,6 @@
       }
     }
     .next_game{
-      text-align: center;
-      width: 80%;
-      margin: 0 auto; 
-      padding: 3em 0;
-      position: relative;
       #logo{
         display: inline-block;
       }
@@ -73,11 +102,24 @@
       }
       .game_date{
         @include h1(yes);
+        margin-top: $line * 1px;
         strong{
-          color: saturate($orange, 50%);
+          color: saturate(darken($orange, 10%), 30%);
         }
       }  
     }
-    
+    .upcoming_games{
+      text-align: center;
+      h2{
+        font-weight: bold;
+        text-transform: uppercase;
+        display: inline-block;
+        @include huge(yes);
+      }
+      .edit{
+        border: 1px solid #eee;
+        @include position(absolute, 0, 0, auto, auto);
+      }
+    }
   }
 }
