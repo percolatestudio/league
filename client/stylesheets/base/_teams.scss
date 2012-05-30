@@ -46,6 +46,9 @@
             float: none;
             @include position(absolute, auto, auto, auto, auto, 0, 0);
           }
+          input{
+            @include h4;
+          }
           button[type='submit']{width: 100%;}
         }
         &.current{
@@ -57,7 +60,7 @@
             $border-radius:20px;
             $border-width:5px;
             $border-color: #eee;
-            $scale: .5;
+            $scale: .7;
             $container_width:200px;
             $container_height:200px;
             $width: ($container_width * $scale) - 2 * $border-width ;
@@ -81,14 +84,14 @@
               z-index: 0;
             }
             figure{
-              $dimension1: 50px;
+              $dimension1: 70px;
               $dimension2: $dimension1 * .3;
               display: block;
               @include position(absolute, ($container_width - $dimension1) * .5, auto, auto, ($container_width - $dimension1) * .5, $dimension1, $dimension1);
               &:before, &:after{
                 content:'';
                 display: block;
-                background: $skyblue;
+                background: saturate($skyblue, 10%);
                 border-top: 1px solid darken($skyblue, 10%);
                 border-bottom: 1px solid lighten($skyblue, 10%);
               }
