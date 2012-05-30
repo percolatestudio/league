@@ -1,3 +1,0 @@
-.select:not(.open) li:not(:first-child) {
-  display: none;
-}

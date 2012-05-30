@@ -21,13 +21,11 @@
   >ul{
     display: none; 
     @include position(absolute, 100%, auto, auto, auto, 100%);
-    position: absolute;
     z-index: 1;
     background: #eee;
     @include border(#eee);
     @include border-radius(0 0 3px 3px);
     @include box-shadow(rgba(0,0,0,.1) 0 1px 3px 0);
-    @include text-shadow(none);
       li{
         @include box-sizing(border-box);
         overflow: hidden;
@@ -46,6 +44,63 @@
       }
     }
     >ul{display: block;}
-    
+  }
+}
+
+
+.select{
+  display: block;
+  overflow: visible;
+  clear: both;
+  >li.selected_value{
+    position: relative;
+    @include global_btn;
+    @include onset(#eee);
+    width: 100%;
+    font-weight: bold;
+    .player{
+      margin-left: -.5em;
+      float: left;
+    }
+    .dropdown, .dropup{
+      margin-right: -.5em;
+      float: right;
+    }
+    .dropup{
+      display: none;
+    }
+    ul.options{
+      display: none;
+      @include position(absolute, 100%, auto, auto, 0, 100%);
+      margin-top: 1px;
+      z-index: 1;
+      background: #eee;
+      @include box-sizing(border-box);
+      @include border-radius(3px);
+      @include box-shadow(rgba(0,0,0,.3) 0 2px 5px 0);
+      >li{
+        @include small;
+        font-weight: normal;
+        @include box-sizing(border-box);
+        padding: $font-size * .25px;
+        @include border(#eee);
+        &:hover{
+          $color: $onsetcolor;
+          @include border($color);
+          @include background( 
+            linear-gradient(top, saturate(lighten($color, 10%), 15%), $color 50%, darken($color, 10%) 100%),
+            $color
+          );
+        }
+
+      }
+    }
+  }
+  &.open{
+    >li.selected_value {
+      ul.options{display: block;}
+      .dropdown{display: none}
+      .dropup{display: inline-block;}
+    }  
   }
 }
