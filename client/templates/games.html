@@ -9,14 +9,7 @@
       <article>
         {{#if next_game}}
           {{> next_game }}
-          <div class="upcoming_games">
-            <aside>Upcoming</aside>
-            <h2>Upcoming Games</h2>
-            {{#each upcoming_games }}
-              {{> game }}
-            {{/each}}
-            <a class="create_game">Schedule next game</a>
-          </div>
+          {{> upcoming_games }}
         {{else}}
           <p>No games yet!</p>
           <p>Click <a class="create_game">here</a> to create one</p>
@@ -28,20 +21,33 @@
 </template>
 
 <template name="next_game">
-  <aside>Next Game</aside>
-  <!-- Fixme -->
-    {{{ render_small_logo }}}
-  <p>{{ name }}</p>
-  <p class="preposition">&#9733;&nbsp;&nbsp;AT&nbsp;&nbsp;&#9733;</p>
-  {{#with next_game }}
-    <h2 class="game_title">{{ location }}Game 3</h2>
-    <p class="game_date">{{ day }} {{ time }} {{ formatted_date }}</p>
-    <ul class="game_players">
-      {{#each player_availabilities}}
-        {{> player_availability }}
-      {{/each}}
-    </ul>
-  {{/with}}
+  <div class="next_game">
+    <aside class="next">Next Game</aside>
+    <!-- Fixme -->
+      {{{ render_small_logo }}}
+    <p>{{ name }}</p>
+<!--     <p class="preposition">&#9733;&nbsp;&nbsp;AT&nbsp;&nbsp;&#9733;</p> -->
+    {{#with next_game }}
+      <h2 class="game_title">{{ location }}Game 3</h2>
+      <p class="game_date"><strong>This {{ day }}</strong>&nbsp;&nbsp;{{ time }}&nbsp;&nbsp;{{ formatted_date }}</p>
+      <ul class="game_players">
+        {{#each player_availabilities}}
+          {{> player_availability }}
+        {{/each}}
+      </ul>
+    {{/with}}
+  </div>
+</template>
+
+<template name="upcoming_games">
+  <div class="upcoming_games">
+    <aside class="">Upcoming</aside>
+    <h2>Upcoming Games</h2>
+    {{#each upcoming_games }}
+      {{> game }}
+    {{/each}}
+    <a class="create_game">Schedule next game</a>
+  </div>
 </template>
 
 <template name="game">
@@ -57,20 +63,14 @@
 </template>
 
 <template name="player_availability">
-  <li class="{{ availability_class }}">
+  <li class="player {{ availability_class }}">
     {{#with player}}
-      <img src="{{ facebook_profile_url }}"></img>
-      {{attributes.name}}
+      <div class="image">
+        <span class="icon16 twitter"></span>
+        <img src="{{ facebook_profile_url }}"/>
+      </div>
+      <span class="name">{{attributes.name}}</span>
     {{/with}}
-    <ul>
-      <li>{{ availability_text }}</li>
-      {{#if unconfirmed }}
-        <li><a class="confirm_playing">Confirm Playing</a></li>
-        <li><a class="confirm_not_playing">Confirm not Playing</a></li>
-      {{else}}
-        <li><a class="unconfirm">Reset to unconfirmed</a></li>
-      {{/if}}
-    </ul>
   </li>
 </template>
 

@@ -1,16 +1,28 @@
 .container.games{
   .games{
+    /* Positioning */
+    .next_game, .upcoming_games{
+      width: 80%;
+      margin: 0 auto;
+      position: relative;
+    }
+    .next_game{
+      text-align: center;
+      padding: 3em 0;
+    }
+    .upcoming_games{
+    }
+    
+    /* Styles */
     aside{
       $color:  #30c0ef;
-      $height: 3em;
-      height: $height;
+      $height: 2.5em;
+      margin: .25em 0;
+      @include position(absolute, auto, auto, auto, $height *.25, auto, $height);
       padding: 0 1.5em;
-      left: $height *.25;
-      position: relative;
-      display: inline-block;
       background:$color;
+      color: transparent; /* hides the element without text-indent hack */
       line-height: $height;
-      color: white;
       &:before{
         content: '';
         display: block;
@@ -29,27 +41,43 @@
         border-width:$height *.5 0px $height *.5 $height *.25;
         z-index: 1;
       }
+      &.next{
+        background: url(/images/text_img_next_game_99x20.png) no-repeat center $color;
+      }
+      &.upcoming{
+        background: url(/images/text_img_upcoming_86x20.png) no-repeat center $color;
+      }
     }
-    #logo{
-      margin-bottom: 1.5em;
-    }
-    .preposition{
-      color: #999;
-      @include emtype;
-      margin-bottom: 1.5em;
-    }
-    .game_title{
-      color: #3b404d;
-      font-size: 12em;
-      text-transform: uppercase;
+    .next_game{
       text-align: center;
-      display: inline-block;
-      border-top: $font-size * .75px solid #3b404d;
-      border-bottom: $font-size * .75px solid #3b404d;
-      margin-bottom: 1.5em;
+      width: 80%;
+      margin: 0 auto; 
+      padding: 3em 0;
+      position: relative;
+      #logo{
+        display: inline-block;
+      }
+      .preposition{
+        color: #999;
+        @include emtype;
+        margin-bottom: 1.5em;
+      }
+      .game_title{
+        color: #3b404d;
+        font-size: 10.5em;
+        text-transform: uppercase;
+        font-weight: bold;
+        text-align: center;
+        border-top: $font-size * .75px solid #3b404d;
+        border-bottom: $font-size * .75px solid #3b404d;
+      }
+      .game_date{
+        @include h1(yes);
+        strong{
+          color: saturate($orange, 50%);
+        }
+      }  
     }
-    .game_date{
-      font-size: 3em;
-    }
+    
   }
 }
