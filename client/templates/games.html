@@ -57,7 +57,7 @@
 </template>
 
 <template name="player_availability">
-  <li>
+  <li class="{{ availability_class }}">
     {{#with player}}
       <img src="{{ facebook_profile_url }}"></img>
       {{attributes.name}}

@@ -29,8 +29,8 @@ Template.player_availability.facebook_profile_url = ->
 Template.player_availability.unconfirmed = ->
   this.game.availability(this.player) == 0
 
-Template.player_availability.availability_text = ->
-  this.game.availability_text(this.player)
+Template.player_availability.availability_class = ->
+  this.game.availability_text(this.player).toLowerCase().replace(' ', '_')
 
 Template.player_availability.events =
   'click .confirm_playing': -> this.game.playing(this.player)
