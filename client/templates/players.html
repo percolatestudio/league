@@ -25,9 +25,6 @@
             </li>
             {{#each players }}
               {{> player}}
-              {{#unless is_self}}
-                <a class="remove_player">Remove</a>
-              {{/unless}}
             {{/each}}
           </ul>
           {{#if alone_in_team}}
@@ -57,6 +54,9 @@
       <img src="{{ facebook_profile_url }}"/>
     </div>
     <span class="name">{{attributes.name}}</span>
+    {{#unless is_self}}
+      <small><a class="remove_player icon12 close inset">Remove</a></small>
+    {{/unless}}
   </li>
 </template>
 
