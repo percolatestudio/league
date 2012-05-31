@@ -1,0 +1,52 @@
+/* Mixins for image_selects */
+@mixin player_state($state: unconfirmed){
+  
+  @if $state == unconfirmed{
+    .icon16:not(.player){display: none}
+    img, .name{ @include opacity(.7);}
+  }@else if $state == playing{
+    .icon16:not(.checkmark){display: none;}
+  }@else if $state == not_playing{
+    .icon16:not(.close){display: none;}
+    img, .name{ @include opacity(.5);}
+  }
+  .icon16{
+    @include opacity(1);
+    z-index: 1;
+    &:before{
+      z-index: 4;
+      margin-left: -16px * .5;
+      margin-top: -16px * .5;
+      @include position(absolute, auto, auto, auto, auto, 16px, 16px);
+    }
+    &:after{
+      content: "";
+      text-align: center;
+      margin-left: -12px;
+      margin-top: -12px;
+      @if $state == unconfirmed{
+        $bgcolor: yellow;
+        @include background(
+          linear-gradient(top, rgba(lighten($bgcolor, 10%), .7), rgba(darken($bgcolor, 10%), .5) 50%),
+          $bgcolor
+        );
+      }@else if $state == playing{
+        $bgcolor: #00cc00;
+        @include background(
+          linear-gradient(top, rgba(lighten($bgcolor, 10%), .7), rgba(darken($bgcolor, 10%), .5) 50%),
+          $bgcolor
+        );
+      }@else if $state == not_playing{
+        $bgcolor:red;
+        @include background(
+          linear-gradient(top, rgba(lighten($bgcolor, 10%), .7), rgba(darken($bgcolor, 10%), .5) 50%),
+          $bgcolor
+        );
+      }
+      @include position(absolute, auto, auto, auto, auto, 24px, 24px);
+      @include border-radius(12px);
+      @include box-shadow(rgba(0,0,0,.3) 0 1px 3px 0);
+      z-index: 3;
+    }
+  }
+}

@@ -145,7 +145,14 @@
         strong{
           color: saturate(darken($orange, 10%), 30%);
         }
-      }  
+      }
+      .game_players{
+        .player{
+          &.playing{@include player_state(playing);}
+          &.not_playing{@include player_state(not_playing);}
+          &.unconfirmed{@include player_state(unconfirmed);}
+        }
+      }
     }
     .upcoming_games{
       text-align: center;
