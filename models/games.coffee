@@ -52,6 +52,12 @@ class Game extends Model
   availability_text: (player) ->
     Game.playing_states[@availability(player)]
   
+  # jump through each of the states
+  toggle_availability: (player) ->
+    @attributes.availabilities[player.id] += 1
+    @attributes.availabilities[player.id] %= 3
+    @save()
+  
   playing: (player) -> 
     @attributes.availabilities[player.id] = 1
     @save()

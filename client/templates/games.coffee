@@ -34,6 +34,6 @@ Template.player_availability.availability_class = ->
   this.game.availability_text(this.player).toLowerCase().replace(' ', '_')
 
 Template.player_availability.events =
-  'click .confirm_playing': -> this.game.playing(this.player)
-  'click .confirm_not_playing': -> this.game.not_playing(this.player)
-  'click .unconfirm': -> this.game.unconfirmed(this.player)
+  'click li.player': -> 
+    # FIXME -- meteor forces us to jump through hoops here
+    future_games()[0].toggle_availability(this)
