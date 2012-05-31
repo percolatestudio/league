@@ -8,7 +8,6 @@
     }
     .next_game{
       text-align: center;
-      margin-top: 3em;
       padding-bottom: 4.5em;
     }
     .upcoming_games{
@@ -52,11 +51,11 @@
           @include box-shadow(rgba(black, .2) 0 1px 3px 0);
         }
         &:before{
-          @include transform(rotate(-1deg));
+          @include transform(rotate(1.5deg));
           z-index: -1;
         }
         &:after{
-          @include transform(translate(1px, 2px));
+          @include transform(translate(1px, 4px));
           z-index: -1;
         }
       }
@@ -137,9 +136,9 @@
         @include emtype;
       }
       .edit{
-        border: 1px solid #999;
         @include small;
-        @include position(absolute, $font-size * 3px, $font-size * 1.5px, auto, auto);
+        @include position(absolute, $font-size * 3px, $font-size * 3px, auto, auto);
+        @include maskbg(rgba(lighten(#30c0ef, 30%), .8));
       }
       ul.games{
         >li{
@@ -237,10 +236,10 @@
               font-weight: bold;
               @include h3;
               @include global_btn;
-              color: rgba(#ff3333, .3);
+              color: rgba(#ff3333, .5);
               text-transform: uppercase;
               @include border-radius(10px);
-              border:5px solid rgba(#ff3333, .3);
+              border:5px solid rgba(#ff3333, .5);
               margin: 0 -10px;// for alignment
             }            
           }
