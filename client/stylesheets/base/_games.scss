@@ -92,10 +92,6 @@
         @include position(absolute, 0, auto, auto, $height *.25, auto, $height);
         background: url(/images/text_img_next_game_99x20.png) no-repeat center $color;
       }
-      &.upcoming{
-        @include position(absolute, 3em, auto, auto, $height *.25, auto, $height);
-        background: url(/images/text_img_upcoming_86x20.png) no-repeat center $color;
-      }
     }
     .next_game{
       #logo{
