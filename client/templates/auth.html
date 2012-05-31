@@ -9,3 +9,9 @@
     {{/if}}
   </div>
 </template>
+
+<template name="logged_in_user">
+  {{#with current_user}}
+    <div class="avatar"><img width="40px" height="40px" style="background: #eee; display:block;" src="{{ facebook_profile_url }}"></div>
+  {{/with}}
+</template>
