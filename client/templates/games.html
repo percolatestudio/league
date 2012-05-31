@@ -46,27 +46,30 @@
       <div class="season">
         <h2>Your Season</h2>
         <a class="edit inset btn icon16">Edit games</a>
-        <div>
+        <ul class="games">
           {{#each upcoming_games }}
             {{> game }}
           {{/each}}
           <a class="create_game btn default">Add games</a>
-        </div>
+        </ul>
       </div>
     </div>
   </div>
 </template>
 
 <template name="game">
-  <p>{{formatted_date}}</p>
-  <p>{{time}} -- 
-    {{#if location}}
-      {{location}}
-    {{else}}
-      <em>Unknown location</em>
-    {{/if}}
-  </p>
-  <p>{{player_count}}</p>
+  <li>
+    <div class="date">{{formatted_date}}</div>
+    <div class="meta">
+      {{#if location}}
+        {{location}}
+      {{else}}
+        <em>Unknown location</em>
+      {{/if}}
+      {{time}}
+      <p>{{player_count}}</p>
+    </div>
+  </li>
 </template>
 
 <template name="player_availability">

@@ -118,7 +118,22 @@
       }
       .edit{
         border: 1px solid #eee;
-        @include position(absolute, 0, 0, auto, auto);
+        @include small;
+        @include position(absolute, $font-size * 3px, $font-size * 1.5px, auto, auto);
+      }
+      ul.games{
+        li{
+          border: 1px solid #ccc;
+          @include box-sizing(border-box);
+          padding: 1.5em;
+          margin-bottom: 1.5em;
+          position: relative;
+        }
+        .date{
+          border-right: 1px solid #ccc;
+          @include position(absolute, 0, auto, 0, 0, auto, 100%);
+        }
+        .meta{}
       }
     }
   }
