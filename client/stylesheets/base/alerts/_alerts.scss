@@ -1,0 +1,19 @@
+.yellow_flag{
+  position: relative;
+  padding-left: 1.25em;
+  &:before{
+    content: '';
+    display: block;
+    @include position(absolute, 5px, auto, auto, 0, 2px, 1em);
+    background: #ffcc00;
+  }
+  &:after{
+    content: '';
+    display: block;
+    @include position(absolute, 4px, auto, auto, 0, .75em, .5em);
+    background: #ffcc00;
+  }
+  &:empty{
+    &:before, &:after{display: none;}
+  }
+}

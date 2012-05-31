@@ -164,15 +164,107 @@
         li{
           border: 1px solid #ccc;
           @include box-sizing(border-box);
-          padding: 1.5em;
           margin-bottom: 1.5em;
           position: relative;
+          overflow: auto;
         }
         .date{
           border-right: 1px solid #ccc;
-          @include position(absolute, 0, auto, 0, 0, auto, 100%);
+          @include position(absolute, 0, auto, 0, auto, 4.5em, 100%);
+          @include box-sizing(border-box);
+          padding: 1.5em;
         }
-        .meta{}
+        .meta{
+          @include position(relative, auto, auto, auto, 4.5em, 60%, auto);
+          @include box-sizing(border-box);
+          float: left;
+          padding: 1.5em 0 1.5em 3em;
+          text-align: left;
+          h3{
+            @include huge;
+            font-weight: bold;
+          }
+        }
+        .confirmation{
+          @include box-sizing(border-box);
+          float: right;
+          padding: 1.5em;
+          width: 20%;
+          form{
+            label{
+              font-weight: bold;
+              float: none;
+              &.play{color: #00cc00;}
+              &.bench{color: #ff3333;}
+            }
+            input + label{
+              @include h2;
+              margin-bottom: $font-size * .75px;
+            }
+            .state{
+              color: #999;
+              @include small;
+            }
+          }
+          .state_playing, .state_benched{
+            text-align: center;
+            a{
+              @include small;
+              font-weight: bold;
+            }
+          }
+          .state_playing{
+            figure{
+              position: relative;
+              display: inline-block;
+              height: 100px;
+              width: 100px;
+              &:before{
+                content: '';
+                display: block;
+                width: 100px - 4px*2;
+                height: 100px - 4px*2;
+                position: absolute;
+                top:0;
+                left: 0;
+                @include border-radius(50px);
+                border: 4px double #666;
+                z-index: 2;
+              }
+              &:after{
+                content: 'PLAYING';
+                font-weight: bold;
+                color: #666;
+                display: block;
+                width: 100px - 8px;
+                height: 100px - 8px;
+                position: absolute;
+                top:50%;
+                height: 1.5em;
+                margin-top: -.75em;
+                left: 50%;
+                margin-left: -92px * .5;
+                border-top: 1px solid #999;
+                border-bottom: 1px solid #999;
+                @include transform(rotate(-6deg));
+                z-index: 1;
+              }  
+            }            
+          }
+          .state_benched{
+            figure{
+              display: inline-block;
+              font-weight: bold;
+              @include h3;
+              @include global_btn;
+              color: rgba(#ff3333, .3);
+              text-transform: uppercase;
+              @include border-radius(10px);
+              border:5px solid rgba(#ff3333, .3);
+              margin: 0 -10px;// for alignment
+            }            
+          }
+        }
       }
     }
   }

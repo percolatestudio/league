@@ -24,7 +24,6 @@
 <template name="next_game">
   <div class="next_game">
     <aside class="next">Next Game</aside>
-    <!-- Fixme -->
       {{{ render_large_logo }}}
     <p>{{ name }}</p>
 <!--     <p class="preposition">&#9733;&nbsp;&nbsp;AT&nbsp;&nbsp;&#9733;</p> -->
@@ -82,14 +81,38 @@
           {{#with possible_minutes}}{{> select }}{{/with}}
         </form>
       {{else}}
-        {{#if attributes.location}}
-          {{attributes.location}}
-        {{else}}
-          <em>Unknown location</em>
-        {{/if}}
+        <h3>
+          {{#if attributes.location}}
+            {{attributes.location}}
+          {{else}}
+            <em>Unknown location</em>
+          {{/if}}
+        </h3>
         {{time}}
-        <p>{{player_count}}</p>
+        <!-- Fixme, make me work when the player count is low -->
+        <p class="yellow_flag">{{player_count}}</p>
       {{/if}}
+    </div>
+    <div class="confirmation">
+      <form>
+        <input type="radio" name="state" value="play">
+        <label for="state" class="play">Play</label>
+        <br>
+        <input type="radio" name="state" value="bench">
+        <label for="state" class="bench">Bench</label>
+        <br>
+        <em class="state">You're unconfirmed</em>
+      </form>
+      <div class="state_playing">
+        <figure></figure>
+        <br>
+        <a class="inset">Get on the bench &raquo;</a>
+      </div>
+      <div class="state_benched">
+        <figure>Benched</figure>
+        <br>
+        <a class="inset">Play this game &raquo;</a>
+      </div>
     </div>
   </li>
 </template>

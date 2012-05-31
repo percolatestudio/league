@@ -8,8 +8,10 @@ textarea{
     }
 }
 input{
-  @include stdform;
-  line-height: 1em;
+  &:not([type=checkbox]):not([type=radio]){
+    @include stdform;
+    line-height: 1em;
+  }
 }
 label{
   color: #333;
@@ -32,17 +34,18 @@ form{
   textarea, input, select{
     text-align: left;
     float: left;
-    width: 100%;
-    @include small(no);
+    line-height: 1.5em;
   }
   select{
     margin-bottom: 10px;
   }
   input{      
-      &[type=checkbox]{
-        width: auto;
-        margin-right: 6px;
-      }
+    &[type=checkbox], &[type=radio]{
+      width: auto;
+      margin-right: 10px;
+      line-height: 1.5em;
+    }
+    &[type=radio]{-webkit-appearance: radio;}
   }
   p{
     margin-bottom: 10px;
