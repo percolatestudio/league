@@ -13,6 +13,16 @@ header{
   .avatar{
     @include position(absolute, 50%, 1.5em, auto, auto );
     margin-top: -20px;
+    img{
+      height: 40px;
+      width: 40px;
+      display: inline-block;
+      vertical-align: middle;
+      @include box-shadow(rgba(black, .2) 0 1px 3px 0);
+      @include border($skyblue);
+      @include border-radius(3px);
+    }
+    .icon16:before{vertical-align: middle;}
   }
   &:before{
     content:'';
