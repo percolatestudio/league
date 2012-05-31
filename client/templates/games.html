@@ -41,23 +41,21 @@
 </template>
 
 <template name="upcoming_games">
-  <div class="upcoming_games">
-    <aside class="upcoming">Upcoming</aside>
-    <div class="season_wrapper">
-      <div class="season">
-        <h2>Your Season</h2>
-        {{#if editing}}
-          <a class="done inset btn icon16">Done Editing</a>
-        {{else}}
-          <a class="edit inset btn icon16">Edit games</a>
-        {{/if}}
-        <ul class="games">
-          {{#each upcoming_games }}
-            {{> game }}
-          {{/each}}
-          <a class="create_game btn default">Add games</a>
-        </ul>
-      </div>
+  <div class="upcoming_games">    
+    <div class="season">
+      <aside class="upcoming">Upcoming</aside>
+      <h2>Your Season</h2>
+      {{#if editing}}
+        <a class="done inset btn icon16">Done Editing</a>
+      {{else}}
+        <a class="edit inset btn icon16">Edit games</a>
+      {{/if}}
+      <ul class="games">
+        {{#each upcoming_games }}
+          {{> game }}
+        {{/each}}
+        <a class="create_game btn default">Add games</a>
+      </ul>
     </div>
   </div>
 </template>

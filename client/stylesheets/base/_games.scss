@@ -12,7 +12,7 @@
       padding-bottom: 4.5em;
     }
     .upcoming_games{
-      padding-top: 7.5em;
+      padding: 3em;
       position: relative;
       overflow: hidden;
       &:after{
@@ -34,57 +34,33 @@
           radial-gradient(50% 50%, rgba(white, 1), rgba(white, .8) 50%, rgba(white, 0) 70%)
         );
       }/* end pseudoclasses */
-      .season_wrapper{
-        padding: 3em;
-        margin-bottom: 3em;
+      .season{
         position: relative;
-        @include background(
-          url(/images/textures/bg_wood_40x40.png) repeat,
-          url(/images/textures/bg_noise_80x80.png) repeat,
-          linear-gradient(top, rgba(lighten(#84410c, 5%), 1), rgba(#9c4619, 1) 100%)
-        );
-        @include border-radius(5px);
+        z-index: 1;
+        $maskbg: #ffff99;
+        @include maskbg($maskbg);
         @include box-sizing(border-box);
-        @include border(lighten(#84410c, 5%), 5px);
-        @include box-shadow(rgba(black, .3) 0 3px 10px 0);
-        &:before{
+        @include border($maskbg);
+        @include box-shadow(rgba(black, .3) 0 2px 5px 0);
+        padding: 3em;
+        &:before, &:after{
           content: '';
           display: block;
-          z-index: 2;
-          @include position(relative, 0, auto, auto, 50%, 450px, 150px);
-          margin-left: 450px * -.5;
-          margin-top: -128px;
-          margin-bottom: -1.5em;
-          background: url(/images/icon_clip_450x150.png) no-repeat transparent;
+          @include position(absolute, 0, auto, auto, 0, 100%, 100%);
+          @include maskbg($maskbg);
+          @include border($maskbg);
+          @include box-shadow(rgba(black, .2) 0 1px 3px 0);
         }
-        .season{
-          position: relative;
-          z-index: 1;
-          @include maskbg(white);
-          @include box-sizing(border-box);
-          @include border(white);
-          @include box-shadow(rgba(black, .3) 0 2px 5px 0);
-          padding: 3em;
-          &:before, &:after{
-            content: '';
-            display: block;
-            @include position(absolute, 0, auto, auto, 0, 100%, 100%);
-            @include maskbg(white);
-            @include border(white);
-            @include box-shadow(rgba(black, .3) 0 2px 5px 0);
-          }
-          &:before{
-            @include transform(rotate(-1deg));
-            z-index: -1;
-          }
-          &:after{
-            @include transform(translate(1px, -1px));
-            z-index: -1;
-          }
+        &:before{
+          @include transform(rotate(-1deg));
+          z-index: -1;
+        }
+        &:after{
+          @include transform(translate(1px, 2px));
+          z-index: -1;
         }
       }
-    }
-    
+    }    
     /* Styles */
     aside{
       $color:  #30c0ef;
@@ -165,20 +141,20 @@
         @include emtype;
       }
       .edit{
-        border: 1px solid #eee;
+        border: 1px solid #999;
         @include small;
         @include position(absolute, $font-size * 3px, $font-size * 1.5px, auto, auto);
       }
       ul.games{
         >li{
-          border: 1px solid #ccc;
+          border: 1px solid #999;
           @include box-sizing(border-box);
           margin-bottom: 1.5em;
           position: relative;
           overflow: auto;
         }
         .date{
-          border-right: 1px solid #ccc;
+          border-right: 1px solid #999;
           @include position(absolute, 0, auto, 0, auto, 4.5em, 100%);
           @include box-sizing(border-box);
           padding: 1.5em;
