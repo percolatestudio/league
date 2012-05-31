@@ -22,17 +22,12 @@
 #   A. When FB first reports
 #   B. When the login dialog is successful.
 
-Session.set('login_status', 'logging_in')
+Session.set('fbauthsystem.login_status', 'logging_in')
 
 class FBAuthSystem
-  constructor: ->
-    @login_callback = () ->
-    @logout_callback = () ->
-  
   init: ->
     # initialize our connection to FB.
     Facebook.load =>
-      console.log 'fb loaded'
       FB.init 
         appId: '227688344011052'
         channelUrl: Facebook.channelUrl
@@ -55,16 +50,16 @@ class FBAuthSystem
       
   
   @login_states = ['logging_in', 'logged_in', 'logged_out', 'not_authorized']
-  login_status: -> Session.get('login_status')
+  login_status: -> Session.get('fbauthsystem.login_status')
   for state in @login_states
     # need to be slightly OTT here to bind the state variable properly (is there a cleaner way to do this?)
     this.prototype[state] = ((s) -> 
-      -> Session.equals('login_status', s)
+      -> Session.equals('fbauthsystem.login_status', s)
     )(state)
   
   # initiate login process (if it hasn't already happened).
-  require_login: (login_callback, logout_callback) ->
-    return login_callback() if @logged_in() # they are logged in already
+  force_login: (login_callback, logout_callback) ->
+    return (login_callback() if login_callback) if @logged_in() # they are logged in already
     
     console.log 'setting login_callbacks'
     
@@ -72,9 +67,9 @@ class FBAuthSystem
     @login_callback = login_callback if login_callback
     @logout_callback = logout_callback if logout_callback
     
-    console.log "facebook is ready: #{FB?}"
-    # FIXME what if they've previously denied access?
-    # they aren't logged in, so we'll ask facebook to try
+    # they aren't logged in, so we'll ask facebook to try, assuming it's ready
+    #   we can only do this right away (we can't open a dialog without user input)
+    #   so either do it now, or never
     return FB.login null,  {scope: 'email'} if FB?
   
   # more relaxed -- do one thing if we are logged in, another if we are not, 
@@ -90,19 +85,16 @@ class FBAuthSystem
       @login_callback = login_callback if login_callback
       @logout_callback = logout_callback if logout_callback
   
-  logout: -> 
-    console.log 'trying to logout'
+  force_logout: -> 
     FB.logout() if @logged_in()
   
   _login_callback: ->
-    console.log 'running login callback'
-    console.log @login_callback
-    @login_callback()
-    @login_callback = () -> # reset
+    @login_callback() if @login_callback
+    @login_callback = null
   
   _logout_callback: ->
-    @logout_callback()
-    @logout_callback = () -> # reset
+    @logout_callback() if @logout_callback
+    @logout_callback = null
 
   _handleLogin: (authResponse) ->
     Meteor.call 'login', authResponse.userID, (error, user) => 
@@ -115,24 +107,18 @@ class FBAuthSystem
           @_doLogin(user)
   
   _doLogin: (user) ->
-    Session.set('login_status', 'logged_in')
+    Session.set('fbauthsystem.login_status', 'logged_in')
     Session.set('current_user_id', user._id)
     @_login_callback()
     
   _handleLogout: -> 
-    console.log 'FB logged us out?'
     Session.set 'current_user_id', null
-    Session.set 'login_status', 'logged_out'
-    
-    console.log 'running logout_callback'
+    Session.set 'fbauthsystem.login_status', 'logged_out'
     @_logout_callback()
   
   _handleNotAuthorized: ->
-    console.log 'not authorized'
     Session.set 'current_user_id', null
-    Session.set 'login_status', 'not_authorized'
-    
-    console.log 'running logout_callback'
+    Session.set 'fbauthsystem.login_status', 'not_authorized'
     @_logout_callback()
   
 # prepare a singleton instance

@@ -11,11 +11,15 @@ Meteor.startup ->
   # always subscribe to all players and games for teams of the current player
   Meteor.autosubscribe ->
     me = current_user()
-    Meteor.subscribe 'players', me.attributes.team_ids
-    Meteor.subscribe 'games', me.attributes.team_ids
+    if me
+      Meteor.subscribe 'players', me.attributes.team_ids
+      Meteor.subscribe 'games', me.attributes.team_ids
 
 Users = new Meteor.Collection('users')
-current_user = -> new Player(Users.findOne())
+
+current_user = -> 
+  data = Users.findOne()
+  new Player(data) if data
 
 current_team = ->
   data = Teams.findOne(Session.get 'team_id')

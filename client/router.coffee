@@ -5,32 +5,35 @@ AuthenticatedRouter = Backbone.Router.extend
   initialize: ->
     @_login_rules ||= {}
     @_current_page = null
-    @_auth_page ||= 'signin'
-    @_contexts = []
+    @_contexts = {}
     Backbone.Router.prototype.initialize.call(this)
   
-  require_login: (rules, auth_page) ->
+  require_login: (rules, auth_page = 'signin', loading_page = 'loading') ->
     @_login_rules = rules
     @_auth_page = auth_page
+    @_loading_page = loading_page
   
-  logged_in: ->
-    ctx = new Meteor.deps.Context()
-    ctx.on_invalidate(=> @invalidate_current_page())
-    ctx.run ->
-      not Session.equals('current_user_id', undefined) and not Session.equals('current_user_id', null)
-    
   set_current_page: (page) ->
     @_current_page = page
     @invalidate_current_page()
     
   invalidate_current_page: -> 
-    context.invalidate() for context in @_contexts
-    @_contexts = []
+    context.invalidate() for id, context of @_contexts
+    @_contexts = {}
   
   # set up a reactive variable 'current_page' which obeys the login rules
   current_page: ->
-    @_contexts.push Meteor.deps.Context.current
+    ctx = Meteor.deps.Context.current
+    @_contexts[ctx.id] = ctx if ctx and not (ctx.id in @_contexts)
     @_current_page_given_login()
+  
+  page_if_logged_in: (logged_in_page, logged_out_page, loading_page) ->
+    if Session.equals('fbauthsystem.login_status', 'logging_in')
+      loading_page
+    else if Session.equals('fbauthsystem.login_status', 'logged_in')
+      logged_in_page
+    else
+      logged_out_page
   
   # actually work it out, not worrying about all the deps stuff
   _current_page_given_login: ->
@@ -44,15 +47,15 @@ AuthenticatedRouter = Backbone.Router.extend
       true
     
     if check
-      console.log 'checking logged in'
-      if @logged_in() then page else @_auth_page
+      console.log "checking logged in"
+      @page_if_logged_in(page, @_auth_page, @_loading_page)
     else
       console.log "don't need to check logged in on this page"
       page
 
 LeagueRouter = AuthenticatedRouter.extend
   initialize: ->
-    @require_login {except: ['home', 'loading']}, 'signin'
+    @require_login {except: ['home', 'loading']}
     AuthenticatedRouter.prototype.initialize.call(this)
   
   routes: 
