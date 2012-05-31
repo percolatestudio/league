@@ -8,17 +8,49 @@
     }
     .next_game{
       text-align: center;
-      padding: 3em 0;
+      margin-top: 3em;
     }
     .upcoming_games{
-      padding: 3em 0;
+      padding-top: 7.5em;
+      position: relative;
+      overflow: hidden;
+      &:after{
+        content: '';
+        display: block;
+        @include position(absolute, -4.5em, auto, auto, (100% - 100%) * -.5, 100%, 6em );
+        z-index: 1;
+        @include background(
+          radial-gradient(50% 50%, rgba(black, .10), rgba(black, .03) 50%, rgba(black, 0) 70%),
+          radial-gradient(50% 50%, rgba(white, .5), rgba(white, .2) 60%, rgba(white, 0) 80%)
+        );
+      }
+      &:before{
+        content: '';
+        display: block;
+        @include position(absolute, 0, auto, auto, (150% - 100%) * -.5, 150%, 1px );
+        z-index: 2;
+        @include background(
+          radial-gradient(50% 50%, rgba(white, 1), rgba(white, .8) 50%, rgba(white, 0) 70%)
+        );
+      }/* end pseudoclasses */
       .season_wrapper{
         $color: #b66726;
         background: $color;
         padding: 3em;
+        position: relative;
         @include border-radius(5px);
         @include box-sizing(border-box);
         @include border($color, 5px);
+        &:before{
+          content: '';
+          display: block;
+          z-index: 2;
+          @include position(relative, 0, auto, auto, 50%, 450px, 150px);
+          margin-left: 450px * -.5;
+          margin-top: -128px;
+          margin-bottom: -1.5em;
+          background: url(/images/icon_clip_450x150.png) no-repeat transparent;
+        }
         .season{
           position: relative;
           z-index: 1;
@@ -52,7 +84,6 @@
       $color:  #30c0ef;
       $height: 2.5em;
       margin: .25em 0;
-      @include position(absolute, 0, auto, auto, $height *.25, auto, $height);
       padding: 0 1.5em;
       background:$color;
       color: transparent; /* hides the element without text-indent hack */
@@ -76,9 +107,11 @@
         z-index: 1;
       }
       &.next{
+        @include position(absolute, 0, auto, auto, $height *.25, auto, $height);
         background: url(/images/text_img_next_game_99x20.png) no-repeat center $color;
       }
       &.upcoming{
+        @include position(absolute, 3em, auto, auto, $height *.25, auto, $height);
         background: url(/images/text_img_upcoming_86x20.png) no-repeat center $color;
       }
     }
