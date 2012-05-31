@@ -55,7 +55,7 @@ AuthenticatedRouter = Backbone.Router.extend
 
 LeagueRouter = AuthenticatedRouter.extend
   initialize: ->
-    @require_login {except: ['home', 'loading']}
+    @require_login {except: ['home', 'loading', 'logo_tester']}
     AuthenticatedRouter.prototype.initialize.call(this)
   
   routes: 
