@@ -34,13 +34,18 @@
         );
       }/* end pseudoclasses */
       .season_wrapper{
-        $color: #b66726;
-        background: $color;
         padding: 3em;
+        margin-bottom: 3em;
         position: relative;
+        @include background(
+          url(/images/textures/bg_wood_40x40.png) repeat,
+          url(/images/textures/bg_noise_80x80.png) repeat,
+          linear-gradient(top, rgba(lighten(#84410c, 5%), 1), rgba(#9c4619, 1) 100%)
+        );
         @include border-radius(5px);
         @include box-sizing(border-box);
-        @include border($color, 5px);
+        @include border(lighten(#84410c, 5%), 5px);
+        @include box-shadow(rgba(black, .3) 0 3px 10px 0);
         &:before{
           content: '';
           display: block;
@@ -68,11 +73,11 @@
             @include box-shadow(rgba(black, .3) 0 2px 5px 0);
           }
           &:before{
-            @include transform(rotate(1deg));
+            @include transform(rotate(-1deg));
             z-index: -1;
           }
           &:after{
-            @include transform(rotate(-1deg));
+            @include transform(translate(1px, -1px));
             z-index: -1;
           }
         }
