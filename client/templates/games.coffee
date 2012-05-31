@@ -30,8 +30,8 @@ Template.upcoming_games.events =
 Template.next_game.player_availabilities = -> 
   {game: this, player: p} for p in current_players()
 
-Template.game.possible_hours = [1..24]
-Template.game.possible_minutes = min for min in [0...60] when min % 5 == 0
+Template.game.possible_hours = -> {options: [1..24]}
+Template.game.possible_minutes = -> {options: (min for min in [0...60] when min % 5 == 0)}
 Template.game.events =
   'change [name=location]': (e) ->
     this.update_attribute('location', $(e.target).val())

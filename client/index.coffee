@@ -28,4 +28,4 @@ current_team = ->
 current_players = -> current_team().players() if current_team()
 future_games = -> current_team().future_games() if current_team()
 
-players_required_data = {options: [3..18]}
+players_required_data = {options: ("#{i} players" for i in [3..18])}
