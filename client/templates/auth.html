@@ -12,6 +12,12 @@
 
 <template name="logged_in_user">
   {{#with current_user}}
-    <div class="avatar"><img width="40px" height="40px" style="background: #eee; display:block;" src="{{ facebook_profile_url }}"></div>
+    <div class="avatar dropmenu">
+      <img src="{{ facebook_profile_url }}">
+      <a class="icon16 dropdown inset"></a>
+      <ul>
+        <li><a class="inset">Logout</a></li>
+      </ul>
+    </div>
   {{/with}}
 </template>
