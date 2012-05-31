@@ -57,6 +57,7 @@ del{ text-decoration: line-through;}
 
 html {
   @include skybg;
+  min-height: 100%;
 }
 body {
   color: #333;

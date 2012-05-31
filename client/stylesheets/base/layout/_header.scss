@@ -64,4 +64,6 @@ article{
   width: 100%;
   @include maskbg;
   @include clearfix;
+  overflow: hidden;
+  padding-top: 3em;
 }

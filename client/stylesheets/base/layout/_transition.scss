@@ -1,10 +1,5 @@
 .container {
   overflow-x: auto;
-  &:not(.home):not(.not_authorized):not(.signin):not(.loading){
-    min-height: 100%;
-    @include maskbg;
-    position: relative;
-  }
   .loading, .not_authorized, .signin, .games, .home, .players, .teams, .logo_tester {display: none;}
   &.loading .loading { display: block; }
   &.not_authorized .not_authorized { display: block; }
