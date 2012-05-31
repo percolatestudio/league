@@ -91,10 +91,16 @@
         {{time}}
         <!-- Fixme, make me work when the player count is low -->
         <p class="yellow_flag">{{player_count}}</p>
+        <a>Game Roster &raquo;</a>
+        <ul class="game_players">
+          {{#each player_availabilities}}
+            {{> player_availability }}
+          {{/each}}
+        </ul>
       {{/if}}
     </div>
     <div class="confirmation">
-      <form>
+      <form class="state_question">
         <input type="radio" name="state" value="play">
         <label for="state" class="play">Play</label>
         <br>

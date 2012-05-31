@@ -138,6 +138,7 @@
         text-align: center;
         border-top: $font-size * .75px solid #3b404d;
         border-bottom: $font-size * .75px solid #3b404d;
+        @include emtype;
       }
       .game_date{
         @include h1(yes);
@@ -161,6 +162,7 @@
         text-transform: uppercase;
         display: inline-block;
         @include huge(yes);
+        @include emtype;
       }
       .edit{
         border: 1px solid #eee;
@@ -168,7 +170,7 @@
         @include position(absolute, $font-size * 3px, $font-size * 1.5px, auto, auto);
       }
       ul.games{
-        li{
+        >li{
           border: 1px solid #ccc;
           @include box-sizing(border-box);
           margin-bottom: 1.5em;
@@ -196,8 +198,7 @@
           @include box-sizing(border-box);
           float: right;
           padding: 1.5em;
-          width: 20%;
-          form{
+          form.state_question{
             label{
               font-weight: bold;
               float: none;

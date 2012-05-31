@@ -47,7 +47,7 @@
             @include position(absolute, auto, auto, auto, auto, 0, 0);
           }
           input{
-            @include h4;
+            width: 100%;
           }
           button[type='submit']{width: 100%;}
         }
