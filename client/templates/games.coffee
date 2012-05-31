@@ -1,9 +1,15 @@
+Session.set('editing_games', false)
+
 Template.games.team = -> current_team()
 
 Template.games.next_game = Template.next_game.next_game = -> future_games()[0]
 Template.upcoming_games.upcoming_games = -> 
   future_games()[1..]
+Template.game.editing = Template.upcoming_games.editing = -> Session.get('editing_games')
+
 Template.upcoming_games.events =
+  'click .edit': -> Session.set('editing_games', true)
+  'click .done': -> Session.set('editing_games', false)
   'click .create_game': (event) -> 
     event.preventDefault();
     now = moment()
@@ -23,6 +29,14 @@ Template.upcoming_games.events =
 
 Template.next_game.player_availabilities = -> 
   {game: this, player: p} for p in current_players()
+
+Template.game.possible_hours = [1..24]
+Template.game.possible_minutes = min for min in [0...60] when min % 5 == 0
+Template.game.events =
+  'change [name=location]': (e) ->
+    this.update_attribute('location', $(e.target).val())
+  'change [name=time]': (e) -> 
+    this.set_time($(e.target).val())
 
 Template.player_availability.facebook_profile_url = -> 
   this.facebook_profile_url()

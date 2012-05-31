@@ -37,8 +37,21 @@ class Game extends Model
     else
       moment.weekdays[@moment.day()]
   time: -> @moment.format('h:mm a')
-    
+  
+  hours: -> @moment.hours()
+  minutes: -> @moment.minutes()
+  
   formatted_date: -> @moment.format('MMMM Do, YYYY')
+  
+  save_moment: -> @update_attribute('date', @moment.valueOf())
+  
+  set_hours: (h) ->
+    @moment.hours(h)
+    @save_moment()
+  
+  set_minutes: (h) ->
+    @moment.minutes(h)
+    @save_moment()
   
   clone_one_week_later: ->
     new Game(

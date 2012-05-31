@@ -47,7 +47,11 @@
     <div class="season_wrapper">
       <div class="season">
         <h2>Your Season</h2>
-        <a class="edit inset btn icon16">Edit games</a>
+        {{#if editing}}
+          <a class="done inset btn icon16">Done Editing</a>
+        {{else}}
+          <a class="edit inset btn icon16">Edit games</a>
+        {{/if}}
         <ul class="games">
           {{#each upcoming_games }}
             {{> game }}
@@ -61,15 +65,31 @@
 
 <template name="game">
   <li>
-    <div class="date">{{formatted_date}}</div>
-    <div class="meta">
-      {{#if location}}
-        {{location}}
-      {{else}}
-        <em>Unknown location</em>
+    <div class="date">
+      {{formatted_date}}
+      {{#if editing}}
+        <a class="change_date">Change Date</a>
       {{/if}}
-      {{time}}
-      <p>{{player_count}}</p>
+    </div>
+    <div class="meta">
+      {{#if editing}}
+        <form name="game">
+          <label for="location">Location</label>
+          <input name="location" value="{{attributes.location}}" placeholder="Where is the game?"/>
+          
+          <label>Time</label>
+          {{#with possible_hours}}{{> select }}{{/with}}
+          {{#with possible_minutes}}{{> select }}{{/with}}
+        </form>
+      {{else}}
+        {{#if attributes.location}}
+          {{attributes.location}}
+        {{else}}
+          <em>Unknown location</em>
+        {{/if}}
+        {{time}}
+        <p>{{player_count}}</p>
+      {{/if}}
     </div>
   </li>
 </template>
