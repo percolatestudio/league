@@ -1,6 +1,5 @@
 <template name="select">
-  {{prepare_select}}
-  <ul class="select {{open}}">
+  <ul id="{{prepare_select}}" class="select {{open}}" >
     <li class="selected_value"><span class="icon16 player"></span> {{selected_value}}<span class="icon16 dropdown"></span><span class="icon16 dropup"></span>
       <ul class="options">
         {{#each options}}
