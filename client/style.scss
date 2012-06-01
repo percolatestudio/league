@@ -96,15 +96,14 @@ a, button {
   &.btn{
     font-weight: bold;
     @include global_btn;
-    &.default{@include onset($onsetcolor);}
+    &.default, &.fwd{@include onset($onsetcolor);}
     &.facebook{@include onset($fbhex);}
     &.twitter{@include onset($twhex);}
     &.google{@include onset($gohex);}
-    &.back, &.fwd{
+    &.back, &.secondary{
       @include onset(#eee);
-      &:before{margin-right: .3em}
     }
     &.back:before{content: '\2190';}
-    &.fwd:before{content: '\2192';}
+    &.fwd:after{content: '\2192';}
   }
 }
