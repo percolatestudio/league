@@ -70,8 +70,10 @@
       {{else}}
         <span class="month">{{month}}</span>
         <span class="day">{{date}}</span>
+        <span class="time">{{time}}</span>
       {{/if}}
     </div>
+
     <div class="meta">
       {{#if editing}}
         <form name="game">
@@ -83,57 +85,59 @@
           {{#with possible_minutes}}{{> select }}{{/with}}
         </form>
       {{else}}
+        <div class="confirmation {{availability_class current_user_availability}}">
+          <form class="state_question">
+            <input type="radio" name="state" value="play">
+            <label for="state" class="play">Play</label>
+            <br>
+            <input type="radio" name="state" value="bench">
+            <label for="state" class="bench">Bench</label>
+            <br>
+            <em class="state">You're unconfirmed</em>
+          </form>
+          <div class="state_playing">
+            <figure></figure>
+            <br>
+            <a class="inset go_unconfirmed">Change &raquo;</a>
+          </div>
+          <div class="state_benched">
+            <figure>Bench</figure>
+            <br>
+            <a class="inset go_unconfirmed">Play this game &raquo;</a>
+          </div>
+        </div>
         <h3>
           {{#if attributes.location}}
             {{attributes.location}}
           {{else}}
-            <em>Unknown location</em>
+            <em>Location TBD</em>
           {{/if}}
         </h3>
-        {{time}}
         
         <!-- Fixme: work out the exact logic here... -->
-        <p class="yellow_flag">{{player_deficit}}</p>
+        <p class="yellow_flag">Not enough players confirmed({{player_deficit}}/ #)</p>
         
-        {{#if expanded}}
-          <ul class="game_players">
-            {{#each player_availabilities}}
-              {{> player_availability }}
-            {{/each}}
-          </ul>
-          <a class="hide_roster">Hide Roster &raquo;</a>
-        {{else}}
-          <a class="show_roster">Game Roster &raquo;</a>
-        {{/if}}
-          
+        <div class="roster">
+          {{#if expanded}}
+            <a class="hide_roster inset">Hide roster<span class="icon12 dropup"></span></a>
+            <ul class="game_players">
+              {{#each player_availabilities}}
+                {{> player_availability }}
+              {{/each}}
+            </ul>
+          {{else}}
+            <a class="show_roster inset">View roster <span class="icon12 dropdown"></span></a>
+          {{/if}}
+        </div>          
       {{/if}}
+      
     </div>
-    <div class="confirmation {{availability_class current_user_availability}}">
-      <form class="state_question">
-        <input type="radio" name="state" value="play">
-        <label for="state" class="play">Play</label>
-        <br>
-        <input type="radio" name="state" value="bench">
-        <label for="state" class="bench">Bench</label>
-        <br>
-        <em class="state">You're unconfirmed</em>
-      </form>
-      <div class="state_playing">
-        <figure></figure>
-        <br>
-        <a class="inset go_unconfirmed">Get on the bench &raquo;</a>
-      </div>
-      <div class="state_benched">
-        <figure>Benched</figure>
-        <br>
-        <a class="inset go_unconfirmed">Play this game &raquo;</a>
-      </div>
-    </div>
+    
   </li>
 </template>
 
 <template name="player_availability">
-  <li class="player {{availability_class availability}}">
+  <li class="player {{availability_class availability}} small_player">
     {{#with player}}
       <div class="image">
         <span class="icon16 checkmark"></span>

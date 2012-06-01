@@ -45,7 +45,7 @@
       .season{
         position: relative;
         z-index: 1;
-        $maskbg: #ffff99;
+        $maskbg: #ffffaa;
         @include maskbg($maskbg);
         @include box-sizing(border-box);
         @include border($maskbg);
@@ -127,13 +127,6 @@
           color: saturate(darken($orange, 10%), 30%);
         }
       }
-      .game_players{
-        .player{
-          &.playing{@include player_state(playing);}
-          &.not_playing{@include player_state(not_playing);}
-          &.unconfirmed{@include player_state(unconfirmed);}
-        }
-      }
     }
     .upcoming_games{
       text-align: center;
@@ -153,31 +146,75 @@
         >li{
           border: 1px solid #999;
           @include box-sizing(border-box);
+          padding: 1.5em;
           margin-bottom: 1.5em;
           position: relative;
           overflow: auto;
+          @include clearfix;
+          &:before{
+            content: '';
+            @include position(absolute, 0, auto, 0, 6em, 0, 100%);
+            border-right: 1px solid #999;
+          }
         }
         .date{
-          border-right: 1px solid #999;
-          @include position(absolute, 0, auto, 0, auto, 4.5em, 100%);
-          @include box-sizing(border-box);
-          padding: 1.5em;
+          float: left;
+          width: 3em;
+          margin-right: 1.5em;
+          font-weight: bold;
+          color: #555;
+          >span{display: block;}
+          .month{
+            @include h2;
+            text-transform: uppercase;
+          }
+          .day{
+            font-size: 2em;
+            line-height: 1.5em; 
+          }
+          .time{
+            font-weight: normal;
+            @include small;
+            color: #999;
+          }
         }
         .meta{
-          @include position(relative, auto, auto, auto, 4.5em, 60%, auto);
+          position: relative;
           @include box-sizing(border-box);
-          float: left;
-          padding: 1.5em 0 1.5em 3em;
+          padding-left: 6em;
+          width: 100%;
           text-align: left;
           h3{
-            @include huge;
+            @include big;
             font-weight: bold;
+            em{
+              color: #666;
+            }
+          }
+          .roster{
+            clear: both;
+            margin: 1.5em -1.5em -1.5em;
+            padding: 0 1.5em;
+            border-top: 1px dotted #ccc;
+            h4{
+              display: inline-block;
+              @include h3;
+            }
+            a{
+              @include small;
+              &.hide_roster{float: left;}
+            }
+            .game_players{
+              clear: both;
+              padding-top: .75em;
+            }  
           }
         }
         .confirmation{
-          @include box-sizing(border-box);
           float: right;
-          padding: 1.5em;
+          width:160px;
+          position: relative;
+          z-index: 1;
           form.state_question, .state_playing, .state_benched { 
             display: none; 
           }
@@ -192,6 +229,7 @@
           }
           
           form.state_question{
+            padding-left: 1.5em;
             label{
               font-weight: bold;
               float: none;
@@ -211,20 +249,19 @@
             text-align: center;
             a{
               @include small;
-              font-weight: bold;
             }
           }
           .state_playing{
             figure{
               position: relative;
               display: inline-block;
-              height: 100px;
-              width: 100px;
+              height: 80px;
+              width: 80px;
               &:before{
                 content: '';
                 display: block;
-                width: 100px - 4px*2;
-                height: 100px - 4px*2;
+                width: 80px - 4px*2;
+                height: 80px - 4px*2;
                 position: absolute;
                 top:0;
                 left: 0;
@@ -233,18 +270,18 @@
                 z-index: 2;
               }
               &:after{
-                content: 'PLAYING';
+                content: 'PLAY';
                 font-weight: bold;
                 color: #666;
                 display: block;
-                width: 100px - 8px;
-                height: 100px - 8px;
+                width: 80px - 8px;
+                height: 80px - 8px;
                 position: absolute;
                 top:50%;
                 height: 1.5em;
                 margin-top: -.75em;
                 left: 50%;
-                margin-left: -92px * .5;
+                margin-left: (80px - (4px * 2)) * -.5;
                 border-top: 1px solid #999;
                 border-bottom: 1px solid #999;
                 @include transform(rotate(-6deg));
@@ -261,8 +298,7 @@
               color: rgba(#ff3333, .5);
               text-transform: uppercase;
               @include border-radius(10px);
-              border:5px solid rgba(#ff3333, .5);
-              margin: 0 -10px;// for alignment
+              @include box-shadow(rgba(#ff3333, .5) 0 0 0 5px inset);
             }            
           }
         }
