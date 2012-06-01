@@ -1,27 +1,9 @@
-.roster{
-  overflow: visible;
-  >li{
-    &:first-child.team_logo{margin: 0 3em 0 0;}
-    &:last-child{margin-right: 3em;}
-    &.team_logo{
-      display: inline-block;
-      vertical-align: top;
-      .image{
-        width: 100px;
-        height: 100px; 
-      }
-    } 
-  }
-}
-.results{
-  .player{
-    &.in_team{
-      @include player_state(playing);
-    }      
-  }
-}
 li.player{
-  width: 6em;
+  $large_player: 6;
+  $small_player: 4.5;
+  $mini_player: 3;
+  $border-width:2px;
+  width: $large_player * 1em;
   margin: 0 1.5em 1.5em;
   display: inline-block;
   overflow: visible;
@@ -37,8 +19,7 @@ li.player{
     @include too_long(#f9f9f9);
   }
   .image{
-    $border-width:2px;
-    $image_dimension:(6 * $font-size * 1px) - ($border-width) * 2;
+    $image_dimension:($large_player * $font-size * 1px) - ($border-width) * 2;
     text-align: center;
     height: $image_dimension;
     width: $image_dimension;
@@ -65,4 +46,62 @@ li.player{
       right: 16px;
     }
   }
+  &.small_player{
+    width: $small_player * 1em;
+    margin: 0 .75em .75em 0;
+    .name{display: none;}
+    .image{
+      $image_dimension:($small_player * $font-size * 1px) - ($border-width) * 2;
+      height: $image_dimension;
+      width: $image_dimension;
+      line-height: $image_dimension;
+      margin-bottom: 0;
+      border: $border-width solid white;
+      @include box-shadow(rgba(black, .3) 0 2px 5px 0);
+      img{
+        min-width: $image_dimension;
+        width: $image_dimension;
+        min-height: $image_dimension;
+      }
+      .icon16{
+        bottom: 16px;
+        right: 16px;
+      }
+    }
+  }
+  &.horiz_player{
+    width: auto;
+    margin: 0 0 1.5em 0;
+    display: block;
+    text-align: left;
+    vertical-align: auto;
+    @include clearfix;
+    .name{
+      display: inline;
+      &:before{display: none;}
+    }
+    .image{
+      $image_dimension:($mini_player * $font-size * 1px) - ($border-width) * 2;
+      height: $image_dimension;
+      width: $image_dimension;
+      line-height: $image_dimension;
+      margin-bottom: 0;
+      margin-right: .75em;
+      border: $border-width solid white;
+      float: left;
+      @include box-shadow(rgba(black, .3) 0 2px 5px 0);
+      img{
+        min-width: $image_dimension;
+        width: $image_dimension;
+        min-height: $image_dimension;
+      }
+      .icon16{
+        bottom: 16px;
+        right: 16px;
+      }
+    }
+  }
+  &.in_team, &.playing{@include player_state(playing);}
+  &.not_playing{@include player_state(not_playing);}
+  &.unconfirmed{@include player_state(unconfirmed);}
 }
