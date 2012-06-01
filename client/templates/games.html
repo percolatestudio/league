@@ -88,14 +88,21 @@
           {{/if}}
         </h3>
         {{time}}
-        <!-- Fixme, make me work when the player count is low -->
-        <p class="yellow_flag">{{player_count}}</p>
-        <a>Game Roster &raquo;</a>
-        <ul class="game_players">
-          {{#each player_availabilities}}
-            {{> player_availability }}
-          {{/each}}
-        </ul>
+        
+        <!-- Fixme: work out the exact logic here... -->
+        <p class="yellow_flag">{{player_deficit}}</p>
+        
+        {{#if expanded}}
+          <ul class="game_players">
+            {{#each player_availabilities}}
+              {{> player_availability }}
+            {{/each}}
+          </ul>
+          <a class="hide_roster">Hide Roster &raquo;</a>
+        {{else}}
+          <a class="show_roster">Game Roster &raquo;</a>
+        {{/if}}
+          
       {{/if}}
     </div>
     <div class="confirmation {{availability_class current_user_availability}}">

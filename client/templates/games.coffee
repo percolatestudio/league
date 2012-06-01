@@ -27,7 +27,7 @@ Template.upcoming_games.events =
       
     console.log "Game invalid: #{new_game.full_errors()}" unless new_game.save()
 
-Template.next_game.player_availabilities = -> 
+Template.next_game.player_availabilities = Template.game.player_availabilities = -> 
   {game: this, player: p} for p in current_players()
 
 Template.game.month = -> this.moment.format('MMM')
@@ -41,6 +41,8 @@ Template.game.possible_minutes = ->
   game: this
   name: 'minutes'
   options: ({text: "#{min}", value: min, selected: min == this.minutes()} for min in [0...60] when min % 5 == 0)
+
+Template.game.expanded = -> Session.equals("game.#{this.id}.expanded", true)
   
 Template.game.events =
   'change [name=location]': (e) ->
@@ -57,6 +59,10 @@ Template.game.events =
       this.not_playing(current_user())
   'click .go_unconfirmed': ->
     this.unconfirmed(current_user())
+  'click .show_roster': -> 
+    Session.set("game.#{this.id}.expanded", true)
+  'click .hide_roster': -> 
+    Session.set("game.#{this.id}.expanded", false)
 
 Template.game.current_user_availability = -> this.availability(current_user())
 
