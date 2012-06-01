@@ -28,7 +28,7 @@ Template.upcoming_games.events =
     console.log "Game invalid: #{new_game.full_errors()}" unless new_game.save()
 
 Template.next_game.player_availabilities = Template.game.player_availabilities = -> 
-  {game: this, player: p} for p in current_players()
+  {game: this, player: p} for p in this.players()
 
 Template.game.month = -> this.moment.format('MMM')
 
