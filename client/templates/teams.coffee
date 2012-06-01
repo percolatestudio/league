@@ -11,4 +11,4 @@ Template.team.events =
   'click .remove_team': ->
     this.destroy()
 
-Template.team_builder.players_required_data = -> players_required_data
+Template.team_builder.players_required_data = -> players_required_data()

@@ -1,11 +1,10 @@
 <template name="select">
-  <ul id="{{prepare_select}}" class="select {{open}}" >
-    <li class="selected_value"><span class="icon16 player"></span> {{selected_value}}<span class="icon16 dropdown"></span><span class="icon16 dropup"></span>
-      <ul class="options">
-        {{#each options}}
-          <li class="{{selected}}">{{this}}</li>
-        {{/each}}
-      </ul>      
-    </li>
-  </ul>
+  <div class="select">
+    <select name="{{name}}">
+      {{#each options}}
+        <option {{#if selected}}selected{{/if}} value="{{value}}">{{text}}</option>
+      {{/each}}
+    </select>
+    <span class="selected_text">{{selected_text}}</span>
+  </div>
 </template>
