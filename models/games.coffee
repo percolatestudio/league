@@ -46,6 +46,15 @@ class Game extends Model
   
   save_moment: -> @update_attribute('date', @moment.valueOf())
   
+  # set the date portion
+  set_date: (date) -> 
+    console.log date
+    date = moment(date)
+    @moment.year(date.year())
+    @moment.month(date.month())
+    @moment.date(date.date())
+    @save_moment()
+  
   set_hours: (h) ->
     @moment.hours(h)
     @save_moment()

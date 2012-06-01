@@ -63,10 +63,13 @@
 <template name="game">
   <li>
     <div class="date">
-      <span class="month">{{month}}</span>
-      <span class="day">{{date}}</span>
       {{#if editing}}
-        <a class="change_date">Change Date</a>
+        <label for="date">Date</label>
+        <input id="{{date_field_id}}" name="date" value="{{date_for_input}}"></input>
+        {{attach_date_picker}}
+      {{else}}
+        <span class="month">{{month}}</span>
+        <span class="day">{{date}}</span>
       {{/if}}
     </div>
     <div class="meta">

@@ -32,6 +32,20 @@ Template.next_game.player_availabilities = Template.game.player_availabilities =
 
 Template.game.month = -> this.moment.format('MMM')
 
+Template.game.date_format = 'MM d, yy'
+Template.game.date_for_input = -> this.formatted_date()
+Template.game.date_field_id = -> "game-#{this.id}-datepicker"
+Template.game.attach_date_picker = ->
+  Meteor.defer =>
+    game = this
+    $("\#game-#{this.id}-datepicker").datepicker
+      dateFormat: Template.game.date_format
+      minDate: new Date()
+      onSelect: (dateText) -> 
+        game.set_date($.datepicker.parseDate(Template.game.date_format, dateText))
+        
+      
+
 Template.game.possible_hours = ->
   game: this
   name: 'hours'
