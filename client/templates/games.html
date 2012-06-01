@@ -63,7 +63,8 @@
 <template name="game">
   <li>
     <div class="date">
-      {{formatted_date}}
+      <span class="month">{{month}}</span>
+      <span class="day">{{date}}</span>
       {{#if editing}}
         <a class="change_date">Change Date</a>
       {{/if}}

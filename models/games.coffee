@@ -38,6 +38,7 @@ class Game extends Model
       moment.weekdays[@moment.day()]
   time: -> @moment.format('h:mm a')
   
+  date: -> @moment.date()
   hours: -> @moment.hours()
   minutes: -> @moment.minutes()
   

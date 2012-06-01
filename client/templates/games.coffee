@@ -30,6 +30,8 @@ Template.upcoming_games.events =
 Template.next_game.player_availabilities = -> 
   {game: this, player: p} for p in current_players()
 
+Template.game.month = -> this.moment.format('MMM')
+
 Template.game.possible_hours = ->
   game: this
   name: 'hours'
