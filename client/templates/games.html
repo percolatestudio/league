@@ -41,11 +41,12 @@
 </template>
 
 <template name="upcoming_games">
-  <div class="upcoming_games">    
+  <div class="upcoming_games">
+    <a class="view_more"><small>Rest of your games &darr;</small></a>
     <div class="season">
       <h2>Your Season</h2>
       {{#if editing}}
-        <a class="done inset btn icon16">Done Editing</a>
+        <a class="done inset btn icon16 checkmark">Done Editing</a>
       {{else}}
         <a class="edit inset btn icon16">Edit games</a>
       {{/if}}
