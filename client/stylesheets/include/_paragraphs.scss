@@ -3,7 +3,8 @@
 $font-size: 16;
 $line: $font-size * 1.5;
 
-$huge: $font-size + 32;
+$huge: $font-size + 30;
+$big: $font-size + 20;
 $h1:$font-size + 12;
 $h2:$font-size + 6;
 $h3:$font-size + 2;
@@ -20,33 +21,39 @@ $small: $font-size - 3;
   font-size: $font-size * 1px;
   line-height: $line * 1px;
 }
-
 @mixin huge($margin:no){
   font-size: ($huge / $font-size) * 1em ;
   line-height: ($line * 2) / $huge * 1em; 
   @if $margin != 'no' {
-    margin-bottom: ($line * 2) / 33 * .5em;
+    margin-bottom: ($line * 2) / $huge * .5em;
+  }
+}
+@mixin big($margin:no){
+  font-size: ($big / $font-size) * 1em ;
+  line-height: ($line * 2) / $big * 1em; 
+  @if $margin != 'no' {
+    margin-bottom: ($line * 2) / $big * .5em;
   }
 }
 @mixin h1($margin:no){ 
   font-size: ($h1 / $font-size) * 1em ;
   line-height: ($line * 2) / $h1 * 1em;
   @if $margin != 'no' {
-    margin-bottom: ($line * 2) / 25 * .5em;
+    margin-bottom: ($line * 2) / $h1 * .5em;
   }
 }
 @mixin h2($margin:no){ 
   font-size: ($h2 / $font-size) * 1em ;
   line-height: $line / $h2  * 1em;
   @if $margin != 'no' {
-    margin-bottom: $line / 19 * 1em;
+    margin-bottom: $line / $h2 * 1em;
   }
 }
 @mixin h3($margin:no){ 
   font-size: ($h3 / $font-size) * 1em ;
   line-height: $line / $h3 * 1em;
   @if $margin != 'no' {
-    margin-bottom: $line / 15 * 1em;
+    margin-bottom: $line / $h3 * 1em;
   }
 }
 @mixin h4($margin:no){ 
