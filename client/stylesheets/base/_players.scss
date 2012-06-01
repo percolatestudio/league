@@ -1,29 +1,53 @@
 .container.players {
   .players {
-    .lineup{
-      width: 100%;
-      text-align: center;
-      padding-top: 1.5em;
-      >*{
-        display: inline-block;
-        vertical-align: middle;
+    /* fixme */
+    .scrolling_wrapper{
+      overflow: hidden;
+      @include position(absolute, 0px, 0, 0, 65%);
+      @include box-shadow(rgba(0, 0, 0, .3) 0px 2px 4px 0px);
+      background: #fff;
+      &:after{
+        content: '';
+        @include position(absolute, -50%, 80%, 0, 0, auto, 200%);
+        @include background(
+          radial-gradient( -20% center, rgba(0,0,0,.1), rgba(255,255,255,0) 70%)
+        );
       }
-      button{
-        margin-bottom: 1.5em + .25em;
+    }
+
+  	#sidebar {
+  		@include position(relative, auto, auto, auto, auto, 200px);
+  		float: left;
+  		margin-left: 10%;
+  	  @include box-sizing(border-box);
+  	  border-right: 1px solid #ccc;
+  	}
+  	#scrolling {
+	    @include position(relative, auto, auto, auto, auto, 50%);
+	    z-index: 0;
+	    float: left;
+	    @include box-sizing(border-box);
+	    padding-left:3em;
+  	}
+
+    #sidebar{
+      text-align: center;
+      .team_logo{
+        display: inline-block;
+      }
+      .roster{
+        padding-top: 1.5em;
       }
     }/* end lineup */
-    .add_player{
-      width: 80%;
-      margin: 0 auto 6em;
+    #scrolling{
       text-align: center;
-      position: relative;
-      overflow: hidden;
       > *{
         z-index: 3;
         position: relative;
       }
       .search{
         padding: 1.5em 0 1.5em;
+        text-align: left;
         input{
           @include h3;
           @include box-sizing(border-box);
@@ -36,25 +60,6 @@
           z-index: 2;
         }
       }
-      &:after{
-        content: '';
-        display: block;
-        @include position(absolute, -4.5em, auto, auto, (100% - 100%) * -.5, 100%, 6em );
-        z-index: 1;
-        @include background(
-          radial-gradient(50% 50%, rgba(black, .10), rgba(black, .03) 50%, rgba(black, 0) 70%),
-          radial-gradient(50% 50%, rgba(white, .5), rgba(white, .2) 60%, rgba(white, 0) 80%)
-        );
-      }
-      &:before{
-        content: '';
-        display: block;
-        @include position(absolute, 0, auto, auto, (150% - 100%) * -.5, 150%, 1px );
-        z-index: 2;
-        @include background(
-          radial-gradient(50% 50%, rgba(white, 1), rgba(white, .8) 50%, rgba(white, 0) 70%)
-        );
-      }/* end pseudoclasses */
     }
   }/* end players */
 }
