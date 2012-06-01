@@ -7,38 +7,34 @@
         <div class="avatar"><img width="40px" height="40px" style="background: #eee; display:block;"></div>
       </header>
       <article>
-        <div class="lineup">
-          <ul class="roster">
-            <li class="team_logo">
-              <div class="image">
-                {{{ render_small_logo }}}
-              </div>
-              <div class="dropmenu">
-                <a href="{{ games_link this }}" class="btn icon12 player">4</a>
-                <a class="icon12 dropdown btn"></a>
-                <ul>
-                  <li><a href="" class="inset">1</a></li>
-                  <li><a href="" class="inset">2</a></li>
-                  <li><a href="" class="inset">3</a></li>
-                  <li><a href="" class="inset">4</a></li>
-                </ul>
-              </div>
-            </li>
-            {{#each players }}
-              {{> player}}
-            {{/each}}
-          </ul>
-          {{#if alone_in_team}}
-            <p>Hey.. add some friends bozo...</p>
-          {{else}}
-            <button class="start_season btn default">
+        <div id="sidebar">
+          <div class="team_logo">
+            {{{ render_small_logo }}}
+          </div>
+          <p><em>4 players needed to field</em></p>
+          <!-- Fixme need a select here -->
+          <!--
+<a href="{{ games_link this }}" class="btn secondary icon12 player">4 <span class="icon12 arrows"></a>
+          
+-->
+          <small>
+            <a class="start_season btn fwd">
               {{#if attributes.started}}
                 Continue Season
               {{else}}
                 Start Season
               {{/if}}
-            </button>
-          {{/if}}
+            </a>
+          </small>
+          <ul class="roster">
+            {{#if alone_in_team}}
+            <li>Hey.. add some friends bozo...</li>
+            {{/if}}
+            
+            {{#each players }}
+              {{> player}}
+            {{/each}}
+          </ul>
         </div>
                   
         {{> add_player}}
@@ -49,20 +45,20 @@
 </template>
 
 <template name="player">
-  <li class="player {{in_team_class}}">
+  <li class="player {{in_team_class}} horiz_player">
     <div class="image">
       <span class="icon16 checkmark"></span>
       <img src="{{ facebook_profile_url }}"/>
     </div>
     <span class="name">{{attributes.name}}</span>
     {{#unless is_self}}
-      <small><a class="remove_player icon12 close inset">Remove</a></small>
+      <br><small><a class="remove_player icon12 close inset">Remove</a></small>
     {{/unless}}
   </li>
 </template>
 
 <template name="add_player">
-  <div class="add_player">
+  <div id="scrolling">
     <div class="icon16 search">
       <input name="player[name]" placeholder="Type a players name"></input>
     </div>
@@ -75,4 +71,5 @@
       {{/each}}
     </ul>
   </div>
+
 </template>
