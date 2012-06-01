@@ -30,19 +30,23 @@ Template.upcoming_games.events =
 Template.next_game.player_availabilities = -> 
   {game: this, player: p} for p in current_players()
 
-Template.game.possible_hours = -> 
+Template.game.possible_hours = ->
+  game: this
   name: 'hours'
   options: ({text: "#{h}", value: h, selected: h == this.hours()} for h in [1..24])
   
 Template.game.possible_minutes = ->
+  game: this
   name: 'minutes'
   options: ({text: "#{min}", value: min, selected: min == this.minutes()} for min in [0...60] when min % 5 == 0)
   
 Template.game.events =
   'change [name=location]': (e) ->
     this.update_attribute('location', $(e.target).val())
-  'change [name=time]': (e) -> 
-    this.set_time($(e.target).val())
+  'change [name=hours]': (e) -> 
+    this.game.set_hours($(e.target).val())
+  'change [name=minutes]': (e) -> 
+    this.game.set_minutes($(e.target).val())
 
 Template.player_availability.facebook_profile_url = -> 
   this.facebook_profile_url()
