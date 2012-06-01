@@ -97,7 +97,7 @@
         </ul>
       {{/if}}
     </div>
-    <div class="confirmation">
+    <div class="confirmation {{availability_class current_user_availability}}">
       <form class="state_question">
         <input type="radio" name="state" value="play">
         <label for="state" class="play">Play</label>
@@ -110,19 +110,19 @@
       <div class="state_playing">
         <figure></figure>
         <br>
-        <a class="inset">Get on the bench &raquo;</a>
+        <a class="inset go_unconfirmed">Get on the bench &raquo;</a>
       </div>
       <div class="state_benched">
         <figure>Benched</figure>
         <br>
-        <a class="inset">Play this game &raquo;</a>
+        <a class="inset go_unconfirmed">Play this game &raquo;</a>
       </div>
     </div>
   </li>
 </template>
 
 <template name="player_availability">
-  <li class="player {{ availability_class }}">
+  <li class="player {{availability_class availability}}">
     {{#with player}}
       <div class="image">
         <span class="icon16 checkmark"></span>

@@ -178,6 +178,19 @@
           @include box-sizing(border-box);
           float: right;
           padding: 1.5em;
+          form.state_question, .state_playing, .state_benched { 
+            display: none; 
+          }
+          &.unconfirmed form.state_question {
+            display: block;
+          }
+          &.playing .state_playing { 
+            display: block;
+          }
+          &.not_playing .state_benched {
+            display: block;
+          }
+          
           form.state_question{
             label{
               font-weight: bold;

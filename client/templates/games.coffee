@@ -47,15 +47,25 @@ Template.game.events =
     this.game.set_hours($(e.target).val())
   'change [name=minutes]': (e) -> 
     this.game.set_minutes($(e.target).val())
+  'change [name=state]': (e) ->
+    playing = $(e.target).val() == 'play'
+    if playing
+      this.playing(current_user())
+    else
+      this.not_playing(current_user())
+  'click .go_unconfirmed': ->
+    this.unconfirmed(current_user())
+
+Template.game.current_user_availability = -> this.availability(current_user())
 
 Template.player_availability.facebook_profile_url = -> 
   this.facebook_profile_url()
 
+Template.player_availability.availability = -> 
+  this.game.availability(this.player)
 Template.player_availability.unconfirmed = ->
   this.game.availability(this.player) == 0
 
-Template.player_availability.availability_class = ->
-  this.game.availability_text(this.player).toLowerCase().replace(' ', '_')
 
 Template.player_availability.events =
   'click li.player': -> 
