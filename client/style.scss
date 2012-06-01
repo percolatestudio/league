@@ -67,6 +67,15 @@ body {
   line-height: $line  * 1px;
 }
 
+article{
+  width: 100%;
+  @include maskbg;
+  @include clearfix;
+  overflow: hidden;
+  position: relative;
+  padding-top: 3em;
+}
+
 h1{ @include h1(no);}
 h2{ @include h2(no);}
 h3{ @include h3(no);}
