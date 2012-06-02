@@ -48,7 +48,6 @@ class Game extends Model
   
   # set the date portion
   set_date: (date) -> 
-    console.log date
     date = moment(date)
     @moment.year(date.year())
     @moment.month(date.month())
@@ -81,6 +80,7 @@ class Game extends Model
   
   # jump through each of the states
   toggle_availability: (player) ->
+    @attributes.availabilities[player.id] ||= 0 # check undefined
     @attributes.availabilities[player.id] += 1
     @attributes.availabilities[player.id] %= 3
     @save()

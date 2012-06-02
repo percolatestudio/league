@@ -17,7 +17,11 @@ Template.upcoming_games.events =
     
 
 Template.next_game.player_availabilities = Template.game.player_availabilities = -> 
-  {game: this, player: p} for p in this.players()
+  for p in this.players()
+    availability = {game: this, player: p}
+    # need to circularly link so we can get access to info when events happen FIXME
+    availability.player.availability = availability
+    availability
 
 Template.game.month = -> this.moment.format('MMM')
 
@@ -32,8 +36,6 @@ Template.game.attach_date_picker = ->
       minDate: new Date()
       onSelect: (dateText) -> 
         game.set_date($.datepicker.parseDate(Template.game.date_format, dateText))
-        
-      
 
 Template.game.possible_hours = ->
   game: this
@@ -79,6 +81,7 @@ Template.player_availability.unconfirmed = ->
 
 
 Template.player_availability.events =
-  'click li.player': -> 
-    # FIXME -- meteor forces us to jump through hoops here
-    future_games()[0].toggle_availability(this)
+  'click li.player': ->
+    console.log this
+    console.log this.availability
+    this.availability.game.toggle_availability(this)
