@@ -12,20 +12,9 @@ Template.upcoming_games.events =
   'click .done': -> Session.set('editing_games', false)
   'click .create_game': (event) -> 
     event.preventDefault();
-    now = moment()
-    if last_game = _.last(future_games())
-      new_game = last_game.clone_one_week_later()
-      
-    else if last_game = Games.findOne({}, {sort: {date: -1}})
-      # as the last game is in the past, this could also be in the past...
-      new_game = last_game.clone_one_week_later()
-      new_game.add('weeks', 1) while now.diff(new_game) < 0
+    new_game = current_team().create_next_game()
+    console.log "Game invalid: #{new_game.full_errors()}" unless new_game.valid()
     
-    else
-      date = moment().add('days', 1).hours(20).minutes(0)
-      new_game = new Game({team_id: current_team().id, date: date.valueOf()})
-      
-    console.log "Game invalid: #{new_game.full_errors()}" unless new_game.save()
 
 Template.next_game.player_availabilities = Template.game.player_availabilities = -> 
   {game: this, player: p} for p in this.players()

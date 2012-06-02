@@ -29,9 +29,10 @@ class Team extends Model
     Players.find({_id: {$in: @attributes.player_ids}}).map (player_attrs) ->
       new Player(player_attrs)
   
-  games: (conditions = {}) -> 
+  games: (conditions = {}, options = {}) -> 
     conditions.team_id = @id
-    Games.find(conditions, {sort: {date: 1}}).map (g_attrs) -> new Game(g_attrs)
+    options.sort ||= {date: 1}
+    Games.find(conditions, options).map (g_attrs) -> new Game(g_attrs)
   
   future_games: -> @games({date: {$gt: moment().valueOf()}})
   
@@ -64,9 +65,29 @@ class Team extends Model
     attributes.team_id = this.id
     Game.create(attributes)
   
+  create_next_game: ->
+    now = moment()
+    last_game = @games({}, {sort: {date: -1}, limit: 1})[0]
+    
+    # last game is in the future
+    if last_game
+      new_game = last_game.clone_one_week_later()
+      
+      # new game could be in the past, need to ensure it's in the future
+      new_game.add('weeks', 1) while now.diff(new_game) < 0
+    
+    else
+      # there is no last game, we need to create the very first game for this team.
+      date = moment().add('days', 1).hours(20).minutes(0)
+      new_game = new Game({team_id: current_team().id, date: date.valueOf()})
+    
+    new_game.save();
+  
   prepare_logo: (regenerate = false) ->
     if @attributes.logo? and not regenerate
       @logo = new Logo(this, @attributes.logo)
     else
       @logo = new Logo(this)
       @attributes.logo = @logo.to_object()
+  
+  
