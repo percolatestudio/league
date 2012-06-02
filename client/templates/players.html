@@ -7,38 +7,39 @@
 
       </header>
       <article>
-        <div id="sidebar">
+
+        <small>
+          <a class="start_season btn fwd">
+            {{#if attributes.started}}
+              Continue Season
+            {{else}}
+              Start Season
+            {{/if}}
+          </a>
+        </small>
+
+        <div id="lineup">
           <div class="team_logo">
             {{{ logo this size="small" }}}
           </div>
-          <p><em>4 players minimum</em></p>
-          <!-- Fixme need a select here -->
-          <!--
-<a href="{{ games_link this }}" class="btn secondary icon12 player">4 <span class="icon12 arrows"></a>
-          
--->
-          <small>
-            <a class="start_season btn fwd">
-              {{#if attributes.started}}
-                Continue Season
-              {{else}}
-                Start Season
-              {{/if}}
-            </a>
-          </small>
-          <ul class="player_list horiz">
+          <h2>Roster</h2>
+          <div class="required_players">
+            <em>Teammates needed to play</em>
+            <small>
+              <a class="btn secondary icon12 player">4 <span class="icon12 arrows"></a>
+            </small>
+          </div>
+          <ul class="player_list miniature roster">
             {{#if alone_in_team}}
-            <li>Hey.. add some friends bozo...</li>
+            <li>Add team players</li>
             {{/if}}
             
             {{#each players }}
               {{> player}}
             {{/each}}
           </ul>
+          {{> add_player}}
         </div>
-                  
-        {{> add_player}}
-        
       </article>
     </div>
   {{/with}}{{/if}}
@@ -58,7 +59,8 @@
 </template>
 
 <template name="add_player">
-  <div id="scrolling">
+  <div id="add_player">
+    <h3>Find players to add to your team</h3>
     <div class="icon16 search">
       <input name="player[name]" placeholder="Type a players name"></input>
     </div>
