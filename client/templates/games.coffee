@@ -1,15 +1,10 @@
-Session.set('editing_games', false)
-
 Template.games.team = -> current_team()
 
 Template.games.next_game = Template.next_game.next_game = -> future_games()[0]
 Template.upcoming_games.upcoming_games = -> 
   future_games()[1..]
-Template.game.editing = Template.upcoming_games.editing = -> Session.get('editing_games')
 
 Template.upcoming_games.events =
-  'click .edit': -> Session.set('editing_games', true)
-  'click .done': -> Session.set('editing_games', false)
   'click .create_game': (event) -> 
     event.preventDefault();
     new_game = current_team().create_next_game()
@@ -50,6 +45,17 @@ Template.game.possible_minutes = ->
 Template.game.expanded = -> Session.equals("game.#{this.id}.expanded", true)
   
 Template.game.events =
+  'click .editable': (event) ->
+    $form = $(event.currentTarget).closest('form')
+    field = $(event.currentTarget).attr('data-field')
+    toggle_edit_field(field, this)
+    
+    # redraw, then focus the field
+    Meteor.flush()
+    $form.find("[name=#{field}]").focus()
+  'focusout [name=location]': (e) ->
+    field = $(event.currentTarget).attr('name')
+    toggle_edit_field(field, this)
   'change [name=location]': (e) ->
     this.update_attribute('location', $(e.target).val())
   'change [name=hours]': (e) -> 

@@ -57,29 +57,27 @@
 
 <template name="game">
   <li>
-    <div class="date">
-      {{#if editing}}
-        <label for="date">Date</label>
-        <input id="{{date_field_id}}" name="date" value="{{date_for_input}}"></input>
-        {{attach_date_picker}}
-      {{else}}
-        <span class="month">{{month}}</span>
-        <span class="day">{{date}}</span>
-        <span class="time">{{time}}</span>
-      {{/if}}
-    </div>
-
-    <div class="meta">
-      {{#if editing}}
-        <form name="game">
-          <label for="location">Location</label>
-          <input name="location" value="{{attributes.location}}" placeholder="Where is the game?"/>
-          
+    <form name="game">
+      <div class="date">
+        {{#if_editing "date"}}
+          <label for="date">Date</label>
+          <input id="{{date_field_id}}" name="date" value="{{date_for_input}}"></input>
+          {{attach_date_picker}}
+        {{else}}
+          <span class="month">{{month}}</span>
+          <span class="day">{{date}}</span>
+        {{/if_editing}}
+      
+        {{#if_editing "time"}}
           <label>Time</label>
           {{#with possible_hours}}{{> select }}{{/with}}
           {{#with possible_minutes}}{{> select }}{{/with}}
-        </form>
-      {{else}}
+        {{else}}
+          <span class="time">{{time}}</span>
+        {{/if_editing}}
+      </div>
+
+      <div class="meta">
         <div class="confirmation {{availability_class current_user_availability}}">
           <form class="state_question">
             <input type="radio" name="state" value="play">
@@ -101,13 +99,19 @@
             <a class="inset go_unconfirmed">Play this game &raquo;</a>
           </div>
         </div>
-        <h3>
-          {{#if attributes.location}}
-            {{attributes.location}}
-          {{else}}
-            <em>Location TBD</em>
-          {{/if}}
-        </h3>
+        
+        {{#if_editing "location"}}
+          <label for="location">Location</label>
+          <input name="location" value="{{attributes.location}}" placeholder="Where is the game?"/>
+        {{else}}
+          <h3 class="editable" data-field="location">
+            {{#if attributes.location}}
+              {{attributes.location}}
+            {{else}}
+              <em>Location TBD</em>
+            {{/if}}
+          </h3>
+        {{/if_editing}}
         
         <!-- Fixme: work out the exact logic here... -->
         <p class="flag yellow">Waiting on players to confirm({{player_deficit}}/ #)</p>
@@ -126,10 +130,8 @@
             <a class="show_roster inset">View roster <span class="icon12 dropdown"></span></a>
           {{/if}}
         </div>          
-      {{/if}}
-      
-    </div>
-    
+      </div>
+    </form>
   </li>
 </template>
 
