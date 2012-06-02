@@ -6,6 +6,7 @@ Games = new Meteor.Collection 'games'
 
 class Game extends Model
   @playing_states = ['Unconfirmed', 'Playing', 'Not Playing']
+  @team_states = ['Ready', 'Unconfirmed', 'Need players']
   @_collection: Games
   constructor: (attrs) -> 
     super(attrs)
@@ -106,5 +107,21 @@ class Game extends Model
   availability_count: (state) ->
     (p for p in @players() when @availability(p) == state).length
   
+  # do we: a) 0 - have sufficient players confirmed
+  #        b) 1 - not know yet
+  #        c) 2 - know that it's impossible to have enough players
+  team_state: ->
+    if @confirmations_needed() <= 0
+      0
+    else if @player_deficit() > 0
+      2
+    else
+      1
+  
+  # this is the total number of players that we still need to confirm that they're playing
+  confirmations_needed: ->
+    @team().attributes.players_required - @availability_count(1)
+    
+  # this is the number of players we are going to need to get from outside
   player_deficit: ->
-    @players().length - @availability_count(2) - @team().attributes.players_required
+    @team().attributes.players_required - (@players().length - @availability_count(2))

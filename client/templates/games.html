@@ -113,11 +113,16 @@
           </h3>
         {{/if_editing}}
         
-        <!-- Fixme: work out the exact logic here... -->
-        <p class="flag yellow">Waiting on players to confirm({{player_deficit}}/ #)</p>
-        <p class="flag green">Your team is rarin' to play! Have fun out there.</p>
-        <p class="flag red">You need # more players to field a team.</p>
-        
+        {{#if_equals 0 team_state}}
+          <p class="flag green">Your team is rarin' to play! Have fun out there.</p>
+        {{else}}
+          {{#if_equals 1 team_state}}
+            <p class="flag yellow">Waiting on {{pluralize "player" confirmations_needed}} to confirm</p>
+          {{else}}
+            <p class="flag red">You need {{pluralize "outside player" player_deficit}} to field a team.</p>
+          {{/if_equals}}
+        {{/if_equals}}
+          
         <div class="roster">
           {{#if expanded}}
             <a class="hide_roster inset">Hide roster<span class="icon12 dropup"></span></a>
