@@ -137,11 +137,6 @@
         @include huge(yes);
         @include emtype;
       }
-      .edit, .done{
-        @include small;
-        @include position(absolute, $font-size * 3px, $font-size * 3px, auto, auto);
-        @include maskbg(rgba(lighten(#30c0ef, 30%), .8));
-      }
       ul.games{
         >li{
           border: 1px solid #999;
