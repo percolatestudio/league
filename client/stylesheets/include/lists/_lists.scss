@@ -2,12 +2,12 @@
 @mixin player_state($state: unconfirmed){
   @if $state == unconfirmed{
     .icon16:not(.player){display: none}
-    img, .name{ @include opacity(.7);}
+    img, .name{ @include opacity(.5);}
   }@else if $state == playing{
     .icon16:not(.checkmark){display: none;}
   }@else if $state == not_playing{
     .icon16:not(.close){display: none;}
-    img, .name{ @include opacity(.5);}
+    img, .name{ @include opacity(.3);}
   }
   .icon16{
     @include opacity(1);
