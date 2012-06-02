@@ -10,6 +10,7 @@
     overflow: visible;
     text-align: center;
     vertical-align: middle;
+    @include transition(all 300ms ease-out);
     .name{
       font-weight: bold;
       white-space: nowrap;
@@ -40,12 +41,16 @@
       }
       .icon16{
         @include opacity(0);
-        @include transition(color 500ms ease);
+        @include transition(all 500ms ease-in);
         position: absolute;
         z-index: -1;
         bottom: 16px;
         right: 16px;
       }
+    }
+    &:hover{
+      @include transform(scale(1.1));
+      cursor: pointer;
     }
   }
   &.state_aware{

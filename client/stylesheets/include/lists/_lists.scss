@@ -1,5 +1,6 @@
 /* Mixins for image_selects */
 @mixin player_state($state: unconfirmed){
+  img, .name{@include transition(all 1000ms ease-out);}
   @if $state == unconfirmed{
     .icon16:not(.player){display: none}
     img, .name{ @include opacity(.5);}
