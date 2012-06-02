@@ -48,8 +48,9 @@ class Logo
   to_object: ->
     {shape: @shape, colors: @colors, font: @font, lines: @lines}
   
-  render: (size = 'large') ->
-    @size = size
+  render: (options = {}) ->
+    @render_options = options
+    @size = @render_options.size || 'large'
     return Template.logo(this)
   
   primary_color: -> @colors[0]

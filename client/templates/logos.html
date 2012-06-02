@@ -2,21 +2,29 @@
   {{#if draw_logo_tester}}
     <ul class="logo_tester">
       {{#each teams}}
-        <li style="float:left">{{{render_large_logo}}}</li>
+        <li style="float:left">{{{logo this size="large" without_link=true}}}</li>
       {{/each}}
     </ul>
   {{/if}}
 </template>
 
 <template name="logo">
-  <a href="{{ games_link }}" id="logo" title="{{team.name}}" data-alert="{{ player_deficit }}" class="{{size}}">
-    <h3 style="font-family: {{font}}, cursive; font-size: {{font_size}}px; color: {{primary_color}}">
-      {{#each lines}}
-        <span>{{this}}</span>
-      {{/each}}
-    </h3>
-    <figure style="background: {{primary_color}}; color: {{primary_color}}" class="{{shape}}">
-      <span style="background: {{secondary_color}}; color: {{secondary_color}}"></span>
-    </figure>
-  </a>
+  {{#if render_options.without_link}}
+    <div id="logo">{{>logo_internals}}</div>
+  {{else}}
+    <a href="{{ games_link }}" id="logo" title="{{team.name}}" data-alert="{{ player_deficit }}" class="{{size}}">
+      {{>logo_internals}}
+    </a>
+  {{/if}}
+</template>
+
+<template name="logo_internals">
+  <h3 style="font-family: {{font}}, cursive; font-size: {{font_size}}px; color: {{primary_color}}">
+    {{#each lines}}
+      <span>{{this}}</span>
+    {{/each}}
+  </h3>
+  <figure style="background: {{primary_color}}; color: {{primary_color}}" class="{{shape}}">
+    <span style="background: {{secondary_color}}; color: {{secondary_color}}"></span>
+  </figure>
 </template>
