@@ -16,11 +16,15 @@
     }
 
   	#sidebar {
-  		@include position(relative, auto, auto, auto, auto, 200px);
+  		@include position(relative, auto, auto, auto, auto, 30%);
+  		min-width: 200px;
   		float: left;
-  		margin-left: 10%;
   	  @include box-sizing(border-box);
   	  border-right: 1px solid #ccc;
+  	  @include maskbg(#eee);
+  	  @include box-shadow(rgba(black, .3) 0 2px 5px 0 inset);
+  	  margin-top: -3em;
+  	  padding: 0 1.5em;
   	}
   	#scrolling {
 	    @include position(relative, auto, auto, auto, auto, 50%);
