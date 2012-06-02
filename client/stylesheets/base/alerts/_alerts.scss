@@ -1,4 +1,4 @@
-.yellow_flag{
+.flag{
   position: relative;
   padding-left: 1.25em;
   &:before{
@@ -15,5 +15,17 @@
   }
   &:empty{
     &:before, &:after{display: none;}
+  }
+  &.yellow{
+    &:before{background: #ffcc00;}
+    &:after{background: #ffcc00;}
+  }
+  &.green{
+    &:before{background: #00cc00;}
+    &:after{background: #00cc00;}
+  }
+  &.red{
+    &:before{background: #ff6600;}
+    &:after{background: #ff6600;}
   }
 }
