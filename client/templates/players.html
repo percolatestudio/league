@@ -26,7 +26,7 @@
               {{/if}}
             </a>
           </small>
-          <ul class="roster">
+          <ul class="player_list horiz">
             {{#if alone_in_team}}
             <li>Hey.. add some friends bozo...</li>
             {{/if}}
@@ -45,14 +45,14 @@
 </template>
 
 <template name="player">
-  <li class="player {{in_team_class}} horiz_player">
+  <li class="player {{in_team_class}}">
     <div class="image">
       <span class="icon16 checkmark"></span>
       <img src="{{ facebook_profile_url }}"/>
     </div>
     <span class="name">{{attributes.name}}</span>
     {{#unless is_self}}
-      <br><small><a class="remove_player icon12 close inset">Remove</a></small>
+      <small><a class="remove_player icon12 close inset">Remove</a></small>
     {{/unless}}
   </li>
 </template>
@@ -62,7 +62,7 @@
     <div class="icon16 search">
       <input name="player[name]" placeholder="Type a players name"></input>
     </div>
-    <ul class="results">
+    <ul class="player_list state_aware">
       {{#unless results}}
         Loading friends...
       {{/unless}}

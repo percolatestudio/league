@@ -1,107 +1,117 @@
-li.player{
+.player_list{
   $large_player: 6;
   $small_player: 4.5;
   $mini_player: 3;
-  $border-width:2px;
-  width: $large_player * 1em;
-  margin: 0 1.5em 1.5em;
-  display: inline-block;
-  overflow: visible;
-  text-align: center;
-  vertical-align: middle;
-  .name{
-    font-weight: bold;
-    white-space: nowrap;
-    display: block;
-    overflow: hidden;
-    width: 100%;
-    @include small;
-    @include too_long(#f9f9f9);
-  }
-  .image{
-    $image_dimension:($large_player * $font-size * 1px) - ($border-width) * 2;
-    text-align: center;
-    height: $image_dimension;
-    width: $image_dimension;
-    overflow: hidden;
+  $player_border_width:2px;
+  >li.player{
+    width: $large_player * 1em;
+    margin: 0 1.5em 1.5em;
     display: inline-block;
-    line-height: $image_dimension;
-    margin-bottom: .75em;
-    @include box-sizing(border-box);
-    border: $border-width solid white;
-    @include box-shadow(rgba(black, .3) 0 2px 5px 0);
-    position: relative;
-    img{
-      min-width: $image_dimension;
-      width: $image_dimension;
-      min-height: $image_dimension;
-      vertical-align: middle;      
-    }
-    .icon16{
-      @include opacity(0);
-      @include transition(color 500ms ease);
-      position: absolute;
-      z-index: -1;
-      bottom: 16px;
-      right: 16px;
-    }
-  }
-  &.small_player{
-    width: $small_player * 1em;
-    margin: 0 .75em .75em 0;
-    .name{display: none;}
-    .image{
-      $image_dimension:($small_player * $font-size * 1px) - ($border-width) * 2;
-      height: $image_dimension;
-      width: $image_dimension;
-      line-height: $image_dimension;
-      margin-bottom: 0;
-      border: $border-width solid white;
-      @include box-shadow(rgba(black, .3) 0 2px 5px 0);
-      img{
-        min-width: $image_dimension;
-        width: $image_dimension;
-        min-height: $image_dimension;
-      }
-      .icon16{
-        bottom: 16px;
-        right: 16px;
-      }
-    }
-  }
-  &.horiz_player{
-    width: auto;
-    margin: 0 0 1.5em 0;
-    display: block;
-    text-align: left;
-    vertical-align: auto;
-    @include clearfix;
+    overflow: visible;
+    text-align: center;
+    vertical-align: middle;
     .name{
-      display: inline;
-      &:before{display: none;}
+      font-weight: bold;
+      white-space: nowrap;
+      display: block;
+      overflow: hidden;
+      width: 100%;
+      @include small;
+      @include too_long(#f9f9f9);
     }
     .image{
-      $image_dimension:($mini_player * $font-size * 1px) - ($border-width) * 2;
+      $image_dimension:($large_player * $font-size * 1px) - ($player_border_width) * 2;
+      text-align: center;
       height: $image_dimension;
       width: $image_dimension;
+      overflow: hidden;
+      display: inline-block;
       line-height: $image_dimension;
-      margin-bottom: 0;
-      margin-right: .75em;
-      border: $border-width solid white;
-      float: left;
+      margin-bottom: .75em;
+      @include box-sizing(border-box);
+      border: $player_border_width solid white;
       @include box-shadow(rgba(black, .3) 0 2px 5px 0);
+      position: relative;
       img{
         min-width: $image_dimension;
         width: $image_dimension;
         min-height: $image_dimension;
+        vertical-align: middle;      
       }
       .icon16{
+        @include opacity(0);
+        @include transition(color 500ms ease);
+        position: absolute;
+        z-index: -1;
         bottom: 16px;
         right: 16px;
       }
     }
   }
-  &.in_team, &.playing{@include player_state(playing);}
-  &.not_playing{@include player_state(not_playing);}
-  &.unconfirmed{@include player_state(unconfirmed);}
+  &.state_aware{
+    >li.player{
+      &.in_team, &.playing{@include player_state(playing);}
+      &.not_playing{@include player_state(not_playing);}
+      &.unconfirmed{@include player_state(unconfirmed);}
+    }
+  }
+  &.horiz{
+    >li.player{
+      width: auto;
+      margin: 0 0 1.5em 0;
+      display: block;
+      text-align: left;
+      vertical-align: auto;
+      @include clearfix;
+      .name{
+        display: inline;
+        &:before{display: none;}
+      }
+      .image{
+        $image_dimension:($mini_player * $font-size * 1px) - ($player_border_width) * 2;
+        height: $image_dimension;
+        width: $image_dimension;
+        line-height: $image_dimension;
+        margin-bottom: 0;
+        margin-right: .75em;
+        border: $player_border_width solid white;
+        float: left;
+        @include box-shadow(rgba(black, .3) 0 2px 5px 0);
+        img{
+          min-width: $image_dimension;
+          width: $image_dimension;
+          min-height: $image_dimension;
+        }
+        .icon16{
+          bottom: 16px;
+          right: 16px;
+        }
+      }
+    }
+  }
+  &.miniature{
+    >li.player{
+      width: $small_player * 1em;
+      margin: 0 .75em .75em 0;
+      .name{display: none;}
+      .image{
+        $image_dimension:($small_player * $font-size * 1px) - ($player_border_width) * 2;
+        height: $image_dimension;
+        width: $image_dimension;
+        line-height: $image_dimension;
+        margin-bottom: 0;
+        border: $player_border_width solid white;
+        @include box-shadow(rgba(black, .3) 0 2px 5px 0);
+        img{
+          min-width: $image_dimension;
+          width: $image_dimension;
+          min-height: $image_dimension;
+        }
+        .icon16{
+          bottom: 16px;
+          right: 16px;
+        }
+      }
+    }
+  }
 }

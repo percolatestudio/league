@@ -30,7 +30,7 @@
     {{#with next_game }}
       <h2 class="game_title">{{ location }}Game 3</h2>
       <p class="game_date"><strong>This {{ day }}</strong>&nbsp;&nbsp;{{ time }}&nbsp;&nbsp;{{ formatted_date }}</p>
-      <ul class="game_players">
+      <ul class="player_list state_aware">
         {{#each player_availabilities}}
           {{> player_availability }}
         {{/each}}
@@ -126,7 +126,7 @@
         <div class="roster">
           {{#if expanded}}
             <a class="hide_roster inset">Hide roster<span class="icon12 dropup"></span></a>
-            <ul class="game_players">
+            <ul class="player_list miniature state_aware">
               {{#each player_availabilities}}
                 {{> player_availability }}
               {{/each}}

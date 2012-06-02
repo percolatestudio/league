@@ -35,8 +35,10 @@
       .team_logo{
         display: inline-block;
       }
-      .roster{
-        padding-top: 1.5em;
+      .player_list{
+        li.player{
+          small{display: block;}
+        }
       }
     }/* end lineup */
     #scrolling{
