@@ -100,7 +100,6 @@
           </div>
         </div>
         
-<<<<<<< HEAD
         {{#if_editing "location"}}
           <label for="location">Location</label>
           <input name="location" value="{{attributes.location}}" placeholder="Where is the game?"/>
@@ -113,12 +112,6 @@
             {{/if}}
           </h3>
         {{/if_editing}}
-=======
-        <!-- Fixme: work out the exact logic here... -->
-        <p class="flag yellow">Waiting on players to confirm({{player_deficit}}/ #)</p>
-        <p class="flag green">Your team is rarin' to play! Have fun out there.</p>
-        <p class="flag red">Oh! You need # more players to field a team.</p>
->>>>>>> text on flag alert
         
         {{#if_equals 0 team_state}}
           <p class="flag green">Your team is rarin' to play! Have fun out there.</p>
