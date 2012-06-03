@@ -21,13 +21,12 @@
     border-top: $width solid darken($color, 30%);
   }
 }
-@mixin reveal{
-  border-top: 1px solid #565b62;
+@mixin reveal($color :#3f464b ){
+  border-top: 1px solid darken($color, 10%);
   @include box-shadow(rgba(0,0,0,.3) 0 2px 5px 0 inset);
   @include background(
-    url('images/textures/bg_hatch_40x40.png'),
-    linear-gradient(top, rgba(0, 0, 0, .9), rgba(0, 0, 0, .6) 5%, rgba(0, 0, 0, .3) 40% , rgba(101, 104, 120, .5) 90%),
-    #3f464b
+    url('/images/textures/bg_hatch_40x40.png'),
+    $color
   );
   @include text-shadow(rgba(0,0,0, .7) 0 1px 3px);
   color: #fff;
