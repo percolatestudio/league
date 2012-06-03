@@ -67,7 +67,7 @@
   }
 }
 
-a#logo{
+#logo{
   display: block;
   overflow: visible;
   position: relative;
@@ -124,7 +124,7 @@ a#logo{
   .bolt{@include prepare_bolt(200px, 200px);}
   .crown{@include prepare_crown(200px, 200px);}
 }
-a#logo{
+#logo{
   width: 200px;
   height: 200px;
   &.enable_alert{
