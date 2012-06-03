@@ -1,5 +1,6 @@
 Facebook = {
   channelUrl: '//' + window.location.hostname + '/facebook_channel',
+  appId: window.location.hostname == 'localhost' ? '227688344011052' : '246944062081485',
   load: function(callback) {
     // Load the SDK Asynchronously
     (function(d){

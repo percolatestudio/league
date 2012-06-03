@@ -29,7 +29,7 @@ class FBAuthSystem
     # initialize our connection to FB.
     Facebook.load =>
       FB.init 
-        appId: '227688344011052'
+        appId: Facebook.appId
         channelUrl: Facebook.channelUrl
       
       # we need to call this as FB for some reason doesn't tell us if we aren't initially
