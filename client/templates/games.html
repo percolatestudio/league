@@ -41,6 +41,7 @@
 </template>
 
 <template name="upcoming_games">
+  <div class="divider"></div>
   <div class="upcoming_games">
     <a class="view_more"><small>Rest of your games &darr;</small></a>
     <div class="season">
@@ -59,22 +60,25 @@
   <li>
     <form name="game">
       <div class="date editable" data-field="date">
-          <span class="month">{{month}}</span>
-          <span class="day">{{date}}</span>
-          <span class="time">{{time}}</span>
+        <span class="month">{{month}}</span>
+        <span class="day">{{date}}</span>
+        <span class="time">{{time}}</span>
+        {{#if_editing "date"}}
+          <div class="date_chooser" name="date">
+            <label for="date">Date</label>
+            <div id="{{date_field_id}}" value="{{date_for_input}}"></div>
+            {{attach_date_picker}}
+            <div class="time_selects">
+              <label>Time</label>
+              {{#with possible_hours}}{{> select }}{{/with}}
+              {{#with possible_minutes}}{{> select }}{{/with}}
+            </div>
+            <button class="close btn default">Close</button>
+          </div>
+        {{/if_editing}}
       </div>
       
-      {{#if_editing "date"}}
-        <div class="date_chooser" name="date">
-          <label for="date">Date</label>
-          <div id="{{date_field_id}}" value="{{date_for_input}}"></div>
-          {{attach_date_picker}}
-          <label>Time</label>
-          {{#with possible_hours}}{{> select }}{{/with}}
-          {{#with possible_minutes}}{{> select }}{{/with}}
-          <button class="close">Done</button>
-        </div>
-      {{/if_editing}}
+      
       
       <div class="meta">
         <div class="confirmation {{availability_class current_user_availability}}">

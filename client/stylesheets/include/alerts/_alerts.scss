@@ -51,3 +51,16 @@
     }
   }
 }
+@mixin css_arrow($type, $color, $x, $y, $size:10px){
+  //Use the x and y coordinates relative to where it is supposed to be positioned
+  //So the rarr is positioned relative right... just look at it!
+  @if $type == "up" {border-color: transparent transparent $color transparent;  top:$y; left:$x; }
+  @else if $type == "left" {border-color: transparent $color transparent transparent;  top:$y; left:$x;}
+  @else if $type == "right" {border-color: transparent transparent transparent $color;  top:$y;   right:$x;}
+  @else if $type == "down" {border-color: $color transparent transparent transparent; bottom:$y; left:$x;}  
+  border-style: solid;
+  border-width: $size;
+  height:0;
+  width:0;
+  position:absolute;
+}

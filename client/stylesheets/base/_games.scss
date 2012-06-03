@@ -11,10 +11,11 @@
       padding-bottom: 1.5em;
       margin-top: -3em;
     }
-    .upcoming_games{
-      padding: 1.5em 3em 3em;
+    .divider{
+      height: 3em;
+      width: 100%;
       position: relative;
-      overflow: hidden;
+      overflow:hidden;
       &:after{
         content: '';
         display: block;
@@ -34,6 +35,13 @@
           radial-gradient(50% 50%, rgba(white, 1), rgba(white, .8) 50%, rgba(white, 0) 70%)
         );
       }/* end pseudoclasses */
+    }
+    .upcoming_games{
+      padding: 0em 3em 3em;
+      margin-top: -1.5em;
+      position: relative;
+      overflow: visible;
+      @include clearfix;
       .view_more{
         text-transform: uppercase;
         font-weight: bold;
@@ -144,7 +152,7 @@
           padding: 1.5em;
           margin-bottom: 1.5em;
           position: relative;
-          overflow: auto;
+          overflow: visible;
           @include clearfix;
           &:before{
             content: '';
@@ -158,6 +166,7 @@
           margin-right: 1.5em;
           font-weight: bold;
           color: #555;
+          position: relative;
           >span{display: block;}
           .month{
             @include h2;
@@ -172,9 +181,93 @@
             @include small;
             color: #999;
           }
+          .date_chooser{
+            @include position(absolute, 100%, auto, auto, 0, 16em, auto);
+            margin-top: 1em;
+            margin-left: -.75em;
+            @include box-sizing(border-box);
+            padding:.75em;
+            @include border-radius(3px);
+            @include maskbg(#f9f9f9);
+            border: 1px solid #999;
+            outline: none;
+            z-index: 2;
+            &:before{
+              content: '';
+              @include css_arrow(up, #999, 1em, -2em, 1em);
+            }
+            label[for=date]{
+              overflow: hidden;
+              text-indent: -999em;
+              display: inline-block;
+              float: none;
+              @include position(absolute, auto, auto, auto, auto, 0, 0);
+            }
+            .ui-datepicker-header{
+              text-align: center;
+              margin: $font-size * -.75px $font-size * -.75px $font-size * .75px;
+              padding: .5em 0;
+              color: white;
+              @include letterpress(invert(rgba(white, 1)));
+              @include border(rgba(saturate($orange, 30%), 1));
+              @include border-radius(3px 3px 0 0);
+              @include box-shadow(
+                rgba(lighten($orange, 30%), .3) 0 -1px 0 0 inset,
+                rgba(black, .2) 0 1px 3px 0 
+              );
+              @include background(linear-gradient(top, rgba(saturate($orange, 30%), 1), darken($orange, 10%) 100%));
+              .ui-datepicker-title{
+                display: inline-block;
+                font-weight: bold;
+              }
+              .ui-datepicker-prev, .ui-datepicker-next{
+                overflow: hidden;
+                @include inset;
+                span{
+                  text-indent: -999em;
+                  display: inline-block;
+                }
+              }
+              .ui-datepicker-prev{
+                @include position(absolute, auto, auto, auto, .75em);
+                &:before{content: '\25C4'}
+              }
+              .ui-datepicker-next{
+                @include position(absolute, auto, .75em, auto, auto);
+                &:before{content: '\25BA'}
+              }
+            }
+            table.ui-datepicker-calendar{
+              display: block;
+              margin: 0 auto;
+              thead tr th{font-weight: bold;}
+              th,td{
+                display: inline-block;
+                text-align: center;
+                width: 2em;
+              }
+            }
+            .time_selects{
+              padding: .75em 0;
+              overflow: hidden;
+              >* {
+                width: 32%;
+                float: left;
+                margin-right: .25em;
+                font-size: $small * 1px;
+              }
+              label{
+                @include global_btn;
+              }
+              .select{
+              }
+            }
+            button.close{
+              float: right;
+            }
+          }
         }
         .meta{
-/*          position: relative;*/
           @include box-sizing(border-box);
           padding-left: 6em;
           width: 100%;
