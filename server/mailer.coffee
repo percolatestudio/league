@@ -11,7 +11,10 @@ LeagueMailer = (->
   send = if LeagueMailerConfig?
     (mail, data) ->
       console.log "Sending mail #{mail}, to #{LeagueMailerConfig.url}"
-      Meteor.http.call 'POST', LeagueMailerConfig.url, {params: {mail: mail, data: JSON.stringify(data)}}, ->
+      options = 
+        params: {mail: mail, data: JSON.stringify(data)}
+        auth: LeagueMailerConfig.auth
+      Meteor.http.call 'POST', LeagueMailerConfig.url, options, ->
         console.log(arguments)
   else
     (mail) -> 
