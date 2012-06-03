@@ -1,0 +1,14 @@
+<template name="overlays">
+  <div id="overlays">
+    {{> team_status}}
+  </div>
+</template>
+
+<template name="team_status">
+  {{#if team}}{{#with team}}
+    <div class="overlay">
+      {{{logo this}}}
+      Put team status stuff in here
+    </div>
+  {{/with}}{{/if}}
+</template>
