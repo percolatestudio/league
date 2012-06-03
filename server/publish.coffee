@@ -17,3 +17,14 @@ Meteor.publish 'players', (team_ids) ->
 Meteor.publish 'games', (team_ids) -> 
   console.log "getting games for #{team_ids}"
   Games.find({team_id: {$in: team_ids}})
+  
+# Published methods
+Meteor.methods
+  'login': (facebook_id) ->
+    console.log "logging in user with FB ID: #{facebook_id}"
+    Players.findOne facebook_id: facebook_id
+  'create': (attributes) ->
+    console.log "creating user from #{attributes}"
+    # FIXME: need to use a model here to make this safe
+    id = Players.insert attributes
+    Players.findOne id
