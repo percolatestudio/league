@@ -28,6 +28,10 @@ Meteor.methods
     # FIXME: need to use a model here to make this safe
     id = Players.insert attributes
     Players.findOne id
+  
+  'test_mail': ->
+    Meteor.http.get 'http://league-mailer.herokuapp.com/mails/', {}, ->
+      console.log(arguments)
     
     # do nothing for now
   # 'logout': -> 
