@@ -58,25 +58,24 @@
 <template name="game">
   <li>
     <form name="game">
-      <div class="date">
-        {{#if_editing "date"}}
-          <label for="date">Date</label>
-          <input id="{{date_field_id}}" name="date" value="{{date_for_input}}"></input>
-          {{attach_date_picker}}
-        {{else}}
+      <div class="date editable" data-field="date">
           <span class="month">{{month}}</span>
           <span class="day">{{date}}</span>
-        {{/if_editing}}
+          <span class="time">{{time}}</span>
+      </div>
       
-        {{#if_editing "time"}}
+      {{#if_editing "date"}}
+        <div class="date_chooser" name="date">
+          <label for="date">Date</label>
+          <div id="{{date_field_id}}" value="{{date_for_input}}"></div>
+          {{attach_date_picker}}
           <label>Time</label>
           {{#with possible_hours}}{{> select }}{{/with}}
           {{#with possible_minutes}}{{> select }}{{/with}}
-        {{else}}
-          <span class="time">{{time}}</span>
-        {{/if_editing}}
-      </div>
-
+          <button class="close">Done</button>
+        </div>
+      {{/if_editing}}
+      
       <div class="meta">
         <div class="confirmation {{availability_class current_user_availability}}">
           <form class="state_question">

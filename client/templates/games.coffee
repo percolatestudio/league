@@ -26,11 +26,14 @@ Template.game.date_field_id = -> "game-#{this.id}-datepicker"
 Template.game.attach_date_picker = ->
   Meteor.defer =>
     game = this
-    $("\#game-#{this.id}-datepicker").datepicker
-      dateFormat: Template.game.date_format
-      minDate: new Date()
-      onSelect: (dateText) -> 
-        game.set_date($.datepicker.parseDate(Template.game.date_format, dateText))
+    $("\#game-#{this.id}-datepicker")
+      .datepicker
+        dateFormat: Template.game.date_format
+        minDate: new Date()
+        onSelect: (dateText) -> 
+          game.set_date($.datepicker.parseDate(Template.game.date_format, dateText))
+    
+      
 
 Template.game.possible_hours = ->
   game: this
@@ -43,25 +46,27 @@ Template.game.possible_minutes = ->
   options: ({text: "#{min}", value: min, selected: min == this.minutes()} for min in [0...60] when min % 5 == 0)
 
 Template.game.expanded = -> Session.equals("game.#{this.id}.expanded", true)
-  
+
 Template.game.events =
   'click .editable': (event) ->
     $form = $(event.currentTarget).closest('form')
     field = $(event.currentTarget).attr('data-field')
-    toggle_edit_field(field, this)
+    open_edit_field(field, this)
     
     # redraw, then focus the field
     Meteor.flush()
-    $form.find("[name=#{field}]").focus()
-  'focusout [name=location]': (e) ->
-    field = $(event.currentTarget).attr('name')
-    toggle_edit_field(field, this)
-  'change [name=location]': (e) ->
-    this.update_attribute('location', $(e.target).val())
-  'change [name=hours]': (e) -> 
-    this.game.set_hours($(e.target).val())
-  'change [name=minutes]': (e) -> 
-    this.game.set_minutes($(e.target).val())
+    $form.find("[name=#{field}]").add_focusoutside().focus()
+      .on 'focusoutside', (e) => 
+        this.save_moment().save()
+        Meteor.flush()
+        close_edit_field(field, this)
+  'submit form': (e) -> 
+    e.preventDefault()
+    $(e.target).find('input').trigger('focusoutside')
+
+  'change [name=location]': (e) -> this.attributes.location = $(e.target).val()
+  'change [name=hours]': (e) -> this.game.set_hours($(e.target).val())
+  'change [name=minutes]': (e) -> this.game.set_minutes($(e.target).val())
   'change [name=state]': (e) ->
     playing = $(e.target).val() == 'play'
     if playing

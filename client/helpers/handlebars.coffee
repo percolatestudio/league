@@ -7,9 +7,15 @@ Handlebars.registerHelper 'logo', (team, options) ->
 
 # a per-field editing system
 editing_field_name = (name, record) -> "editing-#{record.id}-#{name}}"
-toggle_edit_field = (name, record) ->
-  key = editing_field_name(name, record)
-  Session.set(key, not Session.get(key))
+_current_edit_field = null
+open_edit_field = (name, record) ->
+  _current_edit_field = editing_field_name(name, record)
+  Session.set(_current_edit_field, true)
+close_edit_field = (name, record) ->
+  Session.set(editing_field_name(name, record), false)
+close_current_edit_field = ->
+  Session.set(_current_edit_field, false)
+
 
 Handlebars.registerHelper 'if_equals', (left, right, options) ->
   left = left.call(this) if typeof left == 'function'

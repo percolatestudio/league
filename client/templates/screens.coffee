@@ -8,7 +8,10 @@ Template.screens.events =
   
   'click a[href]': (event) ->
     event.preventDefault()
-    Router.navigate($(event.target).closest('a').attr('href'), {trigger: true})
+    
+    url = $(event.target).closest('a').attr('href').replace(/#.*$/, '')
+    if url != '' and url != document.location.href
+      Router.navigate(url, {trigger: true})
     
   'submit .team_builder': (event) -> 
     event.preventDefault()
