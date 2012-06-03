@@ -135,7 +135,7 @@ class Logo
       @_font_sizes = {}
     
     return @_font_sizes[@size] if @_font_sizes[@size]
-    console.log "calculating font_size @ #{@size} for #{@team.attributes.name}"
+    # console.log "calculating font_size @ #{@size} for #{@team.attributes.name}"
     
     # these are the ranges that we've tried
     [min_tried, max_tried, last_tried] = [8, 36, 0]
@@ -144,13 +144,13 @@ class Logo
     @_font_sizes[@size] = max_tried
   
     $hidden_div = $('<div>').css({visibility: 'hidden'})
-    $('body').append($hidden_div.append(@render(@size)))
+    $('body').append($hidden_div.append(@render(@render_options)))
     logo_width = $hidden_div.find('#logo').width()
     
     iterations = 10
     # stop when we are no longer getting closer to the 'correct size'
     while @_font_sizes[@size] != last_tried and iterations > 0
-      console.log "trying #{iterations}: #{@_font_sizes[@size]}"
+      # console.log "trying #{iterations}: #{@_font_sizes[@size]}"
       # and loop
       last_tried = @_font_sizes[@size]
       iterations -= 1
