@@ -19,4 +19,3 @@ class Cron
 
 Meteor.startup ->
   Cron.instance = new Cron()
-  Cron.instance.add_job(1, -> console.log 'tick')
