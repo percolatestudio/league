@@ -29,6 +29,7 @@
     }
     small > .remove_player{
       color: #999;
+      display: none;
     }
     .image{
       $image_dimension:($large_player * $font-size * 1px) - ($player_border_width) * 2;

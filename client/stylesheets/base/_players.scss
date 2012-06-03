@@ -58,6 +58,7 @@
         border-bottom: 1px solid #ccc;
         .roster{          
           margin-left:16em;
+          small > .remove_player{display: block;}
         }
         .add_cta{
           display: inline-block;
@@ -99,7 +100,6 @@
         clear: both;
         padding: 1.5em 0;
         border-top: 1px dotted #eee;
-        small > .remove_player{display: none;}
       }
     }
     
