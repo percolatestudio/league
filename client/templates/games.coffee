@@ -62,8 +62,9 @@ Template.game.events =
         close_edit_field(field, this)
   'submit form': (e) -> 
     e.preventDefault()
-    $(e.target).find('input').trigger('blur')
-
+    $(e.target).find('[name]').trigger('blur')
+  'click .done': (e) -> $(e.target).closest('[name]').trigger('blur')
+  
   'change [name=location]': (e) -> this.attributes.location = $(e.target).val()
   'change [name=hours]': (e) -> this.game.set_hours($(e.target).val())
   'change [name=minutes]': (e) -> this.game.set_minutes($(e.target).val())
