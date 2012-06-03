@@ -1,7 +1,6 @@
 .select{
   display: block;
   overflow: visible;
-  clear: both;
   position: relative;
   select{
     @include opacity(0);

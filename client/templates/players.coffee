@@ -59,3 +59,6 @@ Template.add_player.events =
     
     team.add_player(this)
     console.log "team failed to save: #{team.full_errors()}" unless team.save()
+
+Template.players.players_required_data = -> 
+  players_required_data()

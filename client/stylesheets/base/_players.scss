@@ -41,6 +41,10 @@
         padding-top: 1.25em;
         padding-right: 1.5em;
         em{margin-right: .25em;}
+        .select{
+          display: inline-block;
+          width: 120px;
+        }
       }
       .roster_wrapper{
         @include background(
