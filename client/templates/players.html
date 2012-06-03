@@ -7,37 +7,36 @@
 
       </header>
       <article>
-
-        <small>
-          <a class="start_season btn fwd">
-            {{#if attributes.started}}
-              Continue Season
-            {{else}}
-              Start Season
-            {{/if}}
-          </a>
-        </small>
-
         <div id="lineup">
+          <small class="proceed">
+            <a class="start_season btn fwd">
+              {{#if attributes.started}}
+                Continue Season
+              {{else}}
+                Start Season
+              {{/if}}
+            </a>
+          </small>
           <div class="team_logo">
-            {{{ logo this size="small" }}}
+            {{{ logo this size="large" }}}
           </div>
-          <h2>Roster</h2>
+          <h2>Build your team</h2>
           <div class="required_players">
-            <em>Teammates needed to play</em>
+            <em>Players needed</em>
             <small>
               <a class="btn secondary icon12 player">4 <span class="icon12 arrows"></a>
             </small>
           </div>
-          <ul class="player_list miniature roster">
-            {{#if alone_in_team}}
-            <li>Add team players</li>
-            {{/if}}
-            
-            {{#each players }}
-              {{> player}}
-            {{/each}}
-          </ul>
+          <div class="roster_wrapper">
+            <ul class="player_list miniature roster">
+              {{#each players }}
+                {{> player}}
+              {{/each}}
+              {{#if alone_in_team}}
+                <li class="add_cta">Don't play alone - add teammates below.</li>
+              {{/if}}
+            </ul>
+          </div>
           {{> add_player}}
         </div>
       </article>
@@ -60,13 +59,15 @@
 
 <template name="add_player">
   <div id="add_player">
-    <h3>Find players to add to your team</h3>
-    <div class="icon16 search">
+    <div class="search_wrapper">
+      <span class="icon16 search"></span>
       <input name="player[name]" placeholder="Type a players name"></input>
     </div>
+    <!-- Fixme >> teamname -->
+    <h3>Click to add players to #Team Name</h3>
     <ul class="player_list state_aware">
       {{#unless results}}
-        Loading friends...
+        <div class="loading_players">One second, we're loading your friends</div>
       {{/unless}}
       {{#each results}}
         {{> player}}

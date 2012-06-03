@@ -1,74 +1,101 @@
 .container.players {
   .players {
-    .start_season{
-      float: right;
-      margin-right: 10%;
-    }
   	#lineup {
- 	    @include position(relative, .5em, auto, auto, auto, 80%);
+ 	    @include position(relative, 1.5em, auto, auto, auto, 80%);
  	    margin: 0 auto;
+ 	    min-width: 960px;
   	  @include box-sizing(border-box);
   	  @include maskbg(#fff);
   	  @include border-radius(5px);
-  	  border: 1px solid #ccc;
+  	  border: 1px solid #fff;
+  	  @include box-shadow(rgba(0,0,0, .2) 0 0px 2px 1px inset);
   	  @include clearfix;
   	  clear: both;
   	}
     #lineup{
+      .proceed{
+        @include position(absolute, -3.5em, 0, auto, auto);       
+      }
       .team_logo{
-        background: white;
-        border: 3px solid $skyblue;
-        @include box-shadow(rgba(black, .3) 0 1px 3px 0);
-        float: left;
-        margin: -3em 1.5em 0;
+        @include maskbg(#f9f9f9);
+        @include border-radius(3px);
+        @include box-shadow(
+          rgba(black, .3) 0 1px 3px 0,
+          rgba(darken($skyblue, 5%), 1) 0 0px 0px 3px inset
+        );
+        @include position(absolute, -1.5em, auto, auto, 1.5em);
       }
       h2{
-        @include big(yes);
+        @include big;
+        @include emtype;
         font-weight: bold;
         display: inline-block;
+        vertical-align: middle;
+        text-transform: uppercase;
+        position: relative;
+        margin-left: 7em;
+        padding: $font-size  * 1px 0;
       }
       .required_players{
         float: right;
-        padding-top: .25em;
+        padding-top: 1.25em;
         padding-right: 1.5em;
         em{margin-right: .25em;}
       }
-      .roster{
+      .roster_wrapper{
+        @include background(
+          linear-gradient(left, rgba(#ebebf1, .4), rgba(#ebebf1, .8) 50%, rgba(#ebebf1, .4) 100%),
+          transparent
+        );
         clear: both;
         padding-top: .75em;
+        margin-bottom: 3em;
         border-top: 1px solid #ccc;
         border-bottom: 1px solid #ccc;
-        text-align: center;
-        margin-bottom: 3em;
-      }
-    }/* end lineup */
-    
+        .roster{          
+          margin-left:16em;
+        }
+        .add_cta{
+          display: inline-block;
+          width: 165px;
+          height: 72px;
+          margin-left: 1.5em;
+          text-indent: -999em;
+          overflow: hidden;
+          vertical-align: middle;
+          background: url('/images/text_img_playalone_165x40.png') no-repeat center;
+          @include opacity(.4);
+        }
+      } 
+    }
     #add_player{
-      h3{
-        @include h2;
-        display: inline-block;
-        padding-left: 1.5em;
-        color: #999;
-      }
-      .search{
-        float: right;
-        padding-right: 1.5em;
-        text-align: left;
+      .search_wrapper{
+        margin: 0 1.5em 1.5em;
+        width: 200px;
+        position: relative;
+        float: left;
         input{
           @include box-sizing(border-box);
           padding-left: 1.5em + .25em;
+          width: 200px;
           text-align: left;
         }
-        &:before{
-          margin-right: -1.5em - .25em;
-          margin-bottom: -.25em;
+        span.search{
+          @include position(absolute, .5em, auto, auto, .5em, 16px, 16px);
           z-index: 2;
         }
       }
+      h3{
+        display: inline-block;
+        color: #666;
+        float: left;
+        margin-top: .25em;
+      }
       .player_list{
         clear: both;
-        padding: 1.5em;
-        text-align: center;
+        padding: 1.5em 0;
+        border-top: 1px dotted #eee;
+        small > .remove_player{display: none;}
       }
     }
     

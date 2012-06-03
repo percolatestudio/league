@@ -3,22 +3,32 @@
   $small_player: 4.5;
   $mini_player: 3;
   $player_border_width:2px;
+  .loading_players{
+    @include big;
+    color: #eee;
+    @include letterpress(#eee);
+    font-weight: bold;
+    text-align: center;
+    padding: 0 1.5em;
+  }
   >li.player{
     width: $large_player * 1em;
     margin: 0 1.5em 1.5em;
     display: inline-block;
     overflow: visible;
     text-align: center;
-    vertical-align: middle;
+    vertical-align: top;
     @include transition(all 300ms ease-out);
     .name{
-      font-weight: bold;
       white-space: nowrap;
       display: block;
       overflow: hidden;
       width: 100%;
       @include small;
       @include too_long(#f9f9f9);
+    }
+    small > .remove_player{
+      color: #999;
     }
     .image{
       $image_dimension:($large_player * $font-size * 1px) - ($player_border_width) * 2;
@@ -49,7 +59,7 @@
       }
     }
     &:hover{
-      @include transform(scale(1.1));
+      .image{@include transform(scale(1.1));}
       cursor: pointer;
     }
   }

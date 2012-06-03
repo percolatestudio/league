@@ -57,54 +57,7 @@
         }
         .cta{
           .image{
-            $border-radius:20px;
-            $border-width:5px;
-            $border-color: #eee;
-            $scale: .7;
-            $container_width:200px;
-            $container_height:200px;
-            $width: ($container_width * $scale) - 2 * $border-width ;
-            $height: ($container_height * $scale) - 2 * $border-width ;
-            $xoffset: ($container_width - ($container_width * $scale)) * .5;
-            $yoffset: ($container_height - ($container_height * $scale)) * .5;
-            position: relative;
-            &:before, &:after{
-              content:'';
-              display: block;
-              @include border-radius($border-radius);
-              border: $border-width dashed $border-color;
-            }
-            &:before{
-              @include position(absolute, $yoffset , 0, 0, $xoffset, $width, $height);
-              z-index: 1;
-            }
-            &:after{
-              @include position(absolute, $yoffset - 1px, 0, 0, $xoffset, $width, $height);
-              border: $border-width dashed darken($border-color, 10%);
-              z-index: 0;
-            }
-            figure{
-              $dimension1: 70px;
-              $dimension2: $dimension1 * .3;
-              display: block;
-              @include position(absolute, ($container_width - $dimension1) * .5, auto, auto, ($container_width - $dimension1) * .5, $dimension1, $dimension1);
-              &:before, &:after{
-                content:'';
-                display: block;
-                background: saturate($skyblue, 10%);
-                border-top: 1px solid darken($skyblue, 10%);
-                border-bottom: 1px solid lighten($skyblue, 10%);
-              }
-              &:before{
-                /* horiz */
-                @include position(absolute, ($dimension1 - $dimension2) * .5, auto, auto, 0, $dimension1, $dimension2);
-              }
-              &:after{
-                /* vert */
-                z-index: 1;
-                @include position(absolute, 0, auto, auto, ($dimension1 - $dimension2) * .5, $dimension2, $dimension1);
-              }
-            }
+            @include plus_alert;
           }
           /* fixme: refactor me */
           button{@include small;line-height: 1em;margin: 0;}
@@ -124,8 +77,8 @@ a#logo{
     font-size: 26px;
     /*position*/
     position: absolute;
-    @include position(absolute, 50%, auto, auto, auto, 100%, 1em);
-    margin-top: -.75em;
+    @include position(absolute, 50%, 3px, auto, 3px, auto, 1em);
+    margin: -.75em 0;
     padding: .25em 0;
     z-index: 3;
     overflow: hidden;
