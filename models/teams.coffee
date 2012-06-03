@@ -25,8 +25,9 @@ class Team extends Model
     _.isEmpty(@errors)
   
   # many-many association. TODO: generalize this I guess
-  players: ->
-    Players.find({_id: {$in: @attributes.player_ids}}).map (player_attrs) ->
+  players: (conditions = {}, options = {}) ->
+    conditions._id = {$in: @attributes.player_ids}
+    Players.find(conditions, options).map (player_attrs) ->
       new Player(player_attrs)
   
   games: (conditions = {}, options = {}) -> 

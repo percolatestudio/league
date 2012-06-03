@@ -1,5 +1,5 @@
 Players = new Meteor.Collection 'players'
-# { name: "Tom Coleman", email: "tom@thesnail.org", facebook_id: 'xxx', team_ids: [..]}
+# { name: "Tom Coleman", email: "tom@thesnail.org", facebook_id: 'xxx', team_ids: [..], authorized: true}
 
 class Player extends Model
   @_collection: Players
@@ -26,6 +26,7 @@ class Player extends Model
   @new_from_facebook: (facebook_data) ->
     facebook_data.facebook_id = facebook_data.id
     delete facebook_data.id
+    facebook_data.authorized = true
     new this(facebook_data)
 
   facebook_profile_url: (type = 'normal') ->

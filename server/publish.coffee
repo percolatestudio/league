@@ -22,7 +22,10 @@ Meteor.publish 'games', (team_ids) ->
 Meteor.methods
   'login': (facebook_id) ->
     console.log "logging in user with FB ID: #{facebook_id}"
-    Players.findOne facebook_id: facebook_id
+    player = Players.findOne facebook_id: facebook_id
+    Players.update player._id, {$set: {authorized: true}} unless player.authorized
+    
+    player
   'create': (attributes) ->
     console.log "creating user from #{attributes}"
     # FIXME: need to use a model here to make this safe
