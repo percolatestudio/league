@@ -29,10 +29,14 @@ Meteor.methods
     id = Players.insert attributes
     Players.findOne id
   
-  'test_mail': ->
-    Meteor.http.get 'http://league-mailer.herokuapp.com/mails/', {}, ->
-      console.log(arguments)
+  'test_mail': (mail, player_id, team_id, game_id) ->
+    data = Players.findOne(player_id)
+    player = new Player(data) if data
+
+    data = Teams.findOne(team_id)
+    team = new Team(data) if data
     
-    # do nothing for now
-  # 'logout': -> 
-  #   console.log "logging out user with FB ID: #{facebook_id}"
+    data = Games.findOne(game_id)
+    game = new Game(data) if data
+    
+    LeagueMailer[mail].call this, player, team, game 
