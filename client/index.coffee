@@ -28,6 +28,17 @@ current_team = ->
 current_players = -> current_team().players() if current_team()
 future_games = -> current_team().future_games() if current_team()
 
+
+# is this the right way to do it? or should individual screens control this via a sess var?
+show_overlays = ->
+  team_status_team() # or ...
+
+show_team_status = (team) ->
+  Session.set('team_status_team_id', team.id)
+team_status_team = ->
+  data = Teams.findOne(Session.get 'team_status_team_id')
+  new Team(data) if data
+
 players_required_data = ->
   name: 'players_required'
   options: ({text: "#{i} players", value: i, selected: i == 5} for i in [3..18])
