@@ -118,16 +118,16 @@
   $large_logo_dimension: 192px;
   width: $large_logo_dimension;
   height: $large_logo_dimension;
-  .shield{@include prepare_shield($large_logo_dimension, $large_logo_dimension,);}
-  .flatdiamond{@include prepare_flatdiamond($large_logo_dimension, $large_logo_dimension,);}
-  .diamond{@include prepare_diamond($large_logo_dimension, $large_logo_dimension,);}
-  .darrow{@include prepare_darrow($large_logo_dimension, $large_logo_dimension,);}
-  .uarrow{@include prepare_uarrow($large_logo_dimension, $large_logo_dimension,);}
-  .circle{@include prepare_circle($large_logo_dimension, $large_logo_dimension,);}
-  .flatcircle{@include prepare_flatcircle($large_logo_dimension, $large_logo_dimension,);}
-  .national{@include prepare_national($large_logo_dimension, $large_logo_dimension,);}
-  .bolt{@include prepare_bolt($large_logo_dimension, $large_logo_dimension,);}
-  .crown{@include prepare_crown($large_logo_dimension, $large_logo_dimension,);}
+  .shield{@include prepare_shield($large_logo_dimension, $large_logo_dimension);}
+  .flatdiamond{@include prepare_flatdiamond($large_logo_dimension, $large_logo_dimension);}
+  .diamond{@include prepare_diamond($large_logo_dimension, $large_logo_dimension);}
+  .darrow{@include prepare_darrow($large_logo_dimension, $large_logo_dimension);}
+  .uarrow{@include prepare_uarrow($large_logo_dimension, $large_logo_dimension);}
+  .circle{@include prepare_circle($large_logo_dimension, $large_logo_dimension);}
+  .flatcircle{@include prepare_flatcircle($large_logo_dimension, $large_logo_dimension);}
+  .national{@include prepare_national($large_logo_dimension, $large_logo_dimension);}
+  .bolt{@include prepare_bolt($large_logo_dimension, $large_logo_dimension);}
+  .crown{@include prepare_crown($large_logo_dimension, $large_logo_dimension);}
   &.enable_alert{
     &:before{
       content: attr(data-alert);
