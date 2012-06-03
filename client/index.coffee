@@ -29,11 +29,10 @@ current_players = -> current_team().players() if current_team()
 future_games = -> current_team().future_games() if current_team()
 
 
-# is this the right way to do it? or should individual screens control this via a sess var?
-show_overlays = ->
-  team_status_team() # or ...
+show_overlays = -> Session.equals('show_overlays', true)
 
 show_team_status = (team) ->
+  Session.set('show_overlays', true)
   Session.set('team_status_team_id', team.id)
 team_status_team = ->
   data = Teams.findOne(Session.get 'team_status_team_id')

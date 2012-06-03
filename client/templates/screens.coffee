@@ -1,6 +1,5 @@
 ## The file in which we determine which screen to render..
 Template.screens.visible_page = -> Session.get('visible_page') || 'home'
-Template.screens.show_overlays = -> 'show' if show_overlays()
 
 Template.screens.events = 
   'click .login': -> AuthSystem.force_login()

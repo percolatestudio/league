@@ -34,3 +34,12 @@ class Player extends Model
   create_team: (attributes) ->
     team = new Team(attributes)
     team.add_player(this)
+  
+  send_facebook_message: (message, link, callback) ->
+    data =
+      method: 'send'
+      to: @attributes.facebook_id
+      message: message
+      link: link
+    FB.ui data, callback
+  

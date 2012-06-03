@@ -1,4 +1,5 @@
 #overlays{
+  &:not(.show) { display: none; }
   @include position(fixed, 0, 0, 0, 0);
   background: rgba($skyblue, .95);
   overflow: auto;

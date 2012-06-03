@@ -20,21 +20,6 @@ Template.players.events =
   'click .remove_player': (event) ->
     current_team().remove_player(this)
 
-  'click .start_season': (event) ->
-    event.preventDefault()
-    
-    # we need to make a FB request here.. 
-    # FIXME -- filter players who are good already
-    data = 
-      method: 'send'
-      to: _.map(current_players(), (p) -> p.attributes.facebook_id)
-      message: "#{current_user().attributes.name} has invited you to their new league team: #{current_team().attributes.name}"
-      link: 'http://google.com'
-    console.log data
-    FB.ui data, (status) ->
-      console.log 'request made'
-      console.log status
-
 Template.player.facebook_profile_url = -> 
   this.facebook_profile_url()
 

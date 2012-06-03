@@ -1,5 +1,5 @@
 <template name="overlays">
-  <div id="overlays">
+  <div id="overlays" class="{{show_overlays}}">
     {{> team_status}}
   </div>
 </template>
@@ -8,11 +8,11 @@
   {{#if team}}{{#with team}}
     <div class="overlay team_status">
       <div class="team_logo">
-      <!-- fixme: logo size doesnt work consistently between overlay and page it's overlayed on -->
+        {{{logo this size="small" without_links=true}}}
       </div>
       <a class="icon16 close"></a>
       <h2>Team Status</h2>
-      <p>In order to get the team in sync, players need to connect to the #teamname by logging into League. Invite them now.</p>
+      <p>In order to get the team in sync, players need to connect to {{attributes.name}} by logging into League. Invite them now.</p>
       <div class="roster">
         <ul class="player_list horiz">
           {{#each players }}
