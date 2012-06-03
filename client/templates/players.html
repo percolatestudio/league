@@ -24,7 +24,9 @@
           <div class="required_players">
             <em>Players needed</em>
             <small>
-              <a class="btn secondary icon12 player">4 <span class="icon12 arrows"></a>
+            {{#with players_required_data}}
+              {{> select }}
+            {{/with}}
             </small>
           </div>
           <div class="roster_wrapper">
