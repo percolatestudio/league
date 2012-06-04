@@ -198,7 +198,7 @@
   $outerheight:$containerheight * .5;
   $border: $stroke;
   @include circle($outerwidth, $outerheight, #2E66B2, 50%);
-  top: $outerheight * .5;
+  top: ($containerheight - $outerheight) * .5;
   left: ($containerwidth - $outerwidth) *.5;
   span{
     display: block;
@@ -213,19 +213,21 @@
 
 @mixin national($width: 100px, $height:100px, $color:red){
   @include position(absolute, 50%, auto, auto, auto, $width, $height);
+  background: transparent !important;
+  
   &:before, &:after{
     content:'';
     @include transform(skew(-30deg));
+    border-style: solid;
+    border-width: 0.5 * $height 0.45 * 0.5 * $width;
   }
   &:before{
-    @include position(absolute, auto, auto, auto, 0, 45%, 100%);
+    @include position(absolute, auto, auto, auto, 0, 0, 0);
     @include border-radius(5px 0 0 5px);
-    background: $color;
   }
   &:after{
-    @include position(absolute, auto, 0, auto, auto, 45%, 100%);
+    @include position(absolute, auto, 0, auto, auto, 0, 0);
     @include border-radius( 0 5px 5px 0);
-    background: $color;
   }
 }
 @mixin prepare_national($containerwidth: 200px, $containerheight: 200px, $stroke: 10px){
@@ -233,7 +235,7 @@
   $outerheight:$containerheight * .5;
   $border: $stroke;
   @include national($outerwidth, $outerheight, #2E66B2);
-  top: $outerheight * -.5;
+  top: ($containerheight - $outerheight) * .5;
   left: ($containerwidth - $outerwidth) *.5;
   span{
     display: block;

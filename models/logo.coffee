@@ -1,8 +1,7 @@
 class Logo
   @MAX_LINE_LENGTH = 20 # in chars
 
-  # National doesn't work for some reason
-  @shapes = ['crown', 'shield', 'flatdiamond', 'darrow', 'uarrow', 'circle', 'flatcircle', 'bolt']
+  @shapes = ['national', 'crown', 'shield', 'flatdiamond', 'darrow', 'uarrow', 'circle', 'flatcircle', 'bolt']
   @colors_list = [
     ['#2E66B2', '#FF5C2B'],
     ['#C51230', '#241E20'],
