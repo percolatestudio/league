@@ -43,7 +43,10 @@
         </div>
       </article>
     </div>
-  {{/with}}{{/if}}
+  {{/with}}
+  {{else}}
+    {{> not_found}}
+  {{/if}}
 </template>
 
 <template name="player">
