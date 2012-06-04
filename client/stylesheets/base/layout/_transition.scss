@@ -1,6 +1,8 @@
 /* D - if you don't want pos rel on the body, we could look into a different way */
 .body {
   position: relative;
+  /* prevent scrollbars on transition */
+  overflow-x: hidden;
 }
 
 .container {
