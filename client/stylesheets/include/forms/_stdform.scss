@@ -54,7 +54,6 @@
 @mixin stdform_txt{
   @include stdfont;
   @include emtype;
-  text-align: center;
     &:-moz-placeholder {
       color: #ccc;
       font-style: italic;

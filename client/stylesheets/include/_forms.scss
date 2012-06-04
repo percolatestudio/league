@@ -31,13 +31,10 @@ form{
     color: #333;
     font-weight: normal;
   }
-  textarea, input, select{
+  textarea, input{
     text-align: left;
     float: left;
-    line-height: 1.5em;
-  }
-  select{
-    margin-bottom: 10px;
+    
   }
   input{      
     &[type=checkbox], &[type=radio]{

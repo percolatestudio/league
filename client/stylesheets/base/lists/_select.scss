@@ -1,7 +1,7 @@
 .select{
-  display: block;
-  overflow: visible;
+  display: inline-block;
   position: relative;
+  width: 100%;
   select{
     @include opacity(0);
     @include position(absolute, 0, 0, 0, 0, 100%, 100%);
@@ -12,7 +12,7 @@
     z-index: 1;
   }
   >a.selected_text{
-    @include position(relative, 0, auto, auto, auto, 100%, auto);
+    width: 100%;
     font-weight: bold;
     .player{
       margin-left: -.5em;
