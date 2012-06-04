@@ -1,6 +1,6 @@
 @mixin plus_alert(
-  $container_width:200px,
-  $container_height:200px,
+  $container_width:$large_logo_dimension,
+  $container_height:$large_logo_dimension,
   $scale: .7,
   $border-radius:20px, 
   $border-width:5px, 
