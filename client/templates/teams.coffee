@@ -4,6 +4,7 @@ Template.teams.teams = -> Teams.find().map((t) -> new Team(t))
 
 Template.team.games_path = -> games_path(this)
 Template.team.players_path = -> players_path(this)
+Template.team.unauthed_player_count = -> this.players({authorized: undefined}).length
 Template.team.events = 
   'click .new_logo': ->
     this.prepare_logo(true)

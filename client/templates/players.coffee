@@ -27,7 +27,7 @@ Template.player.facebook_profile_url = ->
   this.facebook_profile_url()
 
 Template.player.in_team_class = -> 
-  'in_team' if (current_team().players({facebook_id: this.attributes.facebook_id}).length > 0)
+  'in_team' if current_team() and (current_team().players({facebook_id: this.attributes.facebook_id}).length > 0)
   
 Template.add_player.results = -> 
   if Session.equals('facebook_friends', null)
