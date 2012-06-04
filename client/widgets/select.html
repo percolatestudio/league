@@ -5,8 +5,9 @@
         <option {{#if selected}}selected{{/if}} value="{{value}}">{{text}}</option>
       {{/each}}
     </select>
-    <a class="selected_text btn secondary">
-      <span class="icon16 player"></span> {{selected_text}} 
+    <a class="btn secondary">
+      <span class="icon16 {{icon}}"></span> 
+      <span class="selected_text">{{selected_text}} </span>
       <span class="icon12 arrows"></span>
     </a>
   </div>

@@ -1,8 +1,18 @@
 # this only get set first off, it's not reactive right now (TODO)
 Template.select.selected_text = ->
-  selected_option = _.find(this.options, (o) -> o.selected)
-  selected_option.text if selected_option
+  @_contexts ||= {}
+  ctx = Meteor.deps.Context.current
+  @_contexts[ctx.id] = ctx if ctx and not (ctx.id in @_contexts)
+  
+  unless @selected_text?
+    selected_option = _.find(@options, (o) -> o.selected)
+    @selected_text = selected_option.text if selected_option
+  
+  @selected_text
+  
 Template.select.events = 
   'change select': (event) ->
-    text = $(event.target).find('option:selected').text()
-    $(event.target).closest('.select').find('.selected_text').text(text)
+    @selected_text = $(event.target).find('option:selected').text()
+    
+    context.invalidate() for id, context of @_contexts
+    @_contexts = {}

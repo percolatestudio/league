@@ -37,5 +37,6 @@ team_status_team = ->
   new Team(data) if data
 
 players_required_data = ->
+  icon: 'player'
   name: 'players_required'
   options: ({text: "#{i} players", value: i, selected: i == 5} for i in [3..18])
