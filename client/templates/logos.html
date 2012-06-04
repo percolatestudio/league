@@ -1,11 +1,9 @@
 <template name="logo_tester">
-  {{#if draw_logo_tester}}
-    <ul class="logo_tester">
-      {{#each teams}}
-        <li style="float:left">{{{logo this size="large" without_link=true}}}</li>
-      {{/each}}
-    </ul>
-  {{/if}}
+  <ul class="logo_tester">
+    {{#each teams}}
+      <li style="float:left">{{{logo this size="large" without_link=true}}}</li>
+    {{/each}}
+  </ul>
 </template>
 
 <template name="logo">
