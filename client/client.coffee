@@ -36,7 +36,7 @@ team_status_team = ->
   data = Teams.findOne(Session.get 'team_status_team_id')
   new Team(data) if data
 
-players_required_data = ->
+players_required_data = (selected = 5) ->
   icon: 'player'
   name: 'players_required'
-  options: ({text: "#{i} players", value: i, selected: i == 5} for i in [3..18])
+  options: ({text: "#{i} players", value: i, selected: i == parseInt(selected)} for i in [3..18])

@@ -15,16 +15,19 @@ Template.players.team = -> current_team()
 
 Template.players.players = -> current_players()
 Template.players.alone_in_team = -> current_players().length <= 1
-Template.players.is_self = -> this.id == current_user().id
 Template.players.events =
   'click .remove_player': (event) ->
     current_team().remove_player(this)
+  'change [name=players_required]': (event) ->
+    current_team().update_attribute('players_required', $(event.target).val())
+
+Template.player.is_self = -> this.id == current_user().id
 
 Template.player.facebook_profile_url = -> 
   this.facebook_profile_url()
 
 Template.player.in_team_class = -> 
-  (Players.find({facebook_id: this.attributes.facebook_id}).count() > 0) && 'in_team'
+  'in_team' if (current_team().players({facebook_id: this.attributes.facebook_id}).length > 0)
   
 Template.add_player.results = -> 
   if Session.equals('facebook_friends', null)
@@ -39,11 +42,10 @@ Template.add_player.results = ->
 Template.add_player.events = 
   'keyup input[name*=name]': (event) -> 
     Session.set 'current_friend_filter', new RegExp $(event.target).val(), 'i'
-  'click .results li': (event) ->
+  'click .player_list li': (event) ->
     team = current_team()
     
     team.add_player(this)
-    console.log "team failed to save: #{team.full_errors()}" unless team.save()
 
 Template.players.players_required_data = -> 
-  players_required_data()
+  players_required_data(current_team().attributes.players_required)
