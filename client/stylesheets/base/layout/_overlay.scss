@@ -1,9 +1,23 @@
+/* Transition */
 #overlays{
-  &:not(.show) { display: none; }
+  @include transition( all 500ms cubic-bezier(0.51, 0, 0.6, 1) 0ms);
+  .overlay{@include transition( all 500ms ease-in 300ms);}
+  &:not(.show) {
+    z-index: -1;
+    @include opacity(0);
+    @include transform( scale(2) );
+    .overlay{@include opacity(0);}
+  }
+  &.show{    
+    z-index: 10;
+    .overlay{@include opacity(1);}
+  }
+}
+
+#overlays{
   @include position(fixed, 0, 0, 0, 0);
   background: rgba($skyblue, .95);
   overflow: auto;
-  z-index: 3;
   .overlay{
     width: 400px;
     background: white;
