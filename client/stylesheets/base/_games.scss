@@ -208,7 +208,7 @@
               margin: $font-size * -.75px $font-size * -.75px $font-size * .75px;
               padding: .5em 0;
               color: white;
-              @include letterpress(invert(rgba(white, 1)));
+              @include letterpress(invert(white));
               @include border(rgba(saturate($orange, 30%), 1));
               @include border-radius(3px 3px 0 0);
               @include box-shadow(
@@ -272,7 +272,12 @@
           padding-left: 6em;
           width: 100%;
           text-align: left;
-          h3{
+          .location{
+            display: inline-block;
+            overflow: hidden;
+            input{clear: both;}
+          }
+          h3.location{
             @include big;
             font-weight: bold;
             em{
@@ -303,10 +308,10 @@
           width:160px;
           position: relative;
           z-index: 1;
-          form.state_question, .state_playing, .state_benched { 
+          .state_question, .state_playing, .state_benched { 
             display: none; 
           }
-          &.unconfirmed form.state_question {
+          &.unconfirmed .state_question {
             display: block;
           }
           &.playing .state_playing { 
@@ -316,7 +321,7 @@
             display: block;
           }
           
-          form.state_question{
+          .state_question{
             padding-left: 1.5em;
             label{
               font-weight: bold;

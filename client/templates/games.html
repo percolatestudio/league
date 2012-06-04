@@ -82,14 +82,16 @@
       
       <div class="meta">
         <div class="confirmation {{availability_class current_user_availability}}">
-          <form class="state_question">
-            <input type="radio" name="state" value="play">
-            <label for="state" class="play">Play</label>
-            <br>
-            <input type="radio" name="state" value="bench">
-            <label for="state" class="bench">Bench</label>
-            <br>
-            <em class="state">You're unconfirmed</em>
+          <form>
+            <div class="state_question">
+              <input type="radio" name="state" value="play">
+              <label for="state" class="play">Play</label>
+              <br>
+              <input type="radio" name="state" value="bench">
+              <label for="state" class="bench">Bench</label>
+              <br>
+              <em class="state">You're unconfirmed</em>
+            </div>
           </form>
           <div class="state_playing">
             <figure></figure>
@@ -104,10 +106,12 @@
         </div>
         
         {{#if_editing "location"}}
-          <label for="location">Location</label>
-          <input name="location" value="{{attributes.location}}" placeholder="Where is the game?"/>
+          <div class="location">
+            <label for="location">Location:</label>
+            <input name="location" value="{{attributes.location}}" placeholder="Where is the game?"/>
+          </div>
         {{else}}
-          <h3 class="editable" data-field="location">
+          <h3 class="location" class="editable" data-field="location">
             {{#if attributes.location}}
               {{attributes.location}}
             {{else}}
