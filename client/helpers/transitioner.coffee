@@ -25,7 +25,7 @@ class Transitioner
     ctx.run =>
       if first
         @_current_page = Router.current_page()
-        @_invalidate_contexts('current_page')
+        @_invalidate_contexts('current')
       else
         @_transition_to(Router.current_page())
   
