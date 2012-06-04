@@ -1,72 +1,74 @@
-.container.teams{
-  .teams {
-    .team_register{
-      text-align: center;
-      margin: 0 10%;
-      > li{
-        display: inline-block;
-        position: relative;
-        margin: 40px;
-        overflow: visible;
-        vertical-align: top;
-        .image{
-          width: $large_logo_dimension;
-          height: $large_logo_dimension;
-        }
-        .team_status{
-          display: block;
-        }
-      }
-      li.add_team{
+.teams {
+  .team_register{
+    text-align: center;
+    margin: 0 10%;
+    > li{
+      display: inline-block;
+      position: relative;
+      margin: 40px;
+      overflow: visible;
+      vertical-align: top;
+      .image{
         width: $large_logo_dimension;
-        min-height: $large_logo_dimension;
-        form.team_builder{
-          @include maskbg(#ccc);
-          padding:1.5em;
-          display: none;
-          @include border-radius(3px);
-          @include box-shadow(rgba(black, .3) 0 2px 5px 0 inset);
-          @include box-sizing(border-box);
-          h3{
-            margin: $line * -1px $line * -1px $line * 1px;
-            height: $font-size *3px;
-            line-height: $font-size *3px;
-            font-weight: bold;
-            text-align: center;
-            color: white;
-            @include letterpress(invert(white));
-            @include border(rgba(saturate($orange, 30%), 1));
-            @include border-radius(3px 3px 0 0);
-            @include box-shadow(
-              rgba(lighten($orange, 30%), .3) 0 -1px 0 0 inset,
-              rgba(black, .3) 0 2px 5px 0 
-            );
-            @include background(linear-gradient(top, rgba(saturate($orange, 30%), 1), darken($orange, 10%) 100%));
-          }
-          label{
-            overflow: hidden;
-            text-indent: -999em;
-            display: inline-block;
-            float: none;
-            @include position(absolute, auto, auto, auto, auto, 0, 0);
-          }
-          input{
-            width: 100%;
-          }
-          button[type='submit']{width: 100%;}
-        }
-        &.current{
-          form.team_builder{display: block;}
-          .cta{display: none;}
-        }
-        .cta{
-          .image{
-            @include plus_alert;
-          }
-          /* fixme: refactor me */
-          button{@include small;line-height: 1em;margin: 0;}
-        }
+        height: $large_logo_dimension;
       }
+      .team_status{
+        display: block;
+      }
+    }
+    li.add_team{
+      width: $large_logo_dimension;
+      min-height: $large_logo_dimension;
+      form.team_builder{
+        @include maskbg(#ccc);
+        padding:1.5em;
+        display: none;
+        @include border-radius(3px);
+        @include box-shadow(rgba(black, .3) 0 2px 5px 0 inset);
+        @include box-sizing(border-box);
+        h3{
+          margin: $line * -1px $line * -1px $line * 1px;
+          height: $font-size *3px;
+          line-height: $font-size *3px;
+          font-weight: bold;
+          text-align: center;
+          color: white;
+          @include letterpress(invert(white));
+          @include border(rgba(saturate($orange, 30%), 1));
+          @include border-radius(3px 3px 0 0);
+          @include box-shadow(
+            rgba(lighten($orange, 30%), .3) 0 -1px 0 0 inset,
+            rgba(black, .3) 0 2px 5px 0 
+          );
+          @include background(linear-gradient(top, rgba(saturate($orange, 30%), 1), darken($orange, 10%) 100%));
+        }
+        label{
+          overflow: hidden;
+          text-indent: -999em;
+          display: inline-block;
+          float: none;
+          @include position(absolute, auto, auto, auto, auto, 0, 0);
+        }
+        input{
+          width: 100%;
+        }
+        button[type='submit']{width: 100%;}
+      }
+      input{
+        width: 100%;
+      }
+      button[type='submit']{width: 100%;}
+    }
+    &.current{
+      form.team_builder{display: block;}
+      .cta{display: none;}
+    }
+    .cta{
+      .image{
+        @include plus_alert;
+      }
+      /* fixme: refactor me */
+      button{@include small;line-height: 1em;margin: 0;}
     }
   }
 }

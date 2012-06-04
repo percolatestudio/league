@@ -1,8 +1,37 @@
 <head>
-  <title>Sport Grid</title>
-
+  <title>League</title>
 </head>
 
 <body>
   {{> screens }}
 </body>
+
+<template name="screens">
+  <div class="container">
+    {{#if_with current_page}}{{> one_screen}}{{/if_with}}
+    {{#if_with next_page}}{{> one_screen}}{{/if_with}}
+  </div>
+  {{> overlays }}
+</template>
+
+<template name="one_screen">
+  {{#if_equals "loading" this}}
+    <div class="loading">
+      <p>LEAGUE</p>
+      <div>is</div>
+      <h1>LOADING</h1>
+    </div>
+  {{/if_equals}}
+  {{#if_equals "not_authorized" this}}
+    <div class="not_authorized">
+      <p>LEAGUE</p>
+      <div class="error"><strong>Hey!</strong> This is coaches <em>private</em> playbook.</div>
+    </div>
+  {{/if_equals}}
+  {{#if_equals "auth" this}}{{> auth }}{{/if_equals}}
+  {{#if_equals "home" this}}{{> home }}{{/if_equals}}
+  {{#if_equals "teams" this}}{{> teams }}{{/if_equals}}
+  {{#if_equals "players" this}}{{> players }}{{/if_equals}}
+  {{#if_equals "games" this}}{{> games }}{{/if_equals}}
+  {{#if_equals "logo_tester" this}}{{> logo_tester }}{{/if_equals}}
+</template>

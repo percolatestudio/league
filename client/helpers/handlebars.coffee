@@ -25,6 +25,9 @@ Handlebars.registerHelper 'if_equals', (left, right, options) ->
   else
     options.inverse(this)
 
+Handlebars.registerHelper 'if_with', (name, options) ->
+  options.fn(name) if name
+
 Handlebars.registerHelper 'if_editing', (name, options) ->
   if Session.equals(editing_field_name(name, this), true)
     options.fn(this)

@@ -1,43 +1,29 @@
-Session.set 'team_id', null
-Session.set 'editing_game_id', null
-Session.set 'editing_player_id', null
+## The file in which we determine which screen to render..
+Template.screens.current_page = -> Router.current_page()
+Template.screens.next_page = 'none' #-> Router.next_page()
 
-Meteor.startup -> 
-  # subscribe to the current user collection and the teams collection
-  Meteor.autosubscribe ->
-    Meteor.subscribe 'users', Session.get('current_user_id')
-    Meteor.subscribe 'teams', Session.get('current_user_id')
+
+Template.screens.events = 
+  'click .login': -> AuthSystem.force_login()
+  'click .logout': -> AuthSystem.force_logout()
   
-  # always subscribe to all players and games for teams of the current player
-  Meteor.autosubscribe ->
-    me = current_user()
-    if me
-      Meteor.subscribe 'players', me.attributes.team_ids
-      Meteor.subscribe 'games', me.attributes.team_ids
-
-Users = new Meteor.Collection('users')
-
-current_user = -> 
-  data = Users.findOne()
-  new Player(data) if data
-
-current_team = ->
-  data = Teams.findOne(Session.get 'team_id')
-  new Team(data) if data
-
-current_players = -> current_team().players() if current_team()
-future_games = -> current_team().future_games() if current_team()
-
-
-show_overlays = -> Session.equals('show_overlays', true)
-
-show_team_status = (team) ->
-  Session.set('show_overlays', true)
-  Session.set('team_status_team_id', team.id)
-team_status_team = ->
-  data = Teams.findOne(Session.get 'team_status_team_id')
-  new Team(data) if data
-
-players_required_data = ->
-  name: 'players_required'
-  options: ({text: "#{i} players", value: i, selected: i == 5} for i in [3..18])
+  'click a[href]': (event) ->
+    event.preventDefault()
+    
+    url = $(event.target).closest('a').attr('href').replace(/#.*$/, '')
+    if url != '' and url != document.location.href
+      Router.navigate(url, {trigger: true})
+    
+  'submit .team_builder': (event) -> 
+    event.preventDefault()
+    
+    # prepare the data
+    $form = $(event.target)
+    t = {}
+    t[pair.name] = pair.value for pair in $form.serializeArray()
+    
+    Router.require_login -> 
+      console.log 'ok, logged in, creating team...'
+      console.log current_user()
+      team = current_user().create_team(t)
+      console.log team.full_errors() unless team.valid()

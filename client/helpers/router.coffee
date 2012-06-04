@@ -105,11 +105,3 @@ Router = new LeagueRouter
 
 Meteor.startup ->
   Backbone.history.start({pushState: true})
-  
-########## FIXME: this is temporary until https://github.com/meteor/meteor/issues/142 is resolved
-  
-current_page_watcher = ->
-  ctx = new Meteor.deps.Context()
-  ctx.on_invalidate current_page_watcher # reset
-  ctx.run -> $('.container').removeClass().addClass("container #{Router.current_page()}")
-Meteor.startup -> current_page_watcher()
