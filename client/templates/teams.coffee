@@ -2,8 +2,8 @@ Session.set 'adding_player', false
 
 Template.teams.teams = -> Teams.find().map((t) -> new Team(t))
 
-Template.team.games_link = -> games_link(this)
-Template.team.players_link = -> players_link(this)
+Template.team.games_path = -> games_path(this)
+Template.team.players_path = -> players_path(this)
 Template.team.events = 
   'click .new_logo': ->
     this.prepare_logo(true)

@@ -22,8 +22,11 @@ Template.screens.events =
     t = {}
     t[pair.name] = pair.value for pair in $form.serializeArray()
     
-    Router.require_login -> 
-      console.log 'ok, logged in, creating team...'
-      console.log current_user()
+    # wait until the current_user function returns something
+    Meteor.deps.await current_user, ->
       team = current_user().create_team(t)
       console.log team.full_errors() unless team.valid()
+      
+      Router.navigate(games_path(team), {replace: true, trigger: true})
+      
+    AuthSystem.force_login() # now force a login to make that happen

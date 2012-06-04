@@ -6,7 +6,7 @@ LeagueMailer = (->
     else
       path
       
-  games_url = (g) -> to_url games_link(g)
+  games_url = (g) -> to_url games_path(g)
   
   send = if LeagueMailerConfig?
     (mail, data) ->

@@ -6,4 +6,4 @@ Template.logo_tester.teams = ->
   for name, i in names
     new Team({name: name, logo_shape: Logo.shapes[i]}) 
 
-Template.logo.games_link = -> games_link this.team
+Template.logo.games_path = -> games_path this.team

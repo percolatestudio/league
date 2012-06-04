@@ -14,12 +14,16 @@ AuthenticatedRouter = Backbone.Router.extend
     @_loading_page = loading_page
   
   page_if_logged_in: (logged_in_page, logged_out_page, loading_page) ->
-    if Session.equals('fbauthsystem.login_status', 'logging_in')
-      loading_page
-    else if Session.equals('fbauthsystem.login_status', 'logged_in')
+    # we are logged in AND the data has loaded from the server
+    if Session.equals('fbauthsystem.login_status', 'logged_in') and current_user()
       logged_in_page
-    else
+    
+    else if Session.equals('fbauthsystem.login_status', 'logged_out') or \
+          Session.equals('fbauthsystem.login_status', 'not_authorized')
       logged_out_page
+      
+    else
+      loading_page
   
   apply_rules: (page) ->
     check = if @_login_rules.only 

@@ -1,5 +1,5 @@
-games_link = (team) -> "/#{team.id}/season"
-players_link = (team) -> "/#{team.id}"
+games_path = (team) -> "/#{team.id}/season"
+players_path = (team) -> "/#{team.id}"
 
 to_url = (path) ->
   if window && window.location

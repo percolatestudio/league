@@ -19,7 +19,9 @@ class Team extends Model
     unless @attributes.players_required? and parseInt(@attributes.players_required) > 0
       @errors.players_required = 'must be a positive number'
     
-    unless @players().length > 0
+    # this is a bit of a hack. Players will be totally empty (and not include current_user) 
+    # before they create their first team. REVISIT
+    unless @players().length > 0 or (@attributes.player_ids.length > 0 and not Players.findOne())
       @errors.players  = 'must not be empty'
     
     _.isEmpty(@errors)
