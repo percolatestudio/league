@@ -1,4 +1,4 @@
-Session.set 'adding_player', false
+Session.set 'adding_team', false
 
 Template.teams.teams = -> Teams.find().map((t) -> new Team(t))
 
@@ -13,4 +13,8 @@ Template.team.events =
   'click .team_status': ->
     show_team_status(this)
 
+Template.team_builder.adding_team = -> Session.equals('adding_team', true)
 Template.team_builder.players_required_data = -> players_required_data()
+Template.team_builder.events =
+  'click .add_team.btn': -> Session.set('adding_team', true)
+    

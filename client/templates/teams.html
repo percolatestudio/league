@@ -9,29 +9,32 @@
         {{#each teams }}
           {{> team }}
         {{/each}}
-        <li class="add_team">
-          <div class="cta">
-            <div class="image">
-              <figure></figure>
-            </div>
-            <button class="add_team btn default">Add a Team</button>
-          </div>
-          {{> team_builder }}
-        </li>
+        {{> team_builder }}
       </ul>
     </article>
   </div>
 </template>
 
 <template name="team_builder">
-  <form class="team_builder">
-    <h3>Team Builder</h3>
-    <input name="name" placeholder="Team name"></input>
-    {{#with players_required_data}}
-      {{> select }}
-    {{/with}}
-    <button type="submit" class="btn default">Create</button>
-  </form>
+  <li class="add_team">
+    {{#if adding_team }}
+      <form class="team_builder">
+        <h3>Team Builder</h3>
+        <input name="name" placeholder="Team name"></input>
+        {{#with players_required_data}}
+          {{> select }}
+        {{/with}}
+        <button type="submit" class="btn default">Create</button>
+      </form>
+    {{else}}
+      <div class="cta">
+        <div class="image">
+          <figure></figure>
+        </div>
+        <button class="add_team btn default">Add a Team</button>
+      </div>
+    {{/if}}
+  </li>
 </template>
   
 <template name="team">

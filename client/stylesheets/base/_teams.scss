@@ -22,7 +22,6 @@
       form.team_builder{
         @include maskbg(#ccc);
         padding:1.5em;
-        display: none;
         @include border-radius(3px);
         @include box-shadow(rgba(black, .3) 0 2px 5px 0 inset);
         @include box-sizing(border-box);

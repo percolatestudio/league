@@ -27,6 +27,6 @@ Template.screens.events =
       team = current_user().create_team(t)
       console.log team.full_errors() unless team.valid()
       
-      Router.navigate(games_path(team), {replace: true, trigger: true})
+      Router.navigate(players_path(team), {replace: true, trigger: true})
       
     AuthSystem.force_login() # now force a login to make that happen
