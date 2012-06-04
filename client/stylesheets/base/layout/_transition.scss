@@ -1,7 +1,9 @@
+// D - don't know if you needed this
 .container {
   overflow-x: auto; 
 }
 
+// D - if you don't want pos rel on the body, we could look into a different way
 .body {
   position: relative;
 }
@@ -10,18 +12,44 @@
   position: absolute;
   left: 0;
   width:100%;
-  @include transition(left 1000ms ease-in 0s);
+  @include transition(all 1000ms ease-in 0s);
+}
+
+$fadeout_pages: '.container.loading, .container.signin, .container.not_authorized';
+
+
+// what the current page does:
+.transitioning {
+  // normal pages go to the LHS
+  .current_page {
+    left: -100%;
+  }
   
-  &.next_page {
-    left: 100%;
+  // fade out pages get big and transparent
+  #{$fadeout_pages} {
+    &.current_page {
+      left: 0;
+      opacity: 0;
+      @include transform( scale(2) );
+    }
   }
 }
 
-.transitioning .container {
-  &.current_page {
-    left: -100%;
-  }
-  &.next_page {
+// what the next page does:
+// normally starts to the RHS
+.container.next_page {
+  left: 100%;
+  .transitioning & {
     left: 0;
+  }
+}
+// unless it's transitioning from a fadeout page, in which case it fades in
+#{$fadeout_pages} {
+  & + .container.next_page {
+    left: 0;
+    opacity: 0;
+    .transitioning & {
+      opacity: 1;
+    }
   }
 }
