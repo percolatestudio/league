@@ -1,0 +1,92 @@
+#logo{
+  display: block;
+  overflow: visible;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  h3{
+    font-size: 26px;
+    /*position*/
+    position: absolute;
+    @include position(absolute, 50%, 3px, auto, 3px, auto, 1em);
+    margin: -.75em 0;
+    padding: .25em 0;
+    z-index: 3;
+    overflow: hidden;
+    /*text*/
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: .1em;
+    white-space: nowrap;
+    line-height: 1em;
+    /*misc*/
+    @include maskbg;
+    span {
+      display: block;
+    }
+  }
+  h4{
+    //for long titles
+    font-size: 16px;
+    /*position*/
+    position: absolute;
+    @include position(absolute, auto, auto, 0, auto, 100%, 1em);
+    padding: .25em 0;
+    z-index: 3;
+    /*text*/
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: .1em;
+    color: #FF5C2B;
+    white-space: nowrap;
+    /*misc*/
+    @include maskbg;
+  }
+}
+#logo{
+  width: $large_logo_dimension;
+  height: $large_logo_dimension;
+  .shield{@include prepare_shield($large_logo_dimension, $large_logo_dimension);}
+  .flatdiamond{@include prepare_flatdiamond($large_logo_dimension, $large_logo_dimension);}
+  .diamond{@include prepare_diamond($large_logo_dimension, $large_logo_dimension);}
+  .darrow{@include prepare_darrow($large_logo_dimension, $large_logo_dimension);}
+  .uarrow{@include prepare_uarrow($large_logo_dimension, $large_logo_dimension);}
+  .circle{@include prepare_circle($large_logo_dimension, $large_logo_dimension);}
+  .flatcircle{@include prepare_flatcircle($large_logo_dimension, $large_logo_dimension);}
+  .national{@include prepare_national($large_logo_dimension, $large_logo_dimension);}
+  .bolt{@include prepare_bolt($large_logo_dimension, $large_logo_dimension);}
+  .crown{@include prepare_crown($large_logo_dimension, $large_logo_dimension);}
+  &.enable_alert{
+    &:before{
+      content: attr(data-alert);
+      display: block;
+      @include h4;
+      font-weight: bold;
+      color: white;
+      border: 2px solid white;
+      padding: .25em .5em;
+      white-space: nowrap;
+      @include position(absolute, 0, 0, auto, auto);
+      @include background-image(linear-gradient(top, lighten(red, 10%), darken(red, 10%) 70%)); 
+      @include border-radius(1em);
+      @include box-shadow(rgba(0,0,0,.3) 0 2px 5px 0);
+      z-index: 3;
+    }    
+  }
+  &.small{
+    width: $small_logo_dimension;
+    height: $small_logo_dimension;
+    .shield{@include prepare_shield($small_logo_dimension, $small_logo_dimension, 5px);}
+    .flatdiamond{@include prepare_flatdiamond($small_logo_dimension, $small_logo_dimension, 5px);}
+    .diamond{@include prepare_diamond($small_logo_dimension, $small_logo_dimension, 5px);}
+    .darrow{@include prepare_darrow($small_logo_dimension, $small_logo_dimension, 5px);}
+    .uarrow{@include prepare_uarrow($small_logo_dimension, $small_logo_dimension, 5px);}
+    .circle{@include prepare_circle($small_logo_dimension, $small_logo_dimension, 5px);}
+    .flatcircle{@include prepare_flatcircle($small_logo_dimension, $small_logo_dimension, 5px);}
+    .national{@include prepare_national($small_logo_dimension, $small_logo_dimension, 5px);}
+    .bolt{@include prepare_bolt($small_logo_dimension, $small_logo_dimension, 5px);}
+    .crown{@include prepare_crown($small_logo_dimension, $small_logo_dimension, 5px);}
+  }
+}
