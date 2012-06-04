@@ -1,6 +1,6 @@
 ## The file in which we determine which screen to render..
-Template.screens.current_page = -> Router.current_page()
-Template.screens.next_page = 'none' #-> Router.next_page()
+Template.screens.current_page = -> Transitioner.instance.current_page()
+Template.screens.next_page = -> Transitioner.instance.next_page()
 
 
 Template.screens.events = 

@@ -7,8 +7,10 @@
 </body>
 
 <template name="screens">
-  <div class="container">
+  <div class="container current_page {{current_page}}">
     {{#if_with current_page}}{{> one_screen}}{{/if_with}}
+  </div>
+  <div class="container next_page {{next_page}}">
     {{#if_with next_page}}{{> one_screen}}{{/if_with}}
   </div>
   {{> overlays }}

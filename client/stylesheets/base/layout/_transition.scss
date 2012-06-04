@@ -1,4 +1,27 @@
 .container {
-  overflow-x: auto;
+  overflow-x: auto; 
+}
 
+.body {
+  position: relative;
+}
+
+.container {
+  position: absolute;
+  left: 0;
+  width:100%;
+  @include transition(left 1000ms ease-in 0s);
+  
+  &.next_page {
+    left: 100%;
+  }
+}
+
+.transitioning .container {
+  &.current_page {
+    left: -100%;
+  }
+  &.next_page {
+    left: 0;
+  }
 }
