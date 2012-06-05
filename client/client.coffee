@@ -27,10 +27,21 @@ current_players = -> current_team().players() if current_team()
 future_games = -> current_team().future_games() if current_team()
 
 
+# Overlays are done in a more JQ way because otherwise I'll need to change a
+# class on the body, which would require re-drawing the whole page.. which would
+# be bad
+open_overlays = -> 
+  Session.set('show_overlays', true)
+  $('body').addClass('overlays_open')
+
+close_overlays = ->
+  Session.set('show_overlays', false)
+  $('body').removeClass('overlays_open')
+
 show_overlays = -> Session.equals('show_overlays', true)
 
 show_team_status = (team) ->
-  Session.set('show_overlays', true)
+  open_overlays()
   Session.set('team_status_team_id', team.id)
 team_status_team = ->
   data = Teams.findOne(Session.get 'team_status_team_id')
