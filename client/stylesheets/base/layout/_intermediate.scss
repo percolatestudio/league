@@ -19,14 +19,24 @@
         rgba(darken($orange, 30%), .1) 0 0 10px
       );
       /* for kerning */
-      visibility: hidden;
+/*       visibility: hidden; */
       -letter-kern: 3px 3px 0px 0px 0px 0;
     }
     >div{
       clear: both;
-      font-style: italic;
       color: darken(#66ccff, 10%);
       @include letterpress(#66ccff);
+      &.error{
+        width: 200px;
+        padding: 1.5em;
+        margin: .75em auto 1.5em;
+        @include box-sizing(border-box);
+        font-weight: bold;
+        @include border-radius(5px);
+        background: saturate($orange, 30%);
+        color: #fff;
+        @include letterpress(invert(white));
+      }
     }
     h1{
       font-size: 12em;
