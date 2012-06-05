@@ -4,19 +4,11 @@ class Transitioner
   @EVENTS = 'webkitTransitionEnd.transitioner oTransitionEnd.transitioner transitionEnd.transitioner msTransitionEnd.transitioner transitionend.transitioner'
   
   constructor: ->
-    @_current_page = 'loading'
-    @_contexts = {current: {}, next: {}}
+    Meteor.deps.add_reactive_variable(this, 'current_page', 'loading')
+    Meteor.deps.add_reactive_variable(this, 'next_page')
   
   init: ->
     @_read_current_page(true)
-  
-  current_page: ->
-    @_add_context('current')
-    @_current_page
-  
-  next_page: ->
-    @_add_context('next')
-    @_next_page
   
   _read_current_page: (first = false) ->
     ctx = new Meteor.deps.Context()
@@ -24,19 +16,17 @@ class Transitioner
     
     ctx.run =>
       if first
-        @_current_page = Router.current_page()
-        @_invalidate_contexts('current')
+        @set_current_page(Router.current_page())
       else
         @_transition_to(Router.current_page())
   
   _transition_to: (new_page) ->
     console.log "transitioning to #{new_page}"
     # TODO -- deal with transitioning during a transition
-    return if new_page == @_current_page
+    return if new_page == @current_page()
     
     # Load up the next page
-    @_next_page = new_page
-    @_invalidate_contexts('next')
+    @set_next_page(new_page)
     
     # Start the transition (need to wait until meteor + the browser has rendered...)
     Meteor.defer =>
@@ -53,20 +43,10 @@ class Transitioner
   
   _transition_end: ->
     console.log "transition end #{@_current_page} -> #{@_next_page}"
-    @_current_page = @_next_page
-    @_next_page = null
-    @_invalidate_contexts('current')
-    @_invalidate_contexts('next')
+    @set_current_page(@next_page())
+    @set_next_page(null)
     
     $('body').removeClass('transitioning')
-  
-  _add_context: (key) ->
-    ctx = Meteor.deps.Context.current
-    @_contexts[key][ctx.id] = ctx if ctx and not (ctx.id in @_contexts[key])
-  
-  _invalidate_contexts: (key) ->
-    context.invalidate() for id, context of @_contexts[key]
-    @_contexts[key] = {}
 
 Transitioner.instance = new Transitioner()
 Meteor.startup ->
