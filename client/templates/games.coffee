@@ -38,12 +38,12 @@ Template.game.attach_date_picker = ->
 Template.game.possible_hours = ->
   game: this
   name: 'hours'
-  options: ({text: "#{h}", value: h, selected: h == this.hours()} for h in [1..24])
+  options: ({text: "#{h}h", value: h, selected: h == this.hours()} for h in [1..24])
   
 Template.game.possible_minutes = ->
   game: this
   name: 'minutes'
-  options: ({text: "#{min}", value: min, selected: min == this.minutes()} for min in [0...60] when min % 5 == 0)
+  options: ({text: "#{min}m", value: min, selected: min == this.minutes()} for min in [0...60] when min % 5 == 0)
 
 Template.game.expanded = -> Session.equals("game.#{this.id}.expanded", true)
 
