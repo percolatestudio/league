@@ -61,23 +61,37 @@ del{ text-decoration: line-through;}
 
 html {
   @include skybg;
-  min-height: 100%;
 }
 body {
   color: #333;
-  height: 100%;
   @include stdtype;
   font-size: $font-size * 1px;
   line-height: $line  * 1px;
+  overflow: hidden;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.container {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+header{
+  height: 4.5em;
+  @include position(absolute, 0, 0, 0, 0, 100%, 4.5em);
+  padding-top: .75em;
+  @include box-sizing(border-box);
+  @include skybg;
 }
 
 article{
-  width: 100%;
   @include maskbg;
-  @include clearfix;
-  overflow: hidden;
-  position: relative;
+  @include position(absolute, 4.5em, 0, 0, 0);
   padding: 3em 0 9em;
+  overflow: auto;
 }
 
 h1{ @include h1(no);}

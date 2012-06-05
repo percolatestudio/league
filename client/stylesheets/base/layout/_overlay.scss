@@ -13,7 +13,7 @@
     .overlay{@include opacity(1);}
   }
 }
-
+/* Layout */
 #overlays{
   @include position(fixed, 0, 0, 0, 0);
   background: rgba($skyblue, .95);
@@ -24,7 +24,7 @@
     @include border-radius(5px);
     @include box-shadow(rgba(black, .1) 0 1px 3px 0);
     @include border(white);
-    margin: 10% auto;
+    margin: 6em auto 3em;
     position: relative;
     @include clearfix;
   }

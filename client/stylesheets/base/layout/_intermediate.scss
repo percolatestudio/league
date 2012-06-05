@@ -1,7 +1,10 @@
 .container {
   >.signin,
   >.not_authorized,
-  >.loading{
+  >.loading,
+  >.not_found{
+    @include position(absolute, auto, auto, auto, auto, 100%, 100%);
+    @include skybg;
     padding-top: 6em;
     overflow: hidden;
     text-align: center;
