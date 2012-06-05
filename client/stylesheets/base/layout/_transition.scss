@@ -3,7 +3,13 @@
   @include transition( all 500ms cubic-bezier(0.51, 0, 0.6, 1) 0ms);
 }
 
-$fadeout_pages: '.container.loading, .container.signin, .container.not_authorized .container.home';
+body:not(.transitioning) .next_page {
+  display: none;
+}
+
+$fadeout_pages: '.loading, .signin, .not_authorized .home';
+// I ..guess.. we could do this with a loop
+$to_fadeout_pages: '.to_loading, .to_signin, .to_not_authorized .to_home';
 
 
 // what the current page does:
@@ -31,6 +37,14 @@ $fadeout_pages: '.container.loading, .container.signin, .container.not_authorize
       @include transform( scale(2) );
     }
   }
+  
+  // transitioning to a fadeout page should just fade out
+  &#{$to_fadeout_pages} {
+    .current_page {
+      left: 0;
+      @include opacity(0);
+    }
+  }
 }
 
 // what the next page does:
@@ -47,13 +61,23 @@ $fadeout_pages: '.container.loading, .container.signin, .container.not_authorize
   left: -100%;
 }
 
-// unless it's transitioning from a fadeout page, in which case it fades in
 #{$fadeout_pages} {
+  // unless it's transitioning from a fadeout page, in which case it fades in
   & + .container.next_page {
     left: 0;
     opacity: 0;
     .transitioning & {
       opacity: 1;
+    }
+  }
+  // or if it is a fade out page coming from a not fade out page, in which case it... fades in
+  :not(&) + &.next_page {
+    left: 0;
+    opacity: 0;
+    @include transform( scale(2) );
+    .transitioning & {
+      opacity: 1;
+      @include transform( scale(1) );
     }
   }
 }
