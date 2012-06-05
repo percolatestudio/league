@@ -57,6 +57,7 @@
     }@else {
       color: lighten($color, 50%);
     }
+    @include opacity(.7);
     @include letterpress(desaturate($color, 30%));
     @include background( 
       linear-gradient(top, 

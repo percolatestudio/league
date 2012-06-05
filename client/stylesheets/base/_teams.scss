@@ -37,7 +37,7 @@
           @include border-radius(3px 3px 0 0);
           @include box-shadow(
             rgba(lighten($orange, 30%), .3) 0 -1px 0 0 inset,
-            rgba(black, .3) 0 2px 5px 0 
+            rgba(black, .2) 0 1px 3px 0 
           );
           @include background(linear-gradient(top, rgba(saturate($orange, 30%), 1), darken($orange, 10%) 100%));
         }
