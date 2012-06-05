@@ -3,7 +3,7 @@
   @include transition( all 500ms cubic-bezier(0.51, 0, 0.6, 1) 0ms);
 }
 
-$fadeout_pages: '.container.loading, .container.signin, .container.not_authorized';
+$fadeout_pages: '.container.loading, .container.signin, .container.not_authorized .container.home';
 
 
 // what the current page does:
@@ -12,6 +12,15 @@ $fadeout_pages: '.container.loading, .container.signin, .container.not_authorize
   .current_page {
     left: -100%;
     @include opacity(.2);
+  }
+  
+  // except for going to the leagues page from the roster/season pages
+  &.to_teams {
+    &.from_games, &.from_players {
+      .current_page {
+        left: 100%;
+      }
+    }
   }
   
   // fade out pages get big and transparent
@@ -32,6 +41,12 @@ $fadeout_pages: '.container.loading, .container.signin, .container.not_authorize
     left: 0;
   }
 }
+
+// and if the next page is the leagues page, it starts to the lhs
+.next_page.teams {
+  left: -100%;
+}
+
 // unless it's transitioning from a fadeout page, in which case it fades in
 #{$fadeout_pages} {
   & + .container.next_page {

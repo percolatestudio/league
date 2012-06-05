@@ -20,6 +20,9 @@ class Transitioner
       else
         @_transition_to(Router.current_page())
   
+  _transition_classes:  ->
+    "transitioning from_#{@current_page()} to_#{@next_page()}"
+  
   _transition_to: (new_page) ->
     console.log "transitioning to #{new_page}"
     # TODO -- deal with transitioning during a transition
@@ -32,7 +35,7 @@ class Transitioner
     Meteor.defer =>
       # we want to wait until the TE event has fired for both containers
       halfway = false
-      $('body').addClass('transitioning')
+      $('body').addClass(@_transition_classes())
         .on Transitioner.EVENTS, (e) => 
           if ($(e.target).is('.current_page,.next_page'))
             if halfway
@@ -42,11 +45,12 @@ class Transitioner
               halfway = true
   
   _transition_end: ->
+    classes = @_transition_classes()
     console.log "transition end #{@_current_page} -> #{@_next_page}"
     @set_current_page(@next_page())
     @set_next_page(null)
     
-    $('body').removeClass('transitioning')
+    $('body').removeClass(classes)
 
 Transitioner.instance = new Transitioner()
 Meteor.startup ->
