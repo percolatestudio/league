@@ -6,7 +6,9 @@
       {{/each}}
     </select>
     <a class="btn secondary">
-      <span class="icon16 {{icon}}"></span> 
+      {{#if icon}}
+        <span class="icon16 {{icon}}"></span> 
+      {{/if}}
       <span class="selected_text">{{selected_text}} </span>
       <span class="icon12 arrows"></span>
     </a>

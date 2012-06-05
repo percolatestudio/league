@@ -11,15 +11,15 @@
     moz-appearance:none;
     z-index: 1;
   }
-  >a.selected_text{
+  >a{
     width: 100%;
     font-weight: bold;
-    .player{
+    >span:first-of-type.icon16{
       margin-left: -.5em;
       float: left;
     }
-    .arrows{
-      margin-right: -.5em;
+    >span:last-of-type{
+      margin-right: -.75em;
       float: right;
     }
   }
