@@ -13,7 +13,11 @@ Template.screens.events =
     url = $(event.target).closest('a').attr('href').replace(/#.*$/, '')
     if url != '' and url != document.location.href
       Router.navigate(url, {trigger: true})
-    
+  
+  'keyup .team_builder [name=name]': (event) ->
+    disabled = ($(event.target).val() == '')
+    $(event.target).closest('form').find('[type=submit]').attr('disabled', disabled)
+  
   'submit .team_builder': (event) -> 
     event.preventDefault()
     
