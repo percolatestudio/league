@@ -25,7 +25,10 @@ class Transitioner
   
   _transition_to: (new_page) ->
     console.log "transitioning to #{new_page}"
-    # TODO -- deal with transitioning during a transition
+    
+    if ($('body').hasClass('transitioning')) # better kill the current transition
+      @_transition_end()
+    
     return if new_page == @current_page()
     
     # Load up the next page
@@ -39,14 +42,14 @@ class Transitioner
         .on Transitioner.EVENTS, (e) => 
           if ($(e.target).is('.current_page,.next_page'))
             if halfway
-              $('body').off('.transitioner')
               @_transition_end()
             else
               halfway = true
   
   _transition_end: ->
+    $('body').off('.transitioner')
     classes = @_transition_classes()
-    console.log "transition end #{@_current_page} -> #{@_next_page}"
+    console.log "transition end #{classes}"
     @set_current_page(@next_page())
     @set_next_page(null)
     
