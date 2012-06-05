@@ -10,6 +10,8 @@ Template.upcoming_games.events =
     new_game = current_team().create_next_game()
     console.log "Game invalid: #{new_game.full_errors()}" unless new_game.valid()
     
+Template.next_game.location_or_game_number = ->
+  this.attributes.location || "Game #{this.game_number}"
 
 Template.next_game.player_availabilities = Template.game.player_availabilities = -> 
   for p in this.players()
@@ -19,6 +21,8 @@ Template.next_game.player_availabilities = Template.game.player_availabilities =
     availability
 
 Template.game.month = -> this.moment.format('MMM')
+
+  
 
 Template.game.date_format = 'MM d, yy'
 Template.game.date_for_input = -> this.formatted_date()

@@ -29,14 +29,21 @@ class Game extends Model
     @moment = m
     @attributes.date = @moment.valueOf()
   
-  day: -> 
+  qualified_day: -> 
     days_away = @moment.diff(moment(), 'days')
     if days_away == 0
       'Today'
     else if days_away == 1
       'Tomorrow'
-    else
-      moment.weekdays[@moment.day()]
+    else 
+      day = moment.weekdays[@moment.day()]
+      if days_away <= 7
+        "This #{day}"
+      else if days_away <= 14
+        "Next #{day}"
+      else
+        day
+  
   time: -> @moment.format('h:mm a')
   
   date: -> @moment.date()
@@ -122,3 +129,6 @@ class Game extends Model
   # this is the number of players we are going to need to get from outside
   player_deficit: ->
     @team().attributes.players_required - (@players().length - @availability_count(2))
+  
+  game_number: ->
+    @team().games({date: {$lt: @attributes.date}}).count() + 1
