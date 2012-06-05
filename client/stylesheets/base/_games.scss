@@ -1,6 +1,37 @@
 .container.games{
   .games{
+    $seasonbg: #ffffaa;
     /* Positioning */
+    .no_games > div{
+      text-align: center;
+      form{
+        position: relative;
+        z-index: 1;
+        width: 300px;
+        margin: 0 auto .75em;
+        @include maskbg($seasonbg);
+        @include box-sizing(border-box);
+        @include border($seasonbg);
+        @include box-shadow(rgba(black, .3) 0 2px 5px 0);
+        padding: 1.5em;
+        &:before, &:after{
+          content: '';
+          display: block;
+          @include position(absolute, 0, auto, auto, 0, 100%, 100%);
+          @include maskbg($seasonbg);
+          @include border($seasonbg);
+          @include box-shadow(rgba(black, .2) 0 1px 3px 0);
+        }
+        &:before{
+          @include transform(rotate(1deg));
+          z-index: -1;
+        }
+        &:after{
+          @include transform(translate(1px, 3px));
+          z-index: -1;
+        }
+      }
+    }
     .next_game, .upcoming_games{
       width: 80%;
       margin: 0 auto;
@@ -42,29 +73,20 @@
       position: relative;
       overflow: visible;
       @include clearfix;
-      .view_more{
-        text-transform: uppercase;
-        font-weight: bold;
-        padding-bottom: 1.5em;
-        display:inline-block;
-        letter-spacing: .1em;
-        @include inset(#ccc);
-      }
       .season{
         position: relative;
         z-index: 1;
-        $maskbg: #ffffaa;
-        @include maskbg($maskbg);
+        @include maskbg($seasonbg);
         @include box-sizing(border-box);
-        @include border($maskbg);
+        @include border($seasonbg);
         @include box-shadow(rgba(black, .3) 0 2px 5px 0);
         padding: 3em;
         &:before, &:after{
           content: '';
           display: block;
           @include position(absolute, 0, auto, auto, 0, 100%, 100%);
-          @include maskbg($maskbg);
-          @include border($maskbg);
+          @include maskbg($seasonbg);
+          @include border($seasonbg);
           @include box-shadow(rgba(black, .2) 0 1px 3px 0);
         }
         &:before{
@@ -109,6 +131,46 @@
         background: url(/images/text_img_next_game_99x20.png) no-repeat center $color;
       }
     }
+    .no_games > div > form{
+      text-align: center;
+      h3{
+        @include h2(yes);
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+      .chrono{
+        margin-bottom: .75em;
+        border: 1px solid #999;
+        label{
+          width: 40%;
+          float: none;
+        }
+        hr{
+          border-color: none none #999 none;
+          border-width: 0 0 1px 0;
+          border-style: none none solid none;
+          margin: 0;
+        }
+        span{
+          @include global_btn;
+          background: #eee;
+          @include border-radius(1.5em);
+        }
+        input{
+          display: none;
+        }
+      }
+      .days{
+        overflow: hidden;
+        margin-bottom: .75em;
+        input, label{float:none;}
+        label{margin-right: .5em;}
+      }
+      .select{
+        margin-bottom: .75em;
+      }
+      button{float: none;}
+    }
     .next_game{
       #logo{
         display: inline-block;
@@ -138,6 +200,14 @@
     }
     .upcoming_games{
       text-align: center;
+      .view_more{
+        text-transform: uppercase;
+        font-weight: bold;
+        padding-bottom: 1.5em;
+        display:inline-block;
+        letter-spacing: .1em;
+        @include inset(#ccc);
+      }
       h2{
         font-weight: bold;
         text-transform: uppercase;
