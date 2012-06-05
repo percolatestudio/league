@@ -8,8 +8,9 @@ Template.team_status.unauthorized_players = -> this.players({authorized: undefin
 Template.team_status.events =
   'click .player': ->
     team = team_status_team()
-    message = "#{current_user().attributes.name} has invited you to their new league team: #{team.name}"
-    link = to_url(games_path(team))
+    message = "#{current_user().attributes.name} has invited you to their new league team: #{team.attributes.name}"
+    # link = to_url(games_path(team))
+    link = 'http://getleague.com/'
     
     this.send_facebook_message(message, link)
     

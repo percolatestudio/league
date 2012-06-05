@@ -1,5 +1,6 @@
 Players = new Meteor.Collection 'players'
-# { name: "Tom Coleman", email: "tom@thesnail.org", facebook_id: 'xxx', team_ids: [..], authorized: true}
+# { name: "Tom Coleman", email: "tom@thesnail.org", facebook_id: 'xxx', team_ids: [..], 
+#   authorized: true, messaged: true}
 
 class Player extends Model
   @_collection: Players
@@ -42,5 +43,7 @@ class Player extends Model
       to: @attributes.facebook_id
       message: message
       link: link
-    FB.ui data, callback
+    FB.ui data, =>
+      this.update_attribute('messaged', true)
+      callback() if callback
   
