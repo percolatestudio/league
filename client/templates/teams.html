@@ -51,8 +51,13 @@
       </ul>
     </div>
     <a class="team_status inset">test</a>
-    {{#if unauthed_player_count}}
-      <small><a class="team_status inset">{{pluralize "player" unauthed_player_count}} yet to sign up</a></small>
-    {{/if}}
+    <div class="status_alert">
+      {{#if alone_in_team}}
+        <small><a class="{{ players_path this }} inset">Your team is empty</a></small>
+      {{/if}}
+      {{#if unauthed_player_count}}
+        <small><a class="team_status inset">{{pluralize "player" unauthed_player_count}} yet to sign up</a></small>
+      {{/if}}
+    </div>
   </li>
 </template>
