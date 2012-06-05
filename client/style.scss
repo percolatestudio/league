@@ -104,7 +104,7 @@ a, button {
     &.twitter{@include onset($twhex);}
     &.google{@include onset($gohex);}
     &.back, &.secondary{
-      @include onset(#eee);
+      @include onset(#ccc);
     }
     &.back:before{content: '\2190';}
     &.fwd:after{content: '\2192';}
