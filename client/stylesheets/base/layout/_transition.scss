@@ -4,7 +4,7 @@
 }
 
 body:not(.transitioning) .next_page {
-  display: none;
+  z-index: -1;
 }
 
 $fadeout_pages: '.loading, .signin, .not_authorized .home';
@@ -62,22 +62,24 @@ $to_fadeout_pages: '.to_loading, .to_signin, .to_not_authorized .to_home';
 }
 
 #{$fadeout_pages} {
-  // unless it's transitioning from a fadeout page, in which case it fades in
-  & + .container.next_page {
-    left: 0;
-    opacity: 0;
-    .transitioning & {
-      opacity: 1;
-    }
-  }
-  // or if it is a fade out page coming from a not fade out page, in which case it... fades in
-  :not(&) + &.next_page {
+  // if a fade out page comes in, it zooms in
+  &.next_page {
     left: 0;
     opacity: 0;
     @include transform( scale(2) );
     .transitioning & {
       opacity: 1;
       @include transform( scale(1) );
+    }
+  }
+
+  // unless it's anything transitioning from a fadeout page, in which case it fades in without scale
+  & + .container.next_page {
+    left: 0;
+    opacity: 0;
+    @include transform( scale(1) );
+    .transitioning & {
+      opacity: 1;
     }
   }
 }
