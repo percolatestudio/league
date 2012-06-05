@@ -1,5 +1,9 @@
 (function( $ ){
   $(".dropdown").live("click", function() {
-    $(this).closest('.dropmenu').toggleClass('current');
+    $(this).stop().closest('.dropmenu').toggleClass('current');
+    event.stopPropagation();
   });
+  $('html').live("click", function() {
+		$('.dropmenu').removeClass('current');
+	});
 })(jQuery);
