@@ -167,6 +167,7 @@
           font-weight: bold;
           color: #555;
           position: relative;
+          text-align: center;
           >span{display: block;}
           .month{
             @include h2;

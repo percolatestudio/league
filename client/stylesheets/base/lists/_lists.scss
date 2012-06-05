@@ -44,6 +44,7 @@
       border: $player_border_width solid white;
       @include box-shadow(rgba(black, .3) 0 2px 5px 0);
       position: relative;
+      @include transition(all 300ms ease-out);
       img{
         min-width: $image_dimension;
         width: $image_dimension;

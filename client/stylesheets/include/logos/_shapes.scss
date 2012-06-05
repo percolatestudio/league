@@ -5,7 +5,7 @@
   /*real dimensions*/
   $shielddeg: 10px;
   $rwidth: $width - 2*10px;
-  $rheight: $height - $height/5;
+  $rheight: floor($height - $height/5);
   color: $color;
   background: transparent !important;
   &:before {
