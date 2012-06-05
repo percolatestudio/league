@@ -1,4 +1,9 @@
 /* Transition */
+body.overlays_open{
+  .container{
+    @include transform( scale(.7) );
+  }
+}
 #overlays{
   @include transition( all 500ms cubic-bezier(0.51, 0, 0.6, 1) 0ms);
   .overlay{@include transition( all 500ms ease-in 300ms);}
