@@ -22,7 +22,6 @@ $experimental-support-for-svg: true;
 @import 'stylesheets/include/lists/lists';
 @import 'stylesheets/include/forms/stdform';
 @import 'stylesheets/include/forms/too_long';
-@import 'stylesheets/include/forms';
 
 @import 'stylesheets/base/layout/transition';
 @import 'stylesheets/base/layout/intermediate';
@@ -32,6 +31,7 @@ $experimental-support-for-svg: true;
 @import 'stylesheets/base/lists/dropmenu';
 @import 'stylesheets/base/lists/select';
 @import 'stylesheets/base/alerts/alerts';
+@import 'stylesheets/base/forms/forms';
 
 @import 'stylesheets/base/auth';
 @import 'stylesheets/base/games';
