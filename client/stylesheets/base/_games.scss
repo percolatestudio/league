@@ -20,7 +20,7 @@
   .games{
     $seasonbg: #ffffaa;
     /* Positioning */
-    .no_games > div{
+    .no_games{
       text-align: center;
       form{
         position: relative;
@@ -149,8 +149,7 @@
         background: url(/images/text_img_next_game_99x20.png) no-repeat center $color;
       }
     }
-    .no_games > div > form{
-      text-align: center;
+    .no_games form{
       h3{
         @include h2(yes);
         font-weight: bold;
@@ -177,15 +176,6 @@
         input{
           display: none;
         }
-      }
-      .days{
-        overflow: hidden;
-        margin-bottom: .75em;
-        input, label{float:none;}
-        label{margin-right: .5em;}
-      }
-      .select{
-        margin-bottom: .75em;
       }
       button{float: none;}
     }

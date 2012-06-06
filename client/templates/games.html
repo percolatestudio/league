@@ -14,60 +14,20 @@
           {{> upcoming_games }}
         {{else}}
           <div class="no_games">
-            <div class="game_builder">
-              <form>
-                <h3>Make game</h3>
-                <div class="chrono">
-                  <label for="date">Starts:</label>
-                  <span id="date">Today</span>
-                  <input id="date" name="date"/>
-                  <hr>
-                  <label for="time">Game time:</label>
-                  <span id="time">Now</span>
-                  <input id="date" name="time"/>
-                </div>
-                <button type="submit" class="btn default"  disabled="true">Make</button>
-              </form>
-              <a class="season_toggle inset">Want to plan a season?</a>
-            </div>
-            <div class="season_builder">
-              <form>
-                <h3>Plan season</h3>
-                <div class="days">
-                  <input type="checkbox" id="monday" value="monday" /><label for="monday">Mo</label>
-                  <input type="checkbox" id="tuesday" value="tuesday" /><label for="tuesday">Tu</label>
-                  <input type="checkbox" id="wednesday" value="wednesday" /><label for="wednesday">We</label>
-                  <input type="checkbox" id="thursday" value="thursday" /><label for="thursday">Th</label>
-                  <br>
-                  <input type="checkbox" id="friday" value="friday" /><label for="friday">Fr</label>
-                  <input type="checkbox" id="saturday" value="saturday" /><label for="saturday">Sa</label>
-                  <input type="checkbox" id="sunday" value="sunday" /><label for="sunday">Su</label>
-                </div>
-                <div class="select">
-                  <select name="">
-                    <option selected value="1">1</option>
-                    <option selected value="2">2</option>
-                    <option selected value="3">3</option>
-                    <option selected value="4">4</option>
-                  </select>
-                  <a class="btn secondary">
-                    <span class="selected_text">14 Games</span>
-                    <span class="icon12 arrows"></span>
-                  </a>
-                </div>
-                <div class="chrono">
-                  <label for="date">Starts:</label>
-                  <span id="date">Today</span>
-                  <input id="date" name="date"/>
-                  <hr>
-                  <label for="time">Game time:</label>
-                  <span id="time">Now</span>
-                  <input id="date" name="time"/>
-                </div>
-                <button type="submit" class="btn default"  disabled="true">Create</button>
-              </form>
-              <a class="games_toggle inset">Make a game instead?</a>
-            </div>
+            <form class="game_builder">
+              <h3>Make game</h3>
+              <div class="chrono">
+                <label for="date">Starts:</label>
+                <span id="date">Today</span>
+                <input id="date" name="date"/>
+                <hr>
+                <label for="time">Game time:</label>
+                <span id="time">Now</span>
+                <input id="date" name="time"/>
+              </div>
+              
+              <button type="submit" class="btn default"  disabled="true">Make</button>
+            </form>
           </div>
         {{/if}}
       </article>
