@@ -1,17 +1,24 @@
 <template name="auth">
-  <div class="signin">
-    <p>LEAGUE</p>
-    <div>Organize your grown up sports</div>
+  <div class="signin {{#if_with team_from_season_ticket}} email_ticket {{/if_with}}">
+    <h2 class="logotype">LEAGUE</h2>
+    <h1 class="tagline">Organize your grown up sports</h1>
     {{#if logged_in }}
       <button class="logout default btn inverse">Logout</button>
     {{else}}
       {{prepare_team_from_season_ticket}}
       {{#if_with team_from_season_ticket}}
-        <h2>Welcome to League!</h2>
-        {{{logo this}}}
-        <p>We just need you to signin with Facebook and you get started with {{team_name}}</p>
+        <div class="season_ticket">        
+          <div class="team_logo">
+            {{{logo this size="small" without_links=true}}}
+          </div>
+          <h2>Join team</h2>
+          <p class="get_started">Signin with Facebook to join <strong>The Lions{{team_name}}</strong></p>
+          <div class="login_wrapper">
+            <button class="login icon16 facebook btn inverse" title="Login with Facebook">Login</button>
+          </div>
+          <p class="pitch">League is the game organizer for casual sports teams. Focus on playing, not logistics.</p>
+        </div>
       {{/if_with}}
-      
       <button class="login icon16 facebook btn inverse" title="Login with Facebook">Login</button>
     {{/if}}
   </div>
@@ -31,7 +38,7 @@
 
 <template name="not_found">
   <div class="not_found">
-    <p>LEAGUE</p>
+    <h2 class="logotype">LEAGUE</h2>
     <div class="error">Ain't nothing here!</div>
     <a href="/" class="icon16 home inset"><strong>Return home</strong></a>
   </div>
