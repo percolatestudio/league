@@ -191,10 +191,18 @@
         @include emtype;
       }
       .game_date{
+        position: relative;
         @include h1(yes);
         margin-top: $line * 1px;
         strong{
           color: saturate(darken($orange, 10%), 30%);
+        }
+        // overrides for this date_chooser (general date chooser is below)
+        .date_chooser {
+          font-size: 16px;
+          line-height: 1.5;
+          left: 50%;
+          margin-left: -5em;
         }
       }
     }
@@ -251,91 +259,6 @@
             font-weight: normal;
             @include small;
             color: #999;
-          }
-          .date_chooser{
-            @include position(absolute, 100%, auto, auto, 0, 16em, auto);
-            margin-top: 1em;
-            margin-left: -.75em;
-            @include box-sizing(border-box);
-            padding:.75em;
-            @include border-radius(3px);
-            @include maskbg(#f9f9f9);
-            border: 1px solid #999;
-            outline: none;
-            z-index: 2;
-            &:before{
-              content: '';
-              @include css_arrow(up, #999, 1em, -2em, 1em);
-            }
-            label[for=date]{
-              overflow: hidden;
-              text-indent: -999em;
-              display: inline-block;
-              float: none;
-              @include position(absolute, auto, auto, auto, auto, 0, 0);
-            }
-            .ui-datepicker-header{
-              text-align: center;
-              margin: $font-size * -.75px $font-size * -.75px $font-size * .75px;
-              padding: .5em 0;
-              color: white;
-              @include letterpress(invert(white));
-              @include border(rgba(saturate($orange, 30%), 1));
-              @include border-radius(3px 3px 0 0);
-              @include box-shadow(
-                rgba(lighten($orange, 30%), .3) 0 -1px 0 0 inset,
-                rgba(black, .2) 0 1px 3px 0 
-              );
-              @include background(linear-gradient(top, rgba(saturate($orange, 30%), 1), darken($orange, 10%) 100%));
-              .ui-datepicker-title{
-                display: inline-block;
-                font-weight: bold;
-              }
-              .ui-datepicker-prev, .ui-datepicker-next{
-                overflow: hidden;
-                @include inset;
-                span{
-                  text-indent: -999em;
-                  display: inline-block;
-                }
-              }
-              .ui-datepicker-prev{
-                @include position(absolute, auto, auto, auto, .75em);
-                &:before{content: '\25C4'}
-              }
-              .ui-datepicker-next{
-                @include position(absolute, auto, .75em, auto, auto);
-                &:before{content: '\25BA'}
-              }
-            }
-            table.ui-datepicker-calendar{
-              display: block;
-              margin: 0 auto;
-              thead tr th{font-weight: bold;}
-              th,td{
-                display: inline-block;
-                text-align: center;
-                width: 2em;
-              }
-            }
-            .time_selects{
-              padding: .75em 0;
-              overflow: hidden;
-              >* {
-                width: 32%;
-                float: left;
-                margin-right: .25em;
-                font-size: $small * 1px;
-              }
-              label{
-                @include global_btn;
-              }
-              .select{
-              }
-            }
-            button.close{
-              float: right;
-            }
           }
         }
         .meta{
@@ -468,5 +391,94 @@
         }
       }
     }
+    
+    // date chooser
+    .date_chooser{
+      @include position(absolute, 100%, auto, auto, 0, 16em, auto);
+      z-index: 5;
+      margin-top: 1em;
+      margin-left: -.75em;
+      @include box-sizing(border-box);
+      padding:.75em;
+      @include border-radius(3px);
+      @include maskbg(#f9f9f9);
+      border: 1px solid #999;
+      outline: none;
+      z-index: 2;
+      &:before{
+        content: '';
+        @include css_arrow(up, #999, 1em, -2em, 1em);
+      }
+      label[for=date]{
+        overflow: hidden;
+        text-indent: -999em;
+        display: inline-block;
+        float: none;
+        @include position(absolute, auto, auto, auto, auto, 0, 0);
+      }
+      .ui-datepicker-header{
+        text-align: center;
+        margin: $font-size * -.75px $font-size * -.75px $font-size * .75px;
+        padding: .5em 0;
+        color: white;
+        @include letterpress(invert(white));
+        @include border(rgba(saturate($orange, 30%), 1));
+        @include border-radius(3px 3px 0 0);
+        @include box-shadow(
+          rgba(lighten($orange, 30%), .3) 0 -1px 0 0 inset,
+          rgba(black, .2) 0 1px 3px 0 
+        );
+        @include background(linear-gradient(top, rgba(saturate($orange, 30%), 1), darken($orange, 10%) 100%));
+        .ui-datepicker-title{
+          display: inline-block;
+          font-weight: bold;
+        }
+        .ui-datepicker-prev, .ui-datepicker-next{
+          overflow: hidden;
+          @include inset;
+          span{
+            text-indent: -999em;
+            display: inline-block;
+          }
+        }
+        .ui-datepicker-prev{
+          @include position(absolute, auto, auto, auto, .75em);
+          &:before{content: '\25C4'}
+        }
+        .ui-datepicker-next{
+          @include position(absolute, auto, .75em, auto, auto);
+          &:before{content: '\25BA'}
+        }
+      }
+      table.ui-datepicker-calendar{
+        display: block;
+        margin: 0 auto;
+        thead tr th{font-weight: bold;}
+        th,td{
+          display: inline-block;
+          text-align: center;
+          width: 2em;
+        }
+      }
+      .time_selects{
+        padding: .75em 0;
+        overflow: hidden;
+        >* {
+          width: 32%;
+          float: left;
+          margin-right: .25em;
+          font-size: $small * 1px;
+        }
+        label{
+          @include global_btn;
+        }
+        .select{
+        }
+      }
+      button.close{
+        float: right;
+      }
+    }
   }
 }
+

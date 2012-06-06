@@ -131,4 +131,4 @@ class Game extends Model
     @team().attributes.players_required - (@players().length - @availability_count(2))
   
   game_number: ->
-    @team().games({date: {$lt: @attributes.date}}).count() + 1
+    @team().games({date: {$lt: @attributes.date}}).length + 1
