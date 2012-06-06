@@ -80,8 +80,8 @@
       );
     }
     .login{
-      text-transform: uppercase;
-      @include position(absolute, 1.5em, 1.5em, auto, auto);      
+      @include position(absolute, 1.5em, 1.5em, auto, auto);
+      font-weight: bold;
     }
     form.team_builder{
       text-align: center;
@@ -89,8 +89,8 @@
       position: relative;
       >*{
         display: inline-block;
-        margin-left: 10px;
-        margin-right: 10px;
+        margin-left: 5px;
+        margin-right: 5px;
         vertical-align: top;
         float: none;
       }
