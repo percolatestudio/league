@@ -25,9 +25,9 @@
 }
 @mixin seclink{
   @include letterpress($orange);
-  color: $orange;
+  color: darken($orange, 10%);
   &:hover {color: $orange;}
-  &:active {color: $orange;}
+  &:active {color: darken($orange, 30%);}
   &[disabled], &.disabled{
     color: #666;
     @include opacity(.5);
