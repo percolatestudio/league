@@ -7,6 +7,7 @@ class Team extends Model
   constructor: (attrs) ->
     super(attrs)
     @attributes.player_ids ||= []
+    @attributes.players_required ||= 5
     @prepare_logo()
   
   valid: ->
