@@ -7,7 +7,6 @@ class Team extends Model
   constructor: (attrs) ->
     super(attrs)
     @attributes.player_ids ||= []
-    @attributes.players_required ||= 5
     @prepare_logo()
   
   valid: ->
@@ -16,9 +15,6 @@ class Team extends Model
     # Obviously we'd prefer rails style class-level validators
     unless @attributes.name? and @attributes.name != ''
       @errors.name = 'must not be empty'
-    
-    unless @attributes.players_required? and parseInt(@attributes.players_required) > 0
-      @errors.players_required = 'must be a positive number'
     
     # this is a bit of a hack. Players will be totally empty (and not include current_user) 
     # if it hasn't loaded yet. This is a work around for now..

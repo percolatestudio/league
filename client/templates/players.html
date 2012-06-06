@@ -9,7 +9,7 @@
       <article>
         <div id="lineup">
           <div class="proceed">
-            <a class="start_season btn fwd">
+            <a href="{{games_path}}" class="start_season btn fwd" {{#if cant_continue}}disabled="true"{{/if}}>
               {{#if attributes.started}}
                 Continue Season
               {{else}}

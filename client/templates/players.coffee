@@ -12,6 +12,8 @@ grab_facebook_friends = ->
     Session.set 'facebook_friends', all_friends
   
 Template.players.team = -> current_team()
+Template.players.games_path = -> games_path(this)
+Template.players.cant_continue = -> not current_team().attributes.players_required
 
 Template.players.players = -> 
   current_players()
@@ -49,4 +51,9 @@ Template.add_player.events =
     team.add_player(this)
 
 Template.players.players_required_data = -> 
-  players_required_data(current_team().attributes.players_required)
+  required = parseInt(current_team().attributes.players_required)
+  {
+    icon: 'player'
+    name: 'players_required',
+    options: ({text: "#{i} players", value: i, selected: i == required} for i in [3..18])
+  }
