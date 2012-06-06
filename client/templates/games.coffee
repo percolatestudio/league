@@ -47,7 +47,6 @@ Template.upcoming_games.events =
   'click .create_game': (event) -> 
     event.preventDefault();
     new_game = current_team().create_next_game()
-    console.log "Game invalid: #{new_game.full_errors()}" unless new_game.valid()
     
 Template.next_game.location_or_game_number = ->
   this.attributes.location || "Game #{this.game_number()}"
@@ -114,6 +113,4 @@ Template.player_availability.unconfirmed = ->
 
 Template.player_availability.events =
   'click li.player': ->
-    console.log this
-    console.log this.availability
     this.availability.game.toggle_availability(this)
