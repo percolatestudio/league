@@ -462,6 +462,10 @@
           text-align: center;
           width: 2em;
         }
+        .ui-state-active {
+          // FIXME!
+          background: red;
+        }
       }
       .time_selects{
         padding: .75em 0;

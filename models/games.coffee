@@ -11,6 +11,8 @@ class Game extends Model
   constructor: (attrs) -> 
     super(attrs)
     @attributes.availabilities ||= {}
+    # sensible default date
+    @attributes.date ||= moment().minutes(0).add('hours', 3).valueOf()
     @moment = moment(@attributes.date)
   
   valid: ->
@@ -60,15 +62,15 @@ class Game extends Model
     @moment.year(date.year())
     @moment.month(date.month())
     @moment.date(date.date())
-    @save_moment()
+    @save_moment() if @persisted()
   
   set_hours: (h) ->
     @moment.hours(h)
-    @save_moment()
+    @save_moment() if @persisted()
   
   set_minutes: (h) ->
     @moment.minutes(h)
-    @save_moment()
+    @save_moment() if @persisted()
   
   clone_one_week_later: ->
     new Game(

@@ -34,10 +34,16 @@ Template.games.make_team_updates = ->
 
 Template.games.team = -> current_team()
 Template.games.next_game = Template.next_game.next_game = -> future_games()[0]
+
+
+Template.no_games.new_game = -> new Game({team_id: this.id})
+Template.no_games.events = _.extend Template.games.editable_game_events,
+  'click .make': -> this.save_moment()
+
 Template.upcoming_games.upcoming_games = -> 
   future_games()[1..]
 
-Template.upcoming_games.events =
+Template.upcoming_games.events = 
   'click .create_game': (event) -> 
     event.preventDefault();
     new_game = current_team().create_next_game()
@@ -75,11 +81,11 @@ Template.game.events = _.extend Template.games.editable_game_events,
 
 Template.date_chooser.date_format = 'MM d, yy'
 Template.date_chooser.date_for_input = -> this.formatted_date()
-Template.date_chooser.date_field_id = -> "game-#{this.id}-datepicker"
+Template.date_chooser.date_field_id = -> "game-#{this.id || 'new'}-datepicker"
 Template.date_chooser.attach_date_picker = ->
   Meteor.defer =>
     game = this
-    $("\#game-#{this.id}-datepicker")
+    $('#' + Template.date_chooser.date_field_id.call(game))
       .datepicker
         dateFormat: Template.date_chooser.date_format
         minDate: new Date()

@@ -13,28 +13,26 @@
           {{> next_game }}
           {{> upcoming_games }}
         {{else}}
-          <div class="no_games">
-            <form class="game_builder">
-              <h3>Make game</h3>
-              <div class="chrono">
-                <label for="date">Starts:</label>
-                <span id="date">Today</span>
-                <input id="date" name="date"/>
-                <hr>
-                <label for="time">Game time:</label>
-                <span id="time">Now</span>
-                <input id="date" name="time"/>
-              </div>
-              
-              <button type="submit" class="btn default"  disabled="true">Make</button>
-            </form>
-          </div>
+          {{> no_games}}
         {{/if}}
       </article>
       
     {{/with}}{{else}}
       {{> not_found}}
     {{/if}}
+  </div>
+</template>
+
+<template name="no_games">
+  <div class="no_games">
+    <form class="game_builder">
+      <h3>Make game</h3>
+      {{#with new_game}}
+        {{> date_chooser}}
+        <!-- FIXME: Location? -->
+        <button type="submit" class="btn default make">Make</button>
+      {{/with}}
+    </form>
   </div>
 </template>
 
