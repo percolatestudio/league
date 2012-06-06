@@ -33,8 +33,12 @@ class Model
     this
   
   update_attributes: (attrs = {}) ->
-    @attributes[key] = value for key, value of attrs
-    @save()
+    changed = false
+    for key, value of attrs
+      old_value = @attributes[key]
+      @attributes[key] = value 
+      changed ||= old_value != value
+    @save() if changed
   
   update_attribute: (key, value) ->
     attrs = {}

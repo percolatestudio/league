@@ -24,7 +24,13 @@ Template.games.events =
     # unless the click is inside an editable
     unless $(event.target).is('.editable') or $(event.target).closest('.editable').length
       close_current_edit_field()
-    
+
+# update the team as started and the set the current_user's playing state if appropriate
+Template.games.make_team_updates = ->
+  current_team().update_attribute('started', true)
+  if match = /(playing|not_playing|unconfirmed)-(.*)/.exec(document.location.hash)
+    if game = current_team().games(match[2])[0]
+      game[match[1]](current_user())
 
 Template.games.team = -> current_team()
 Template.games.next_game = Template.next_game.next_game = -> future_games()[0]

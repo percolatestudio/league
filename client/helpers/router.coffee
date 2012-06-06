@@ -91,9 +91,6 @@ LeagueRouter = AuthenticatedRouter.extend
     Session.set 'team_id', team_id
     @goto('games')
     
-      # # FIXME: how can we guarantee that the team has loaded properly when we get here?
-      # current_team().update_attribute('started', true)
-    
   # force a login window to open up, sending us to sign_in if not
   # require_login: (callback) -> null
   #   console.log 'requiring login'

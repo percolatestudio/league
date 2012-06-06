@@ -93,17 +93,14 @@ class Game extends Model
     @attributes.availabilities[player.id] %= 3
     @save()
   
-  playing: (player) -> 
-    @attributes.availabilities[player.id] = 1
-    @save()
-    
-  not_playing: (player) -> 
-    @attributes.availabilities[player.id] = 2
-    @save()
-    
-  unconfirmed: (player) -> 
-    @attributes.availabilities[player.id] = 0
-    @save()
+  set_availiablity: (player, state) ->
+    old_state = @attributes.availabilities[player.id]
+    @attributes.availabilities[player.id] = state
+    @save() unless state == old_state
+  
+  playing: (player) -> @set_availiablity(player, 1)
+  not_playing: (player) -> @set_availiablity(player, 2)
+  unconfirmed: (player) -> @set_availiablity(player, 0)
   
   #  Various methods to calculate if we have enough players
   team: -> new Team(Teams.findOne(@attributes.team_id))
