@@ -1,17 +1,11 @@
-# Published collections
-Meteor.publish 'users', (user_id) ->
-  console.log "connecting as #{user_id}"
-  this.set('users', user_id, Players.findOne(user_id))
-  this.flush()
-
 Meteor.publish 'teams', (player_id) -> 
   console.log "getting teams for #{player_id}"
   Teams.find({player_ids: player_id})
 
 # all players for a set of team_ids (the teams of the current player)
-Meteor.publish 'players', (team_ids) -> 
-  console.log "getting players for #{team_ids}"
-  Players.find({team_ids: {$in: team_ids}})
+Meteor.publish 'players', (team_ids, player_id) -> 
+  console.log "getting players for #{player_id} | #{team_ids}"
+  Players.find({$or: [{team_ids: {$in: team_ids}}, {_id: player_id}]})
 
 # all games in a set of team_ids (the teams of the current player)
 Meteor.publish 'games', (team_ids) -> 
@@ -23,9 +17,9 @@ Meteor.methods
   'login': (facebook_id) ->
     console.log "logging in user with FB ID: #{facebook_id}"
     player = Players.findOne facebook_id: facebook_id
-    Players.update player._id, {$set: {authorized: true}} unless player.attributes.authorized
-    
+    Players.update player._id, {$set: {authorized: true}} unless player.authorized?
     player
+    
   'create': (attributes) ->
     console.log "creating user from #{attributes}"
     # FIXME: need to use a model here to make this safe

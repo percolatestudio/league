@@ -1,22 +1,22 @@
 Session.set 'team_id', null
 
 Meteor.startup -> 
-  # subscribe to the current user collection and the teams collection
-  Meteor.autosubscribe ->
-    Meteor.subscribe 'users', Session.get('current_user_id')
-    Meteor.subscribe 'teams', Session.get('current_user_id')
   
-  # always subscribe to all players and games for teams of the current player
+  # this will resubscribe when:
+  #  a) current_user_id changes
+  #  b) me changes
   Meteor.autosubscribe ->
-    me = current_user()
-    if me
-      Meteor.subscribe 'players', me.attributes.team_ids
-      Meteor.subscribe 'games', me.attributes.team_ids
-
-Users = new Meteor.Collection('users')
-
+    current_user_id = Session.get('current_user_id')
+    me = Players.findOne(current_user_id)
+    team_ids = (me.team_ids if me) || []
+    
+    # finds all players in team_ids _and_ me
+    Meteor.subscribe 'players', team_ids, current_user_id
+    Meteor.subscribe 'teams', Session.get('current_user_id')
+    Meteor.subscribe 'games', team_ids
+  
 current_user = -> 
-  data = Users.findOne()
+  data = Players.findOne(Session.get('current_user_id'))
   new Player(data) if data
 
 current_team = ->

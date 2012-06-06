@@ -21,7 +21,7 @@ class Team extends Model
       @errors.players_required = 'must be a positive number'
     
     # this is a bit of a hack. Players will be totally empty (and not include current_user) 
-    # before they create their first team. REVISIT
+    # if it hasn't loaded yet. This is a work around for now..
     unless @players().length > 0 or (@attributes.player_ids.length > 0 and not Players.findOne())
       @errors.players  = 'must not be empty'
     
