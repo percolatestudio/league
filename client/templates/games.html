@@ -25,17 +25,33 @@
 
 <template name="no_games">
   <div class="no_games">
-    <h1>Make the first game</h1>
     <form class="game_builder">
+      <h2>Make 1st game</h2>
+      <p class="subtext">Click to change date, time, and location</p>
       {{#with new_game}}
         {{> date_chooser}}
-        <div class="location">
-          <label for="location">Pick Location:</label>
-          <input id="location" placeholder="Where is the game?"/>
+        <div class="chrono">
+          <div class="date">
+            <label for="date">Pick Date</label>
+            <span>Jun 16</span>
+          </div>
+          <div class="time">
+            <label for="time">Time</label>
+            <div class="board">
+              <span class="numeral">0</span>
+              <span class="numeral">8</span>:
+              <span class="numeral">3</span>
+              <span class="numeral">0</span>
+              <strong>PM</strong>
+            </div>
+          </div>
+          <div class="location">
+            <label for="location">Location</label>
+            <input id="location" placeholder="Where is the game?"/>  
+          </div>
         </div>
-        <div class="final">
-          <button type="submit" class="btn default make">Make</button>
-        </div>
+        <button type="submit" class="btn default make">Make</button>    
+        
       {{/with}}
     </form>
   </div>
@@ -72,6 +88,7 @@
         {{/each}}
       </ul>
     {{/with}}
+    <em>Click players, dates and locations to edit</em>
   </form>
 </template>
 

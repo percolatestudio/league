@@ -9,6 +9,31 @@
     }
     .no_games{
       text-align: center;
+      min-width: 600px;
+      max-width: 1000px;
+      position: relative;
+      z-index: 1;
+      @include maskbg($seasonbg);
+      @include box-sizing(border-box);
+      @include border($seasonbg);
+      @include box-shadow(rgba(black, .3) 0 2px 5px 0);
+      padding: 3em;
+      &:before, &:after{
+        content: '';
+        display: block;
+        @include position(absolute, 0, auto, auto, 0, 100%, 100%);
+        @include maskbg($seasonbg);
+        @include border($seasonbg);
+        @include box-shadow(rgba(black, .2) 0 1px 3px 0);
+      }
+      &:before{
+        @include transform(rotate(1.5deg));
+        z-index: -1;
+      }
+      &:after{
+        @include transform(translate(1px, 4px));
+        z-index: -1;
+      }
     }
     .next_game{
       text-align: center;
@@ -73,12 +98,7 @@
       }
     }    
     /* Styles */
-    .next_game, .upcoming_games{
-      /* date chooser inside a tooltip */
-      .date_chooser{
-        @include tooltip;
-       }
-    }
+    .date_chooser{@include tooltip;}
     aside{
       $color:  #30c0ef;
       $height: 2.5em;
@@ -111,45 +131,82 @@
       }
     }
     .no_games{
-      h1{
-        @include big(yes);
-        font-weight: bold;
-        @include letterpress(#333);
-      }
       .game_builder{
-        margin: 0 auto;
         text-align: center;
-        .date_chooser, .location{
-/*           display: inline-block; */
+        h2{
+          font-weight: bold;
+          text-transform: uppercase;
+          @include huge(no);
+          @include emtype;
+        }
+        .subtext{
+          font-style: italic;
+          color: #999;
+          margin-bottom: 1.5em;
+        }
+        button.make{float:right;}
+        .chrono{
+          border:1px solid #999;
           position: relative;
-          vertical-align: top;
-        }
-        .date_chooser{
-          margin-right: 1.5em;
-          width: 240px;
-          label[for="date"]{
-            @include h2;
-            text-indent: 0;
+          margin-bottom: 1.5em;
+          @include clearfix;
+          &:before{
+            content: '';
+            border-right: 1px solid #999;
+            border-left: 1px solid #999;
+            display: block;
+            @include position(absolute, 0, auto, 0, 33%, 33%, 100%);
           }
-          .ui-datepicker-header{//resets default
-            margin: 0;
-            background: none;
-            @include box-shadow(none);
-            border: none;
-            color: #333;
-            @include letterpress(#333);
+          >div{
+            width: 33.33%;
+            display: block;
+            float: left;
+            vertical-align: top;
+            @include box-sizing(border-box);
+            padding:0  1.5em 1.5em;
+            >label{
+              float: none;
+              color: #666;
+              display: block;
+              border-bottom: 1px solid #999;
+              margin:0 -1.5em 1.5em;
+            }
           }
+          .date{
+            font-weight: bold;
+            color: #fff;
+            position: relative;
+            text-align: center;
+            >span{
+              @include h2;
+              text-transform: uppercase;
+              background: darken($orange, 10%);
+              padding: .5em .75em;
+              @include border-radius(1.5em);
+              display: inline-block;
+            }
+          }//date
+          .time{
+            .board{
+              overflow: visible;
+              .numeral{
+                @include h2;
+                font-weight: bold;
+                display: inline-block;
+                padding: .5em;
+                background: #fff;
+                @include box-shadow(rgba(black, .2) 0 1px 3px 0);
+                @include border-radius(3px);
+                &:not(last-child){margin-right: .25em;}
+              }
+            }
+          }//time
+          .location{
+            input{
+              width: 100%;
+            }
+          }//location
         }
-        .location{
-          margin-left: 1.5em;
-          width: 240px;
-          label{
-            @include h2;
-          }
-        }
-        
-        .close{display: none;}
-        button{float: none;}
       }
       
       
