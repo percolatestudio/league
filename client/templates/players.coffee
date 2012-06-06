@@ -24,7 +24,7 @@ Template.players.events =
   'change [name=players_required]': (event) ->
     current_team().update_attribute('players_required', $(event.target).val())
 
-Template.player.is_self = -> this.id == current_user().id
+Template.player.is_self = -> current_user() and this.id == current_user().id
 
 Template.player.facebook_profile_url = -> 
   this.facebook_profile_url()
