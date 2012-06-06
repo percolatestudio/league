@@ -103,7 +103,7 @@ class FBAuthSystem
       # else, better get some deets from the FB
       FB.api '/me', (me) => 
         attributes = { name: me.name, facebook_id: me.id, email: me.email }
-        Meteor.call 'create', attributes, (error, user) ->
+        Meteor.call 'create', attributes, (error, user) =>
           @_doLogin(user)
   
   _doLogin: (user) ->

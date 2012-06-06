@@ -27,7 +27,6 @@ class Player extends Model
   @new_from_facebook: (facebook_data) ->
     facebook_data.facebook_id = facebook_data.id
     delete facebook_data.id
-    facebook_data.authorized = true
     new this(facebook_data)
 
   facebook_profile_url: (type = 'normal') ->

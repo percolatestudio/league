@@ -23,7 +23,7 @@ Meteor.methods
   'login': (facebook_id) ->
     console.log "logging in user with FB ID: #{facebook_id}"
     player = Players.findOne facebook_id: facebook_id
-    Players.update player._id, {$set: {authorized: true}} unless player.authorized
+    Players.update player._id, {$set: {authorized: true}} unless player.attributes.authorized
     
     player
   'create': (attributes) ->
