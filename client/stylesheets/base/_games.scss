@@ -1,3 +1,21 @@
+// D- not sure where the best spot to put this is
+@mixin tooltip {
+  @include position(absolute, 100%, auto, auto, 0, 16em, auto);
+  z-index: 5;
+  margin-top: 1em;
+  margin-left: -.75em;
+  @include box-sizing(border-box);
+  padding:.75em;
+  @include border-radius(3px);
+  @include maskbg(#f9f9f9);
+  border: 1px solid #999;
+  outline: none;
+  &:before{
+    content: '';
+    @include css_arrow(up, #999, 1em, -2em, 1em);
+  }
+}
+
 .container.games{
   .games{
     $seasonbg: #ffffaa;
@@ -189,6 +207,15 @@
         border-top: $font-size * .75px solid #3b404d;
         border-bottom: $font-size * .75px solid #3b404d;
         @include emtype;
+        position: relative;
+        .edit_location {
+          @include tooltip;
+          font-size: 16px;
+          line-height: 1.5;
+          left: 50%;
+          width: 16em;
+          margin-left: -8em;
+        }
       }
       .game_date{
         position: relative;
@@ -391,23 +418,10 @@
         }
       }
     }
-    
+
     // date chooser
     .date_chooser{
-      @include position(absolute, 100%, auto, auto, 0, 16em, auto);
-      z-index: 5;
-      margin-top: 1em;
-      margin-left: -.75em;
-      @include box-sizing(border-box);
-      padding:.75em;
-      @include border-radius(3px);
-      @include maskbg(#f9f9f9);
-      border: 1px solid #999;
-      outline: none;
-      &:before{
-        content: '';
-        @include css_arrow(up, #999, 1em, -2em, 1em);
-      }
+      @include tooltip;
       label[for=date]{
         overflow: hidden;
         text-indent: -999em;

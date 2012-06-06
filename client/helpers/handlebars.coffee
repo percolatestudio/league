@@ -11,7 +11,7 @@ _current_edit_field = null
 _current_edit_field_callback = null
 
 # open a field and set a callback to be triggered when it closes
-open_edit_field = (name, record, callback) ->
+open_edit_field = (name, record) ->
   new_field = editing_field_name(name, record)
   return false if new_field == _current_edit_field or new_field == false
   
@@ -20,17 +20,13 @@ open_edit_field = (name, record, callback) ->
   
   # open the new one
   _current_edit_field = new_field
-  _current_edit_field_callback = callback
   console.log "opening edit field #{_current_edit_field}"
   Session.set(_current_edit_field, true)
   true
   
 close_current_edit_field = ->
   Session.set(_current_edit_field, false) if _current_edit_field
-  _current_edit_field_callback() if _current_edit_field_callback
   _current_edit_field = null
-  _current_edit_field_callback = null
-
 
 Handlebars.registerHelper 'if_equals', (left, right, options) ->
   left = left.call(this) if typeof left == 'function'

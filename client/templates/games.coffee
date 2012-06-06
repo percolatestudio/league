@@ -3,19 +3,18 @@ Template.games.editable_game_events =
   'click .editable': (event) ->
     $form = $(event.currentTarget).closest('form')
     field = $(event.currentTarget).attr('data-field')
-    open_edit_field field, this, ->
-      console.log 'edit field done'
-        # this.save_moment()
-        # Meteor.flush()
-
-  'submit form': (e) ->
-    e.preventDefault()
-    $(e.target).find('[name]').trigger('blur') # to trigger the changed event
+    open_edit_field field, this
     
-  'change [name=location]': (e) -> this.attributes.location = $(e.target).val()
-  'change [name=hours]': (e) -> 
-    this.game.set_hours($(e.target).val())
-    console.log this.game.moment.hours()
+    # wait for it to draw, then focus it
+    Meteor.flush()
+    $form.find("[name=#{field}]").focus()
+
+  'submit form': (e) -> 
+    e.preventDefault()
+    close_current_edit_field()
+  'change [name=location]': (e) -> 
+    this.update_attribute('location', $(e.target).val())
+  'change [name=hours]': (e) -> this.game.set_hours($(e.target).val())
   'change [name=minutes]': (e) -> this.game.set_minutes($(e.target).val())
   'click .close': (e) -> Meteor.defer -> close_current_edit_field()
 

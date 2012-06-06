@@ -83,7 +83,15 @@
       {{{ logo this size="large" without_link=true }}}
     <p>{{ name }}</p>
     {{#with next_game }}
-      <h2 class="game_title">{{ location_or_game_number }}</h2>
+      <h2 class="game_title editable" data-field="location">
+        {{ location_or_game_number }}
+        {{#if_editing "location"}}
+          <div class="edit_location">
+            <label for="location">Location:</label>
+            <input name="location" value="{{attributes.location}}" placeholder="Where is the game?"/>
+          </div>
+        {{/if_editing}}
+      </h2>
       
       <div class="game_date editable" data-field="date">
         <strong>{{ qualified_day }}</strong>
@@ -157,20 +165,20 @@
           </div>
         </div>
         
-        {{#if_editing "location"}}
-          <div class="location">
-            <label for="location">Location:</label>
-            <input name="location" value="{{attributes.location}}" placeholder="Where is the game?"/>
-          </div>
-        {{else}}
-          <h3 class="location" class="editable" data-field="location">
+        <h3 class="location editable" data-field="location">
+          {{#if_editing "location"}}
+            <div class="location">
+              <label for="location">Location:</label>
+              <input name="location" value="{{attributes.location}}" placeholder="Where is the game?"/>
+            </div>
+          {{else}}
             {{#if attributes.location}}
               {{attributes.location}}
             {{else}}
               <em>Location TBD</em>
             {{/if}}
-          </h3>
-        {{/if_editing}}
+          {{/if_editing}}
+        </h3>
         
         {{#if_equals 0 team_state}}
           <p class="flag green">Your team is rarin' to play! Have fun out there.</p>
