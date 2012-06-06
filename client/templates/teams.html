@@ -20,7 +20,7 @@
     {{#if adding_team }}
       <form class="team_builder">
         <h3>Team Builder</h3>
-        <input name="name" placeholder="Team name"/>
+        <input name="name" placeholder="Team name" required/>
         <button type="submit" class="btn default"  disabled="true">Create</button>
       </form>
     {{else}}
@@ -47,13 +47,12 @@
         <li><a class="remove_team inset">Delete team</a></li>
       </ul>
     </div>
-    <a class="team_status inset">test</a>
     <div class="status_alert">
       {{#if alone_in_team}}
-        <small><a class="{{ players_path this }} inset">Your team is empty</a></small>
+        <a class="{{ players_path this }}">Complete team</a>
       {{/if}}
       {{#if unauthed_player_count}}
-        <small><a class="team_status inset">{{pluralize "player" unauthed_player_count}} yet to sign up</a></small>
+        <a class="team_status">{{pluralize "player" unauthed_player_count}} yet to sign up</a>
       {{/if}}
     </div>
   </li>
