@@ -1,33 +1,31 @@
 # generic events used by both the next_game and the upcoming games
 Template.games.editable_game_events = 
   'click .editable': (event) ->
-    return if this == window # e.g. in datechooser, this won't exist
-    
     $form = $(event.currentTarget).closest('form')
     field = $(event.currentTarget).attr('data-field')
-    return unless open_edit_field(field, this) # false if it was already open
-    
-    # redraw, then focus the field
-    console.log field
-    Meteor.flush()
-    $form.find("[name=#{field}]").add_focusoutside().focus()
-      .on 'focusoutside.games', (e) => 
-        console.log 'focusoutside'
-        console.log this.moment.hours()
-        this.save_moment()
-        Meteor.flush()
-        close_edit_field(field, this)
+    open_edit_field field, this, ->
+      console.log 'edit field done'
+        # this.save_moment()
+        # Meteor.flush()
 
-  'submit form': (e) -> 
+  'submit form': (e) ->
     e.preventDefault()
-    $(e.target).find('[name]').trigger('blur')
+    $(e.target).find('[name]').trigger('blur') # to trigger the changed event
     
   'change [name=location]': (e) -> this.attributes.location = $(e.target).val()
   'change [name=hours]': (e) -> 
     this.game.set_hours($(e.target).val())
     console.log this.game.moment.hours()
   'change [name=minutes]': (e) -> this.game.set_minutes($(e.target).val())
-  # 'click .done': (e) -> $(e.target).closest('[name]').trigger('blur')
+  'click .close': (e) -> Meteor.defer -> close_current_edit_field()
+
+# any click anywhere will close the currently editing field
+Template.games.events = 
+  'click': ->
+    # unless the click is inside an editable
+    unless $(event.target).is('.editable') or $(event.target).closest('.editable').length
+      close_current_edit_field()
+    
 
 Template.games.team = -> current_team()
 Template.games.next_game = Template.next_game.next_game = -> future_games()[0]

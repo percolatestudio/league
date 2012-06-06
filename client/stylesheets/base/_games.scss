@@ -404,7 +404,6 @@
       @include maskbg(#f9f9f9);
       border: 1px solid #999;
       outline: none;
-      z-index: 2;
       &:before{
         content: '';
         @include css_arrow(up, #999, 1em, -2em, 1em);

@@ -5,16 +5,31 @@ Handlebars.registerHelper 'availability_class', (status = 0) ->
 Handlebars.registerHelper 'logo', (team, options) ->
   team.logo.render options.hash
 
-# a per-field editing system
-editing_field_name = (name, record) -> "editing-#{record.id}-#{name}}"
+# a per-field editing system; little hack here to deal with cases when record don't got an id
+editing_field_name = (name, record) -> if record == window then false else "editing-#{record.id}-#{name}"
 _current_edit_field = null
-open_edit_field = (name, record) ->
-  _current_edit_field = editing_field_name(name, record)
+_current_edit_field_callback = null
+
+# open a field and set a callback to be triggered when it closes
+open_edit_field = (name, record, callback) ->
+  new_field = editing_field_name(name, record)
+  return false if new_field == _current_edit_field or new_field == false
+  
+  # close the old field
+  close_current_edit_field()
+  
+  # open the new one
+  _current_edit_field = new_field
+  _current_edit_field_callback = callback
+  console.log "opening edit field #{_current_edit_field}"
   Session.set(_current_edit_field, true)
-close_edit_field = (name, record) ->
-  Session.set(editing_field_name(name, record), false)
+  true
+  
 close_current_edit_field = ->
-  Session.set(_current_edit_field, false)
+  Session.set(_current_edit_field, false) if _current_edit_field
+  _current_edit_field_callback() if _current_edit_field_callback
+  _current_edit_field = null
+  _current_edit_field_callback = null
 
 
 Handlebars.registerHelper 'if_equals', (left, right, options) ->

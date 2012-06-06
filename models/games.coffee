@@ -60,12 +60,15 @@ class Game extends Model
     @moment.year(date.year())
     @moment.month(date.month())
     @moment.date(date.date())
+    @save_moment()
   
   set_hours: (h) ->
     @moment.hours(h)
+    @save_moment()
   
   set_minutes: (h) ->
     @moment.minutes(h)
+    @save_moment()
   
   clone_one_week_later: ->
     new Game(
