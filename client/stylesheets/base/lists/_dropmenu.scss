@@ -1,12 +1,13 @@
 .dropmenu{
   position: relative;
   display: inline-block;
-  @include small;
+  font-size: $small * 1px;
   >a.btn{
     @include onset(#ccc);
     float: left;
-    padding: .611em;
     margin: 0;
+    padding-right: .5em;
+    padding-left: .5em;
     position: relative;
     z-index: 2;
     &:first-child{
@@ -14,7 +15,6 @@
     }
     &:nth-child(2){
       @include border-radius(0 3px 3px 0);
-      padding-left: .611em *.5;
       margin-left: -1px;
     }
   }
@@ -37,9 +37,8 @@
   &.current{
     >a.btn{
       &:nth-child(2){
-        @include onset_current(#ccc);
+        @include onset_current(#999);
         @include border-radius(0 3px 3px 0);
-        padding-left: .611em *.5;
         margin-left: -1px;
       }
     }

@@ -7,8 +7,9 @@
   @include border-radius(5px);
   margin: .25em 0;
   line-height: 1em;
-  padding: .25em;
-  /* border: 1px solid transparent; */
+  /* taken from onset */
+  height: 2.5em;//hack for strange lineheight rendering in chrome and FF
+  padding: .25em .5em;
   @include border(#fff, 1px, impress);
   outline: none;
   position: relative;

@@ -1,7 +1,11 @@
 @mixin global_btn{
   line-height: 1em;
-  $btn_padding : (( ($font-size * 2.5)   / ($font-size + 2)) - 1) / 2 * 1em;
-  padding:$btn_padding $btn_padding* 2;
+  $real_height:$font-size * 2.5;
+  $text_height: $font-size;
+  $border_sum: 2;
+  $btn_padding_px : ($real_height - $text_height - $border_sum) *.5;
+  $btn_padding_em: $btn_padding_px / $font-size * 1em;
+  padding:$btn_padding_em $btn_padding_em * 2;
   margin: .25em 0;
   text-align: center;
   @include user_select;
