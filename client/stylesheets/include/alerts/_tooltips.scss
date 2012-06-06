@@ -1,0 +1,16 @@
+@mixin tooltip {
+  @include position(absolute, 100%, auto, auto, 0, 16em, auto);
+  z-index: 5;
+  margin-top: 1em;
+  margin-left: -.75em;
+  @include box-sizing(border-box);
+  padding:.75em;
+  @include border-radius(3px);
+  @include maskbg(#f9f9f9);
+  border: 1px solid #999;
+  outline: none;
+  &:before{
+    content: '';
+    @include css_arrow(up, #999, 1em, -2em, 1em);
+  }
+}
