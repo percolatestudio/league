@@ -6,6 +6,9 @@
     img, .name{ @include opacity(.5);}
   }@else if $state == playing{
     .icon16:not(.checkmark){display: none;}
+  }@else if $state == unregistered{
+    .icon16:not(.question){display: none;}
+    img, .name{ @include opacity(.3);}
   }@else if $state == not_playing{
     .icon16:not(.close){display: none;}
     img, .name{ @include opacity(.3);}
@@ -38,6 +41,12 @@
         );
       }@else if $state == not_playing{
         $bgcolor:red;
+        @include background(
+          linear-gradient(top, rgba(lighten($bgcolor, 10%), .7), rgba(darken($bgcolor, 10%), .5) 50%),
+          $bgcolor
+        );
+      }@else if $state == unregistered{
+        $bgcolor:#ccc;
         @include background(
           linear-gradient(top, rgba(lighten($bgcolor, 10%), .7), rgba(darken($bgcolor, 10%), .5) 50%),
           $bgcolor

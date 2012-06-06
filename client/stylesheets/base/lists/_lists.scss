@@ -70,6 +70,7 @@
       &.in_team, &.playing{@include player_state(playing);}
       &.not_playing{@include player_state(not_playing);}
       &.unconfirmed{@include player_state(unconfirmed);}
+      &.unregistered{@include player_state(unregistered);}
     }
   }
   &.horiz{
