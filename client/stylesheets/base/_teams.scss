@@ -12,18 +12,21 @@
         width: $large_logo_dimension;
         height: $large_logo_dimension;
       }
-      .team_status{
+      .status_alert{
         display: block;
+        @include small;
+        font-style: italic;
+        a{@include seclink;}
       }
     }
     li.add_team{
       width: $large_logo_dimension;
       min-height: $large_logo_dimension;
       form.team_builder{
-        @include maskbg(#ccc);
+        @include maskbg(#eee);
         padding:1.5em;
         @include border-radius(3px);
-        @include box-shadow(rgba(black, .3) 0 2px 5px 0 inset);
+        @include box-shadow(rgba(black, .2) 0 1px 3px 0 inset);
         @include box-sizing(border-box);
         h3{
           margin: $line * -1px $line * -1px $line * 1px;
