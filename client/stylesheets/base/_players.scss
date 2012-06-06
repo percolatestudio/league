@@ -14,7 +14,9 @@
   	}
     #lineup{
       .proceed{
-        @include position(absolute, -3.5em, 0, auto, auto);       
+        float: right;
+        margin-top: .75em;
+        margin-right: 1.5em;
       }
       .team_logo{
         @include maskbg(#f9f9f9);
@@ -33,17 +35,17 @@
         vertical-align: middle;
         text-transform: uppercase;
         position: relative;
-        margin-left: 7em;
-        padding: $font-size  * 1px 0;
+        margin-left: $font-size * 16px;
+        padding: $font-size  * 1px 0 0;
       }
       .required_players{
-        float: right;
-        padding-top: 1.25em;
-        padding-right: 1.5em;
-        em{margin-right: .25em;}
+        margin-left: $font-size * 16px;
+        margin-bottom: $font-size * 1px;
         .select{
+          font-size: $small * 1px;
           display: inline-block;
-          width: 120px;
+          width: 140px;
+          margin-right: .75em;
         }
       }
       .roster_wrapper{

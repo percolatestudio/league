@@ -22,12 +22,10 @@
           </div>
           <h2>Build your team</h2>
           <div class="required_players">
-            <em>Players needed each week</em>
-            <small>
             {{#with players_required_data}}
               {{> select }}
             {{/with}}
-            </small>
+            <em>Players needed each week</em>
           </div>
           <div class="roster_wrapper">
             <ul class="player_list miniature roster">
