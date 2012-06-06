@@ -5,7 +5,6 @@ Template.screens.next_page = -> Transitioner.instance.next_page()
 
 Template.screens.events = 
   'click .login': -> AuthSystem.force_login()
-  'click .logout': -> AuthSystem.force_logout()
   
   'click a[href]': (event) ->
     event.preventDefault()
