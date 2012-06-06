@@ -462,9 +462,15 @@
           text-align: center;
           width: 2em;
         }
+        .ui-state-disabled {
+          color: #999;
+        }
         .ui-state-active {
-          // FIXME!
-          background: red;
+          display: inline-block;
+          width: 100%;
+          height: 100%;
+          @include border-radius(.5em);
+          @include box-shadow(rgba(darken($orange, 10%), .9) 0 0 0 2px);
         }
       }
       .time_selects{
