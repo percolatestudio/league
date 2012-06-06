@@ -14,6 +14,12 @@ $to_fadeout_pages: '.to_loading, .to_signin, .to_not_authorized .to_home';
 
 // what the current page does:
 .transitioning {
+  
+  //hide scrollbars
+  article{
+    overflow: hidden;
+  }
+  
   // normal pages go to the LHS
   .current_page {
     left: -100%;

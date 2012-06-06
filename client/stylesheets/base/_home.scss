@@ -1,11 +1,9 @@
 .container.home {
-  @include position(relative, auto, auto, auto, auto, 100%, 100%);
   .home{
     text-align: center;
+    /* override intermediate.scss */
     overflow-x: hidden;
-    @include position(relative, auto, auto, auto, auto); 
-    padding-top: 6em;
-    @include box-sizing(border-box);
+    overflow-y: auto;
     /* /// */
     /* Home title position */
     /* /// */
@@ -67,7 +65,7 @@
       );
       > span{
         /* for kerning */
-        visibility: hidden;
+/*         visibility: hidden; */
         -letter-kern: 2px 6px -10px -4px -10px 0;
       }
     }
@@ -91,12 +89,13 @@
       position: relative;
       >*{
         display: inline-block;
-        margin: auto 10px;
-        font-size: 30px;
+        margin-left: 10px;
+        margin-right: 10px;
+        vertical-align: top;
         float: none;
       }
-      select{
-        width: 120px;
+      .select{
+        width: 160px;
         & + label{
           @include position(relative, auto, auto, -2em, -140px, 105px, 19px);
           margin-right:-120px;
@@ -106,7 +105,7 @@
         }
       }      
       input{
-        width: 300px;
+        width: 200px;
       }
       button{
         font-weight: bold;

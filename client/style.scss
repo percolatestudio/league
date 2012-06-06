@@ -58,10 +58,6 @@ i, em { font-style: italic;}
 u{ text-decoration: underline;}
 del{ text-decoration: line-through;}
 
-
-html {
-  @include skybg;
-}
 body {
   color: #333;
   @include stdtype;
