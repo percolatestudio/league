@@ -31,3 +31,8 @@ Meteor.methods
     # FIXME: need to use a model here to make this safe
     id = Players.insert attributes
     Players.findOne id
+  
+  'team_from_season_ticket': (team_id) ->
+    console.log "getting team from season ticket: #{team_id}"
+    if team = Teams.findOne(team_id)
+      { name: team.name, logo: team.logo }

@@ -5,10 +5,12 @@
     {{#if logged_in }}
       <button class="logout default btn inverse">Logout</button>
     {{else}}
-      {{#if from_season_ticket}}
+      {{prepare_team_from_season_ticket}}
+      {{#if_with team_from_season_ticket}}
         <h2>Welcome to League!</h2>
+        {{{logo this}}}
         <p>We just need you to signin with Facebook and you get started with {{team_name}}</p>
-      {{/if}}
+      {{/if_with}}
       
       <button class="login icon16 facebook btn inverse" title="Login with Facebook">Login</button>
     {{/if}}
