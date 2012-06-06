@@ -25,12 +25,17 @@
 
 <template name="no_games">
   <div class="no_games">
+    <h1>Make the first game</h1>
     <form class="game_builder">
-      <h3>Make game</h3>
       {{#with new_game}}
         {{> date_chooser}}
-        <!-- FIXME: Location? -->
-        <button type="submit" class="btn default make">Make</button>
+        <div class="location">
+          <label for="location">Pick Location:</label>
+          <input id="location" placeholder="Where is the game?"/>
+        </div>
+        <div class="final">
+          <button type="submit" class="btn default make">Make</button>
+        </div>
       {{/with}}
     </form>
   </div>
@@ -39,7 +44,7 @@
 <template name="next_game">
   <form class="next_game" name="game">
     <aside class="next">Next Game</aside>
-      {{{ logo this size="large" without_link=true }}}
+    {{{ logo this size="large" without_link=true }}}
     <p>{{ name }}</p>
     {{#with next_game }}
       <h2 class="game_title editable" data-field="location">
@@ -168,7 +173,7 @@
 
 <template name="date_chooser">
   <div class="date_chooser" name="date">
-    <label for="date">Date</label>
+    <label for="date">Choose date &amp; time</label>
     <div id="{{date_field_id}}" value="{{date_for_input}}"></div>
     {{attach_date_picker}}
     <div class="time_selects">

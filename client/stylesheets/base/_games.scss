@@ -73,6 +73,12 @@
       }
     }    
     /* Styles */
+    .next_game, .upcoming_games{
+      /* date chooser inside a tooltip */
+      .date_chooser{
+        @include tooltip;
+       }
+    }
     aside{
       $color:  #30c0ef;
       $height: 2.5em;
@@ -104,35 +110,49 @@
         background: url(/images/text_img_next_game_99x20.png) no-repeat center $color;
       }
     }
-    .no_games form{
-      h3{
-        @include h2(yes);
+    .no_games{
+      h1{
+        @include big(yes);
         font-weight: bold;
-        text-transform: uppercase;
+        @include letterpress(#333);
       }
-      .chrono{
-        margin-bottom: .75em;
-        border: 1px solid #999;
-        label{
-          width: 40%;
-          float: none;
+      .game_builder{
+        margin: 0 auto;
+        text-align: center;
+        .date_chooser, .location{
+/*           display: inline-block; */
+          position: relative;
+          vertical-align: top;
         }
-        hr{
-          border-color: none none #999 none;
-          border-width: 0 0 1px 0;
-          border-style: none none solid none;
-          margin: 0;
+        .date_chooser{
+          margin-right: 1.5em;
+          width: 240px;
+          label[for="date"]{
+            @include h2;
+            text-indent: 0;
+          }
+          .ui-datepicker-header{//resets default
+            margin: 0;
+            background: none;
+            @include box-shadow(none);
+            border: none;
+            color: #333;
+            @include letterpress(#333);
+          }
         }
-        span{
-          @include global_btn;
-          background: #eee;
-          @include border-radius(1.5em);
+        .location{
+          margin-left: 1.5em;
+          width: 240px;
+          label{
+            @include h2;
+          }
         }
-        input{
-          display: none;
-        }
+        
+        .close{display: none;}
+        button{float: none;}
       }
-      button{float: none;}
+      
+      
     }
     .next_game{
       #logo{
@@ -363,90 +383,6 @@
         }
       }
     }
-
-    // date chooser
-    .date_chooser{
-      @include tooltip;
-      label[for=date]{
-        overflow: hidden;
-        text-indent: -999em;
-        display: inline-block;
-        float: none;
-        @include position(absolute, auto, auto, auto, auto, 0, 0);
-      }
-      .ui-datepicker-header{
-        text-align: center;
-        margin: $font-size * -.75px $font-size * -.75px $font-size * .75px;
-        padding: .5em 0;
-        color: white;
-        @include letterpress(invert(white));
-        @include border(rgba(saturate($orange, 30%), 1));
-        @include border-radius(3px 3px 0 0);
-        @include box-shadow(
-          rgba(lighten($orange, 30%), .3) 0 -1px 0 0 inset,
-          rgba(black, .2) 0 1px 3px 0 
-        );
-        @include background(linear-gradient(top, rgba(saturate($orange, 30%), 1), darken($orange, 10%) 100%));
-        .ui-datepicker-title{
-          display: inline-block;
-          font-weight: bold;
-        }
-        .ui-datepicker-prev, .ui-datepicker-next{
-          overflow: hidden;
-          @include inset;
-          span{
-            text-indent: -999em;
-            display: inline-block;
-          }
-        }
-        .ui-datepicker-prev{
-          @include position(absolute, auto, auto, auto, .75em);
-          &:before{content: '\25C4'}
-        }
-        .ui-datepicker-next{
-          @include position(absolute, auto, .75em, auto, auto);
-          &:before{content: '\25BA'}
-        }
-      }
-      table.ui-datepicker-calendar{
-        display: block;
-        margin: 0 auto;
-        thead tr th{font-weight: bold;}
-        th,td{
-          display: inline-block;
-          text-align: center;
-          width: 2em;
-        }
-        .ui-state-disabled {
-          color: #999;
-        }
-        .ui-state-active {
-          display: inline-block;
-          width: 100%;
-          height: 100%;
-          @include border-radius(.5em);
-          @include box-shadow(rgba(darken($orange, 10%), .9) 0 0 0 2px);
-        }
-      }
-      .time_selects{
-        padding: .75em 0;
-        overflow: hidden;
-        >* {
-          width: 32%;
-          float: left;
-          margin-right: .25em;
-          font-size: $small * 1px;
-        }
-        label{
-          @include global_btn;
-        }
-        .select{
-        }
-      }
-      button.close{
-        float: right;
-      }
-    }
+    //
   }
 }
-
