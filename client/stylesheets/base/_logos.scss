@@ -4,45 +4,28 @@
   position: relative;
   height: 100%;
   width: 100%;
-  h3{
-    font-size: 26px;
-    /*position*/
-    position: absolute;
-    @include position(absolute, 50%, 3px, auto, 3px, auto, 1em);
-    margin: -.75em 0;
+  h3, h4{
     padding: .25em 0;
     z-index: 3;
     overflow: hidden;
-    /*text*/
     text-align: center;
     text-transform: uppercase;
     font-weight: bold;
     letter-spacing: .1em;
     white-space: nowrap;
-    line-height: 1em;
-    /*misc*/
     @include maskbg;
-    span {
-      display: block;
-    }
+  }
+  h3{
+    font-size: 26px;
+    @include position(absolute, 50%, 3px, auto, 3px, auto, 1em);
+    margin: -.75em 0;
+    line-height: 1em;
+    span {display: block;}
   }
   h4{
-    //for long titles
+    /* for long titles */
     font-size: 16px;
-    /*position*/
-    position: absolute;
-    @include position(absolute, auto, auto, 0, auto, 100%, 1em);
-    padding: .25em 0;
-    z-index: 3;
-    /*text*/
-    text-align: center;
-    text-transform: uppercase;
-    font-weight: bold;
-    letter-spacing: .1em;
-    color: #FF5C2B;
-    white-space: nowrap;
-    /*misc*/
-    @include maskbg;
+    @include position(absolute, auto, 3px, 0, 3px, auto, 1em);
   }
 }
 #logo{

@@ -8,7 +8,7 @@
   	  @include maskbg(#fff);
   	  @include border-radius(5px);
   	  border: 1px solid #fff;
-  	  @include box-shadow(rgba(0,0,0, .2) 0 0px 2px 1px inset);
+  	  @include box-shadow(rgba(0,0,0, .2) 0 0px 1px 1px inset);
   	  @include clearfix;
   	  clear: both;
   	}
@@ -50,14 +50,12 @@
       }
       .roster_wrapper{
         @include background(
-          linear-gradient(left, rgba(#ebebf1, .4), rgba(#ebebf1, .8) 50%, rgba(#ebebf1, .4) 100%),
+          linear-gradient(left, rgba(#ebebf1, .6), rgba(#ebebf1, .8) 50%, rgba(#ebebf1, .6) 100%),
           transparent
         );
         clear: both;
         padding-top: .75em;
         margin-bottom: 3em;
-        border-top: 1px solid #ccc;
-        border-bottom: 1px solid #ccc;
         .roster{          
           margin-left:16em;
           small > .remove_player{display: block;}
@@ -96,7 +94,7 @@
         display: inline-block;
         color: #666;
         float: left;
-        margin-top: .25em;
+        margin-top: $font-size * .75px;
       }
       .player_list{
         clear: both;
