@@ -4,7 +4,29 @@ class InvalidModelException
   
   toString: ->
     "Invalid model: #{@record}: #{@record.full_errors()}"
-  
+
+# Temporary models is a local collection of records that are 'behaving' like they are saved
+# indexed by a unique 'name', reactive just like real models are
+class TemporaryModelCollection
+  constructor: ->
+    @_contexts = {}
+    @_models = {}
+
+  save: (id, record) -> 
+    @_models[id] = record
+    console.log @_contexts[id]
+    context.invalidate() for id, context of @_contexts[id]
+    @_contexts[id] = {}
+
+  get: (id) -> 
+    if @_models[id]
+      ctx = Meteor.deps.Context.current
+      @_contexts[id][ctx.id] = ctx if ctx
+      @_models[id]
+      
+  clear: (id) -> @save(id, null)
+TemporaryModelCollection.instance = new TemporaryModelCollection()
+
 class Model
   @_collection: null
   constructor: (attributes) ->
@@ -25,11 +47,19 @@ class Model
   save: (validate = true) ->
     throw new InvalidModelException(this) unless not validate or @valid()
     
-    if @persisted()
+    console.log 'here'
+    if @_temporary_model_id
+      console.log 'saving temporary model: '+ @_temporary_model_id
+      TemporaryModelCollection.instance.save(@_temporary_model_id, this)
+    else if @persisted()
+      console.log @id
+      console.log 'updating'
       @constructor._collection.update(@id, @attributes) 
     else
+      console.log 'inserting'
       @id = @constructor._collection.insert(@attributes)
     
+    console.log @id
     this
   
   update_attributes: (attrs = {}) ->
@@ -52,3 +82,12 @@ class Model
     record = new this(attrs)
     record.save()
     record
+  
+  # register this as a temporary model identified by id, 
+  #   now: .save() will just trigger reactivity, not actually save the record
+  temporary_model: (id) -> 
+    TemporaryModelCollection.instance.clear(@_temporary_model_id) if @_temporary_model_id
+    @_temporary_model_id = id
+    @save()
+
+  

@@ -28,33 +28,38 @@
     <div class="season">
       <h2>Make 1st game</h2>
       <p class="subtext">Click to change date, time, and location</p>
-      <form class="game_builder">
-        {{#with new_game}}
-          {{> date_chooser}}
+      {{#with new_game}}
+        <form class="game_builder">
           <div class="chrono">
-            <div class="date">
+            <div class="date editable" data-field="date">
               <label for="date">Pick Date</label>
-              <span>Jun 16</span>
+              <span>{{short_formatted_date}}</span>
+              {{#if_editing "date"}}
+                {{> date_chooser}}
+              {{/if_editing}}
             </div>
-            <div class="time">
+            <div class="time editable" data-field="time">
               <label for="time">Time</label>
               <div class="board">
-                <span class="numeral">0</span>
-                <span class="numeral">8</span>:
-                <span class="numeral">3</span>
-                <span class="numeral">0</span>
+                <span class="numeral">{{hours_first}}</span>
+                <span class="numeral">{{hours_second}}</span>:
+                <span class="numeral">{{minutes_first}}</span>
+                <span class="numeral">{{minutes_second}}</span>
                 <strong>PM</strong>
+                {{#if_editing "time"}}
+                  {{> date_chooser}}
+                {{/if_editing}}
               </div>
             </div>
             <div class="location">
               <label for="location">Location</label>
-              <input id="location" placeholder="Where is the game?"/>  
+              <input name="location" placeholder="Where is the game?"/>  
             </div>
           </div>
           <button type="submit" class="btn default make">Make</button>    
           
-        {{/with}}
-      </form>
+        </form>
+      {{/with}}
     </div>
   </div>
 </template>

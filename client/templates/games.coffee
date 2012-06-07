@@ -29,16 +29,29 @@ Template.games.events =
 Template.games.make_team_updates = ->
   current_team().update_attribute('started', true)
   if match = /(playing|not_playing|unconfirmed)-(.*)/.exec(document.location.hash)
+    # if game = current_team.games(id)[0] ; game.not_playing(current_user())
     if game = current_team().games(match[2])[0]
       game[match[1]](current_user())
+
+
 
 Template.games.team = -> current_team()
 Template.games.next_game = Template.next_game.next_game = -> future_games()[0]
 
 
-Template.no_games.new_game = -> new Game({team_id: this.id})
+Template.no_games.new_game = -> 
+  if !TemporaryModelCollection.instance.get('new_game')
+    new Game({team_id: this.id}).temporary_model('new_game')
+  TemporaryModelCollection.instance.get('new_game')
+  
+Template.no_games.short_formatted_date = -> this.moment.format('MMMM Do')
+Template.no_games.hours_first = -> Math.floor(this.hours() / 10)
+Template.no_games.hours_second = -> this.hours() % 10
+Template.no_games.minutes_first = -> Math.floor(this.minutes() / 10)
+Template.no_games.minutes_second = -> this.minutes() % 10
 Template.no_games.events = _.extend Template.games.editable_game_events,
-  'click .make': -> this.save_moment()
+  'submit': -> 
+    this.temporary_model(false)
 
 Template.upcoming_games.upcoming_games = -> 
   future_games()[1..]
