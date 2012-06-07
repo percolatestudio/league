@@ -20,7 +20,8 @@
     {{#if adding_team }}
       <form class="team_builder">
         <h3>Team Builder</h3>
-        <input name="name" placeholder="Team name" required/>
+        <label for="team_name" class="hide">Team name</label>
+        <input id="team_name" name="name" placeholder="Team name" required/>
         <button type="submit" class="btn default"  disabled="true">Create</button>
       </form>
     {{else}}

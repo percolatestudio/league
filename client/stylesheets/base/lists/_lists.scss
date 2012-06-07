@@ -2,7 +2,7 @@
   $large_player: 6;
   $small_player: 4.5;
   $mini_player: 3;
-  $player_border_width:2px;
+  $player_border_width:4px;
   .loading_players{
     @include big;
     color: #eee;

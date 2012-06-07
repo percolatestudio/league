@@ -3,9 +3,7 @@ textarea{
   overflow: auto;
   display: block;
   text-align: left;
-    &.new{
-      color: #AA5959;
-    }
+    &.new{color: #AA5959;}
 }
 input{
   &:not([type=checkbox]):not([type=radio]){
@@ -23,6 +21,11 @@ form{
   @include clearfix;
   label {
     float: left;
+    &.hide{
+      overflow: hidden;
+      text-indent: -999em;
+      display: inline-block;
+    }
   }
   /* Exceptions */
   input[type=checkbox] + label, input[type=radio] + label {
@@ -34,7 +37,6 @@ form{
   textarea, input{
     text-align: left;
     float: left;
-    
   }
   input{      
     &[type=checkbox], &[type=radio]{
@@ -60,13 +62,10 @@ form{
   }    
 }
 
+
+
+/* Date chooser */
 .date_chooser{
-  label[for=date]{
-    overflow: hidden;
-    text-indent: -999em;
-    display: inline-block;
-    /* float: none; */
-  }
   .ui-datepicker-header{
     text-align: center;
     margin: $font-size * -.75px $font-size * -.75px $font-size * .75px;

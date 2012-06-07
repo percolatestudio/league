@@ -6,21 +6,21 @@ header{
   @include box-sizing(border-box);
   @include skybg;
   .back.btn{
-    font-size: 13px;
-    margin-top: -1.25em + .25em;/* according to how btns are constructed see onset */
+    font-size: $small * 1px;
     @include position(absolute, 50%, auto, auto, 1.5em );
+    margin-top: -1.25em - .25em;/* according to how btns are constructed see onset */
+    
   }
   .avatar{
     @include position(absolute, 50%, 1.5em, auto, auto );
-    margin-top: -20px;
+    margin-top: 3em *-.5;
     img{
-      height: 40px;
-      width: 40px;
+      height: 3em;
+      width: 3em;
       display: inline-block;
       vertical-align: middle;
       @include box-shadow(rgba(black, .2) 0 1px 3px 0);
       @include border($skyblue);
-      @include border-radius(3px);
     }
     .icon16:before{vertical-align: middle;}
   }
