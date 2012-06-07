@@ -22,7 +22,11 @@
     }
   }    
   /* Styles */
-  .date_chooser{@include tooltip;}
+  .date_time_chooser.tooltip{
+    .date_chooser{
+      .close{display: none;}
+    }
+  }
   aside{
       $color:  #30c0ef;
       $height: 2.5em;
@@ -67,7 +71,6 @@
       @include emtype;
       position: relative;
       .edit_location {
-        @include tooltip;
         font-size: 16px;
         line-height: 1.5;
         left: 50%;
@@ -82,10 +85,8 @@
       strong{
         color: saturate(darken($orange, 10%), 30%);
       }
-      // overrides for this date_chooser (general date chooser is below)
-      .date_chooser {
-        font-size: 16px;
-        line-height: 1.5;
+      // overrides for this date_chooser
+      .date_time_chooser.tooltip {
         left: 50%;
         margin-left: -5em;
       }
@@ -163,10 +164,6 @@
             @include border-radius(3px);
             &:not(last-child){margin-right: .25em;}
           }            
-          .time_selects{
-            @include tooltip;
-            @include h4;//overides forms.scss
-          }
         }
         .location input{width: 100%;}//location
       }

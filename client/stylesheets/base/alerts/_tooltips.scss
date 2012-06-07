@@ -1,5 +1,10 @@
-@mixin tooltip {
-  @include position(absolute, 100%, auto, auto, 0, 16em, auto);
+.editable{
+  cursor: pointer;
+}
+.tooltip {
+  font-size: $font-size *1px;//reset
+  line-height: 1.5em;//reset
+  @include position(absolute, 100%, auto, auto, 0, 18em, auto);
   z-index: 5;
   overflow: visible;
   margin-top: 1em;
