@@ -84,10 +84,6 @@ class Game extends Model
   availability_text: (player) ->
     Game.playing_states[@availability(player)]
   
-  # the order that we should put players in: playing, unconfirmed, not_playing
-  availability_order: (player) ->
-    [1, 0, 2][this.availability(player)]
-  
   # jump through each of the states
   toggle_availability: (player) ->
     @attributes.availabilities[player.id] ||= 0 # check undefined
@@ -107,8 +103,7 @@ class Game extends Model
   #  Various methods to calculate if we have enough players
   team: -> new Team(Teams.findOne(@attributes.team_id))
   
-  players: ->
-    _.sortBy(@team().players(), (p) => @availability_order(p))
+  players: -> @team().players()
   
   availability_count: (state) ->
     (p for p in @players() when @availability(p) == state).length
