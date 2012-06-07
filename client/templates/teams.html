@@ -1,5 +1,5 @@
 <template name="teams">
-  <div class="teams">
+  <div class="teams_page">
     <header>
       <h1>Leagues</h1>
       {{> logged_in_user }}
@@ -50,7 +50,7 @@
     </div>
     <div class="status_alert">
       {{#if alone_in_team}}
-        <a class="{{ players_path this }}">Complete team</a>
+        <a class="{{ players_path this }}">Complete this team</a>
       {{/if}}
       {{#if unauthed_player_count}}
         <a class="team_status">{{pluralize "player" unauthed_player_count}} yet to sign up</a>
