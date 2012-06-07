@@ -153,7 +153,7 @@
           </div>
         </div>
         
-        <h3 class="location editable" data-field="location">
+        <div class="location editable" data-field="location">
           {{#if_editing "location"}}
             <div class="location">
               <label for="location">Location:</label>
@@ -161,12 +161,12 @@
             </div>
           {{else}}
             {{#if attributes.location}}
-              {{attributes.location}}
+              <h3>{{attributes.location}}</h3>
             {{else}}
-              <em>Location TBD</em>
+              <h3><em>Location TBD</em></h3>
             {{/if}}
           {{/if_editing}}
-        </h3>
+        </div>
         
         {{#if_equals 0 team_state}}
           <p class="flag green">Your team is rarin' to play! Have fun out there.</p>

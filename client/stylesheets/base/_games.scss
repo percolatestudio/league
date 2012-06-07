@@ -219,12 +219,10 @@
           overflow: hidden;
           input{clear: both;}
         }
-        h3.location{
-          @include big;
+        .location{
           font-weight: bold;
-          em{
-            color: #666;
-          }
+          h3{@include big;}
+          em{color: #666;}
         }
         .roster{
           clear: both;
