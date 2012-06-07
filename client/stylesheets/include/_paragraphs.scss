@@ -70,3 +70,13 @@ $small: $font-size - 3;
     margin-bottom: $line / $small * 1em;
   }
 }
+
+@mixin letter-kern($letters) {
+  $i: 0;
+  @each $margin in $letters {
+    .char#{$i} {
+      margin-right: $margin;
+    }
+    $i: $i + 1;
+  }
+}

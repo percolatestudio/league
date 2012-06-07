@@ -22,9 +22,7 @@
       rgba(black, .3) 0 1px 0,
       rgba(darken($orange, 30%), .1) 0 0 10px
     );
-    /* for kerning */
-/*       visibility: hidden; */
-    -letter-kern: 3px 3px 0px 0px 0px 0;
+  @include letter-kern(3px 3px 0px 0px 0px 0);
   }
   .tagline{
     @include h4;

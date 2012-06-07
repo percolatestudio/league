@@ -51,3 +51,6 @@ Handlebars.registerHelper 'pluralize', (word, count) ->
     "#{count} #{word}"
   else
     "#{count} #{word}s"
+
+Handlebars.registerHelper 'letter', (word) ->
+  ("<span class='char#{i}'>#{letter}</span>" for letter, i in word.split('')).join('')
