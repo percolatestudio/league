@@ -62,8 +62,12 @@ form{
   }    
 }
 
-
-
+/* Choosers */
+.date_chooser, .time_selects{
+  .close{
+    float: right;
+  }
+}
 /* Date chooser */
 .date_chooser{
   .ui-datepicker-header{
@@ -102,12 +106,13 @@ form{
   }
   table.ui-datepicker-calendar{
     display: block;
-    margin: 0 auto;
+    margin: 0 auto .75em;
     thead tr th{font-weight: bold;}
     th,td{
       display: inline-block;
       text-align: center;
       width: 2em;
+      color: #333;
     }
     .ui-state-disabled {
       color: #999;
@@ -120,22 +125,17 @@ form{
       @include box-shadow(rgba(darken($orange, 10%), .9) 0 0 0 2px);
     }
   }
-  .time_selects{
-    padding: .75em 0;
-    overflow: hidden;
-    >* {
-      width: 32%;
-      float: left;
-      margin-right: .25em;
-      font-size: $small * 1px;
-    }
-    label{
-      @include global_btn;
-    }
-    .select{
-    }
+}
+/* Time chooser */
+.time_selects{
+  padding: .75em 0;
+  font-size: $small * 1px;
+  >* {
+    width: 32%;
+    float: left;
+    margin-right: .25em;
   }
-  button.close{
-    float: right;
+  label{
+    @include global_btn;
   }
 }

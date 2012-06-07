@@ -213,9 +213,10 @@
 
 <template name="time_chooser">
   <div class="time_selects">
-    <label>Time</label>
+    <label for="time">Time</label>
     {{#with possible_hours}}{{> select }}{{/with}}
     {{#with possible_minutes}}{{> select }}{{/with}}
+    <button class="close btn default">Close</button>
   </div>
 </template>
 

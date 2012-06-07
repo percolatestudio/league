@@ -1,6 +1,7 @@
 @mixin tooltip {
   @include position(absolute, 100%, auto, auto, 0, 16em, auto);
   z-index: 5;
+  overflow: visible;
   margin-top: 1em;
   margin-left: -.75em;
   @include box-sizing(border-box);

@@ -127,6 +127,7 @@
           vertical-align: top;
           @include box-sizing(border-box);
           padding:0  1.5em 1.5em;
+          z-index: 1;
           >label{
             float: none;
             color: #666;
@@ -159,6 +160,10 @@
             @include box-shadow(rgba(black, .2) 0 1px 3px 0);
             @include border-radius(3px);
             &:not(last-child){margin-right: .25em;}
+          }            
+          .time_selects{
+            @include tooltip;
+            @include h4;//overides forms.scss
           }
         }
         .location input{width: 100%;}//location
