@@ -1,121 +1,119 @@
-.container {
-  >.home,
-  >.signin,
-  >.not_authorized,
-  >.loading,
-  >.not_found{
-    @include position(absolute, auto, auto, auto, auto, 100%, 100%);
-    @include skybg;
-    padding-top: 6em;
-    overflow: hidden;
-    text-align: center;
-    .logotype{
-      @include h1(no);
-      @include emtype;
-      font-weight: bolder;
-      letter-spacing: -.05em;
-      display: inline-block;
-      text-transform: uppercase;
-      color: darken($orange, 5%);
-      @include text-shadow(
-        rgba(white, 1) 0 -1px 0,
-        rgba(black, .3) 0 1px 0,
-        rgba(darken($orange, 30%), .1) 0 0 10px
-      );
-      /* for kerning */
+.home_page,
+.signin_page,
+.not_authorized_page,
+.loading_page,
+.not_found_page{
+  @include position(absolute, auto, auto, auto, auto, 100%, 100%);
+  @include skybg;
+  padding-top: 6em;
+  overflow: hidden;
+  text-align: center;
+  .logotype{
+    @include h1(no);
+    @include emtype;
+    font-weight: bolder;
+    letter-spacing: -.05em;
+    display: inline-block;
+    text-transform: uppercase;
+    color: darken($orange, 5%);
+    @include text-shadow(
+      rgba(white, 1) 0 -1px 0,
+      rgba(black, .3) 0 1px 0,
+      rgba(darken($orange, 30%), .1) 0 0 10px
+    );
+    /* for kerning */
 /*       visibility: hidden; */
-      -letter-kern: 3px 3px 0px 0px 0px 0;
-    }
-    .tagline{
-      @include h4;
-      color: darken(#66ccff, 10%);
-      @include letterpress(#66ccff);
-      font-weight: bold;
-      font-style: italic;
-      clear: both;
-      padding-bottom: .75em;
-      margin-bottom: .75em;
-      position: relative;
-      &:after{
-        content: '';
-        display: block;
-        @include position(absolute, auto, 0, 0px, 50%, 150px, 0px);
-        margin-left: -75px;
-        border-top: 1px solid rgba(darken($skyblue, 15%), 1);
-        border-bottom: 1px solid rgba(lighten($skyblue, 70%), .7);        
-      }
-    }
-    .error{
-      width: 200px;
-      padding: 1.5em;
-      margin: .75em auto 1.5em;
-      @include box-sizing(border-box);
-      font-weight: bold;
-      @include border-radius(5px);
-      background: saturate($orange, 30%);
-      color: #fff;
-      @include letterpress(invert(white));
-    }
-    .loading{
-      font-size: 12em;
-      line-height: 1em;
-      font-weight: bold;
-      color: rgba(darken($skyblue, 7%), 1);
-      @include letterpress($skyblue);
-    }
-    .season_ticket{
-      width: 400px;
-      margin: 3em auto;
-      position: relative;
-      @include maskbg;
-      @include box-shadow(rgba(black, .3) 0 1px 3px 0);
-      @include border-radius(5px);
-      text-align: left;
-      .team_logo{
-        @include maskbg(#f9f9f9);
-        @include border-radius(3px);
-        @include box-shadow(
-          rgba(black, .3) 0 1px 3px 0,
-          rgba(darken($skyblue, 5%), 1) 0 0px 0px 3px inset
-        );
-        @include position(absolute, -1.5em, auto, auto, 1.5em);
-        width: 100px;
-        height: 100px;
-      }
-      h2{
-        display: inline-block;
-        /* 12px 0 12px 144px  */
-        margin: $font-size * .75px 0 0 $font-size * 9px;
-      }
-      .login_wrapper{
-        clear: both;
-        border-top: 1px solid #ccc;
-        border-bottom: 1px solid #ccc;
-        padding: .75em;
-        text-align: center;
-      }
-      .pitch{
-        padding: 1.5em;
-        @include small;
-        color: #666;
-      }
-      p.get_started{
-        margin: 0 0 $font-size * .75px $font-size * 9px;
-        padding-right: $font-size * .75px;
-        @include small;
-      }
+    -letter-kern: 3px 3px 0px 0px 0px 0;
+  }
+  .tagline{
+    @include h4;
+    color: darken(#66ccff, 10%);
+    @include letterpress(#66ccff);
+    font-weight: bold;
+    font-style: italic;
+    clear: both;
+    padding-bottom: .75em;
+    margin-bottom: .75em;
+    position: relative;
+    &:after{
+      content: '';
+      display: block;
+      @include position(absolute, auto, 0, 0px, 50%, 150px, 0px);
+      margin-left: -75px;
+      border-top: 1px solid rgba(darken($skyblue, 15%), 1);
+      border-bottom: 1px solid rgba(lighten($skyblue, 70%), .7);        
     }
   }
-  >.signin.email_ticket{/* exceptions */
-    /* shift layout up */
-    padding-top: 3em;
-    /* unwrapped button */
-    >button.login{display: none;}
-    /* remove hr separating login button */
-    .tagline{
-      padding-bottom: 0;
-      margin-bottom: 0;
-      &:after{display: none;}
+  .error{
+    width: 200px;
+    padding: 1.5em;
+    margin: .75em auto 1.5em;
+    @include box-sizing(border-box);
+    font-weight: bold;
+    @include border-radius(5px);
+    background: saturate($orange, 30%);
+    color: #fff;
+    @include letterpress(invert(white));
+  }
+  .loading{
+    font-size: 12em;
+    line-height: 1em;
+    font-weight: bold;
+    color: rgba(darken($skyblue, 7%), 1);
+    @include letterpress($skyblue);
+  }
+  .season_ticket{
+    width: 400px;
+    margin: 3em auto;
+    position: relative;
+    @include maskbg;
+    @include box-shadow(rgba(black, .3) 0 1px 3px 0);
+    @include border-radius(5px);
+    text-align: left;
+    .team_logo{
+      @include maskbg(#f9f9f9);
+      @include border-radius(3px);
+      @include box-shadow(
+        rgba(black, .3) 0 1px 3px 0,
+        rgba(darken($skyblue, 5%), 1) 0 0px 0px 3px inset
+      );
+      @include position(absolute, -1.5em, auto, auto, 1.5em);
+      width: 100px;
+      height: 100px;
     }
+    h2{
+      display: inline-block;
+      /* 12px 0 12px 144px  */
+      margin: $font-size * .75px 0 0 $font-size * 9px;
+    }
+    .login_wrapper{
+      clear: both;
+      border-top: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+      padding: .75em;
+      text-align: center;
+    }
+    .pitch{
+      padding: 1.5em;
+      @include small;
+      color: #666;
+    }
+    p.get_started{
+      margin: 0 0 $font-size * .75px $font-size * 9px;
+      padding-right: $font-size * .75px;
+      @include small;
+    }
+  }
+}
+.signin_page.email_ticket{/* exceptions */
+  /* shift layout up */
+  padding-top: 3em;
+  /* unwrapped button */
+  >button.login{display: none;}
+  /* remove hr separating login button */
+  .tagline{
+    padding-bottom: 0;
+    margin-bottom: 0;
+    &:after{display: none;}
   }
 }

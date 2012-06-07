@@ -1,30 +1,29 @@
-.container.games{
-  .games{
-    $seasonbg: #ffffaa;
-    /* Positioning */
-    .next_game, .upcoming_games{
-      width: 80%;
-      margin: 0 auto;
-      min-width: 600px;
-      max-width: 1000px;
+.games_page{
+  $seasonbg: #ffffaa;
+  /* Positioning */
+  .next_game, .upcoming_games{
+    width: 80%;
+    margin: 0 auto;
+    min-width: 600px;
+    max-width: 1000px;
+    position: relative;
+    text-align: center;
+  }
+  .next_game{
+    padding-bottom: 1.5em;
+    margin-top: -3em;
+  }
+  .upcoming_games{
+    @include clearfix;
+    .season{
       position: relative;
-      text-align: center;
+      z-index: 1;
+      @include postit($seasonbg);
     }
-    .next_game{
-      padding-bottom: 1.5em;
-      margin-top: -3em;
-    }
-    .upcoming_games{
-      @include clearfix;
-      .season{
-        position: relative;
-        z-index: 1;
-        @include postit($seasonbg);
-      }
-    }    
-    /* Styles */
-    .date_chooser{@include tooltip;}
-    aside{
+  }    
+  /* Styles */
+  .date_chooser{@include tooltip;}
+  aside{
       $color:  #30c0ef;
       $height: 2.5em;
       margin: .25em 0;
@@ -41,7 +40,7 @@
         border-width:$height *.5 $height *.25 $height *.5 0px;
         z-index: 1;
       }
-      &:after{
+    &:after{
         content: '';
         display: block;
         border-style:solid;
@@ -50,289 +49,288 @@
         border-width:$height *.5 0px $height *.5 $height *.25;
         z-index: 1;
       }
-      &.next{
-        @include position(absolute, 4.5em, auto, auto, $height *.25, auto, $height);
-        background: url(/images/text_img_next_game_99x20.png) no-repeat center $color;
-      }
+    &.next{
+      @include position(absolute, 4.5em, auto, auto, $height *.25, auto, $height);
+      background: url(/images/text_img_next_game_99x20.png) no-repeat center $color;
     }
-    .next_game{
-      #logo{display: inline-block;}
-      .game_title{
-        color: #3b404d;
-        font-size: 10.5em;
-        text-transform: uppercase;
-        font-weight: bold;
-        text-align: center;
-        border-top: $font-size * .75px solid #3b404d;
-        border-bottom: $font-size * .75px solid #3b404d;
-        @include emtype;
-        position: relative;
-        .edit_location {
-          @include tooltip;
-          font-size: 16px;
-          line-height: 1.5;
-          left: 50%;
-          width: 16em;
-          margin-left: -8em;
-        }
-      }
-      .game_date{
-        position: relative;
-        @include h1(yes);
-        margin-top: $line * 1px;
-        strong{
-          color: saturate(darken($orange, 10%), 30%);
-        }
-        // overrides for this date_chooser (general date chooser is below)
-        .date_chooser {
-          font-size: 16px;
-          line-height: 1.5;
-          left: 50%;
-          margin-left: -5em;
-        }
-      }
-    }
-    .upcoming_games{
+  }
+  .next_game{
+    #logo{display: inline-block;}
+    .game_title{
+      color: #3b404d;
+      font-size: 10.5em;
+      text-transform: uppercase;
+      font-weight: bold;
       text-align: center;
-      h2{
-        font-weight: bold;
-        text-transform: uppercase;
-        display: inline-block;
-        @include huge(yes);
-        @include emtype;
+      border-top: $font-size * .75px solid #3b404d;
+      border-bottom: $font-size * .75px solid #3b404d;
+      @include emtype;
+      position: relative;
+      .edit_location {
+        @include tooltip;
+        font-size: 16px;
+        line-height: 1.5;
+        left: 50%;
+        width: 16em;
+        margin-left: -8em;
       }
-      .subtext{
-        font-style: italic;
-        color: #999;
-        margin-top: -1.5em;
+    }
+    .game_date{
+      position: relative;
+      @include h1(yes);
+      margin-top: $line * 1px;
+      strong{
+        color: saturate(darken($orange, 10%), 30%);
+      }
+      // overrides for this date_chooser (general date chooser is below)
+      .date_chooser {
+        font-size: 16px;
+        line-height: 1.5;
+        left: 50%;
+        margin-left: -5em;
+      }
+    }
+  }
+  .upcoming_games{
+    text-align: center;
+    h2{
+      font-weight: bold;
+      text-transform: uppercase;
+      display: inline-block;
+      @include huge(yes);
+      @include emtype;
+    }
+    .subtext{
+      font-style: italic;
+      color: #999;
+      margin-top: -1.5em;
+      margin-bottom: 1.5em;
+    }
+    .game_builder{
+      button.make{float:right;}
+      .chrono{
+        border:1px solid #999;
+        position: relative;
         margin-bottom: 1.5em;
-      }
-      .game_builder{
-        button.make{float:right;}
-        .chrono{
-          border:1px solid #999;
-          position: relative;
-          margin-bottom: 1.5em;
-          @include clearfix;
-          &:before{
-            content: '';
-            border-right: 1px solid #999;
-            border-left: 1px solid #999;
-            display: block;
-            @include position(absolute, 0, auto, 0, 33%, 33%, 100%);
-          }
-          >div{
-            width: 33.33%;
-            display: block;
-            float: left;
-            vertical-align: top;
-            @include box-sizing(border-box);
-            padding:0  1.5em 1.5em;
-            >label{
-              float: none;
-              color: #666;
-              display: block;
-              border-bottom: 1px solid #999;
-              margin:0 -1.5em 1.5em;
-            }
-          }
-          .date{
-            font-weight: bold;
-            color: #fff;
-            position: relative;
-            text-align: center;
-            >span{
-              @include h2;
-              text-transform: uppercase;
-              background: darken($orange, 10%);
-              padding: .5em .75em;
-              @include border-radius(1.5em);
-              display: inline-block;
-            }
-          }
-          .time{            
-            .numeral{
-              @include h2;
-              font-weight: bold;
-              display: inline-block;
-              padding: .5em;
-              background: #fff;
-              @include box-shadow(rgba(black, .2) 0 1px 3px 0);
-              @include border-radius(3px);
-              &:not(last-child){margin-right: .25em;}
-            }
-          }
-          .location input{width: 100%;}//location
+        @include clearfix;
+        &:before{
+          content: '';
+          border-right: 1px solid #999;
+          border-left: 1px solid #999;
+          display: block;
+          @include position(absolute, 0, auto, 0, 33%, 33%, 100%);
         }
-      }
-      ul.games{
-        >li{
-          border: 1px solid #999;
+        >div{
+          width: 33.33%;
+          display: block;
+          float: left;
+          vertical-align: top;
           @include box-sizing(border-box);
-          padding: 1.5em;
-          margin-bottom: 1.5em;
-          position: relative;
-          overflow: visible;
-          @include clearfix;
-          &:before{
-            content: '';
-            @include position(absolute, 0, auto, 0, 6em, 0, 100%);
-            border-right: 1px solid #999;
+          padding:0  1.5em 1.5em;
+          >label{
+            float: none;
+            color: #666;
+            display: block;
+            border-bottom: 1px solid #999;
+            margin:0 -1.5em 1.5em;
           }
         }
         .date{
-          float: left;
-          width: 3em;
-          margin-right: 1.5em;
           font-weight: bold;
-          color: #555;
+          color: #fff;
           position: relative;
           text-align: center;
-          >span{display: block;}
-          .month{
+          >span{
             @include h2;
             text-transform: uppercase;
-          }
-          .day{
-            font-size: 2em;
-            line-height: 1.5em; 
-          }
-          .time{
-            font-weight: normal;
-            @include small;
-            color: #999;
-          }
-        }
-        .meta{
-          @include box-sizing(border-box);
-          padding-left: 6em;
-          width: 100%;
-          text-align: left;
-          .location{
+            background: darken($orange, 10%);
+            padding: .5em .75em;
+            @include border-radius(1.5em);
             display: inline-block;
-            overflow: hidden;
-            input{clear: both;}
-          }
-          h3.location{
-            @include big;
-            font-weight: bold;
-            em{
-              color: #666;
-            }
-          }
-          .roster{
-            clear: both;
-            margin: 1.5em -1.5em -1.5em;
-            padding: 0 1.5em;
-            border-top: 1px dotted #ccc;
-            h4{
-              display: inline-block;
-              @include h3;
-            }
-            a{
-              @include small;
-              &.hide_roster{float: left;}
-            }
-            .player_list{
-              clear: both;
-              padding-top: .75em;
-            }  
           }
         }
-        .confirmation{
-          float: right;
-          width:160px;
-          position: relative;
-          z-index: 1;
-          .state_question, .state_playing, .state_benched { 
-            display: none; 
+        .time{            
+          .numeral{
+            @include h2;
+            font-weight: bold;
+            display: inline-block;
+            padding: .5em;
+            background: #fff;
+            @include box-shadow(rgba(black, .2) 0 1px 3px 0);
+            @include border-radius(3px);
+            &:not(last-child){margin-right: .25em;}
           }
-          &.unconfirmed .state_question {
-            display: block;
+        }
+        .location input{width: 100%;}//location
+      }
+    }
+    ul.games{
+      >li{
+        border: 1px solid #999;
+        @include box-sizing(border-box);
+        padding: 1.5em;
+        margin-bottom: 1.5em;
+        position: relative;
+        overflow: visible;
+        @include clearfix;
+        &:before{
+          content: '';
+          @include position(absolute, 0, auto, 0, 6em, 0, 100%);
+          border-right: 1px solid #999;
+        }
+      }
+      .date{
+        float: left;
+        width: 3em;
+        margin-right: 1.5em;
+        font-weight: bold;
+        color: #555;
+        position: relative;
+        text-align: center;
+        >span{display: block;}
+        .month{
+          @include h2;
+          text-transform: uppercase;
+        }
+        .day{
+          font-size: 2em;
+          line-height: 1.5em; 
+        }
+        .time{
+          font-weight: normal;
+          @include small;
+          color: #999;
+        }
+      }
+      .meta{
+        @include box-sizing(border-box);
+        padding-left: 6em;
+        width: 100%;
+        text-align: left;
+        .location{
+          display: inline-block;
+          overflow: hidden;
+          input{clear: both;}
+        }
+        h3.location{
+          @include big;
+          font-weight: bold;
+          em{
+            color: #666;
           }
-          &.playing .state_playing { 
-            display: block;
+        }
+        .roster{
+          clear: both;
+          margin: 1.5em -1.5em -1.5em;
+          padding: 0 1.5em;
+          border-top: 1px dotted #ccc;
+          h4{
+            display: inline-block;
+            @include h3;
           }
-          &.not_playing .state_benched {
-            display: block;
+          a{
+            @include small;
+            &.hide_roster{float: left;}
           }
-          
-          .state_question{
-            padding-left: 1.5em;
-            label{
+          .player_list{
+            clear: both;
+            padding-top: .75em;
+          }  
+        }
+      }
+      .confirmation{
+        float: right;
+        width:160px;
+        position: relative;
+        z-index: 1;
+        .state_question, .state_playing, .state_benched { 
+          display: none; 
+        }
+        &.unconfirmed .state_question {
+          display: block;
+        }
+        &.playing .state_playing { 
+          display: block;
+        }
+        &.not_playing .state_benched {
+          display: block;
+        }
+        
+        .state_question{
+          padding-left: 1.5em;
+          label{
+            font-weight: bold;
+            float: none;
+            &.play{color: #00cc00;}
+            &.bench{color: #ff3333;}
+          }
+          input + label{
+            @include h2;
+            margin-bottom: $font-size * .75px;
+          }
+          .state{
+            color: #999;
+            @include small;
+          }
+        }
+        .state_playing, .state_benched{
+          text-align: center;
+          a{
+            @include small;
+          }
+        }
+        .state_playing{
+          figure{
+            position: relative;
+            display: inline-block;
+            height: 80px;
+            width: 80px;
+            &:before{
+              content: '';
+              display: block;
+              width: 80px - 4px*2;
+              height: 80px - 4px*2;
+              position: absolute;
+              top:0;
+              left: 0;
+              @include border-radius(50px);
+              border: 4px double #666;
+              z-index: 2;
+            }
+            &:after{
+              content: 'PLAY';
               font-weight: bold;
-              float: none;
-              &.play{color: #00cc00;}
-              &.bench{color: #ff3333;}
-            }
-            input + label{
-              @include h2;
-              margin-bottom: $font-size * .75px;
-            }
-            .state{
-              color: #999;
-              @include small;
-            }
-          }
-          .state_playing, .state_benched{
-            text-align: center;
-            a{
-              @include small;
-            }
-          }
-          .state_playing{
-            figure{
-              position: relative;
-              display: inline-block;
-              height: 80px;
-              width: 80px;
-              &:before{
-                content: '';
-                display: block;
-                width: 80px - 4px*2;
-                height: 80px - 4px*2;
-                position: absolute;
-                top:0;
-                left: 0;
-                @include border-radius(50px);
-                border: 4px double #666;
-                z-index: 2;
-              }
-              &:after{
-                content: 'PLAY';
-                font-weight: bold;
-                color: #666;
-                display: block;
-                width: 80px - 8px;
-                height: 80px - 8px;
-                position: absolute;
-                top:50%;
-                height: 1.5em;
-                margin-top: -.75em;
-                left: 50%;
-                margin-left: (80px - (4px * 2)) * -.5;
-                border-top: 1px solid #999;
-                border-bottom: 1px solid #999;
-                @include transform(rotate(-6deg));
-                z-index: 1;
-              }  
-            }            
-          }
-          .state_benched{
-            figure{
-              display: inline-block;
-              font-weight: bold;
-              @include h3;
-              @include global_btn;
-              color: rgba(#ff3333, .5);
-              text-transform: uppercase;
-              @include border-radius(10px);
-              @include box-shadow(rgba(#ff3333, .5) 0 0 0 5px inset);
-            }            
-          }
+              color: #666;
+              display: block;
+              width: 80px - 8px;
+              height: 80px - 8px;
+              position: absolute;
+              top:50%;
+              height: 1.5em;
+              margin-top: -.75em;
+              left: 50%;
+              margin-left: (80px - (4px * 2)) * -.5;
+              border-top: 1px solid #999;
+              border-bottom: 1px solid #999;
+              @include transform(rotate(-6deg));
+              z-index: 1;
+            }  
+          }            
+        }
+        .state_benched{
+          figure{
+            display: inline-block;
+            font-weight: bold;
+            @include h3;
+            @include global_btn;
+            color: rgba(#ff3333, .5);
+            text-transform: uppercase;
+            @include border-radius(10px);
+            @include box-shadow(rgba(#ff3333, .5) 0 0 0 5px inset);
+          }            
         }
       }
     }
-    //
   }
+  //
 }

@@ -1,115 +1,94 @@
-.container.home {
-  .home{
-    text-align: center;
-    /* override intermediate.scss */
-    overflow-x: hidden;
-    overflow-y: auto;
-    /* /// */
-    /* Home title position */
-    /* /// */
-    .title{
+.home_page{
+  text-align: center;
+  /* override intermediate.scss */
+  overflow-x: hidden;
+  overflow-y: auto;
+  /*  position */
+  .title{
+    position: relative;
+    overflow: visible;
+    z-index: 3;
+    /* height of pseudoclasses */
+    $title_height: $font-size * 5 * 1px;
+    &:after{
+      content: '';
+      display: block;
+      z-index: -3;
+      @include position(absolute, auto, auto, 0, (150% - 100%) * -.5, 150%, $title_height );
+      @include background(
+        radial-gradient(50% -50%, rgba(white, .7), rgba(white, .5) 40%, rgba(white, 0) 70%)  
+      );
+    }
+    >span{
       position: relative;
       overflow: visible;
-      z-index: 3;
-      /* height of pseudoclasses */
-      $title_height: $font-size * 5 * 1px;
+      display: inline-block;
       &:after{
         content: '';
         display: block;
-        z-index: -3;
         @include position(absolute, auto, auto, 0, (150% - 100%) * -.5, 150%, $title_height );
+        z-index: -1;
         @include background(
-          radial-gradient(50% -50%, rgba(white, .7), rgba(white, .5) 40%, rgba(white, 0) 70%)  
+          radial-gradient(50% 50%, rgba(black, .15), rgba(black, .05) 50%, rgba(black, 0) 70%),
+          radial-gradient(50% 50%, rgba(white, .5), rgba(white, .2) 60%, rgba(white, 0) 80%)
         );
       }
-      >span{
-        position: relative;
-        overflow: visible;
-        display: inline-block;
-        &:after{
-          content: '';
-          display: block;
-          @include position(absolute, auto, auto, 0, (150% - 100%) * -.5, 150%, $title_height );
-          z-index: -1;
-          @include background(
-            radial-gradient(50% 50%, rgba(black, .15), rgba(black, .05) 50%, rgba(black, 0) 70%),
-            radial-gradient(50% 50%, rgba(white, .5), rgba(white, .2) 60%, rgba(white, 0) 80%)
-          );
-        }
-        &:before{
-          content: '';
-          display: block;
-          @include position(absolute, auto, auto, $font-size * 5px, (200% - 100%) * -.5, 200%, 1px );
-          z-index: -1;
-          @include background(
-            radial-gradient(50% 50%, rgba(white, 1), rgba(white, .8) 50%, rgba(white, 0) 70%)
-          );
-        }
+      &:before{
+        content: '';
+        display: block;
+        @include position(absolute, auto, auto, $font-size * 5px, (200% - 100%) * -.5, 200%, 1px );
+        z-index: -1;
+        @include background(
+          radial-gradient(50% 50%, rgba(white, 1), rgba(white, .8) 50%, rgba(white, 0) 70%)
+        );
       }
     }
-    /* /// */
-    /* Home title styling */
-    /* /// */
-    .title{
-      color: darken($orange, 5%);
-      @include emtype;
-      font-size: 15em;
-      font-weight: bold;
-      text-transform: uppercase;
-      @include text-shadow(
-        rgba(lighten($orange, 20%), 1) 0 -1px 0,
-        rgba(black, .3) 0 1px 0,
-        rgba(lighten(saturate($orange, 30%), 10%), 1) 0 -7px 0,
-        rgba(lighten($orange, 50%), .7) 0 -10px 20px,
-        rgba(darken($orange, 50%), .3) 0 2px 5px
-      );
-      > span{
-        /* for kerning */
+  }
+  /* Home title styling */
+  .title{
+    color: darken($orange, 5%);
+    @include emtype;
+    font-size: 15em;
+    font-weight: bold;
+    text-transform: uppercase;
+    @include text-shadow(
+      rgba(lighten($orange, 20%), 1) 0 -1px 0,
+      rgba(black, .3) 0 1px 0,
+      rgba(lighten(saturate($orange, 30%), 10%), 1) 0 -7px 0,
+      rgba(lighten($orange, 50%), .7) 0 -10px 20px,
+      rgba(darken($orange, 50%), .3) 0 2px 5px
+    );
+    > span{
+      /* for kerning */
 /*         visibility: hidden; */
-        -letter-kern: 2px 6px -10px -4px -10px 0;
-      }
+      -letter-kern: 2px 6px -10px -4px -10px 0;
     }
-    .tag{
-      @include huge(yes);
-      font-style: italic;
-      font-weight: bolder;
-      color: darken(#66ccff, 10%);
-      @include text-shadow(
-        rgba(white, 1) 0 -1px 0,
-        rgba(darken(#66ccff, 50%), .3) 0 1px 0
-      );
-    }
-    .login{
-      @include position(absolute, 1.5em, 1.5em, auto, auto);
-      font-weight: bold;
-    }
-    form.team_builder{
-      text-align: center;
-      margin-bottom: 6em;
-      position: relative;
-      >*{
-        display: inline-block;
-        margin-left: 5px;
-        margin-right: 5px;
-        vertical-align: top;
-        float: none;
-      }
-      .select{
-        width: 160px;
-        & + label{
-          @include position(relative, auto, auto, -2em, -140px, 105px, 19px);
-          margin-right:-120px;
-          overflow: hidden;
-          text-indent: -999em;
-          background: url(/images/text_img_numberplayers_105x19.png);
-        }
-      }      
-      input{
-        width: 200px;
-      }
-      button{
-        font-weight: bold;
-      }
-    }
+  }
+  .tag{
+    @include huge(yes);
+    font-style: italic;
+    font-weight: bolder;
+    color: darken(#66ccff, 10%);
+    @include text-shadow(
+      rgba(white, 1) 0 -1px 0,
+      rgba(darken(#66ccff, 50%), .3) 0 1px 0
+    );
+  }
+  .login{
+    @include position(absolute, 1.5em, 1.5em, auto, auto);
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  form.team_builder{
+    text-align: center;
+    position: relative;
+    >*{
+      display: inline-block;
+      margin-left: 5px;
+      margin-right: 5px;
+      vertical-align: top;
+      float: none;
+    }     
+    input{width: 200px;}
   }
 }

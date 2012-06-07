@@ -18,13 +18,13 @@
 
 <template name="one_screen">
   {{#if_equals "loading" this}}
-    <div class="loading">
+    <div class="loading_page">
       <h2 class="logotype">LEAGUE</h2>
       <div class="loading">LOADING</div>
     </div>
   {{/if_equals}}
   {{#if_equals "not_authorized" this}}
-    <div class="not_authorized">
+    <div class="not_authorized_page">
       <h2 class="logotype">LEAGUE</h2>
       <div class="error"><strong>Hey!</strong> This is coaches <em>private</em> playbook.</div>
     </div>

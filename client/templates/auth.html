@@ -1,5 +1,5 @@
 <template name="auth">
-  <div class="signin {{#if_with team_from_season_ticket}} email_ticket {{/if_with}}">
+  <div class="signin_page {{#if_with team_from_season_ticket}} email_ticket {{/if_with}}">
     <h2 class="logotype">LEAGUE</h2>
     <h1 class="tagline">Organize your grown up sports</h1>
     {{#if logged_in }}
@@ -37,7 +37,7 @@
 </template>
 
 <template name="not_found">
-  <div class="not_found">
+  <div class="not_found_page">
     <h2 class="logotype">LEAGUE</h2>
     <div class="error">Ain't nothing here!</div>
     <a href="/" class="icon16 home inset"><strong>Return home</strong></a>
