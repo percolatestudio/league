@@ -2,99 +2,24 @@
   .games{
     $seasonbg: #ffffaa;
     /* Positioning */
-    .no_games, .next_game, .upcoming_games{
+    .next_game, .upcoming_games{
       width: 80%;
       margin: 0 auto;
-      position: relative;
-    }
-    .no_games{
-      text-align: center;
       min-width: 600px;
       max-width: 1000px;
       position: relative;
-      z-index: 1;
-      @include maskbg($seasonbg);
-      @include box-sizing(border-box);
-      @include border($seasonbg);
-      @include box-shadow(rgba(black, .3) 0 2px 5px 0);
-      padding: 3em;
-      &:before, &:after{
-        content: '';
-        display: block;
-        @include position(absolute, 0, auto, auto, 0, 100%, 100%);
-        @include maskbg($seasonbg);
-        @include border($seasonbg);
-        @include box-shadow(rgba(black, .2) 0 1px 3px 0);
-      }
-      &:before{
-        @include transform(rotate(1.5deg));
-        z-index: -1;
-      }
-      &:after{
-        @include transform(translate(1px, 4px));
-        z-index: -1;
-      }
+      text-align: center;
     }
     .next_game{
-      text-align: center;
       padding-bottom: 1.5em;
       margin-top: -3em;
     }
-    .divider{
-      height: 3em;
-      width: 100%;
-      position: relative;
-      overflow:hidden;
-      &:after{
-        content: '';
-        display: block;
-        @include position(absolute, -4.5em, auto, auto, (100% - 100%) * -.5, 100%, 6em );
-        z-index: 1;
-        @include background(
-          radial-gradient(50% 50%, rgba(black, .10), rgba(black, .03) 50%, rgba(black, 0) 70%),
-          radial-gradient(50% 50%, rgba(white, .5), rgba(white, .2) 60%, rgba(white, 0) 80%)
-        );
-      }
-      &:before{
-        content: '';
-        display: block;
-        @include position(absolute, 0, auto, auto, (150% - 100%) * -.5, 150%, 1px );
-        z-index: 2;
-        @include background(
-          radial-gradient(50% 50%, rgba(white, 1), rgba(white, .8) 50%, rgba(white, 0) 70%)
-        );
-      }/* end pseudoclasses */
-    }
     .upcoming_games{
-      padding: 0em 3em 3em;
-      margin-top: -1.5em;
-      position: relative;
-      overflow: visible;
       @include clearfix;
       .season{
         position: relative;
         z-index: 1;
-        @include maskbg($seasonbg);
-        @include box-sizing(border-box);
-        @include border($seasonbg);
-        @include box-shadow(rgba(black, .3) 0 2px 5px 0);
-        padding: 3em;
-        &:before, &:after{
-          content: '';
-          display: block;
-          @include position(absolute, 0, auto, auto, 0, 100%, 100%);
-          @include maskbg($seasonbg);
-          @include border($seasonbg);
-          @include box-shadow(rgba(black, .2) 0 1px 3px 0);
-        }
-        &:before{
-          @include transform(rotate(1.5deg));
-          z-index: -1;
-        }
-        &:after{
-          @include transform(translate(1px, 4px));
-          z-index: -1;
-        }
+        @include postit($seasonbg);
       }
     }    
     /* Styles */
@@ -130,20 +55,59 @@
         background: url(/images/text_img_next_game_99x20.png) no-repeat center $color;
       }
     }
-    .no_games{
-      .game_builder{
+    .next_game{
+      #logo{display: inline-block;}
+      .game_title{
+        color: #3b404d;
+        font-size: 10.5em;
+        text-transform: uppercase;
+        font-weight: bold;
         text-align: center;
-        h2{
-          font-weight: bold;
-          text-transform: uppercase;
-          @include huge(no);
-          @include emtype;
+        border-top: $font-size * .75px solid #3b404d;
+        border-bottom: $font-size * .75px solid #3b404d;
+        @include emtype;
+        position: relative;
+        .edit_location {
+          @include tooltip;
+          font-size: 16px;
+          line-height: 1.5;
+          left: 50%;
+          width: 16em;
+          margin-left: -8em;
         }
-        .subtext{
-          font-style: italic;
-          color: #999;
-          margin-bottom: 1.5em;
+      }
+      .game_date{
+        position: relative;
+        @include h1(yes);
+        margin-top: $line * 1px;
+        strong{
+          color: saturate(darken($orange, 10%), 30%);
         }
+        // overrides for this date_chooser (general date chooser is below)
+        .date_chooser {
+          font-size: 16px;
+          line-height: 1.5;
+          left: 50%;
+          margin-left: -5em;
+        }
+      }
+    }
+    .upcoming_games{
+      text-align: center;
+      h2{
+        font-weight: bold;
+        text-transform: uppercase;
+        display: inline-block;
+        @include huge(yes);
+        @include emtype;
+      }
+      .subtext{
+        font-style: italic;
+        color: #999;
+        margin-top: -1.5em;
+        margin-bottom: 1.5em;
+      }
+      .game_builder{
         button.make{float:right;}
         .chrono{
           border:1px solid #999;
@@ -185,92 +149,21 @@
               @include border-radius(1.5em);
               display: inline-block;
             }
-          }//date
-          .time{
-            .board{
-              overflow: visible;
-              .numeral{
-                @include h2;
-                font-weight: bold;
-                display: inline-block;
-                padding: .5em;
-                background: #fff;
-                @include box-shadow(rgba(black, .2) 0 1px 3px 0);
-                @include border-radius(3px);
-                &:not(last-child){margin-right: .25em;}
-              }
+          }
+          .time{            
+            .numeral{
+              @include h2;
+              font-weight: bold;
+              display: inline-block;
+              padding: .5em;
+              background: #fff;
+              @include box-shadow(rgba(black, .2) 0 1px 3px 0);
+              @include border-radius(3px);
+              &:not(last-child){margin-right: .25em;}
             }
-          }//time
-          .location{
-            input{
-              width: 100%;
-            }
-          }//location
+          }
+          .location input{width: 100%;}//location
         }
-      }
-      
-      
-    }
-    .next_game{
-      #logo{
-        display: inline-block;
-      }
-      .preposition{
-        color: #999;
-        @include emtype;
-        margin-bottom: 1.5em;
-      }
-      .game_title{
-        color: #3b404d;
-        font-size: 10.5em;
-        text-transform: uppercase;
-        font-weight: bold;
-        text-align: center;
-        border-top: $font-size * .75px solid #3b404d;
-        border-bottom: $font-size * .75px solid #3b404d;
-        @include emtype;
-        position: relative;
-        .edit_location {
-          @include tooltip;
-          font-size: 16px;
-          line-height: 1.5;
-          left: 50%;
-          width: 16em;
-          margin-left: -8em;
-        }
-      }
-      .game_date{
-        position: relative;
-        @include h1(yes);
-        margin-top: $line * 1px;
-        strong{
-          color: saturate(darken($orange, 10%), 30%);
-        }
-        // overrides for this date_chooser (general date chooser is below)
-        .date_chooser {
-          font-size: 16px;
-          line-height: 1.5;
-          left: 50%;
-          margin-left: -5em;
-        }
-      }
-    }
-    .upcoming_games{
-      text-align: center;
-      .view_more{
-        text-transform: uppercase;
-        font-weight: bold;
-        padding-bottom: 1.5em;
-        display:inline-block;
-        letter-spacing: .1em;
-        @include inset(#ccc);
-      }
-      h2{
-        font-weight: bold;
-        text-transform: uppercase;
-        display: inline-block;
-        @include huge(yes);
-        @include emtype;
       }
       ul.games{
         >li{

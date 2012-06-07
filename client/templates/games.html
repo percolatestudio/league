@@ -24,36 +24,38 @@
 </template>
 
 <template name="no_games">
-  <div class="no_games">
-    <form class="game_builder">
+  <div class="upcoming_games">
+    <div class="season">
       <h2>Make 1st game</h2>
       <p class="subtext">Click to change date, time, and location</p>
-      {{#with new_game}}
-        {{> date_chooser}}
-        <div class="chrono">
-          <div class="date">
-            <label for="date">Pick Date</label>
-            <span>Jun 16</span>
-          </div>
-          <div class="time">
-            <label for="time">Time</label>
-            <div class="board">
-              <span class="numeral">0</span>
-              <span class="numeral">8</span>:
-              <span class="numeral">3</span>
-              <span class="numeral">0</span>
-              <strong>PM</strong>
+      <form class="game_builder">
+        {{#with new_game}}
+          {{> date_chooser}}
+          <div class="chrono">
+            <div class="date">
+              <label for="date">Pick Date</label>
+              <span>Jun 16</span>
+            </div>
+            <div class="time">
+              <label for="time">Time</label>
+              <div class="board">
+                <span class="numeral">0</span>
+                <span class="numeral">8</span>:
+                <span class="numeral">3</span>
+                <span class="numeral">0</span>
+                <strong>PM</strong>
+              </div>
+            </div>
+            <div class="location">
+              <label for="location">Location</label>
+              <input id="location" placeholder="Where is the game?"/>  
             </div>
           </div>
-          <div class="location">
-            <label for="location">Location</label>
-            <input id="location" placeholder="Where is the game?"/>  
-          </div>
-        </div>
-        <button type="submit" class="btn default make">Make</button>    
-        
-      {{/with}}
-    </form>
+          <button type="submit" class="btn default make">Make</button>    
+          
+        {{/with}}
+      </form>
+    </div>
   </div>
 </template>
 
@@ -93,9 +95,10 @@
 </template>
 
 <template name="upcoming_games">
-  <div class="divider"></div>
+  <div class="divider">
+    <a class="view_more"><small>View upcoming games &darr;</small></a>
+  </div>
   <div class="upcoming_games">
-    <a class="view_more"><small>Rest of your games &darr;</small></a>
     <div class="season">
       <h2>Your Season</h2>
       <ul class="games">

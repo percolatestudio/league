@@ -32,3 +32,26 @@
   color: #fff;
   clear: both;
 }
+@mixin postit($color:#ffffaa){
+  @include maskbg($color);
+  @include box-sizing(border-box);
+  @include border($color);
+  @include box-shadow(rgba(black, .3) 0 2px 5px 0);
+  padding: 3em;
+  &:before, &:after{
+    content: '';
+    display: block;
+    @include position(absolute, 0, auto, auto, 0, 100%, 100%);
+    @include maskbg($color);
+    @include border($color);
+    @include box-shadow(rgba(black, .2) 0 1px 3px 0);
+  }
+  &:before{
+    @include transform(rotate(1.5deg));
+    z-index: -1;
+  }
+  &:after{
+    @include transform(translate(1px, 4px));
+    z-index: -1;
+  }
+}

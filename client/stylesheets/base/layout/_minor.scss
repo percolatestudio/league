@@ -1,0 +1,37 @@
+.divider{
+  height: 3em;
+  width: 100%;
+  margin-bottom: 1.5em;
+  position: relative;
+  overflow:hidden;
+  text-align: center;
+  &:after{
+    content: '';
+    display: block;
+    @include position(absolute, -4.5em, auto, auto, (100% - 100%) * -.5, 100%, 6em );
+    z-index: 1;
+    @include background(
+      radial-gradient(50% 50%, rgba(black, .10), rgba(black, .03) 50%, rgba(black, 0) 70%),
+      radial-gradient(50% 50%, rgba(white, .5), rgba(white, .2) 60%, rgba(white, 0) 80%)
+    );
+  }
+  &:before{
+    content: '';
+    display: block;
+    @include position(absolute, 0, auto, auto, (150% - 100%) * -.5, 150%, 1px );
+    z-index: 2;
+    @include background(
+      radial-gradient(50% 50%, rgba(white, 1), rgba(white, .8) 50%, rgba(white, 0) 70%)
+    );
+  }/* end pseudoclasses */
+  /* If there is a view_more -- see games.scss */
+  .view_more{
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: .1em;
+    line-height: 3em;
+    @include inset(#ccc);
+    position: relative;
+    z-index: 3;
+  }
+}
