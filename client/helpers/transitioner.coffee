@@ -8,11 +8,11 @@ class Transitioner
     Meteor.deps.add_reactive_variable(this, 'next_page')
   
   init: ->
-    @_read_current_page(true)
+    @_grab_current_page(true)
   
-  _read_current_page: (first = false) ->
+  _grab_current_page: (first = false) ->
     ctx = new Meteor.deps.Context()
-    ctx.on_invalidate(=> @_read_current_page())
+    ctx.on_invalidate(=> @_grab_current_page())
     
     ctx.run =>
       if first
@@ -21,7 +21,7 @@ class Transitioner
         @_transition_to(Router.current_page())
   
   _transition_classes:  ->
-    "transitioning from_#{@current_page()} to_#{@next_page()}"
+    "transitioning from_#{@read_current_page()} to_#{@read_next_page()}"
   
   _transition_to: (new_page) ->
     console.log "transitioning to #{new_page}"
@@ -29,7 +29,7 @@ class Transitioner
     if ($('body').hasClass('transitioning')) # better kill the current transition
       @_transition_end()
     
-    return if new_page == @current_page()
+    return if new_page == @read_current_page()
     
     # Load up the next page
     @set_next_page(new_page)
@@ -50,7 +50,7 @@ class Transitioner
     $('body').off('.transitioner')
     classes = @_transition_classes()
     console.log "transition end #{classes}"
-    @set_current_page(@next_page())
+    @set_current_page(@read_next_page())
     @set_next_page(null)
     
     $('body').removeClass(classes)

@@ -14,6 +14,9 @@ Meteor.deps.add_reactive_variable = (object, name, value) ->
     context.invalidate() for id, context of contexts
     contexts = {}
   
+  # read the value of the variable _without_ setting up invalidation
+  object["read_#{name}"] = -> variable
+  
   variable
 
 # listen to a reactive fn until it returns true
