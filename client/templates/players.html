@@ -57,6 +57,13 @@
     {{#unless is_self}}
       <a class="remove_player icon12 close inset">Remove</a>
     {{/unless}}
+    <a class="invite btn {{#if attributes.messaged}} secondary {{else}} default {{/if}}">
+      {{#if attributes.messaged}}
+        Invite again
+      {{else}}
+        Invite now
+      {{/if}}
+    </a>
   </li>
 </template>
 

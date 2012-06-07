@@ -32,6 +32,11 @@
       display: none;
       @include small;
     }
+    .invite.btn{
+      font-size: $small * 1px;
+      float: right;
+      display: none;
+    }
     .image{
       $image_dimension:($large_player * $font-size * 1px) - ($player_border_width) * 2;
       text-align: center;
@@ -43,7 +48,7 @@
       margin-bottom: .75em;
       @include box-sizing(border-box);
       border: $player_border_width solid white;
-      @include box-shadow(rgba(black, .3) 0 2px 5px 0);
+      @include box-shadow(rgba(black, .2) 0 1px 3px 0);
       position: relative;
       @include transition(all 300ms ease-out);
       img{
@@ -77,11 +82,14 @@
   &.horiz{
     >li.player{
       width: auto;
-      margin: 0 0 1.5em 0;
+      margin: 0 0 .75em 0;
+      padding-bottom: .75em;
       display: block;
       text-align: left;
       vertical-align: auto;
       @include clearfix;
+      &:not(:last-child){border-bottom: 1px dotted #eee;}
+      &:not(:first-child){margin-top: -1px;}
       .name{
         display: inline;
         font-weight: bold;
@@ -97,7 +105,6 @@
         margin-right: .75em;
         border: $player_border_width solid white;
         float: left;
-        @include box-shadow(rgba(black, .3) 0 2px 5px 0);
         img{
           min-width: $image_dimension;
           width: $image_dimension;
@@ -122,7 +129,6 @@
         line-height: $image_dimension;
         margin-bottom: 0;
         border: $player_border_width solid white;
-        @include box-shadow(rgba(black, .3) 0 2px 5px 0);
         img{
           min-width: $image_dimension;
           width: $image_dimension;

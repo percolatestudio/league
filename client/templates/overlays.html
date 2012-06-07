@@ -17,13 +17,6 @@
         <ul class="player_list horiz">
           {{#each unauthorized_players }}
             {{> player}}
-            <a class="invite">
-              {{#if attributes.messaged}}
-                invited.
-              {{else}}
-                invite now.
-              {{/if}}
-            </a>
           {{/each}}
         </ul>
       </div>
