@@ -83,6 +83,8 @@
       @include clearfix;
       .name{
         display: inline;
+        font-weight: bold;
+        line-height: $mini_player * 1em;
         &:before{display: none;}
       }
       .image{
