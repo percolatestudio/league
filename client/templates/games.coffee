@@ -92,13 +92,13 @@ Template.game.events = _.extend Template.games.editable_game_events,
     Session.set("game.#{this.id}.expanded", false)
 
 Template.date_chooser.date_format = 'MM d, yy'
-Template.date_chooser.date_for_input = -> this.formatted_date()
 Template.date_chooser.date_field_id = -> "game-#{this.id || 'new'}-datepicker"
 Template.date_chooser.attach_date_picker = ->
   Meteor.defer =>
     game = this
     $('#' + Template.date_chooser.date_field_id.call(game))
       .datepicker
+        defaultDate: new Date(this.attributes.date)
         dateFormat: Template.date_chooser.date_format
         minDate: new Date()
         onSelect: (dateText) -> 
