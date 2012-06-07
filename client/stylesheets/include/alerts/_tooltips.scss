@@ -6,7 +6,7 @@
   @include box-sizing(border-box);
   padding:.75em;
   @include border-radius(3px);
-  @include maskbg(#f9f9f9);
+  @include maskbg($paper);
   border: 1px solid #999;
   outline: none;
   &:before{

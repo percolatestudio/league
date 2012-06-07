@@ -81,7 +81,7 @@ $to_fadeout_pages: '.to_loading, .to_signin, .to_not_authorized, .to_home';
     }
   }
 
-  // unless it's anything transitioning from a fadeout page, in which case it fades in without scale
+  // unless it s anything transitioning from a fadeout page, in which case it fades in without scale
   & + .container.next_page {
     left: 0;
     opacity: 0;

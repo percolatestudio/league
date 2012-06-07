@@ -1,4 +1,4 @@
-@mixin maskbg($color: #f9f9f9){
+@mixin maskbg($color: $paper){
   @include background(
     url('images/textures/bg_noise_80x80.png') repeat,
     $color

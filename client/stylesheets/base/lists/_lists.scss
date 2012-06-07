@@ -25,11 +25,12 @@
       overflow: hidden;
       width: 100%;
       @include small;
-      @include too_long(#f9f9f9);
+      @include too_long($paper);
     }
-    small > .remove_player{
+    .remove_player{
       color: #999;
       display: none;
+      @include small;
     }
     .image{
       $image_dimension:($large_player * $font-size * 1px) - ($player_border_width) * 2;
