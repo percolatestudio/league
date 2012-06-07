@@ -47,7 +47,7 @@
                 <span class="numeral">{{minutes_second}}</span>
                 <strong>PM</strong>
                 {{#if_editing "time"}}
-                  {{> date_chooser}}
+                  {{> time_chooser}}
                 {{/if_editing}}
               </div>
             </div>
@@ -85,7 +85,7 @@
         &nbsp;&nbsp;{{ time }}&nbsp;&nbsp;
         {{ formatted_date }}
         {{#if_editing "date"}}
-          {{> date_chooser}}
+          {{> date_time_chooser}}
         {{/if_editing}}
       </div>
       
@@ -124,7 +124,7 @@
         <span class="day">{{date}}</span>
         <span class="time">{{time}}</span>
         {{#if_editing "date"}}
-          {{> date_chooser}}
+          {{> date_time_chooser}}
         {{/if_editing}}
       </div>
       
@@ -195,17 +195,27 @@
   </li>
 </template>
 
+<template name="date_time_chooser">
+  <div class="date_time_chooser">
+    {{> date_chooser}}
+    {{> time_chooser}}
+  </div>
+</template>
+
 <template name="date_chooser">
   <div class="date_chooser" name="date">
     <label for="date" class="hide">Date &amp; time</label>
     <div id="{{date_field_id}}"></div>
     {{attach_date_picker}}
-    <div class="time_selects">
-      <label>Time</label>
-      {{#with possible_hours}}{{> select }}{{/with}}
-      {{#with possible_minutes}}{{> select }}{{/with}}
-    </div>
     <button class="close btn default">Close</button>
+  </div>
+</template>
+
+<template name="time_chooser">
+  <div class="time_selects">
+    <label>Time</label>
+    {{#with possible_hours}}{{> select }}{{/with}}
+    {{#with possible_minutes}}{{> select }}{{/with}}
   </div>
 </template>
 

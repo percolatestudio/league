@@ -16,7 +16,9 @@ Template.games.editable_game_events =
     this.update_attribute('location', $(e.target).val())
   'change [name=hours]': (e) -> this.game.set_hours($(e.target).val())
   'change [name=minutes]': (e) -> this.game.set_minutes($(e.target).val())
-  'click .close': (e) -> Meteor.defer -> close_current_edit_field()
+  'click .close': (e) -> 
+    e.preventDefault()
+    Meteor.defer -> close_current_edit_field()
 
 # any click anywhere will close the currently editing field
 Template.games.events = 
@@ -104,12 +106,12 @@ Template.date_chooser.attach_date_picker = ->
         onSelect: (dateText) -> 
           game.set_date($.datepicker.parseDate(Template.date_chooser.date_format, dateText))
 
-Template.date_chooser.possible_hours = ->
+Template.time_chooser.possible_hours = ->
   game: this
   name: 'hours'
   options: ({text: "#{h}h", value: h, selected: h == this.hours()} for h in [1..24])
   
-Template.date_chooser.possible_minutes = ->
+Template.time_chooser.possible_minutes = ->
   game: this
   name: 'minutes'
   options: ({text: "#{min}m", value: min, selected: min == this.minutes()} for min in [0...60] when min % 5 == 0)
