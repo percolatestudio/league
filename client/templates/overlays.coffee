@@ -6,7 +6,7 @@ Template.overlays.events =
 Template.team_status.team = -> team_status_team()
 Template.team_status.unauthorized_players = -> this.players({authorized: undefined})
 Template.team_status.events =
-  'click .player': ->
+  'click .invite': ->
     team = team_status_team()
     message = "#{current_user().attributes.name} has invited you to their new league team: #{team.attributes.name}"
     # link = to_url(games_path(team))

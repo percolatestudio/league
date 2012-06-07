@@ -42,7 +42,9 @@ class Player extends Model
       to: @attributes.facebook_id
       message: message
       link: link
-    FB.ui data, =>
-      this.update_attribute('messaged', true)
-      callback() if callback
+    FB.ui data, (result) =>
+      # this is the only way we can tell if they've actually sent it, thanks FB
+      if result?
+        this.update_attribute('messaged', true)
+        callback() if callback
   
