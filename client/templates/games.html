@@ -65,7 +65,7 @@
 </template>
 
 <template name="next_game">
-  <form class="next_game" name="game">
+  <form class="next_game">
     <aside class="next">Next Game</aside>
     {{{ logo this size="large" without_link=true }}}
     <p>{{ name }}</p>
@@ -118,7 +118,7 @@
 
 <template name="game">
   <li>
-    <form name="game">
+    <form>
       <div class="date editable" data-field="date">
         <span class="month">{{month}}</span>
         <span class="day">{{date}}</span>
