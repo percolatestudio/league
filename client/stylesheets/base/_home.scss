@@ -82,6 +82,8 @@
   form.team_builder{
     text-align: center;
     position: relative;
+    margin-bottom: 3em;
+    @include clearfix;
     >*{
       display: inline-block;
       margin-left: 5px;

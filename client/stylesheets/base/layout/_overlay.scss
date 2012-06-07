@@ -24,52 +24,8 @@ body.overlays_open{
   background: rgba($skyblue, .95);
   overflow: auto;
   .overlay{
-    width: 400px;
-    @include maskbg;
-    @include border-radius(5px);
-    @include box-shadow(rgba(black, .1) 0 1px 3px 0);
-    @include border(#f9f9f9);
     margin: 6em auto 3em;
-    position: relative;
     @include clearfix;
-  }
-}
-
-.team_status{
-  .team_logo{
-    @include maskbg(#f9f9f9);
-    @include border-radius(3px);
-    @include box-shadow(
-      rgba(black, .3) 0 1px 3px 0,
-      rgba(darken($skyblue, 5%), 1) 0 0px 0px 3px inset
-    );
-    @include position(absolute, -1.5em, auto, auto, 1.5em);
-    width: 100px;
-    height: 100px;
-  }
-  h2{
-    display: inline-block;
-    /* 12px 0 12px 144px  */
-    margin: $font-size * .75px 0 $font-size * .75px $font-size * 9px;
-    @include h1;
-  }
-  .close{
-    @include position(absolute, 1.5em, 1.5em, auto, auto, 1.5em, 1.5em);
-    @include border-radius(1.5em * .5);
-    text-align: center;
-    border: 1px solid #ccc;
-  }
-  .roster{
-    clear: both;
-    border-top: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
-    padding: 1.5em 1.5em 3em;
-  }
-  p{
-    @include small;
-    padding: 1.5em 1.5em;
-    &.subtext{
-      color: #999;  
-    }
+    @extend .dialog_box;
   }
 }

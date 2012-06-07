@@ -7,16 +7,16 @@
     {{else}}
       {{prepare_team_from_season_ticket}}
       {{#if_with team_from_season_ticket}}
-        <div class="season_ticket">        
+        <div class="team_dialog">        
           <div class="team_logo">
             {{{logo this size="small" without_links=true}}}
           </div>
           <h2>Join team</h2>
-          <p class="get_started">Signin with Facebook to join <strong>The Lions{{team_name}}</strong></p>
+          <p class="short_desc">Signin with Facebook to join <strong>The Lions{{team_name}}</strong></p>
           <div class="login_wrapper">
             <button class="login icon16 facebook btn inverse" title="Login with Facebook">Login</button>
           </div>
-          <p class="pitch">League is the game organizer for casual sports teams. Focus on playing, not logistics.</p>
+          <p class="subtext">League is the game organizer for casual sports teams. Focus on playing, not logistics.</p>
         </div>
       {{/if_with}}
       <button class="login icon16 facebook btn inverse" title="Login with Facebook">Login</button>

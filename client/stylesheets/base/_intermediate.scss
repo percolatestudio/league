@@ -4,9 +4,10 @@
 .loading_page,
 .not_found_page{
   @include position(absolute, auto, auto, auto, auto, 100%, 100%);
-  @include skybg;
   padding-top: 6em;
+  @include box-sizing(border-box);
   overflow: hidden;
+  @include skybg;
   text-align: center;
   .logotype{
     @include h1(no);
@@ -62,47 +63,11 @@
     color: rgba(darken($skyblue, 7%), 1);
     @include letterpress($skyblue);
   }
-  .season_ticket{
-    width: 400px;
+  .team_dialog{
     margin: 3em auto;
-    position: relative;
-    @include maskbg;
-    @include box-shadow(rgba(black, .3) 0 1px 3px 0);
-    @include border-radius(5px);
     text-align: left;
-    .team_logo{
-      @include maskbg(#f9f9f9);
-      @include border-radius(3px);
-      @include box-shadow(
-        rgba(black, .3) 0 1px 3px 0,
-        rgba(darken($skyblue, 5%), 1) 0 0px 0px 3px inset
-      );
-      @include position(absolute, -1.5em, auto, auto, 1.5em);
-      width: 100px;
-      height: 100px;
-    }
-    h2{
-      display: inline-block;
-      /* 12px 0 12px 144px  */
-      margin: $font-size * .75px 0 0 $font-size * 9px;
-    }
-    .login_wrapper{
-      clear: both;
-      border-top: 1px solid #ccc;
-      border-bottom: 1px solid #ccc;
-      padding: .75em;
-      text-align: center;
-    }
-    .pitch{
-      padding: 1.5em;
-      @include small;
-      color: #666;
-    }
-    p.get_started{
-      margin: 0 0 $font-size * .75px $font-size * 9px;
-      padding-right: $font-size * .75px;
-      @include small;
-    }
+    @extend .dialog_box;
+    h2{margin-bottom: 0;}
   }
 }
 .signin_page.email_ticket{/* exceptions */

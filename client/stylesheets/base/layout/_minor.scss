@@ -35,3 +35,61 @@
     z-index: 3;
   }
 }
+
+.dialog_box{
+  width: 400px;
+  position: relative;
+  @include maskbg;
+  @include box-shadow(rgba(black, .3) 0 1px 3px 0);
+  @include border-radius(5px);
+}
+
+.team_dialog{
+  .team_logo{
+    @include maskbg(#f9f9f9);
+    @include border-radius(3px);
+    @include box-shadow(
+      rgba(black, .3) 0 1px 3px 0,
+      rgba(darken($skyblue, 5%), 1) 0 0px 0px 3px inset
+    );
+    @include position(absolute, -1.5em, auto, auto, 1.5em);
+    width: 100px;
+    height: 100px;
+  }
+  h2{
+    display: inline-block;
+    /* 12px 0 12px 144px  */
+    margin: $font-size * .75px 0 $font-size * .75px $font-size * 9px;
+    @include h1;
+  }
+  .close{
+    @include position(absolute, 1.5em, 1.5em, auto, auto, 1.5em, 1.5em);
+    @include border-radius(1.5em * .5);
+    text-align: center;
+    border: 1px solid #ccc;
+  }
+  .roster, .login_wrapper{
+    clear: both;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+  }
+  .roster{padding: 1.5em 1.5em 0;}
+  .login_wrapper{
+    padding: .75em;
+    text-align: center;
+  }
+  .long_desc{
+    @include small;
+    padding: 1.5em 1.5em;
+  }
+  .short_desc{
+    margin: 0 0 $font-size * .75px $font-size * 9px;
+    padding-right: $font-size * .75px;
+    @include small;
+  }  
+  .subtext{
+    padding: 1.5em;
+    color: #666;
+    @include small;
+  } 
+}
