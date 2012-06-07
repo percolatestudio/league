@@ -9,7 +9,7 @@ body:not(.transitioning) .next_page {
 
 $fadeout_pages: '.loading, .signin, .not_authorized .home';
 // I ..guess.. we could do this with a loop
-$to_fadeout_pages: '.to_loading, .to_signin, .to_not_authorized .to_home';
+$to_fadeout_pages: '.to_loading, .to_signin, .to_not_authorized, .to_home';
 
 
 // what the current page does:
@@ -43,9 +43,11 @@ $to_fadeout_pages: '.to_loading, .to_signin, .to_not_authorized .to_home';
       @include transform( scale(2) );
     }
   }
-  
-  // transitioning to a fadeout page should just fade out
-  &#{$to_fadeout_pages} {
+}
+
+// transitioning to a fadeout page should just fade out
+#{$to_fadeout_pages} {
+  &.transitioning {
     .current_page {
       left: 0;
       @include opacity(0);
