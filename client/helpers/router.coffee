@@ -41,6 +41,7 @@ AuthenticatedRouter = Backbone.Router.extend
       page
     
   goto: (page_or_rule) ->
+    close_overlays()
     if typeof page_or_rule == 'function'
       @_page_f = page_or_rule
     else
