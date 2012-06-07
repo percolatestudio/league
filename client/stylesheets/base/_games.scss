@@ -122,11 +122,13 @@
         }
         >div{
           width: 33.33%;
+          padding:0  1.5em 1.5em;
           display: block;
+          position: relative;
           float: left;
           vertical-align: top;
+          text-align: center;
           @include box-sizing(border-box);
-          padding:0  1.5em 1.5em;
           z-index: 1;
           >label{
             float: none;
