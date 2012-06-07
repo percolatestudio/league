@@ -120,12 +120,25 @@ Template.time_chooser.possible_minutes = ->
 Template.player_availability.facebook_profile_url = -> 
   this.facebook_profile_url()
 
+Template.player_availability.instant_availability_id = -> 
+  "instant_availability-#{this.game.id}-#{this.player.id}"
+Template.player_availability.instant_availability = ->
+  key = Template.player_availability.instant_availability_id.call(this)
+  if Session.get(key)? then Session.get(key) else  this.game.availability(this.player)
+
 Template.player_availability.availability = -> 
   this.game.availability(this.player)
 Template.player_availability.unconfirmed = ->
   this.game.availability(this.player) == 0
 
-
 Template.player_availability.events =
   'click li.player': ->
-    this.availability.game.toggle_availability(this)
+    availability = Template.player_availability.instant_availability.call(this.availability)
+    
+    # update instant_availability right now
+    key = Template.player_availability.instant_availability_id.call(this.availability)
+    Session.set(key, Game.toggle_availability(availability))
+    
+    # update positions (ie. real availability) in 2 seconds
+    Meteor.setTimeout (=>
+      this.availability.game.toggle_availability(this)), 2000

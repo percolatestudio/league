@@ -14,7 +14,6 @@ class TemporaryModelCollection
 
   save: (id, record) -> 
     @_models[id] = record
-    console.log @_contexts[id]
     context.invalidate() for id, context of @_contexts[id]
     @_contexts[id] = {}
 
@@ -47,19 +46,13 @@ class Model
   save: (validate = true) ->
     throw new InvalidModelException(this) unless not validate or @valid()
     
-    console.log 'here'
     if @_temporary_model_id
-      console.log 'saving temporary model: '+ @_temporary_model_id
       TemporaryModelCollection.instance.save(@_temporary_model_id, this)
     else if @persisted()
-      console.log @id
-      console.log 'updating'
       @constructor._collection.update(@id, @attributes) 
     else
-      console.log 'inserting'
       @id = @constructor._collection.insert(@attributes)
     
-    console.log @id
     this
   
   update_attributes: (attrs = {}) ->

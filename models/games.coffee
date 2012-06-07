@@ -88,11 +88,13 @@ class Game extends Model
   availability_order: (player) ->
     [1, 0, 2][this.availability(player)]
   
+  @toggle_availability: (availability) ->
+    (availability + 1) % Game.playing_states.length
+    
   # jump through each of the states
   toggle_availability: (player) ->
-    @attributes.availabilities[player.id] ||= 0 # check undefined
-    @attributes.availabilities[player.id] += 1
-    @attributes.availabilities[player.id] %= 3
+    @attributes.availabilities[player.id] = 
+      Game.toggle_availability(@attributes.availabilities[player.id])
     @save()
   
   set_availiablity: (player, state) ->
