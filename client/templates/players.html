@@ -71,9 +71,8 @@
   <div id="add_player">
     <div class="search_wrapper">
       <span class="icon16 search"></span>
-      <input name="player[name]" placeholder="Type a players name"/>
+      <input name="player[name]" placeholder="Type a players name" value="{{filter}}"/>
     </div>
-    <!-- Fixme >> teamname -->
     <h3>Click to add players to {{attributes.name}}</h3>
     <ul class="player_list state_aware">
       {{#unless results}}

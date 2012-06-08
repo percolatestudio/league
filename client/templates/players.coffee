@@ -31,7 +31,9 @@ Template.player.facebook_profile_url = ->
 
 Template.player.in_team_class = -> 
   'in_team' if current_team() and (current_team().players({facebook_id: this.attributes.facebook_id}).length > 0)
-  
+
+# we need to reset the filter when we draw
+Template.add_player.filter = -> Session.get('current_friend_filter').source
 Template.add_player.results = -> 
   if Session.equals('facebook_friends', null)
     grab_facebook_friends()
