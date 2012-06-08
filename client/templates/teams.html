@@ -55,6 +55,9 @@
       {{#if unauthorized_count}}
         <a class="team_status">{{pluralize "player" unauthorized_count}} yet to sign up</a>
       {{/if}}
+      {{#if_with next_game}}
+        {{> team_state_flag}}
+      {{/if_with}}
     </div>
   </li>
 </template>
