@@ -13,7 +13,7 @@
   }
   >li.player{
     width: $large_player * 1em;
-    margin: 0 1.5em 1.5em;
+    margin: 0 .75em 1.5em;
     display: inline-block;
     overflow: visible;
     text-align: center;
@@ -67,7 +67,6 @@
       }
     }
     &:hover{
-      .image{@include transform(scale(1.1));}
       cursor: pointer;
     }
   }
