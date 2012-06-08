@@ -58,3 +58,15 @@
     </div>
   </li>
 </template>
+
+<template name="team_state_flag">
+  {{#if_equals 0 team_state}}
+    <p class="flag green">Your team is rarin' to play! Have fun out there.</p>
+  {{else}}
+    {{#if_equals 1 team_state}}
+      <p class="flag yellow">Waiting on {{pluralize "more player" confirmations_needed}} to confirm</p>
+    {{else}}
+      <p class="flag red">You need {{pluralize "outside player" player_deficit}} to field a team.</p>
+    {{/if_equals}}
+  {{/if_equals}}
+</template>
