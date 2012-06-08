@@ -74,15 +74,6 @@ LeagueRouter = AuthenticatedRouter.extend
     
   home: -> 
     @goto -> @page_if_logged_in('teams', 'home', 'loading')
-    
-    # @authSystem.if_logged_in(
-    #   => 
-    #     console.log 'going to leagues'
-    #     @navigate 'leagues', {replace: true, trigger: true}
-    #   ->
-    #     console.log 'at home'
-    #     Session.set 'visible_page', 'home')
-  
   
   leagues: -> @goto('teams')
   players: (team_id) ->
@@ -90,7 +81,19 @@ LeagueRouter = AuthenticatedRouter.extend
     @goto('players')
   games: (team_id) -> 
     Session.set 'team_id', team_id
-    @goto('games')
+    @goto ->
+      # if they are logged in but there's no team, we may need to join the team
+      if current_user() and not current_team()
+        if (document.location.hash == '#season-ticket') and not Session.get('team_id_invalid')
+          Meteor.call 'join_team', current_user().id, team_id, (error, joined) ->
+            # something's wrong with this team
+            Session.set('team_id_invalid', true) unless joined
+          
+          # show loading in the meantime
+          return 'loading'
+        
+      # otherwise, standard logic
+      @page_if_logged_in('games', 'signin', 'loading')
     
   # force a login window to open up, sending us to sign_in if not
   # require_login: (callback) -> null

@@ -30,7 +30,7 @@ LeagueMailer = (->
     send 'season_ticket',
       user: {name: user.attributes.name, email: user.attributes.email}
       team: 
-        name: team.attributes.name, url: games_url(team)
+        name: team.attributes.name, url: games_url(team) + '#season-ticket'
         players: players
     
   reminder: (user, team, game) ->

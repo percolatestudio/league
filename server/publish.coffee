@@ -17,12 +17,14 @@ Meteor.methods
   'login': (facebook_id) ->
     console.log "logging in user with FB ID: #{facebook_id}"
     player = Players.findOne facebook_id: facebook_id
-    Players.update player._id, {$set: {authorized: true}} unless player.authorized?
-    player
+    if player
+      Players.update player._id, {$set: {authorized: true}} unless player.authorized?
+      player
     
   'create': (attributes) ->
     console.log "creating user from #{attributes}"
     # FIXME: need to use a model here to make this safe
+    attributes.authorized = true
     id = Players.insert attributes
     Players.findOne id
   
@@ -39,3 +41,12 @@ Meteor.methods
       LeagueMailer.season_ticket(player, team)
       team.update_attribute('started', true)
     null
+  
+  'join_team': (user_id, team_id) ->
+    console.log "Joining team #{user_id} -> #{team_id}"
+    player = new Player(Players.findOne(user_id))
+    data = Teams.findOne(team_id)
+    if data
+      team = new Team(data)
+      team.add_player(player)
+      true
