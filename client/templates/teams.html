@@ -52,8 +52,8 @@
       {{#if alone_in_team}}
         <a href="{{ players_path this }}">Complete this team</a>
       {{/if}}
-      {{#if unauthed_player_count}}
-        <a class="team_status">{{pluralize "player" unauthed_player_count}} yet to sign up</a>
+      {{#if unauthorized_count}}
+        <a class="team_status">{{pluralize "player" unauthorized_count}} yet to sign up</a>
       {{/if}}
     </div>
   </li>

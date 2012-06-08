@@ -40,6 +40,9 @@ class Team extends Model
   
   player_deficit: -> if @next_game() then @next_game().player_deficit() else 0
   
+  unauthorized_count: -> this.players({authorized: undefined}).length
+  authorized: ->  @unauthorized_count() == 0
+  
   add_player: (player) ->
     # add player to this
     player.save() unless player.persisted()

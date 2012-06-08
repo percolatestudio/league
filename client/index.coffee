@@ -7,6 +7,8 @@ Template.screens.events =
   'click .login': -> AuthSystem.force_login()
   
   'click a[href]': (event) ->
+    # not sure why I have to do this
+    return if event.isImmediatePropagationStopped()
     event.preventDefault()
     
     url = $(event.target).closest('a').attr('href').replace(/#.*$/, '')

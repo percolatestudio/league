@@ -19,6 +19,11 @@ Template.players.players = ->
   current_players()
 Template.players.alone_in_team = -> current_players().length <= 1
 Template.players.events =
+  'click .start_season': (event) ->
+    unless this.authorized()
+      event.preventDefault()
+      event.stopImmediatePropagation()
+      show_team_status(this)
   'click .remove_player': (event) ->
     current_team().remove_player(this)
   'change [name=players_required]': (event) ->
