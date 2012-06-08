@@ -70,14 +70,6 @@
       cursor: pointer;
     }
   }
-  &.state_aware{
-    >li.player{
-      &.in_team, &.playing{@include player_state(playing);}
-      &.not_playing{@include player_state(not_playing);}
-      &.unconfirmed{@include player_state(unconfirmed);}
-      &.unregistered{@include player_state(unregistered);}
-    }
-  }
   &.horiz{
     >li.player{
       width: auto;
@@ -140,4 +132,81 @@
       }
     }
   }
+}
+
+
+
+.player_list{
+  &.state_aware{
+    >li.player{
+      img, .name{@include transition(all 1000ms ease-out);}
+      .icon16{
+        @include opacity(1);
+        z-index: 1;
+        &:before{
+          z-index: 4;
+          margin-left: -16px * .5;
+          margin-top: -16px * .5;
+          @include position(absolute, auto, auto, auto, auto, 16px, 16px);
+        }
+        &:after{
+          content: "";
+          text-align: center;
+          margin-left: -12px;
+          margin-top: -12px;
+          @include position(absolute, auto, auto, auto, auto, 24px, 24px);
+          @include border-radius(12px);
+          @include box-shadow(rgba(0,0,0,.3) 0 1px 3px 0);
+          z-index: 3;
+        }
+      }
+      &.in_team, &.playing{
+        .icon16:not(.checkmark){display: none;}
+        .icon16:after{
+          $bgcolor: #00cc00;
+          @include background(
+            linear-gradient(top, rgba(lighten($bgcolor, 10%), .7), rgba(darken($bgcolor, 10%), .5) 50%),
+            $bgcolor
+          );
+        }
+      }
+      &.not_playing{
+        .icon16:not(.close){display: none;}
+        img, .name{ @include opacity(.3);}
+        .icon16:after{
+          $bgcolor:$red;
+          @include background(
+            linear-gradient(top, rgba(lighten($bgcolor, 10%), .7), rgba(darken($bgcolor, 10%), .5) 50%),
+            $bgcolor
+          );
+        }
+      }
+      &.unconfirmed{
+        .icon16:not(.player){display: none}
+        img, .name{ @include opacity(.5);}
+        .icon16:after{
+          $bgcolor: yellow;
+          @include background(
+            linear-gradient(top, rgba(lighten($bgcolor, 10%), .7), rgba(darken($bgcolor, 10%), .5) 50%),
+            $bgcolor
+          );
+        }
+      }
+      &.unregistered{
+        position:relative;
+        &:before{
+          content: 'Unregistered';
+          @include position(absolute, -.5em, auto, auto, -.75em);
+          display: block;
+          z-index: 3;
+          font-size: $small *1px;
+          font-weight: bold;
+          text-align: center;
+          color: $red;
+          @include text-shadow(rgba(black, .1) 0 1px 2px);
+          @include transform(rotate(-10deg));
+        }
+      }
+    }
+  }  
 }
