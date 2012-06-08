@@ -72,7 +72,6 @@
   <form class="next_game">
     <aside class="next">Next Game</aside>
     {{{ logo this size="large" without_link=true }}}
-    <p>{{ name }}</p>
     {{#with next_game }}
       <h2 class="game_title editable" data-field="location">
         {{ location_or_game_number }}
@@ -92,16 +91,14 @@
           {{> date_time_chooser}}
         {{/if_editing}}
       </div>
-      
-      {{> team_state_flag}}
-      
+      <div class="instruction">Click players, dates and locations to edit</div>  
       <ul class="player_list state_aware">
         {{#each player_availabilities}}
           {{> player_availability }}
         {{/each}}
       </ul>
-    {{/with}}
-    <em>Click players, dates and locations to edit</em>
+      {{> team_state_flag}}
+    {{/with}}    
   </form>
 </template>
 

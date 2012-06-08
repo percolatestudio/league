@@ -91,6 +91,14 @@
         margin-left: -5em;
       }
     }
+    .instruction{
+      /* cancels out game_date margin, if a user cant edit this page we should remove this... */
+      margin-top: -1.5em;
+      margin-bottom: 1.5em;    
+      font-style: italic;
+      color: #999;
+    }
+    .flag{display: inline-block;}
   }
   .upcoming_games{
     text-align: center;
