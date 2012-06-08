@@ -142,6 +142,7 @@
       img, .name{@include transition(all 1000ms ease-out);}
       .icon16{
         @include opacity(1);
+        display: none;
         z-index: 1;
         &:before{
           z-index: 4;
@@ -161,7 +162,7 @@
         }
       }
       &.in_team, &.playing{
-        .icon16:not(.checkmark){display: none;}
+        .icon16.checkmark{display: block;}
         .icon16:after{
           $bgcolor: #00cc00;
           @include background(
@@ -171,7 +172,7 @@
         }
       }
       &.not_playing{
-        .icon16:not(.close){display: none;}
+        .icon16.close{display: block;}
         img, .name{ @include opacity(.3);}
         .icon16:after{
           $bgcolor:$red;
@@ -182,7 +183,7 @@
         }
       }
       &.unconfirmed{
-        .icon16:not(.player){display: none}
+        .icon16.player{display: block;}
         img, .name{ @include opacity(.5);}
         .icon16:after{
           $bgcolor: yellow;
