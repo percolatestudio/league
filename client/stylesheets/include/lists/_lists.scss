@@ -7,7 +7,21 @@
   }@else if $state == playing{
     .icon16:not(.checkmark){display: none;}
   }@else if $state == unregistered{
-    .icon16:not(.question){display: none;}
+    .icon16{display: none;}
+    position:relative;
+    &:before{
+      content: 'Unregistered';
+      @include position(absolute, 50%, -.75em, auto, auto);
+      padding: 0 .25em;
+      display: block;
+      z-index: 3;
+      font-size: $small *1px;
+      text-align: center;
+      background: #ffff99;
+      @include border-radius(3px);
+      @include box-shadow(rgba(black, .1) 0 1px 2px 0);
+      @include transform(rotate(-10deg));
+    } 
     img, .name{ @include opacity(.3);}
   }@else if $state == not_playing{
     .icon16:not(.close){display: none;}
