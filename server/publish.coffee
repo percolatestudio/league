@@ -30,3 +30,12 @@ Meteor.methods
     console.log "getting team from season ticket: #{team_id}"
     if team = Teams.findOne(team_id)
       { name: team.name, logo: team.logo }
+  
+  'start_team': (user_id, team_id) ->
+    console.log "Starting team #{team_id}"
+    player = new Player(Players.findOne(user_id))
+    team = new Team(Teams.findOne(team_id))
+    unless team.attributes.started
+      LeagueMailer.season_ticket(player, team)
+      team.update_attribute('started', true)
+    null

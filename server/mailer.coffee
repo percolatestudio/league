@@ -25,9 +25,13 @@ LeagueMailer = (->
       user: {name: user.attributes.name, email: user.attributes.email} 
       
   season_ticket: (user, team) ->
+    players = for player in team.players()
+      {name: player.attributes.name, facebook_id: player.attributes.facebook_id} 
     send 'season_ticket',
       user: {name: user.attributes.name, email: user.attributes.email}
-      team: {name: team.attributes.name, url: games_url(team)}
+      team: 
+        name: team.attributes.name, url: games_url(team)
+        players: players
     
   reminder: (user, team, game) ->
     send 'reminder',

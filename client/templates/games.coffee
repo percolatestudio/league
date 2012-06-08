@@ -29,7 +29,8 @@ Template.games.events =
 
 # update the team as started and the set the current_user's playing state if appropriate
 Template.games.make_team_updates = ->
-  current_team().update_attribute('started', true)
+  unless current_team().attributes.started
+    Meteor.call 'start_team', current_user().id, current_team().id
   if match = /(playing|not_playing|unconfirmed)-(.*)/.exec(document.location.hash)
     # if game = current_team.games(id)[0] ; game.not_playing(current_user())
     if game = current_team().games(match[2])[0]
