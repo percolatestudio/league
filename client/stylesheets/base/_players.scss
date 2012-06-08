@@ -57,7 +57,7 @@
       margin-bottom: 3em;
       .roster{          
         margin-left:16em;
-        small > .remove_player{display: block;}
+        .remove_player{display: block;}
       }
       .add_cta{
         display: inline-block;
