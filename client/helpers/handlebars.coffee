@@ -1,9 +1,6 @@
 # unconfirmed, not_playing, playing
 Handlebars.registerHelper 'availability_class', (status = 0) ->
-  if status == -1
-    'unregistered'
-  else
-    Game.playing_states[status].toLowerCase().replace(' ', '_')
+  Game.playing_states[status].toLowerCase().replace(' ', '_')
 
 Handlebars.registerHelper 'logo', (team, options) ->
   team.logo.render options.hash

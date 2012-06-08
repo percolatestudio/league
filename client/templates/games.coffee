@@ -122,6 +122,8 @@ Template.player_availability.facebook_profile_url = ->
 
 Template.player_availability.availability = -> 
   this.game.availability(this.player)
+Template.player_availability.registration_class = -> 
+    'unregistered' unless this.player.attributes.authorized
 Template.player_availability.unconfirmed = ->
   this.game.availability(this.player) == 0
 

@@ -79,11 +79,7 @@ class Game extends Model
     )
   
   availability: (player) ->
-    state = @attributes.availabilities[player.id] || 0
-    if state == 0 and not player.authorized
-      -1
-    else
-      state
+    @attributes.availabilities[player.id] || 0
   
   availability_text: (player) ->
     Game.playing_states[@availability(player)]
