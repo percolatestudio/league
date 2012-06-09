@@ -119,6 +119,9 @@ class Game extends Model
     else
       1
   
+  team_state_key: ->
+    Game.team_states[@team_state()].toLowerCase().replace(' ', '_')
+  
   # this is the total number of players that we still need to confirm that they're playing
   confirmations_needed: ->
     @team().attributes.players_required - @availability_count(1)

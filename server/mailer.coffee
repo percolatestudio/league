@@ -32,17 +32,27 @@ LeagueMailer = (->
       team: 
         name: team.attributes.name, url: games_url(team) + '#season-ticket'
         players: players
-    
-  reminder: (user, team, game) ->
-    send 'reminder',
-      user: {name: user.attributes.name, email: user.attributes.email}
-      team: {name: team.attributes.name, url: games_url(team)}
-      game: {date: game.attributes.date, location: game.attributes.location}
   
-  problem: (user, team, game) ->
-    send 'problem',
-      user: {name: user.attributes.name, email: user.attributes.email}
-      team: {name: team.attributes.name, url: games_url(team)}
-      game: {date: game.attributes.date, location: game.attributes.location, \
-        confirmation_count: game.availability_count(1)}
+  remind_team: (game, tomorrow) ->
+    team = game.team()
+
+    base_url = games_url(team)
+    data = 
+      team: {name: team.attributes.name, url: base_url}
+      game: 
+        date: game.attributes.date
+        location: game.attributes.location
+        tomorrow: tomorrow
+        team_state: game.team_state_key()
+        confirmation_count: game.availability_count(1)
+        player_deficit: game.player_deficit()
+        playing_url: base_url + "\#playing-#{game.id}"
+        not_playing_url: base_url + "\#not_playing-#{game.id}"
+        confirmation_url: base_url + "\#confirmation-#{game.id}"
+    
+    for player in game.players()
+      data.user = {name: player.attributes.name, email: player.attributes.email}
+      data.game.player_state = game.availability_text(player)
+      
+      send 'reminder', data
 )()
