@@ -50,7 +50,7 @@ LeagueMailer = (->
         not_playing_url: base_url + "\#not_playing-#{game.id}"
         confirmation_url: base_url + "\#confirmation-#{game.id}"
     
-    for player in game.players()
+    for player in game.players({authorized: true})
       data.user = {name: player.attributes.name, email: player.attributes.email}
       data.game.player_state = game.availability_text(player)
       
