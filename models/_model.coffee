@@ -46,6 +46,8 @@ class Model
   save: (validate = true) ->
     throw new InvalidModelException(this) unless not validate or @valid()
     
+    @before_save() if @before_save?
+    
     if @_temporary_model_id
       TemporaryModelCollection.instance.save(@_temporary_model_id, this)
     else if @persisted()

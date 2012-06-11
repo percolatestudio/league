@@ -26,10 +26,12 @@ class Game extends Model
     
     _.isEmpty(@errors)
   
-  # set the date from a moment
-  set_date: (m) ->
-    @moment = m
+  # always save the moment out to the date + zone before saving
+  #  -- we save the timezone so we can make a sensible guess when sending emails.
+  #   in the application, we'll always format the date relative to the user's timezone
+  before_save: ->
     @attributes.date = @moment.valueOf()
+    @attributes.zone = @moment.zone()
   
   qualified_day: -> 
     days_away = @moment.diff(moment(), 'days')
@@ -54,23 +56,21 @@ class Game extends Model
   
   formatted_date: -> @moment.format('MMMM Do, YYYY')
   
-  save_moment: -> @update_attribute('date', @moment.valueOf())
-  
   # set the date portion
   set_date: (date) -> 
     date = moment(date)
     @moment.year(date.year())
     @moment.month(date.month())
     @moment.date(date.date())
-    @save_moment()
+    @save()
   
   set_hours: (h) ->
     @moment.hours(h)
-    @save_moment()
+    @save()
   
   set_minutes: (h) ->
     @moment.minutes(h)
-    @save_moment()
+    @save()
   
   clone_one_week_later: ->
     new Game(

@@ -41,6 +41,7 @@ LeagueMailer = (->
       team: {name: team.attributes.name, url: base_url}
       game: 
         date: game.attributes.date
+        zone: game.attributes.zone
         location: game.attributes.location
         tomorrow: tomorrow
         team_state: game.team_state_key()
