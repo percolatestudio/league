@@ -54,3 +54,8 @@ Handlebars.registerHelper 'pluralize', (word, count) ->
 
 Handlebars.registerHelper 'letter', (word) ->
   ("<span class='char#{i}'>#{letter}</span>" for letter, i in word.split('')).join('')
+
+Handlebars.registerHelper 'fittext', (word) ->
+  id = Meteor.uuid()
+  Meteor.defer -> $('#' + id).fittext()
+  "<span id='#{id}' style='white-space: nowrap; visibility:hidden'>#{word}</span>"
