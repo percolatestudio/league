@@ -26,8 +26,8 @@ class Transitioner
   _transition_to: (new_page) ->
     console.log "transitioning to #{new_page}"
     
-    if ($('body').hasClass('transitioning')) # better kill the current transition
-      @_transition_end()
+    # better kill the current transition
+    @_transition_end() if @read_next_page()
     
     return if new_page == @read_current_page()
     
@@ -50,10 +50,13 @@ class Transitioner
     $('body').off('.transitioner')
     classes = @_transition_classes()
     console.log "transition end #{classes}"
+    $('body').removeClass(classes)
+    
+    # if there isn't a next page to go to, we can't do the switch
+    return unless @read_next_page()
     @set_current_page(@read_next_page())
     @set_next_page(null)
     
-    $('body').removeClass(classes)
 
 Transitioner.instance = new Transitioner()
 Meteor.startup ->
