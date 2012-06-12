@@ -31,7 +31,7 @@ class Game extends Model
   #   in the application, we'll always format the date relative to the user's timezone
   before_save: ->
     @attributes.date = @moment.valueOf()
-    @attributes.zone = @moment.zone()
+    @attributes.zone = @moment.zone() unless @attributes.zone?
   
   qualified_day: -> 
     days_away = @moment.diff(moment(), 'days')
