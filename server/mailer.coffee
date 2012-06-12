@@ -28,6 +28,7 @@ LeagueMailer = (->
     players = for player in team.players()
       {name: player.attributes.name, facebook_id: player.attributes.facebook_id} 
     send 'season_ticket',
+      base: LeagueMailerConfig.host
       user: {name: user.attributes.name, email: user.attributes.email}
       team: 
         name: team.attributes.name, url: games_url(team) + '#season-ticket'
@@ -38,6 +39,7 @@ LeagueMailer = (->
 
     base_url = games_url(team)
     data = 
+      base: LeagueMailerConfig.host
       team: {name: team.attributes.name, url: base_url}
       game: 
         date: game.attributes.date
