@@ -52,9 +52,8 @@ Template.add_player.events =
   'keyup input[name*=name]': (event) -> 
     Session.set 'current_friend_filter', new RegExp $(event.target).val(), 'i'
   'click .player_list li': (event) ->
-    team = current_team()
-    
-    team.add_player(this)
+    # the server can look up whether we already have a player with this FB id
+    Meteor.call 'add_player_to_team_from_facebook', current_team().id, this.attributes
 
 Template.players.players_required_data = -> 
   required = parseInt(current_team().attributes.players_required)
