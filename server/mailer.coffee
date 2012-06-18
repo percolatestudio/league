@@ -55,7 +55,7 @@ LeagueMailer = (->
     
     for player in game.players({authorized: true})
       data.user = {name: player.attributes.name, email: player.attributes.email}
-      data.game.player_state = game.availability_text(player)
+      data.game.player_state = game.availability_text(player).toLowerCase().replace(' ', '_')
       
       send 'reminder', data
 )()
