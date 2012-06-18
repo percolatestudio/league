@@ -51,7 +51,7 @@ LeagueMailer = (->
         player_deficit: game.player_deficit()
         playing_url: base_url + "\#playing-#{game.id}"
         not_playing_url: base_url + "\#not_playing-#{game.id}"
-        confirmation_url: base_url + "\#confirmation-#{game.id}"
+        unconfirmed_url: base_url + "\#unconfirmed-#{game.id}"
     
     for player in game.players({authorized: true})
       data.user = {name: player.attributes.name, email: player.attributes.email}
