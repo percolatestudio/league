@@ -1,5 +1,6 @@
 *.esproj
 *.DS_Store
 client/style.css
+client/.sass-cache/*
 public/.sass-cache/*
 server/deploy_keys.coffee
