@@ -118,3 +118,32 @@ a, button {
     &.fwd:after{content: '\2192';}
   }
 }
+
+@page {
+  margin: 0;
+}
+
+#origami_background {
+  display: none;
+}
+@media print {
+  html, body, .container {
+    width: 100%;
+    height: 100%;
+  }
+  
+  #logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -100px;
+  }
+  
+  #origami_background {
+    display: block;
+    z-index: -1;
+    @include position(absolute, 0, auto, auto, 0, 100%, 100%);
+  }
+}
+

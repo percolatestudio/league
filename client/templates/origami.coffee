@@ -1,0 +1,1 @@
+Template.origami.current_team = -> current_team()
