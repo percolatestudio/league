@@ -9,8 +9,7 @@ Template.team_status.events =
   'click .invite': ->
     team = team_status_team()
     message = "#{current_user().attributes.name} has invited you to their new league team: #{team.attributes.name}"
-    # link = to_url(games_path(team))
-    link = 'http://getleague.com/'
+    link = to_url(games_path(team))
     
     this.send_facebook_message(message, link)
     
