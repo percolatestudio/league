@@ -8,6 +8,10 @@ ReactiveRouter = Backbone.Router.extend
   #
   # TODO -- either generalize this pattern or get rid of ti
   goto: (page_f) ->
+    # so there's no need to specify constant functions
+    unless typeof(page_f) is 'function'
+      copy = page_f
+      page_f = (-> copy) 
     
     context = new Meteor.deps.Context
     context.on_invalidate => 
@@ -22,6 +26,10 @@ FilteredRouter = ReactiveRouter.extend
   
   # normal goto, but runs the output of page_f through the filters
   goto: (page_f) ->
+    # so there's no need to specify constant functions
+    unless typeof(page_f) is 'function'
+      copy = page_f
+      page_f = (-> copy) 
     ReactiveRouter.prototype.goto.call this, => @apply_filters(page_f())
   
   filter: (fn, options = {}) ->
@@ -68,15 +76,15 @@ LeagueRouter = FilteredRouter.extend
     ':team_id': 'players'
     ':team_id/season': 'games'
   
-  logo_tester: -> @goto(-> 'logo_tester')
+  logo_tester: -> @goto('logo_tester')
     
   home: -> 
     @goto => @require_login('teams', 'home', 'loading')
   
-  leagues: -> @goto(-> 'teams')
+  leagues: -> @goto('teams')
   players: (team_id) ->
     Session.set 'team_id', team_id
-    @goto(-> 'players')
+    @goto('players')
   games: (team_id) -> 
     Session.set 'team_id', team_id
     @goto =>
