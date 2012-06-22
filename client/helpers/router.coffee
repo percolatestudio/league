@@ -1,68 +1,66 @@
-# We just set the team name in the URL, nothing to see here
-
-# uses 'current_user' session var to monitor if we are logged in
-AuthenticatedRouter = Backbone.Router.extend
+ReactiveRouter = Backbone.Router.extend
   initialize: ->
-    @_page_f = () ->
-    @_login_rules ||= {}
-    @_contexts = {}
+    Meteor.deps.add_reactive_variable(this, 'current_page', 'loading')
     Backbone.Router.prototype.initialize.call(this)
   
-  require_login: (rules, auth_page = 'signin', loading_page = 'loading') ->
-    @_login_rules = rules
-    @_auth_page = auth_page
-    @_loading_page = loading_page
-  
-  page_if_logged_in: (logged_in_page, logged_out_page, loading_page) ->
-    # we are logged in AND the data has loaded from the server
-    if Session.equals('fbauthsystem.login_status', 'logged_in') and current_user()
-      logged_in_page
+  # simply wrap a page generating function in a context so we can set current_page
+  # every time that it changes, but we can ensure that we only call it once (in case of side-effects)
+  #
+  # TODO -- either generalize this pattern or get rid of ti
+  goto: (page_f) ->
     
-    else if Session.equals('fbauthsystem.login_status', 'logged_out') or \
-          Session.equals('fbauthsystem.login_status', 'not_authorized')
-      logged_out_page
-      
-    else
-      loading_page
+    context = new Meteor.deps.Context
+    context.on_invalidate => 
+      @goto(page_f)
+    context.run =>
+      @current_page.set page_f()
+
+FilteredRouter = ReactiveRouter.extend
+  initialize: ->
+    @_filters = []
+    ReactiveRouter.prototype.initialize.call(this)
   
-  apply_rules: (page) ->
-    check = if @_login_rules.only 
-      _.include(@_login_rules.only, page)
-    else if @_login_rules.except
-      not _.include(@_login_rules.except, page)
+  # normal goto, but runs the output of page_f through the filters
+  goto: (page_f) ->
+    ReactiveRouter.prototype.goto.call this, => @apply_filters(page_f())
+  
+  filter: (fn, options = {}) ->
+    options.fn = fn
+    @_filters.push(options)
+  
+  apply_filters: (page) ->
+    _.reduce(@_filters, ((page, filter) => @apply_filter(page, filter)), page)
+  
+  apply_filter: (page, filter) ->
+    apply = if filter.only
+      _.include(filter, page)
+    else if filter.except
+      not _.include(filter.except, page)
     else
       true
     
-    if check
-      console.log "checking logged in"
-      @page_if_logged_in(page, @_auth_page, @_loading_page)
-    else
-      console.log "don't need to check logged in on this page"
-      page
-    
-  goto: (page_or_rule) ->
-    close_overlays()
-    if typeof page_or_rule == 'function'
-      @_page_f = page_or_rule
-    else
-      @_page_f = -> @apply_rules(page_or_rule)
-    @invalidate_current_page()
-    
-  invalidate_current_page: -> 
-    context.invalidate() for id, context of @_contexts
-    @_contexts = {}
-  
-  # set up a reactive variable 'current_page' which obeys the login rules
-  current_page: ->
-    ctx = Meteor.deps.Context.current
-    @_contexts[ctx.id] = ctx if ctx and not (ctx.id in @_contexts)
-    @_page_f()
+    if apply then filter.fn(page) else page
 
-LeagueRouter = AuthenticatedRouter.extend
+LeagueRouter = FilteredRouter.extend
   initialize: ->
-    @require_login {except: ['home', 'loading', 'logo_tester']}
-    AuthenticatedRouter.prototype.initialize.call(this)
+    FilteredRouter.prototype.initialize.call(this)
+    @filter @require_login, {except: ['home', 'loading', 'logo_tester']}
+    @filter @close_overlays
   
+  require_login: (page, logged_out_page = 'signin', loading_page = 'loading') ->
+    # we are logged in AND the data has loaded from the server
+    if Session.equals('fbauthsystem.login_status', 'logged_in') and current_user()
+      page
+    else if Session.equals('fbauthsystem.login_status', 'logged_out') or \
+         Session.equals('fbauthsystem.login_status', 'not_authorized')
+      logged_out_page
+    else
+      loading_page
+  
+  close_overlays: (page) ->
+    close_overlays()
+    page
+
   routes: 
     '': 'home'
     'leagues': 'leagues'
@@ -70,18 +68,18 @@ LeagueRouter = AuthenticatedRouter.extend
     ':team_id': 'players'
     ':team_id/season': 'games'
   
-  logo_tester: -> @goto('logo_tester')
+  logo_tester: -> @goto(-> 'logo_tester')
     
   home: -> 
-    @goto -> @page_if_logged_in('teams', 'home', 'loading')
+    @goto => @require_login('teams', 'home', 'loading')
   
-  leagues: -> @goto('teams')
+  leagues: -> @goto(-> 'teams')
   players: (team_id) ->
     Session.set 'team_id', team_id
-    @goto('players')
+    @goto(-> 'players')
   games: (team_id) -> 
     Session.set 'team_id', team_id
-    @goto ->
+    @goto =>
       # if they are logged in but there's no team, we may need to join the team
       if current_user() and not current_team()
         if (document.location.hash == '#season-ticket') and not Session.get('team_id_invalid')
@@ -93,18 +91,7 @@ LeagueRouter = AuthenticatedRouter.extend
           return 'loading'
         
       # otherwise, standard logic
-      @page_if_logged_in('games', 'signin', 'loading')
-    
-  # force a login window to open up, sending us to sign_in if not
-  # require_login: (callback) -> null
-  #   console.log 'requiring login'
-  #   console.log @authSystem.login_status()
-  #   @loading() if @authSystem.logging_in()
-  #   @authSystem.require_login(callback, => @sign_in())
-  # 
-  # if_logged_in: (login_callback, logout_callback) -> null
-  #   @loading() if @authSystem.logging_in()
-  #   @authSystem.if_logged_in(login_callback, logout_callback)
+      @require_login('games', 'signin', 'loading')
 
 Router = new LeagueRouter
 
