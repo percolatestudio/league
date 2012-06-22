@@ -7,44 +7,32 @@ class Transitioner
     Meteor.deps.add_reactive_variable(this, 'current_page', 'loading')
     Meteor.deps.add_reactive_variable(this, 'next_page')
   
-  init: ->
-    @_grab_current_page(true)
-  
-  _grab_current_page: (first = false) ->
-    ctx = new Meteor.deps.Context()
-    ctx.on_invalidate(=> @_grab_current_page())
+  init: (Router) ->
+    @current_page.set(Router.current_page())
+    Meteor.deps.await (=> Router.current_page() != this.current_page(true)), =>
+      this._transition_to Router.current_page()
     
-    ctx.run =>
-      if first
-        @set_current_page(Router.current_page())
-      else
-        @_transition_to(Router.current_page())
-  
   _transition_classes:  ->
-    "transitioning from_#{@read_current_page()} to_#{@read_next_page()}"
+    "transitioning from_#{@current_page(true)} to_#{@next_page(true)}"
   
+  # need to be careful not to do anything reactive in here or we can get into loops
   _transition_to: (new_page) ->
     console.log "transitioning to #{new_page}"
     
     # better kill the current transition
-    @_transition_end() if @read_next_page()
+    @_transition_end() if @next_page(true)
     
-    return if new_page == @read_current_page()
+    return if new_page == @current_page(true)
     
     # Load up the next page
-    @set_next_page(new_page)
+    @next_page.set(new_page)
     
     # Start the transition (need to wait until meteor + the browser has rendered...)
     Meteor.defer =>
       # we want to wait until the TE event has fired for both containers
-      halfway = false
       $('body').addClass(@_transition_classes())
         .on Transitioner.EVENTS, (e) => 
-          if ($(e.target).is('.current_page,.next_page'))
-            if halfway
-              @_transition_end()
-            else
-              halfway = true
+          @_transition_end() if ($(e.target).is('body'))
   
   _transition_end: ->
     $('body').off('.transitioner')
@@ -53,11 +41,11 @@ class Transitioner
     $('body').removeClass(classes)
     
     # if there isn't a next page to go to, we can't do the switch
-    return unless @read_next_page()
-    @set_current_page(@read_next_page())
-    @set_next_page(null)
+    return unless @next_page(true)
+    @current_page.set(@next_page(true))
+    @next_page.set(null)
     
 
 Transitioner.instance = new Transitioner()
 Meteor.startup ->
-  Transitioner.instance.init()
+  Transitioner.instance.init(Router)
