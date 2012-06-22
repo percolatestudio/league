@@ -1,0 +1,3 @@
+[submodule ".meteor/meteor"]
+	path = .meteor/meteor
+	url = https://github.com/tmeasday/meteor

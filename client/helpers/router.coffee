@@ -1,54 +1,3 @@
-ReactiveRouter = Backbone.Router.extend
-  initialize: ->
-    Meteor.deps.add_reactive_variable(this, 'current_page', 'loading')
-    Backbone.Router.prototype.initialize.call(this)
-  
-  # simply wrap a page generating function in a context so we can set current_page
-  # every time that it changes, but we can ensure that we only call it once (in case of side-effects)
-  #
-  # TODO -- either generalize this pattern or get rid of ti
-  goto: (page_f) ->
-    # so there's no need to specify constant functions
-    unless typeof(page_f) is 'function'
-      copy = page_f
-      page_f = (-> copy) 
-    
-    context = new Meteor.deps.Context
-    context.on_invalidate => 
-      @goto(page_f)
-    context.run =>
-      @current_page.set page_f()
-
-FilteredRouter = ReactiveRouter.extend
-  initialize: ->
-    @_filters = []
-    ReactiveRouter.prototype.initialize.call(this)
-  
-  # normal goto, but runs the output of page_f through the filters
-  goto: (page_f) ->
-    # so there's no need to specify constant functions
-    unless typeof(page_f) is 'function'
-      copy = page_f
-      page_f = (-> copy) 
-    ReactiveRouter.prototype.goto.call this, => @apply_filters(page_f())
-  
-  filter: (fn, options = {}) ->
-    options.fn = fn
-    @_filters.push(options)
-  
-  apply_filters: (page) ->
-    _.reduce(@_filters, ((page, filter) => @apply_filter(page, filter)), page)
-  
-  apply_filter: (page, filter) ->
-    apply = if filter.only
-      _.include(filter, page)
-    else if filter.except
-      not _.include(filter.except, page)
-    else
-      true
-    
-    if apply then filter.fn(page) else page
-
 LeagueRouter = FilteredRouter.extend
   initialize: ->
     FilteredRouter.prototype.initialize.call(this)
@@ -102,6 +51,9 @@ LeagueRouter = FilteredRouter.extend
       @require_login('games', 'signin', 'loading')
 
 Router = new LeagueRouter
+Transitioner.instance = new Transitioner()
 
 Meteor.startup ->
   Backbone.history.start({pushState: true})
+  Transitioner.instance.init(Router)
+  
