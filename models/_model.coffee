@@ -63,7 +63,7 @@ class Model
       old_value = @attributes[key]
       @attributes[key] = value 
       changed ||= old_value != value
-    @save() if changed
+    @save() if changed or not @persisted()
   
   update_attribute: (key, value) ->
     attrs = {}

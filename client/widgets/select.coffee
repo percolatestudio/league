@@ -10,4 +10,4 @@ Template.select.selected_text = ->
   
 Template.select.events = 
   'change select': (event) ->
-    @set_selected_text($(event.target).find('option:selected').text())
+    @selected_text.set($(event.target).find('option:selected').text())

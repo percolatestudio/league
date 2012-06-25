@@ -20,6 +20,7 @@ Template.players.players = ->
 Template.players.alone_in_team = -> current_players().length <= 1
 Template.players.events =
   'click .start_season': (event) ->
+    console.log 'start season'
     unless this.authorized()
       # a little hack so it happens after we browse to the new page (and so it's not auto closed)
       Meteor.defer => show_team_status(this)

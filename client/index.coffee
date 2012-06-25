@@ -28,7 +28,7 @@ Template.screens.events =
     t[pair.name] = pair.value for pair in $form.serializeArray()
     
     # wait until the current_user function returns something
-    Meteor.deps.await current_user, ->
+    Meteor.deps.await_once current_user, ->
       team = current_user().create_team(t)
       console.log team.full_errors() unless team.valid()
       

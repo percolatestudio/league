@@ -98,15 +98,17 @@ class FBAuthSystem
 
   _handleLogin: (authResponse) ->
     Meteor.call 'login', authResponse.userID, (error, user) => 
-      return @_doLogin(user) if user # the user already exists
+      @_doLogin(user) if user # the user already exists
       
+      return if user and user.email
       # else, better get some deets from the FB
       FB.api '/me', (me) => 
         attributes = { name: me.name, facebook_id: me.id, email: me.email }
-        Meteor.call 'create', attributes, (error, user) =>
-          @_doLogin(user)
+        Meteor.call 'create_or_update', attributes, (error, user) =>
+          @_doLogin(user) unless @logged_in()
   
   _doLogin: (user) ->
+    console.log("logging in #{user._id}")
     Session.set('fbauthsystem.login_status', 'logged_in')
     Session.set('current_user_id', user._id)
     @_login_callback()

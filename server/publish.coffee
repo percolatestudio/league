@@ -21,12 +21,23 @@ Meteor.methods
       Players.update player._id, {$set: {authorized: true}} unless player.authorized?
       player
     
-  'create': (attributes) ->
-    console.log "creating user from #{attributes}"
-    # FIXME: need to use a model here to make this safe
+  'create_or_update': (attributes) ->
+    console.log "creating/updating user from #{attributes}"
+        
     attributes.authorized = true
-    id = Players.insert attributes
-    Players.findOne id
+    
+    player = if data = Players.findOne(facebook_id: attributes.facebook_id)
+      new Player(data)
+    else
+      new Player(attributes)
+    
+    player.update_attributes
+      authorized: true
+      email: attributes.email
+    
+    # method expects a non-model returned. Whatever
+    return Players.findOne(player.id)
+  
   
   'team_from_season_ticket': (team_id) ->
     console.log "getting team from season ticket: #{team_id}"
