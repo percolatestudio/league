@@ -24,8 +24,12 @@ LeagueRouter = FilteredRouter.extend
     'logo_tester': 'logo_tester'
     ':team_id': 'players'
     ':team_id/season': 'games'
+    ':team_id/origami': 'origami'
   
   logo_tester: -> @goto('logo_tester')
+  origami: (team_id) ->
+    Session.set 'team_id', team_id
+    @goto('origami')
     
   home: -> 
     @goto => @require_login('teams', 'home', 'loading')
