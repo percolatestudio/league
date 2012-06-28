@@ -16,5 +16,8 @@ Template.team.events =
 
 Template.team_builder.adding_team = -> Session.equals('adding_team', true)
 Template.team_builder.events =
-  'click .add_team.btn': -> Session.set('adding_team', true)
+  'click .add_team.btn': -> 
+    Session.set('adding_team', true)
+    Meteor.flush()
+    $('#team_name').focus()
     
