@@ -1,6 +1,7 @@
 <template name="select">
   <div class="select">
     <select name="{{name}}">
+      {{#if include_blank}}<option></option>{{/if}}
       {{#each options}}
         <option {{#if selected}}selected{{/if}} value="{{value}}">{{text}}</option>
       {{/each}}

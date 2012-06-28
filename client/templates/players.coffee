@@ -59,6 +59,7 @@ Template.add_player.events =
 Template.players.players_required_data = -> 
   required = parseInt(current_team().attributes.players_required)
   {
+    include_blank: true
     icon: 'player'
     name: 'players_required',
     options: ({text: "#{i} players", value: i, selected: i == required} for i in [3..18])
