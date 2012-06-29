@@ -26,7 +26,7 @@ jQuery.fn.fittext = ->
     font_size *= change
     font_size = Math.floor(font_size)
     
-    $parent.css('font-size', font_size)
+    $element.css('font-size', font_size)
     
     if font_size > last_tried
       # make sure we aren't jumping around; keep us in our 'valid' range
@@ -38,7 +38,8 @@ jQuery.fn.fittext = ->
       font_size = Math.max(font_size, min_tried)
       max_tried = last_tried
   
-  $parent.css 'font-size', font_size
+  $element.css 'font-size', font_size
   $element.css 'visibility', 'visible'
-    
+  
+  return font_size
     

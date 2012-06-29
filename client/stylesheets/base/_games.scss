@@ -62,13 +62,16 @@
     #logo{display: inline-block;}
     .game_title{
       color: #3b404d;
-      font-size: 10.5em;
       text-transform: uppercase;
       font-weight: bold;
+      span {
+        @include emtype;
+        font-size: 10.5em;
+        line-height: 1.09em;
+      }
       text-align: center;
       border-top: $font-size * .75px solid #3b404d;
       border-bottom: $font-size * .75px solid #3b404d;
-      @include emtype;
       position: relative;
       .edit_location {
         font-size: 16px;

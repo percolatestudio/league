@@ -55,7 +55,17 @@ Handlebars.registerHelper 'pluralize', (word, count) ->
 Handlebars.registerHelper 'letter', (word) ->
   ("<span class='char#{i}'>#{letter}</span>" for letter, i in word.split('')).join('')
 
-Handlebars.registerHelper 'fittext', (word) ->
-  id = Meteor.uuid()
-  Meteor.defer -> $('#' + id).fittext()
-  "<span id='#{id}' style='white-space: nowrap; visibility:hidden'>#{word}</span>"
+Handlebars.registerHelper 'fittext', (identifier, word) ->
+  word = word.call(this) if typeof word == 'function'
+  
+  key = "_fittext_#{identifier}_#{this.id}"
+  sizes = Session.get(key)
+  Session.set(key, sizes = {}) unless sizes
+  
+  if sizes[word]
+    "<span id='#{key}' style='white-space: nowrap; font-size: #{sizes[word]}px'>#{word}</span>"
+  else
+    Meteor.defer => 
+      sizes[word] = $('#' + key).fittext()
+      Session.set(key, sizes)
+    "<span id='#{key}' style='white-space: nowrap; visibility:hidden'>#{word}</span>"
