@@ -20,6 +20,8 @@ $experimental-support-for-svg: true;
 @import 'stylesheets/include/forms/stdform';
 @import 'stylesheets/include/forms/too_long';
 
+@import 'stylesheets/base/boilerplate';
+
 @import 'stylesheets/base/layout/transition';
 @import 'stylesheets/base/layout/header';
 @import 'stylesheets/base/layout/overlay';
@@ -38,23 +40,7 @@ $experimental-support-for-svg: true;
 @import 'stylesheets/base/players';
 @import 'stylesheets/base/teams';
 
-/* html5 and form reset */
-figure {
-  position: relative;
-  img, object, embed, video{max-width: 100%; display: block;}
-}
-img {	border: 0;-ms-interpolation-mode: bicubic;}
-input, textarea{
-  moz-appearance:none;
-  -webkit-appearance:none;
-}
-b, strong{ font-weight: bold;}
-sub, sup{ position: relative; font-size: .8em;}
-sub{ bottom: -.2em;}
-sup{ top: -.2em;}
-i, em { font-style: italic;}
-u{ text-decoration: underline;}
-del{ text-decoration: line-through;}
+
 
 body {
   color: #333;
