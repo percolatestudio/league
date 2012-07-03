@@ -1,5 +1,3 @@
-
-Games = new Meteor.Collection 'games'
 # { team_id: 123,
 #   date: 1318781876406, location: 'Brunswick',
 #   availabilities: {player_id: state} }
@@ -7,7 +5,6 @@ Games = new Meteor.Collection 'games'
 class Game extends Model
   @playing_states = ['Unconfirmed', 'Playing', 'Not Playing']
   @team_states = ['Ready', 'Unconfirmed', 'Need players']
-  @_collection: Games
   constructor: (attrs) -> 
     super(attrs)
     @attributes.availabilities ||= {}
@@ -101,7 +98,7 @@ class Game extends Model
   unconfirmed: (player) -> @set_availiablity(player, 0)
   
   #  Various methods to calculate if we have enough players
-  team: -> new Team(Teams.findOne(@attributes.team_id))
+  team: -> Teams.findOne(@attributes.team_id)
   
   players: (conditions = {}, options = {}) -> 
     @team().players(conditions, options)
@@ -133,3 +130,6 @@ class Game extends Model
   
   game_number: ->
     @team().games({date: {$lt: @attributes.date}}).length + 1
+
+
+Games = Game._collection = new Meteor.Collection 'games', null, null, Game

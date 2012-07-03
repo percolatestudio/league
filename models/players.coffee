@@ -1,9 +1,7 @@
-Players = new Meteor.Collection 'players'
 # { name: "Tom Coleman", email: "tom@thesnail.org", facebook_id: 'xxx', team_ids: [..], 
 #   authorized: true, messaged: true}
 
 class Player extends Model
-  @_collection: Players
   constructor: (attrs) ->
     super(attrs)
     @attributes.team_ids ||= []
@@ -47,4 +45,5 @@ class Player extends Model
       if result?
         this.update_attribute('messaged', true)
         callback() if callback
-  
+
+Players = Player._collection = new Meteor.Collection 'players', null, null, Player

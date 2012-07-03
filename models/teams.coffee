@@ -1,4 +1,3 @@
-Teams = new Meteor.Collection 'teams'
 # { name: "Tom's Fault", players_required: 5, player_ids: [...], 
 #    logo: {lines: ["Tom's Fault"], shape: 'diamond', colors: ["#xxx", "#yyy"], font: 'Foogle'} }
 
@@ -7,7 +6,9 @@ class Team extends Model
   constructor: (attrs) ->
     super(attrs)
     @attributes.player_ids ||= []
-    @prepare_logo()
+    
+    # is this a hack?
+    @prepare_logo() if Meteor.is_client
   
   valid: ->
     @errors = {}
@@ -32,7 +33,7 @@ class Team extends Model
   games: (conditions = {}, options = {}) -> 
     conditions.team_id = @id
     options.sort ||= {date: 1}
-    Games.find(conditions, options).map (g_attrs) -> new Game(g_attrs)
+    Games.find(conditions, options)
   
   future_games: -> @games({date: {$gt: moment().valueOf()}})
   
@@ -94,3 +95,4 @@ class Team extends Model
       @attributes.logo = @logo.to_object()
   
   
+Teams = Team._collection = new Meteor.Collection 'teams', null, null, Team

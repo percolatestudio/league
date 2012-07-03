@@ -39,8 +39,6 @@ class FBAuthSystem
       
       # this subscription handles all types of status changes apart from #2A
       FB.Event.subscribe 'auth.statusChange', (r) => 
-        console.log 'statusChange'
-        console.log r
         if r.status == 'connected'
           @_handleLogin(r.authResponse)
         else if r.status == 'not_authorized'
@@ -60,8 +58,6 @@ class FBAuthSystem
   # initiate login process (if it hasn't already happened).
   force_login: (login_callback, logout_callback) ->
     return (login_callback() if login_callback) if @logged_in() # they are logged in already
-    
-    console.log 'setting login_callbacks'
     
     # we haven't yet initialized facebook, so we need to just set the callback while we wait
     @login_callback = login_callback if login_callback
@@ -98,9 +94,10 @@ class FBAuthSystem
 
   _handleLogin: (authResponse) ->
     Meteor.call 'login', authResponse.userID, (error, user) => 
+      console.log user
       @_doLogin(user) if user # the user already exists
       
-      return if user and user.email
+      return if user and user.attributes.email
       # else, better get some deets from the FB
       FB.api '/me', (me) => 
         attributes = { name: me.name, facebook_id: me.id, email: me.email }
@@ -108,9 +105,9 @@ class FBAuthSystem
           @_doLogin(user) unless @logged_in()
   
   _doLogin: (user) ->
-    console.log("logging in #{user._id}")
+    console.log("logging in #{user.id}")
     Session.set('fbauthsystem.login_status', 'logged_in')
-    Session.set('current_user_id', user._id)
+    Session.set('current_user_id', user.id)
     @_login_callback()
     
   _handleLogout: -> 

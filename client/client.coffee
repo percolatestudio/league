@@ -8,21 +8,20 @@ Meteor.startup ->
   Meteor.autosubscribe ->
     current_user_id = Session.get('current_user_id')
     me = Players.findOne(current_user_id)
-    team_ids = (me.team_ids if me) || []
+    team_ids = (me.attributes.team_ids if me) || []
     
     # finds all players in team_ids _and_ me
     Meteor.subscribe 'players', team_ids, current_user_id
-    Meteor.subscribe 'teams', Session.get('current_user_id')
+    Meteor.subscribe 'teams', current_user_id
     Meteor.subscribe 'games', team_ids
+    
   
 current_user = -> 
-  data = Players.findOne(Session.get('current_user_id'))
-  new Player(data) if data
-
+  Players.findOne(Session.get('current_user_id'))
+  
 current_team = ->
-  data = Teams.findOne(Session.get 'team_id')
-  new Team(data) if data
-
+  Teams.findOne(Session.get 'team_id')
+  
 current_players = -> current_team().players() if current_team()
 future_games = -> current_team().future_games() if current_team()
 
@@ -44,5 +43,4 @@ show_team_status = (team) ->
   open_overlays()
   Session.set('team_status_team_id', team.id)
 team_status_team = ->
-  data = Teams.findOne(Session.get 'team_status_team_id')
-  new Team(data) if data
+  Teams.findOne(Session.get 'team_status_team_id')

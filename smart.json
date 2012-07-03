@@ -1,7 +1,7 @@
 {
   "meteor": {
     "git": "https://github.com/tmeasday/meteor.git",
-    "branch": "deps-extensions"
+    "branch": "league"
   },
   "packages": {
     "router": {
