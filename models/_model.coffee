@@ -32,9 +32,12 @@ class Model
     @attributes = attributes || {}
     
     @id = @attributes._id
-    delete @attributes._id if @id
+    # FIXME
+    # delete @attributes._id if @id
     
     @errors = {}
+  
+  _meteorRawData: -> @attributes
   
   valid: -> true
   
