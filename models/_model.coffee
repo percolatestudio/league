@@ -32,8 +32,7 @@ class Model
     @attributes = attributes || {}
     
     @id = @attributes._id
-    # FIXME
-    # delete @attributes._id if @id
+    delete @attributes._id if @id
     
     @errors = {}
   
