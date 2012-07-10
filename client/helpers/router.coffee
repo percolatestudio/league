@@ -5,7 +5,6 @@ LeagueRouter = FilteredRouter.extend
     @filter @close_overlays, {except: ['games']}
   
   require_login: (page, logged_out_page = 'signin', loading_page = 'loading') ->
-    console.log current_user()
     # we are logged in AND the data has loaded from the server
     if Session.equals('fbauthsystem.login_status', 'logged_in') and current_user()
       page
@@ -16,7 +15,6 @@ LeagueRouter = FilteredRouter.extend
       loading_page
   
   close_overlays: (page) ->
-    console.log('closing overlays');
     close_overlays()
     page
 
