@@ -69,7 +69,7 @@ Template.next_game.location_or_game_number = ->
   this.attributes.location || "Game #{this.game_number()}"
 
 Template.next_game.player_availabilities = Template.game.player_availabilities = -> 
-  for p in this.players()
+  this.players().map (p) =>
     availability = {game: this, player: p}
     # need to circularly link so we can get access to info when events happen FIXME
     availability.player.availability = availability

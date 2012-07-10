@@ -19,7 +19,7 @@ class Team extends Model
     
     # this is a bit of a hack. Players will be totally empty (and not include current_user) 
     # if it hasn't loaded yet. This is a work around for now..
-    unless @players().length > 0 or (@attributes.player_ids.length > 0 and not Players.findOne())
+    unless @players().count() > 0 or (@attributes.player_ids.length > 0 and not Players.findOne())
       @errors.players  = 'must not be empty'
     
     _.isEmpty(@errors)
@@ -27,8 +27,7 @@ class Team extends Model
   # many-many association. TODO: generalize this I guess
   players: (conditions = {}, options = {}) ->
     conditions._id = {$in: @attributes.player_ids}
-    Players.find(conditions, options).map (player_attrs) ->
-      new Player(player_attrs)
+    Players.find(conditions, options)
   
   games: (conditions = {}, options = {}) -> 
     conditions.team_id = @id
@@ -41,7 +40,7 @@ class Team extends Model
   
   player_deficit: -> if @next_game() then @next_game().player_deficit() else 0
   
-  unauthorized_count: -> this.players({authorized: undefined}).length
+  unauthorized_count: -> this.players({authorized: undefined}).count()
   authorized: ->  @unauthorized_count() == 0
   
   add_player: (player) ->

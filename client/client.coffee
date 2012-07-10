@@ -23,7 +23,7 @@ current_team = ->
   Teams.findOne(Session.get 'team_id')
   
 current_players = -> current_team().players() if current_team()
-future_games = -> current_team().future_games() if current_team()
+future_games = -> current_team().future_games().fetch() if current_team()
 
 
 # Overlays are done in a more JQ way because otherwise I'll need to change a

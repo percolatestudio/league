@@ -104,7 +104,7 @@ class Game extends Model
     @team().players(conditions, options)
   
   availability_count: (state) ->
-    (p for p in @players() when @availability(p) == state).length
+    (p for p in @players().fetch() when @availability(p) == state).length
   
   # do we: a) 0 - have sufficient players confirmed
   #        b) 1 - not know yet
@@ -126,10 +126,10 @@ class Game extends Model
     
   # this is the number of players we are going to need to get from outside
   player_deficit: ->
-    @team().attributes.players_required - (@players().length - @availability_count(2))
+    @team().attributes.players_required - (@players().count() - @availability_count(2))
   
   game_number: ->
-    @team().games({date: {$lt: @attributes.date}}).length + 1
+    @team().games({date: {$lt: @attributes.date}}).count() + 1
 
 
 Games = Game._collection = new Meteor.Collection 'games', null, null, Game

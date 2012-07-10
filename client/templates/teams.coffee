@@ -1,10 +1,10 @@
 Session.set 'adding_team', false
 
-Template.teams.teams = -> Teams.find().map((t) -> new Team(t))
+Template.teams.teams = -> Teams.find()
 
 Template.team.games_path = -> games_path(this)
 Template.team.players_path = -> players_path(this)
-Template.team.alone_in_team = -> this.players().length <= 1
+Template.team.alone_in_team = -> this.players().count() <= 1
 Template.team.events = 
   'click .new_logo': ->
     this.prepare_logo(true)

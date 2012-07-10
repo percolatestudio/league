@@ -17,7 +17,7 @@ Template.players.cant_continue = -> not current_team().attributes.players_requir
 
 Template.players.players = -> 
   current_players()
-Template.players.alone_in_team = -> current_players().length <= 1
+Template.players.alone_in_team = -> current_players().count() <= 1
 Template.players.events =
   'click .start_season': (event) ->
     console.log 'start season'
@@ -35,7 +35,7 @@ Template.player.facebook_profile_url = ->
   this.facebook_profile_url()
 
 Template.player.in_team_class = -> 
-  'in_team' if current_team() and (current_team().players({facebook_id: this.attributes.facebook_id}).length > 0)
+  'in_team' if current_team() and (current_team().players({facebook_id: this.attributes.facebook_id}).count() > 0)
 
 # we need to reset the filter when we draw
 Template.add_player.filter = -> Session.get('current_friend_filter').source
