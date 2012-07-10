@@ -36,7 +36,10 @@ class Model
     
     @errors = {}
   
-  _meteorRawData: -> @attributes
+  _meteorRawData: -> 
+    data = @attributes
+    data._id = @id
+    data
   
   valid: -> true
   
