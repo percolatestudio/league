@@ -2,7 +2,7 @@ LeagueRouter = FilteredRouter.extend
   initialize: ->
     FilteredRouter.prototype.initialize.call(this)
     @filter @require_login, {except: ['home', 'loading', 'logo_tester']}
-    @filter @close_overlays
+    @filter @close_overlays, {except: ['games']}
   
   require_login: (page, logged_out_page = 'signin', loading_page = 'loading') ->
     console.log current_user()
@@ -16,6 +16,7 @@ LeagueRouter = FilteredRouter.extend
       loading_page
   
   close_overlays: (page) ->
+    console.log('closing overlays');
     close_overlays()
     page
 
@@ -41,6 +42,13 @@ LeagueRouter = FilteredRouter.extend
     @goto('players')
   games: (team_id) -> 
     Session.set 'team_id', team_id
+    
+    # outside of the goto so it only happens once
+    if Session.get('opening_status_overlay')
+      Session.set('opening_status_overlay', false)
+    else
+      close_overlays()
+    
     @goto =>
       # if they are logged in but there's no team, we may need to join the team
       if current_user() and not current_team()
