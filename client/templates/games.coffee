@@ -43,9 +43,9 @@ Template.games.next_game = Template.next_game.next_game = -> future_games()[0]
 
 
 Template.no_games.new_game = -> 
-  if !TemporaryModelCollection.instance.get('new_game')
-    new Game({team_id: this.id}).temporary_model('new_game')
-  TemporaryModelCollection.instance.get('new_game')
+  if !TemporaryModelCollection.instance.get('new_game-' + this.id)
+    new Game({team_id: this.id}).temporary_model('new_game-' + this.id)
+  TemporaryModelCollection.instance.get('new_game-' + this.id)
   
 Template.no_games.short_formatted_date = -> this.moment.format('MMMM Do')
 Template.no_games.hours_first = -> Math.floor(this.hours() % 12 / 10)
