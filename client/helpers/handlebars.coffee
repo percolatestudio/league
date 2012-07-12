@@ -29,8 +29,6 @@ close_current_edit_field = ->
   _current_edit_field = null
 
 Handlebars.registerHelper 'if_equals', (left, right, options) ->
-  left = left.call(this) if typeof left == 'function'
-  right = right.call(this) if typeof right == 'function'
   if left.toString() == right.toString()
     options.fn(this)
   else
@@ -46,7 +44,6 @@ Handlebars.registerHelper 'if_editing', (name, options) ->
     options.inverse(this)
 
 Handlebars.registerHelper 'pluralize', (word, count) ->
-  count = count.call(this) if typeof count == 'function'
   if count == 1
     "#{count} #{word}"
   else
@@ -56,8 +53,6 @@ Handlebars.registerHelper 'letter', (word) ->
   ("<span class='char#{i}'>#{letter}</span>" for letter, i in word.split('')).join('')
 
 Handlebars.registerHelper 'fittext', (identifier, word) ->
-  word = word.call(this) if typeof word == 'function'
-  
   key = "_fittext_#{identifier}_#{this.id}"
   sizes = Session.get(key)
   Session.set(key, sizes = {}) unless sizes
