@@ -62,13 +62,13 @@
 </template>
 
 <template name="team_state_flag">
-  {{#if_equals 0 team_state}}
+  {{#if equals 0 team_state}}
     <p class="flag green">Your team is ready to play!</p>
   {{else}}
-    {{#if_equals 1 team_state}}
+    {{#if equals 1 team_state}}
       <p class="flag yellow">Waiting on {{pluralize "more player" confirmations_needed}} to confirm</p>
     {{else}}
       <p class="flag red">You need {{pluralize "player" player_deficit}} to field a team.</p>
-    {{/if_equals}}
-  {{/if_equals}}
+    {{/if}}
+  {{/if}}
 </template>

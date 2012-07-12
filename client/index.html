@@ -38,23 +38,23 @@
 </template>
 
 <template name="one_screen">
-  {{#if_equals "loading" this}}
+  {{#if equals "loading" this}}
     <div class="loading_page">
       <h2 class="logotype">{{{letter "LEAGUE"}}}</h2>
       <div class="loading">LOADING</div>
     </div>
-  {{/if_equals}}
-  {{#if_equals "not_authorized" this}}
+  {{/if}}
+  {{#if equals "not_authorized" this}}
     <div class="not_authorized_page">
       <h2 class="logotype">{{{letter "LEAGUE"}}}</h2>
       <div class="error"><strong>Hey!</strong> This is coaches <em>private</em> playbook.</div>
     </div>
-  {{/if_equals}}
-  {{#if_equals "signin" this}}{{> auth }}{{/if_equals}}
-  {{#if_equals "home" this}}{{> home }}{{/if_equals}}
-  {{#if_equals "teams" this}}{{> teams }}{{/if_equals}}
-  {{#if_equals "players" this}}{{> players }}{{/if_equals}}
-  {{#if_equals "games" this}}{{> games }}{{/if_equals}}
-  {{#if_equals "logo_tester" this}}{{> logo_tester }}{{/if_equals}}
-  {{#if_equals "origami" this}}{{> origami }}{{/if_equals}}
+  {{/if}}
+  {{#if equals "signin" this}}{{> auth }}{{/if}}
+  {{#if equals "home" this}}{{> home }}{{/if}}
+  {{#if equals "teams" this}}{{> teams }}{{/if}}
+  {{#if equals "players" this}}{{> players }}{{/if}}
+  {{#if equals "games" this}}{{> games }}{{/if}}
+  {{#if equals "logo_tester" this}}{{> logo_tester }}{{/if}}
+  {{#if equals "origami" this}}{{> origami }}{{/if}}
 </template>

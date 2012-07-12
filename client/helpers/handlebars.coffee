@@ -28,11 +28,8 @@ close_current_edit_field = ->
   Session.set(_current_edit_field, false) if _current_edit_field
   _current_edit_field = null
 
-Handlebars.registerHelper 'if_equals', (left, right, options) ->
-  if left.toString() == right.toString()
-    options.fn(this)
-  else
-    options.inverse(this)
+Handlebars.registerHelper 'equals', (left, right) -> 
+  left.toString() == right.toString()
 
 Handlebars.registerHelper 'if_with', (name, options) ->
   options.fn(name) if name
