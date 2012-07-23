@@ -59,12 +59,8 @@ Meteor.methods
   'add_player_to_team_from_facebook': (team_id, player_data) ->
     team = Teams.findOne(team_id)
     
-    if this.is_simulation
-      # on the client just go for it, it'll get overriden soon
-      player = Player.create(player_data)
-    else
-      player = Players.findOne({facebook_id: player_data.facebook_id})
-      player ||= Player.create(player_data)
+    player = Players.findOne({facebook_id: player_data.facebook_id})
+    player ||= Player.create(player_data)
     
     team.add_player(player)
     true

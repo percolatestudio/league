@@ -44,3 +44,15 @@ show_team_status = (team) ->
   Session.set('team_status_team_id', team.id)
 team_status_team = ->
   Teams.findOne(Session.get 'team_status_team_id')
+  
+# STUB methods
+Meteor.methods
+'add_player_to_team_from_facebook': (team_id, player_data) ->
+  team = Teams.findOne(team_id)
+  
+  # on the client just go for it, it'll get overriden soon
+  player = Player.create(player_data)
+  
+  team.add_player(player)
+  true
+  
