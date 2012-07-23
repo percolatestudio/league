@@ -47,12 +47,13 @@ team_status_team = ->
   
 # STUB methods
 Meteor.methods
-'add_player_to_team_from_facebook': (team_id, player_data) ->
-  team = Teams.findOne(team_id)
+  'add_player_to_team_from_facebook': (team_id, player_data) ->
+    team = Teams.findOne(team_id)
   
-  # on the client just go for it, it'll get overriden soon
-  player = Player.create(player_data)
+    # on the client just go for it, it'll get overriden soon
+    player = Player.create(player_data)
   
-  team.add_player(player)
-  true
+    console.log('added')
+    team.add_player(player)
+    true
   
