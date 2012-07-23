@@ -20,7 +20,7 @@ $fadeout_pages: '.loading, .signin, .not_authorized .home';
 // I ..guess.. we could do this with a loop
 $to_fadeout_pages: '.to_loading, .to_signin, .to_not_authorized, .to_home';
 
-
+/*
 // what the current page does:
 .transitioning {
   
@@ -99,4 +99,4 @@ $to_fadeout_pages: '.to_loading, .to_signin, .to_not_authorized, .to_home';
       opacity: 1;
     }
   }
-}
+}*/
