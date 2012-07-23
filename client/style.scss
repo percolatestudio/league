@@ -47,21 +47,12 @@ body {
   @include stdtype;
   font-size: $font-size * 1px;
   line-height: $line  * 1px;
-  overflow: hidden;
-  position: absolute;
-  height: 100%;
-  width: 100%;
-}
-
-.container {
-  position: absolute;
-  height: 100%;
-  width: 100%;
 }
 
 header{
   height: 4.5em;
-  @include position(absolute, 0, 0, 0, 0, 100%, 4.5em);
+  @include position(fixed, 0, 0, 0, 0, 100%, 4.5em);
+  z-index: 10;
   padding-top: .75em;
   @include box-sizing(border-box);
   @include skybg;
@@ -69,9 +60,8 @@ header{
 
 article{
   @include maskbg;
-  @include position(absolute, 4.5em, 0, 0, 0);
+  margin-top: 4.5em;
   padding: 3em 0 9em;
-  overflow: auto;
 }
 
 h1{ @include h1(no);}
