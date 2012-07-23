@@ -22,7 +22,7 @@ Template.games.editable_game_events =
 
 # any click anywhere will close the currently editing field
 Template.games.events = 
-  'click': (event) ->
+  'click, touchstart': (event) ->
     # unless the click is inside an editable
     unless $(event.target).is('.editable') or $(event.target).closest('.editable').length
       close_current_edit_field()
