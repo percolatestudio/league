@@ -1,6 +1,13 @@
+var ids = {
+  'localhost': '227688344011052',
+  'beta.getleague.com': '246944062081485',
+  'getleague.com': '246944062081485',
+  'league-performance.meteor.com': '364722096930486'
+}
+
 Facebook = {
   channelUrl: '//' + window.location.hostname + '/facebook_channel',
-  appId: window.location.hostname == 'localhost' ? '227688344011052' : '246944062081485',
+  appId: ids[window.location.hostname],
   load: function(callback) {
     // Load the SDK Asynchronously
     (function(d){
