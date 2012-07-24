@@ -37,7 +37,7 @@
       float: right;
       display: none;
     }
-    .image{
+/*    .image{
       $image_dimension:($large_player * $font-size * 1px) - ($player_border_width) * 2;
       text-align: center;
       height: $image_dimension;
@@ -65,7 +65,7 @@
         bottom: 16px;
         right: 16px;
       }
-    }
+    }*/
     &:hover{
       cursor: pointer;
     }
