@@ -10,6 +10,7 @@ body {
 .container {
   left: 0;
   @include transition( all 500ms cubic-bezier(0.51, 0, 0.6, 1) 500ms);
+  @include transform(translateZ(0));
 }
 
 body:not(.transitioning) .next_page {
