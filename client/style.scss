@@ -67,6 +67,12 @@ header{
   @include skybg;
 }
 
+.container {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
 article{
   @include maskbg;
   @include position(absolute, 4.5em, 0, 0, 0);
