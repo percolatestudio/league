@@ -47,6 +47,7 @@ body {
   @include stdtype;
   font-size: $font-size * 1px;
   line-height: $line  * 1px;
+  position: relative;
 }
 
 header{
@@ -56,6 +57,11 @@ header{
   padding-top: .75em;
   @include box-sizing(border-box);
   @include skybg;
+}
+
+.container {
+  position: absolute;
+  top: 0;
 }
 
 article{
