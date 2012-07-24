@@ -10,8 +10,11 @@
   <meta property="og:url" content="http://getleague.com" />
   <meta property="og:image" content="https://launchrock-assets.s3.amazonaws.com/facebook-files/zq4oKdGMreFwth8.png" />
   <meta property="og:description" content="Anyone that plays team sports knows how many texts, emails, and calls you need just to get people to the game ontime. League does it for you in one place." />
-
-
+  
+  
+  <meta name="viewport" content="width=1280, initial-scale=0.25">
+  
+  
   <!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.
        mathiasbynens.be/notes/async-analytics-snippet -->
   <script>
@@ -27,10 +30,11 @@
 </body>
 
 <template name="screens">
-  <div class="container current_page {{current_page}}">
+  
+  <div class="container current_page {{current_page}}" id="{{current_page}}">
     {{#if_with current_page}}{{> one_screen}}{{/if_with}}
   </div>
-  <div class="container next_page {{next_page}}">
+  <div class="container next_page {{next_page}}" id="{{next_page}}">
     {{#if_with next_page}}{{> one_screen}}{{/if_with}}
   </div>
   {{> overlays }}

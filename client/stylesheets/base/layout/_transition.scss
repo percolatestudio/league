@@ -1,7 +1,7 @@
 // a transition that does nothing to tell the transitioner when the transition is finished.
 body {
   left: 0;
-  @include transition(left 0ms linear 5600ms);
+  @include transition(left 0ms linear 1100ms);
   &.transitioning {
     left: 1px;
   }
@@ -9,7 +9,7 @@ body {
 
 .container {
   left: 0;
-  @include transition( all 500ms cubic-bezier(0.51, 0, 0.6, 1) 5000ms);
+  @include transition( all 500ms cubic-bezier(0.51, 0, 0.6, 1) 500ms);
 }
 
 body:not(.transitioning) .next_page {
