@@ -8,6 +8,7 @@ body {
     opacity: 0.9999;
   }
 }
+
 body:not(.transitioning) .next_page {
   z-index: -1;
 }
@@ -16,12 +17,12 @@ $fadeout_pages: '.loading, .signin, .not_authorized .home';
 // I ..guess.. we could do this with a loop
 $to_fadeout_pages: '.to_loading, .to_signin, .to_not_authorized, .to_home';
 
-
 // what the current page does:
 .transitioning {
   .container {
     left: 0;
     @include transition( all $page-transition-time cubic-bezier(0.51, 0, 0.6, 1) 0ms);
+    @include transform(translate3d(0, 0, 0));
   }
   
   //hide scrollbars
@@ -31,7 +32,7 @@ $to_fadeout_pages: '.to_loading, .to_signin, .to_not_authorized, .to_home';
   
   // normal pages go to the LHS
   .current_page {
-    left: -100%;
+    @include transform(translate3d(-100%, 0, 0));
     @include opacity(.2);
   }
   
@@ -39,7 +40,7 @@ $to_fadeout_pages: '.to_loading, .to_signin, .to_not_authorized, .to_home';
   &.to_teams {
     &.from_games, &.from_players {
       .current_page {
-        left: 100%;
+        @include transform(translate3d(100%, 0, 0));
       }
     }
   }
@@ -47,7 +48,7 @@ $to_fadeout_pages: '.to_loading, .to_signin, .to_not_authorized, .to_home';
   // fade out pages get big and transparent
   #{$fadeout_pages} {
     &.current_page {
-      left: 0;
+      @include transform(translate3d(0, 0, 0));
       @include opacity(0);
       @include transform( scale(2) );
     }
@@ -58,7 +59,7 @@ $to_fadeout_pages: '.to_loading, .to_signin, .to_not_authorized, .to_home';
 #{$to_fadeout_pages} {
   &.transitioning {
     .current_page {
-      left: 0;
+      @include transform(translate3d(0, 0, 0));
       @include opacity(0);
     }
   }
@@ -67,21 +68,21 @@ $to_fadeout_pages: '.to_loading, .to_signin, .to_not_authorized, .to_home';
 // what the next page does:
 // normally starts to the RHS
 .container.next_page {
-  left: 100%;
+  @include transform(translate3d(100%, 0, 0));
   .transitioning & {
-    left: 0;
+    @include transform(translate3d(0, 0, 0));
   }
 }
 
 // and if the next page is the leagues page, it starts to the lhs
 .next_page.teams {
-  left: -100%;
+  @include transform(translate3d(-100%, 0, 0));
 }
 
 #{$fadeout_pages} {
   // if a fade out page comes in, it zooms in
   &.next_page {
-    left: 0;
+    @include transform(translate3d(0, 0, 0));
     opacity: 0;
     @include transform( scale(2) );
     .transitioning & {
@@ -92,7 +93,7 @@ $to_fadeout_pages: '.to_loading, .to_signin, .to_not_authorized, .to_home';
 
   // unless it s anything transitioning from a fadeout page, in which case it fades in without scale
   & + .container.next_page {
-    left: 0;
+    @include transform(translate3d(0, 0, 0));
     opacity: 0;
     @include transform( scale(1) );
     .transitioning & {
