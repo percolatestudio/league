@@ -46,4 +46,4 @@ class Player extends Model
         this.update_attribute('messaged', true)
         callback() if callback
 
-Players = Player._collection = new Meteor.Collection 'players', null, null, Player
+Players = Player._collection = new Meteor.Collection 'players', null, null, null, Player

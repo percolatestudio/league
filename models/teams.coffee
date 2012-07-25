@@ -94,4 +94,4 @@ class Team extends Model
       @attributes.logo = @logo.to_object()
   
   
-Teams = Team._collection = new Meteor.Collection 'teams', null, null, Team
+Teams = Team._collection = new Meteor.Collection 'teams', null, null, null, Team

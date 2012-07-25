@@ -132,4 +132,4 @@ class Game extends Model
     @team().games({date: {$lt: @attributes.date}}).count() + 1
 
 
-Games = Game._collection = new Meteor.Collection 'games', null, null, Game
+Games = Game._collection = new Meteor.Collection 'games', null, null, null, Game
