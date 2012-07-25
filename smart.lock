@@ -1,8 +1,8 @@
 {
   "meteor": {
     "git": "https://github.com/tmeasday/meteor.git",
-    "branch": "league",
-    "commit": "de6e5b24a41b886005ecd1c594fd4e77df2b8547"
+    "branch": "auth-model-support",
+    "commit": "61a8ed3fe653b6248f2dca60282ad27a881f2e6c"
   },
   "dependencies": {
     "basePackages": {
@@ -19,12 +19,17 @@
       "router": {
         "git": "https://github.com/tmeasday/meteor-router.git",
         "branch": "master",
-        "commit": "3d3d98cb820edf6cc8e2fb09c99b0ddf6b9f6900"
+        "commit": "f5c208cd7ce94beb67f0883ee10058a60414913c"
       },
       "transitioner": {
         "git": "https://github.com/tmeasday/meteor-transitioner.git",
         "branch": "master",
-        "commit": "a483e462094dc6ddecb905d37ccfc4b372141ff8"
+        "commit": "40aad3bb0d8bc61169a3d61de38e7eba232372e9"
+      },
+      "deps-extensions": {
+        "git": "https://github.com/tmeasday/meteor-deps-extensions.git",
+        "branch": "master",
+        "commit": "06b80b926595a0b08c15ae95e499ac0a2c88ceee"
       }
     }
   }
