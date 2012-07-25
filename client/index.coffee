@@ -4,7 +4,7 @@ Template.screens.next_page = -> Transitioner.instance.next_page()
 
 
 Template.screens.events = 
-  'click .login': -> AuthSystem.force_login()
+  'click .login': -> Meteor.loginWithFacebook()
   
   'click a[href]': (event) ->
     # not sure why I have to do this

@@ -14,13 +14,13 @@ Meteor.publish 'games', (team_ids) ->
   
 # Published methods
 Meteor.methods
-  'login': (facebook_id) ->
-    console.log "logging in user with FB ID: #{facebook_id}"
-    player = Players.findOne facebook_id: facebook_id
-    if player
-      player.update_attribute(authorized: true)
-      player
-    
+  # 'login': (facebook_id) ->
+  #   console.log "logging in user with FB ID: #{facebook_id}"
+  #   player = Players.findOne facebook_id: facebook_id
+  #   if player
+  #     player.update_attribute(authorized: true)
+  #     player
+  #   
   'create_or_update': (attributes) ->
     console.log "creating/updating user from #{attributes}"
         

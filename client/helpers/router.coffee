@@ -6,13 +6,12 @@ LeagueRouter = FilteredRouter.extend
   
   require_login: (page, logged_out_page = 'signin', loading_page = 'loading') ->
     # we are logged in AND the data has loaded from the server
-    if Session.equals('fbauthsystem.login_status', 'logged_in') and current_user()
-      page
-    else if Session.equals('fbauthsystem.login_status', 'logged_out') or \
-         Session.equals('fbauthsystem.login_status', 'not_authorized')
+    if not Meteor.user() 
       logged_out_page
-    else
+    else if Meteor.user().loading
       loading_page
+    else
+      page
   
   close_overlays: (page) ->
     close_overlays()
