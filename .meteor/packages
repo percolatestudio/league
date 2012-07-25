@@ -9,3 +9,7 @@ underscore
 http
 router
 transitioner
+deploy-config
+environment-hooks
+accounts
+accounts-facebook

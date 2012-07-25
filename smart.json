@@ -9,6 +9,12 @@
     },
     "transitioner": {
       "git": "https://github.com/tmeasday/meteor-transitioner.git"
+    },
+    "deploy-config": {
+      "git": "https://github.com/possibilities/meteor-deploy-config.git"
+    },
+    "environment-hooks": {
+      "git": "https://github.com/possibilities/meteor-environment-hooks.git"
     }
   }
 }
