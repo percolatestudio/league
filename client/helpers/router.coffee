@@ -48,9 +48,9 @@ LeagueRouter = FilteredRouter.extend
     
     @goto =>
       # if they are logged in but there's no team, we may need to join the team
-      if current_user() and not current_team()
+      if current_player() and not current_team()
         if (document.location.hash == '#season-ticket') and not Session.get('team_id_invalid')
-          Meteor.call 'join_team', current_user().id, team_id, (error, joined) ->
+          Meteor.call 'join_team', current_player().id, team_id, (error, joined) ->
             # something's wrong with this team
             Session.set('team_id_invalid', true) unless joined
           

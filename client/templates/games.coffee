@@ -27,14 +27,15 @@ Template.games.events =
     unless $(event.target).is('.editable') or $(event.target).closest('.editable').length
       close_current_edit_field()
 
-# update the team as started and the set the current_user's playing state if appropriate
+# update the team as started and the set the current_player's playing state if appropriate
 Template.games.make_team_updates = ->
+  return unless current_team() and current_player()
   unless current_team().attributes.started
-    Meteor.call 'start_team', current_user().id, current_team().id
+    Meteor.call 'start_team', current_player().id, current_team().id
   if match = /(playing|not_playing|unconfirmed)-(.*)/.exec(document.location.hash)
-    # if game = current_team.games(id)[0] ; game.not_playing(current_user())
+    # if game = current_team.games(id)[0] ; game.not_playing(current_player())
     if game = current_team().games(match[2])[0]
-      game[match[1]](current_user())
+      game[match[1]](current_player())
 
 
 
@@ -79,17 +80,17 @@ Template.next_game.events = _.extend Template.games.editable_game_events, {}
 
 Template.game.month = -> this.moment.format('MMM')
 Template.game.expanded = -> Session.equals("game.#{this.id}.expanded", true)
-Template.game.current_user_availability = -> this.availability(current_user())
+Template.game.current_player_availability = -> this.availability(current_player())
 
 Template.game.events = _.extend Template.games.editable_game_events,
   'change [name=state]': (e) ->
     playing = $(e.target).val() == 'play'
     if playing
-      this.playing(current_user())
+      this.playing(current_player())
     else
-      this.not_playing(current_user())
+      this.not_playing(current_player())
   'click .go_unconfirmed': ->
-    this.unconfirmed(current_user())
+    this.unconfirmed(current_player())
   'click .show_roster': -> 
     Session.set("game.#{this.id}.expanded", true)
   'click .hide_roster': -> 

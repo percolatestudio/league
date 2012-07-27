@@ -92,6 +92,16 @@ class Team extends Model
     else
       @logo = new Logo(this)
       @attributes.logo = @logo.to_object()
-  
+
+Team.has_access = (userId, raw_team) ->
+  # just check that the player is in the team
+  _.include(raw_team.player_ids, Meteor.users.findOne(userId).player_id)
   
 Teams = Team._collection = new Meteor.Collection 'teams', null, null, null, Team
+
+## add security
+Teams.allow
+  insert: Team.has_access
+  update: Team.has_access
+  remove: Team.has_access
+  

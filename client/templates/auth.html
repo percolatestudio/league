@@ -25,7 +25,7 @@
 </template>
 
 <template name="logged_in_user">
-  {{#if current_user}}{{#with current_user}}
+  {{#if_with currentPlayer}}
     <div class="avatar dropmenu">
       <img src="{{ facebook_profile_url }}">
       <a class="icon16 dropdown inset"></a>
@@ -33,7 +33,7 @@
         <li><a class="inset logout">Logout</a></li>
       </ul>
     </div>
-  {{/with}}{{/if}}
+  {{/if_with}}
 </template>
 
 <template name="not_found">

@@ -3,13 +3,14 @@ Session.set 'current_friend_filter', ''
 
 grab_facebook_friends = ->
   return if self.searching # this can only be called once
-  return unless AuthSystem.logged_in() # not ready to start searching yet
+  return unless current_player() # not ready to start searching yet
   
   self.searching = true
-  FB.api '/me/friends', (response) ->
-    # FIXME-- this could be paginated.. this is NOT all friends
-    all_friends = _.map(response.data, (fd) -> Player.new_from_facebook(fd) )
-    Session.set 'facebook_friends', all_friends
+  # FIXME: what are we doing on this page now?
+  # FB.api '/me/friends', (response) ->
+  #   # FIXME-- this could be paginated.. this is NOT all friends
+  #   all_friends = _.map(response.data, (fd) -> Player.new_from_facebook(fd) )
+  #   Session.set 'facebook_friends', all_friends
   
 Template.players.team = -> current_team()
 Template.players.games_path = -> games_path(this)
@@ -29,7 +30,7 @@ Template.players.events =
   'change [name=players_required]': (event) ->
     current_team().update_attribute('players_required', $(event.target).val())
 
-Template.player.is_self = -> current_user() and this.id == current_user().id
+Template.player.is_self = -> current_player() and this.id == current_player().id
 
 Template.player.facebook_profile_url = -> 
   this.facebook_profile_url()

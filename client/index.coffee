@@ -28,10 +28,12 @@ Template.screens.events =
     t[pair.name] = pair.value for pair in $form.serializeArray()
     
     # wait until the current_user function returns something
-    Meteor.deps.await_once current_user, ->
-      team = current_user().create_team(t)
+    Meteor.deps.await_once current_player, ->
+      console.log('creating team')
+      team = current_player().create_team(t)
       console.log team.full_errors() unless team.valid()
       
       Router.navigate(players_path(team), {replace: true, trigger: true})
-      
-    AuthSystem.force_login() # now force a login to make that happen
+    
+    # now force a login to make that happen
+    Meteor.loginWithFacebook() unless Meteor.user()
