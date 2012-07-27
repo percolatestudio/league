@@ -1,4 +1,4 @@
-Template.auth.logged_in = -> AuthSystem.logged_in()
+Template.auth.logged_in = -> Meteor.user() and not Meteor.user().loading
 Template.auth.team_from_season_ticket = -> 
   data = Session.get('team_from_season_ticket')
   new Team(data) if data
@@ -10,7 +10,6 @@ Template.auth.prepare_team_from_season_ticket = ->
       Meteor.call 'team_from_season_ticket', Session.get('team_id'), (error, data) ->
         Session.set 'team_from_season_ticket', data
 
-Template.logged_in_user.current_user = -> current_user()
 Template.logged_in_user.facebook_profile_url = -> this.facebook_profile_url('square')
 Template.logged_in_user.events =
-  'click .logout': -> AuthSystem.force_logout()
+  'click .logout': -> Meteor.logout()
