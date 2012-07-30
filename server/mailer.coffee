@@ -1,3 +1,6 @@
+# logger collection
+MailLog = new Meteor.Collection('mail_log')
+
 # a simple mailer that just sends JSON to the league mailer, if it's defined
 LeagueMailer = (->
   to_url = (path) -> 
@@ -14,8 +17,9 @@ LeagueMailer = (->
       options = 
         params: {mail: mail, data: JSON.stringify(data)}
         auth: LeagueMailerConfig.auth
-      Meteor.http.call 'POST', LeagueMailerConfig.url, options, ->
-        console.log(arguments)
+      Meteor.http.call 'POST', LeagueMailerConfig.url, options, (err, result) ->
+        console.log(err)
+        MailLog.insert({type: 'error', message: err.toString(), mail: mail, data: JSON.stringify(data)}) if (err)
   else
     (mail) -> 
       console.log "Not sending mail #{mail}, no mailer defined"
@@ -34,7 +38,8 @@ LeagueMailer = (->
         name: team.attributes.name, url: games_url(team) + '#season-ticket'
         players: players
   
-  remind_team: (game, tomorrow) ->
+  remind_team: (game) ->
+    console.log('Reminding team: ' + game)
     team = game.team()
 
     base_url = games_url(team)
@@ -45,7 +50,6 @@ LeagueMailer = (->
         date: game.attributes.date
         zone: game.attributes.zone
         location: game.attributes.location
-        tomorrow: tomorrow
         team_state: game.team_state_key()
         confirmation_count: game.availability_count(1)
         player_deficit: game.player_deficit()
@@ -53,7 +57,7 @@ LeagueMailer = (->
         not_playing_url: base_url + "\#not_playing-#{game.id}"
         unconfirmed_url: base_url + "\#unconfirmed-#{game.id}"
     
-    for player in game.players({authorized: true})
+    game.players({authorized: true}).forEach (player) ->
       data.user = {name: player.attributes.name, email: player.attributes.email}
       data.game.player_state = game.availability_text(player).toLowerCase().replace(' ', '_')
       

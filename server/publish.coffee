@@ -57,6 +57,7 @@ Meteor.methods
       true
     
   'add_player_to_team_from_facebook': (team_id, player_data) ->
+    console.log "Adding player to team: #{team_id}"
     team = Teams.findOne(team_id)
     
     if this.is_simulation
