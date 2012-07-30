@@ -6,7 +6,6 @@ Meteor.startup ->
   #  b) me changes
   Meteor.autosubscribe ->
     me = current_player()
-    me_id = me.id if me
     team_ids = (me.attributes.team_ids if me) || []
     
     Meteor.subscribe 'teams'
@@ -19,8 +18,7 @@ current_player = ->
   Players.findOne(me.player_id) if me
 
 Handlebars.registerHelper 'currentPlayer', current_player
-  
-  
+
 current_team = ->
   Teams.findOne(Session.get 'team_id')
   

@@ -131,5 +131,15 @@ class Game extends Model
   game_number: ->
     @team().games({date: {$lt: @attributes.date}}).count() + 1
 
+Game.has_access = (userId, raw_game) ->
+  # just check that the player is in the team
+  team = Teams.findOne(raw_game.team_id)
+  _.include(team.attributes.player_ids, Meteor.users.findOne(userId).player_id)
 
 Games = Game._collection = new Meteor.Collection 'games', null, null, null, Game
+
+## add security
+Games.allow
+  insert: Game.has_access
+  update: Game.has_access
+  remove: Game.has_access
