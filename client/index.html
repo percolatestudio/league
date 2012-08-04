@@ -49,11 +49,6 @@
       <div class="error"><strong>Hey!</strong> This is coaches <em>private</em> playbook.</div>
     </div>
   {{/if}}
-  {{#if equals "signin" this}}{{> auth }}{{/if}}
-  {{#if equals "home" this}}{{> home }}{{/if}}
-  {{#if equals "teams" this}}{{> teams }}{{/if}}
-  {{#if equals "players" this}}{{> players }}{{/if}}
-  {{#if equals "games" this}}{{> games }}{{/if}}
-  {{#if equals "logo_tester" this}}{{> logo_tester }}{{/if}}
-  {{#if equals "origami" this}}{{> origami }}{{/if}}
+  
+  {{{render this}}}
 </template>
