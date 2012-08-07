@@ -73,3 +73,12 @@
     .crown{@include prepare_crown($small_logo_dimension, $small_logo_dimension, 5px);}
   }
 }
+.jersey {
+  // fixme: remove these;
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  float: left;
+  
+  @include jersey;
+}
