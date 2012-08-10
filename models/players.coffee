@@ -19,11 +19,19 @@ class Player extends Model
     _.isEmpty(@errors)
   
   @new_from_user: (user, extra) ->
-    data = { name: extra.name }
+    data = { name: extra.name, email: user.emails[0] }
     data.facebook_id = user.services.facebook.id if user.services.facebook
     
     new this(data)
   
+  profile_url: (type = 'normal') ->
+    if (@attributes.facebook_id)
+      facebook_profile_url(type)
+    else
+      # Note this only works client side right now
+      hash = CryptoJS.MD5(@attributes.email.trim().toLowerCase())
+      "http://www.gravatar.com/avatar/#{hash}"
+    
   facebook_profile_url: (type = 'normal') ->
     "https://graph.facebook.com/#{@attributes.facebook_id}/picture?type=#{type}"
     

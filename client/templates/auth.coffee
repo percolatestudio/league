@@ -37,6 +37,6 @@ Template.login_fields.events =
       Meteor.loginWithPassword email, password, (err, res) ->
         Session.set('login_status', "ERROR: #{err.reason}") if err
 
-Template.logged_in_user.facebook_profile_url = -> this.facebook_profile_url('square')
+Template.logged_in_user.profile_url = -> this.profile_url('square')
 Template.logged_in_user.events =
   'click .logout': -> Meteor.logout()
