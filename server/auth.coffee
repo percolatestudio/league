@@ -8,8 +8,9 @@ Meteor.accounts.onCreateUser (options, extra, user) ->
   # create a player that is attached to this user
   console.log "creating/updating player from #{user}"
   
-  # TODO: we'll need to search by something other than facebook id soon
-  player = Players.findOne(facebook_id: user.services.facebook.id)
+  player = false
+  if user.services.facebook
+    player = Players.findOne(facebook_id: user.services.facebook.id)
   player ||= Player.new_from_user(user, extra)
   player.save()
   

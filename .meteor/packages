@@ -13,3 +13,4 @@ deploy-config
 environment-hooks
 accounts
 accounts-facebook
+accounts-passwords

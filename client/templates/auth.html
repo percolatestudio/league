@@ -19,9 +19,29 @@
           <p class="subtext">League is the game organizer for casual sports teams. Focus on playing, not logistics.</p>
         </div>
       {{/if_with}}
-      <button class="login icon16 facebook btn inverse" title="Login with Facebook">Login</button>
+      
+      {{> login_fields }}
+      
     {{/if}}
   </div>
+</template>
+
+<template name="login_fields">
+  <button class="login_facebook icon16 facebook btn inverse" title="Login with Facebook">Login with Facebook</button>
+  
+  <form name="login_password">
+    <input name="email" type="email" placeholder="Your email address"/>
+    <input name="password" type="password" placeholder="Your password"/>
+    
+    {{#if signingUp}}
+      <input name="password_confirm" type="password" placeholder="Confirm your password"/>
+    {{/if}}
+    
+    <button class="login_password btn inverse" title="Login with email" type="submit">{{#if signingUp}}Register{{else}}Login{{/if}}</button>
+    
+    <p>{{loginStatus}}</p>
+    <a class="register">{{#if signingUp}}Login{{else}}Register{{/if}}</a>
+  </form>
 </template>
 
 <template name="logged_in_user">

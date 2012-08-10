@@ -10,18 +10,19 @@ class Player extends Model
     @errors = {}
     
     # Obviously we'd prefer rails style class-level validators
-    unless @attributes.name? and @attributes.name != ''
-      @errors.name = 'must not be empty'
+    # unless @attributes.name? and @attributes.name != ''
+    #   @errors.name = 'must not be empty'
       
-    unless @attributes.facebook_id? and parseInt(@attributes.facebook_id) > 0
-      @errors.facebook_id = 'must be a positive number'
+    # unless @attributes.facebook_id? and parseInt(@attributes.facebook_id) > 0
+    #   @errors.facebook_id = 'must be a positive number'
     
     _.isEmpty(@errors)
   
   @new_from_user: (user, extra) ->
-    new this
-      facebook_id: user.services.facebook.id
-      name: extra.name
+    data = { name: extra.name }
+    data.facebook_id = user.services.facebook.id if user.services.facebook
+    
+    new this(data)
   
   facebook_profile_url: (type = 'normal') ->
     "https://graph.facebook.com/#{@attributes.facebook_id}/picture?type=#{type}"
