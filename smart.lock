@@ -2,7 +2,7 @@
   "meteor": {
     "git": "https://github.com/tmeasday/meteor.git",
     "branch": "auth-model-support",
-    "commit": "36ba17923ab1c354254ddfc729f12adaf92d9040"
+    "commit": "9a3cfc84bd988b26fa1b87ad58ddfcfca9b46ec4"
   },
   "dependencies": {
     "basePackages": {
@@ -27,27 +27,27 @@
       "router": {
         "git": "https://github.com/tmeasday/meteor-router.git",
         "branch": "master",
-        "commit": "f5c208cd7ce94beb67f0883ee10058a60414913c"
+        "commit": "c73515515f1d267108f78b4928a6866952290761"
       },
       "transitioner": {
         "git": "https://github.com/tmeasday/meteor-transitioner.git",
         "branch": "master",
-        "commit": "40aad3bb0d8bc61169a3d61de38e7eba232372e9"
+        "commit": "4360e3a79dba675e155f59d342fef5c1d06c3112"
       },
       "deploy-config": {
         "git": "https://github.com/possibilities/meteor-deploy-config.git",
         "branch": "master",
-        "commit": "d88d570ed9bf051ad39c4ac02cab1d00d106c0be"
+        "commit": "fd4552bb18a8a448e9be42c43f633efc39e84cc7"
       },
       "environment-hooks": {
         "git": "https://github.com/possibilities/meteor-environment-hooks.git",
         "branch": "master",
-        "commit": "61c8515278674a1c087bc787a3694899b5a3cb1c"
+        "commit": "1f34c1026ee8140683cefd4fe38f43bb75806b10"
       },
       "deps-extensions": {
         "git": "https://github.com/tmeasday/meteor-deps-extensions.git",
         "branch": "master",
-        "commit": "06b80b926595a0b08c15ae95e499ac0a2c88ceee"
+        "commit": "110462c0ba33aaeb35e55069134287325cc453e5"
       }
     }
   }
