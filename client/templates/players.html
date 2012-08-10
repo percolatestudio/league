@@ -51,7 +51,7 @@
   <li class="player {{in_team_class}}">
     <div class="image">
       <span class="icon16 checkmark"></span>
-      <img src="{{ facebook_profile_url }}"/>
+      <img src="{{ profile_url }}"/>
     </div>
     <span class="name">{{attributes.name}}</span>
     {{#unless is_self}}
@@ -68,20 +68,10 @@
 </template>
 
 <template name="add_player">
-  <div id="add_player">
-    <div class="search_wrapper">
-      <span class="icon16 search"></span>
-      <input name="player[name]" placeholder="Type a players name" value="{{filter}}"/>
-    </div>
-    <h3>Click to add players to {{attributes.name}}</h3>
-    <ul class="player_list state_aware">
-      {{#unless results}}
-        <div class="loading_players">One second, we're loading your friends</div>
-      {{/unless}}
-      {{#each results}}
-        {{> player}}
-      {{/each}}
-    </ul>
-  </div>
+  <form name="add_player">
+    <input name="emails" type="text" placeholder="Type some emails"></input>
+    <button type="submit">Add</button>
+  </form>
+    
 
 </template>

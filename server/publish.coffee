@@ -59,7 +59,21 @@ Meteor.methods
     if team
       team.add_player(player)
       true
+  
+  'add_player_to_team_from_email': (team_id, email) ->
+    team = Teams.findOne(team_id)
     
+    if this.is_simulation
+      # on the client just go for it, it'll get overriden soon
+      player = Player.create({email: email})
+    else
+      player = Players.findOne({email: email})
+      player ||= Player.create({email: email})
+    
+    team.add_player(player)
+    true
+    
+  
   'add_player_to_team_from_facebook': (team_id, player_data) ->
     team = Teams.findOne(team_id)
     

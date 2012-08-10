@@ -51,6 +51,12 @@ Template.add_player.results = ->
     f for f in all_friends when match(f)
 
 Template.add_player.events = 
+  'submit [name=add_player]': (event) ->
+    event.preventDefault()
+    emails = $(event.target).find('[name=emails]').val().split(',')
+    
+    _.each emails, (email) => this.add_player_from_email(email)
+      
   'keyup input[name*=name]': (event) -> 
     Session.set 'current_friend_filter', new RegExp $(event.target).val(), 'i'
   'click .player_list li': (event) ->

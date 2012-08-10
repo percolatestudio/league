@@ -56,7 +56,7 @@ class Model
     if @_temporary_model_id
       TemporaryModelCollection.instance.save(@_temporary_model_id, this)
     else if @persisted()
-      @constructor._collection.update(@id, @attributes) 
+      @constructor._collection.update(@id, {$set: @attributes}) 
     else
       @id = @constructor._collection.insert(@attributes)
     

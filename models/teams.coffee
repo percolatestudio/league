@@ -53,6 +53,11 @@ class Team extends Model
     
     this
   
+  # go to the server and try and find a player, then call the above
+  # TODO is there some way to automatically create a method here?
+  add_player_from_email: (email) ->
+    Meteor.call 'add_player_to_team_from_email', @id, email
+  
   remove_player: (player) ->
     # remove player from this
     @update_attribute('player_ids', _.without(@attributes.player_ids, player.id))
@@ -95,7 +100,7 @@ class Team extends Model
 
 Team.has_access = (userId, raw_team) ->
   # just check that the player is in the team
-  _.include(raw_team.player_ids, Meteor.users.findOne(userId).player_id)
+  _.include(raw_team.player_ids, Player.find_by_userId(userId).id)
   
 Teams = Team._collection = new Meteor.Collection 'teams', null, null, null, Team
 
