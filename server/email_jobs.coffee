@@ -15,4 +15,7 @@ Meteor.startup ->
       game.update_attribute('reminded_today', true)
       LeagueMailer.remind_team(game, false)
     
-    
+  # ping the server every 30 minutes so it doesn't go to sleep
+  Cron.instance.add_job 30, ->
+    console.log 'Email heartbeat'
+    Meteor.http.call 'GET', LeagueMailerConfig.url + 'reminder'
