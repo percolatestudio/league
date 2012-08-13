@@ -47,8 +47,8 @@ LeagueMailer = (->
         location: game.attributes.location
         tomorrow: tomorrow
         team_state: game.team_state_key()
-        confirmation_count: game.availability_count(1)
-        player_deficit: game.player_deficit()
+        confirmation_count: game.availability_count(1) || 0
+        player_deficit: game.player_deficit() || 0
         playing_url: base_url + "\#playing-#{game.id}"
         not_playing_url: base_url + "\#not_playing-#{game.id}"
         unconfirmed_url: base_url + "\#unconfirmed-#{game.id}"
