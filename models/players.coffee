@@ -22,7 +22,7 @@ class Player extends Model
     Players.findOne(Meteor.users.findOne(userId).player_id)
   
   @new_from_user: (user, extra) ->
-    data = { name: extra.name, email: user.emails[0] }
+    data = { name: extra.name, email: user.emails[0].email }
     data.facebook_id = user.services.facebook.id if user.services.facebook
     
     new this(data)

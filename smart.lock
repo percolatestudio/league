@@ -2,7 +2,7 @@
   "meteor": {
     "git": "https://github.com/tmeasday/meteor.git",
     "branch": "auth-model-support",
-    "commit": "0623575bfbb0f01dbb0911d2ef18e5ee2e9d6801"
+    "commit": "4f34980fd9325ac60b128aa6f0232b434f2fa3cd"
   },
   "dependencies": {
     "basePackages": {
@@ -27,7 +27,7 @@
       "router": {
         "git": "https://github.com/tmeasday/meteor-router.git",
         "branch": "master",
-        "commit": "c73515515f1d267108f78b4928a6866952290761"
+        "commit": "5b714b490c3569c55a20d17f5992a7f67dd32231"
       },
       "transitioner": {
         "git": "https://github.com/tmeasday/meteor-transitioner.git",
@@ -37,7 +37,7 @@
       "deploy-config": {
         "git": "https://github.com/possibilities/meteor-deploy-config.git",
         "branch": "master",
-        "commit": "fd4552bb18a8a448e9be42c43f633efc39e84cc7"
+        "commit": "9142351a792473d03b768fca21c580a31fade01c"
       },
       "environment-hooks": {
         "git": "https://github.com/possibilities/meteor-environment-hooks.git",
