@@ -28,10 +28,10 @@
 
 <template name="screens">
   <div class="container current_page {{current_page}}">
-    {{#if_with current_page}}{{> one_screen}}{{/if_with}}
+    {{> one_screen current_page}}
   </div>
   <div class="container next_page {{next_page}}">
-    {{#if_with next_page}}{{> one_screen}}{{/if_with}}
+    {{> one_screen next_page}}
   </div>
   {{> overlays }}
 </template>
