@@ -2,9 +2,8 @@
 Template.screens.current_page = -> Transitioner.instance.current_page()
 Template.screens.next_page = -> Transitioner.instance.next_page()
 
-
 Template.screens.events = 
-  'click .login_facebook': -> Meteor.loginWithFacebook()
+  'click .login': -> Router.navigate('teams', {trigger: true})
   
   'click a[href]': (event) ->
     # not sure why I have to do this

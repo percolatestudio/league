@@ -70,23 +70,11 @@
       rgba(darken(#66ccff, 50%), .3) 0 1px 0
     );
   }
-  .login{
-    @include position(absolute, 1.5em, 1.5em, auto, auto);
-    font-weight: bold;
-    text-transform: uppercase;
-  }
   form.team_builder{
     text-align: center;
     position: relative;
     margin-bottom: 3em;
     @include clearfix;
-    >*{
-      display: inline-block;
-      margin-left: 5px;
-      margin-right: 5px;
-      vertical-align: top;
-      float: none;
-    }     
     input{width: 200px;}
   }
 }

@@ -12,7 +12,7 @@
             {{{logo this size="small" without_links=true}}}
           </div>
           <h2>Join team</h2>
-          <p class="short_desc">Signin with Facebook to join <strong>{{attributes.name}}</strong></p>
+          <p class="short_desc">Signin to join <strong>{{attributes.name}}</strong></p>
           <div class="login_wrapper">
             <button class="login icon16 facebook btn inverse" title="Login with Facebook">Login</button>
           </div>
@@ -27,21 +27,22 @@
 </template>
 
 <template name="login_fields">
-  <button class="login_facebook icon16 facebook btn inverse" title="Login with Facebook">Login with Facebook</button>
   
-  <form name="login_password">
-    <input name="email" type="email" placeholder="Your email address"/>
-    <input name="password" type="password" placeholder="Your password"/>
+  <form name="login_password" class="spaced">
+    <fieldset>
+      <input name="email" type="email" placeholder="Your email address"/>
+      <input name="password" type="password" placeholder="Your password"/>
+      {{#if signingUp}}
+        <input name="password_confirm" type="password" placeholder="Confirm your password"/>
+      {{/if}}
+    </fieldset>
     
-    {{#if signingUp}}
-      <input name="password_confirm" type="password" placeholder="Confirm your password"/>
-    {{/if}}
-    
-    <button class="login_password btn inverse" title="Login with email" type="submit">{{#if signingUp}}Register{{else}}Login{{/if}}</button>
-    
-    <p>{{loginStatus}}</p>
-    <a class="register">{{#if signingUp}}Login{{else}}Register{{/if}}</a>
+    <button class="login_password btn default" title="Login with email" type="submit">{{#if signingUp}}Register{{else}}Login{{/if}}</button>
+    <span class="alternative">or</span>
+    <button class="register btn inverse">{{#if signingUp}}Login{{else}}Register{{/if}}</btn>
   </form>
+  
+  <button class="login_facebook icon16 facebook btn inverse" title="Login with Facebook">Login with Facebook</button>
 </template>
 
 <template name="logged_in_user">

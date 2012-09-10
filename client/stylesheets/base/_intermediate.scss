@@ -67,6 +67,9 @@
     @extend .dialog_box;
     h2{margin-bottom: 0;}
   }
+  form[name=login_password] {
+    text-align: center;
+  }
 }
 .signin_page.email_ticket{/* exceptions */
   /* shift layout up */

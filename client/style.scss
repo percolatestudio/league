@@ -22,6 +22,8 @@ $experimental-support-for-svg: true;
 
 @import 'stylesheets/base/boilerplate';
 
+@import 'stylesheets/base/text';
+
 @import 'stylesheets/base/layout/transition';
 @import 'stylesheets/base/layout/header';
 @import 'stylesheets/base/layout/overlay';
@@ -109,9 +111,21 @@ a, button {
   margin: 0;
 }
 
+/* alternatives between two buttons X or Y */
+span.alternative {
+  margin: 0 20px;
+  @include h4;
+  line-height: 40px;
+  
+  color: darken(#66ccff, 10%);
+  font-weight: bold;
+  font-style: italic;
+}
+
 #origami_background {
   display: none;
 }
+
 @media print {
   html, body, .container {
     width: 100%;

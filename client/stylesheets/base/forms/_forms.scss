@@ -60,7 +60,18 @@ form{
     button{
       opacity: 1;
     }
-  }    
+  }
+
+  /* when the form elements need to be a bit futher apart */
+  &.spaced {
+    textarea, button, a, label, input:not([type=checkbox]):not([type=radio]) {
+      display: inline-block;
+      margin-left: 5px;
+      margin-right: 5px;
+      vertical-align: top;
+      float: none;
+    }
+  }
 }
 
 /* Choosers */
