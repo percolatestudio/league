@@ -60,6 +60,8 @@
     font-weight: bold;
     color: rgba(darken($skyblue, 7%), 1);
     @include letterpress($skyblue);
+    /* we can't really affort to have the loading page load */
+    font-family: Helvetica, sans-serif;
   }
   .team_dialog{
     margin: 3em auto;
