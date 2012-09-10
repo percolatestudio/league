@@ -53,6 +53,8 @@ Template.add_player.results = ->
 Template.add_player.events = 
   'submit [name=add_player]': (event) ->
     event.preventDefault()
+    
+    # TODO --- parse this better
     emails = $(event.target).find('[name=emails]').val().split(',')
     
     _.each emails, (email) => this.add_player_from_email(email)
