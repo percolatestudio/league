@@ -4,21 +4,9 @@
     "branch": "auth-model-support"
   },
   "packages": {
-    "router": {
-      "git": "https://github.com/tmeasday/meteor-router.git",
-      "branch": "master"
-    },
-    "transitioner": {
-      "git": "https://github.com/tmeasday/meteor-transitioner.git",
-      "branch": "master"
-    },
-    "deploy-config": {
-      "git": "https://github.com/possibilities/meteor-deploy-config.git",
-      "branch": "master"
-    },
-    "environment-hooks": {
-      "git": "https://github.com/possibilities/meteor-environment-hooks.git",
-      "branch": "master"
-    }
+    "router": {},
+    "transitioner": {},
+    "environment-hooks": {"git": "https://github.com/possibilities/meteor-environment-hooks.git"},
+    "gravatar": {}
   }
 }

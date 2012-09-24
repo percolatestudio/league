@@ -2,52 +2,53 @@
   "meteor": {
     "git": "https://github.com/tmeasday/meteor.git",
     "branch": "auth-model-support",
-    "commit": "4f34980fd9325ac60b128aa6f0232b434f2fa3cd"
+    "commit": "47726f5f5ed35b44856b9015c141c5dab96ab0cb"
   },
   "dependencies": {
     "basePackages": {
-      "router": {
-        "git": "https://github.com/tmeasday/meteor-router.git",
-        "branch": "master"
-      },
-      "transitioner": {
-        "git": "https://github.com/tmeasday/meteor-transitioner.git",
-        "branch": "master"
-      },
-      "deploy-config": {
-        "git": "https://github.com/possibilities/meteor-deploy-config.git",
-        "branch": "master"
-      },
+      "router": {},
+      "transitioner": {},
       "environment-hooks": {
         "git": "https://github.com/possibilities/meteor-environment-hooks.git",
         "branch": "master"
-      }
+      },
+      "gravatar": {}
     },
     "packages": {
       "router": {
         "git": "https://github.com/tmeasday/meteor-router.git",
-        "branch": "master",
-        "commit": "5b714b490c3569c55a20d17f5992a7f67dd32231"
+        "tag": "v0.1.1",
+        "commit": "bb806c51efe3686a8da6628269aa67a269a4e076"
       },
       "transitioner": {
         "git": "https://github.com/tmeasday/meteor-transitioner.git",
-        "branch": "master",
-        "commit": "4360e3a79dba675e155f59d342fef5c1d06c3112"
-      },
-      "deploy-config": {
-        "git": "https://github.com/possibilities/meteor-deploy-config.git",
-        "branch": "master",
-        "commit": "9142351a792473d03b768fca21c580a31fade01c"
+        "tag": "v0.1.1",
+        "commit": "edb0668f085564b36cc73bfd8464f23fdda481cf"
       },
       "environment-hooks": {
         "git": "https://github.com/possibilities/meteor-environment-hooks.git",
         "branch": "master",
-        "commit": "1f34c1026ee8140683cefd4fe38f43bb75806b10"
+        "commit": "ec214129464e49b9cdb081ccb3d50ed8930722be"
+      },
+      "gravatar": {
+        "git": "https://github.com/tmeasday/meteor-gravatar.git",
+        "tag": "v0.0.2",
+        "commit": "72623b359e8dc977fdec833beddfd5b9a2f49d34"
       },
       "deps-extensions": {
         "git": "https://github.com/tmeasday/meteor-deps-extensions.git",
-        "branch": "master",
+        "tag": "v0.1.0",
         "commit": "110462c0ba33aaeb35e55069134287325cc453e5"
+      },
+      "crypto-md5": {
+        "git": "https://github.com/tmeasday/meteor-crypto-md5.git",
+        "tag": "v0.0.1",
+        "commit": "a0638a6cabfc84e19f2d5828f76aa8f6a0cc8c1a"
+      },
+      "crypto-base": {
+        "git": "https://github.com/tmeasday/meteor-crypto-base.git",
+        "tag": "v0.0.1",
+        "commit": "668fc710ad041eee6ae2f9b53289128f211aa9e0"
       }
     }
   }

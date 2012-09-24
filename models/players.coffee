@@ -31,9 +31,7 @@ class Player extends Model
     if (@attributes.facebook_id)
       facebook_profile_url(type)
     else
-      # Note this only works client side right now
-      hash = CryptoJS.MD5(@attributes.email.trim().toLowerCase())
-      "http://www.gravatar.com/avatar/#{hash}"
+      Gravatar.imageUrl(@attributes.email)
     
   facebook_profile_url: (type = 'normal') ->
     "https://graph.facebook.com/#{@attributes.facebook_id}/picture?type=#{type}"
