@@ -3,19 +3,10 @@
 Meteor.accounts.onCreateUser (options, extra, user) ->
   
   # create a player that is attached to this user
-  console.log "creating/updating player from #{user}"
+  console.log "creating/updating player"
   
-  player = false
+  player = Player.find_or_create_from_user(user, extra)
   
-  # FIXME -- what to do about old users?
-  # if user.services.facebook
-  #   player = Players.findOne(facebook_id: user.services.facebook.id)
-  
-  # try and find the player by email
-  player = Players.findOne({email: user.emails[0]})
-  
-  player ||= Player.new_from_user(user, extra)
-  player.save()
-  
+  _.extend(user, extra)
   user.player_id = player.id
   user

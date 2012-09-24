@@ -15,6 +15,10 @@ Template.login_fields.loginStatus = -> Session.get 'login_status'
 Template.login_fields.events =
   'click .register': -> Session.set('signing_up', !Session.get('signing_up'))
   
+  'click .login_facebook': ->
+    Meteor.loginWithFacebook (err) ->
+      console.log(err) if err
+  
   'submit [name=login_password]': (event) ->
     event.preventDefault()
     

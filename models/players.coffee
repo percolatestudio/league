@@ -21,11 +21,21 @@ class Player extends Model
   @find_by_userId: (userId) ->
     Players.findOne(Meteor.users.findOne(userId).player_id)
   
-  @new_from_user: (user, extra) ->
-    data = { name: extra.name, email: user.emails[0].email }
-    data.facebook_id = user.services.facebook.id if user.services.facebook
+  @find_or_create_from_user: (user, extra) ->
+    # FIXME -- what to do about old users?
+    # if user.services.facebook
+    #   player = Players.findOne(facebook_id: user.services.facebook.id)
     
-    new this(data)
+    email = user.services.facebook?.email || user.emails[0].address
+    
+    return player if player = Players.findOne({email: email})
+    
+    # create a new player
+    name = extra.profile?.name || email.split('@')[0]
+    data = { name: name, email: email }
+    data.facebook_id = user.services.facebook?.id
+    
+    this.create(data)
   
   profile_url: (type = 'normal') ->
     if (@attributes.facebook_id)
