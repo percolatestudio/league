@@ -39,7 +39,7 @@ class Player extends Model
   
   profile_url: (type = 'normal') ->
     if (@attributes.facebook_id)
-      facebook_profile_url(type)
+      @facebook_profile_url(type)
     else
       Gravatar.imageUrl(@attributes.email)
     
