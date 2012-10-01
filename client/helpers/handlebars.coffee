@@ -61,8 +61,3 @@ Handlebars.registerHelper 'fittext', (identifier, word) ->
       sizes[word] = $('#' + key).fittext()
       Session.set(key, sizes)
     "<span id='#{key}' style='white-space: nowrap; visibility:hidden'>#{word}</span>"
-
-
-Handlebars.registerHelper 'render', (name) ->
-  if (Template[name])
-    return Template[name]();
