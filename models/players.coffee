@@ -28,7 +28,7 @@ class Player extends Model
     
     email = user.services.facebook?.email || user.emails[0].address
     
-    return player if player = Players.findOne({email: email})
+    return player if player = Players.fieldsndOne({email: email})
     
     # create a new player
     name = extra.profile?.name || email.split('@')[0]
@@ -40,13 +40,17 @@ class Player extends Model
   display_name: ->
     @attributes.name || @attributes.email.split('@')[0]
   
+  jersey_name: ->
+    parts = display_name.split(' ')
+    parts[parts.length - 1]
+  
   profile_url: (type) ->
     type = 'normal' unless _.isString(type)
     
     if (@attributes.facebook_id)
       @facebook_profile_url(type)
     else
-      Gravatar.imageUrl(@attributes.email)
+      Gravatar.imageUrl(@attributes.email, {default: '404'})
     
   facebook_profile_url: (type = 'normal') ->
     "https://graph.facebook.com/#{@attributes.facebook_id}/picture?type=#{type}"
