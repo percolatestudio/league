@@ -26,3 +26,19 @@
     <span style="background: {{secondary_color}}; color: {{secondary_color}}"></span>
   </figure>
 </template>
+
+<template name="jersey_tester">
+  <ul class="logo_tester">
+    {{#each teams}}
+      <li>{{>jersey}}</li>
+    {{/each}}
+  </ul>
+</template>
+
+<template name="jersey">
+  <h3 class="jersey" style="color: {{primary_color}}">
+    <figure style="background: {{secondary_color}}"></figure>
+    <p class="name">{{{fittext fittext_id "Coleman"}}}</p>
+    <p class="number">15</p>
+  </h3>
+</template>

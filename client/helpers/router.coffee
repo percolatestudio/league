@@ -1,7 +1,7 @@
 LeagueRouter = FilteredRouter.extend
   initialize: ->
     FilteredRouter.prototype.initialize.call(this)
-    @filter @require_login, {except: ['home', 'loading', 'logo_tester']}
+    @filter @require_login, {except: ['home', 'loading', 'logo_tester', 'jersey_tester']}
     @filter @close_overlays, {except: ['games']}
   
   require_login: (page, logged_out_page = 'signin', loading_page = 'loading') ->
@@ -21,11 +21,13 @@ LeagueRouter = FilteredRouter.extend
     '': 'home'
     'leagues': 'leagues'
     'logo_tester': 'logo_tester'
+    'jersey_tester': 'jersey_tester'
     ':team_id': 'players'
     ':team_id/season': 'games'
     ':team_id/origami': 'origami'
   
   logo_tester: -> @goto('logo_tester')
+  jersey_tester: -> @goto('jersey_tester')
   origami: (team_id) ->
     Session.set 'team_id', team_id
     @goto('origami')
