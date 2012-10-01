@@ -17,9 +17,11 @@
               {{/if}}
             </a>
           </div>
+          
           <div class="team_logo">
             {{{ logo this size="large" without_link=true }}}
           </div>
+          
           <h2>Build your team</h2>
           <div class="required_players">
             {{#with players_required_data}}
@@ -27,8 +29,10 @@
             {{/with}}
             <em>Players needed each week</em>
           </div>
+          {{> add_player}}
+          
           <div class="roster_wrapper">
-            <ul class="player_list miniature roster">
+            <ul class="player_list roster">
               {{#each players }}
                 {{> player}}
               {{/each}}
@@ -37,7 +41,6 @@
               {{/if}}
             </ul>
           </div>
-          {{> add_player}}
         </div>
       </article>
     </div>
@@ -53,25 +56,16 @@
       <span class="icon16 checkmark"></span>
       <img src="{{ profile_url }}"/>
     </div>
-    <span class="name">{{attributes.name}}</span>
+    <span class="name">{{ display_name }}</span>
     {{#unless is_self}}
       <a class="remove_player icon12 close inset">Remove</a>
     {{/unless}}
-    <a class="invite btn {{#if attributes.messaged}} secondary {{else}} default {{/if}}">
-      {{#if attributes.messaged}}
-        Invite again
-      {{else}}
-        Invite now
-      {{/if}}
-    </a>
   </li>
 </template>
 
 <template name="add_player">
   <form name="add_player" class="spaced">
-    <input name="emails" type="text" placeholder="Type some emails"></input>
+    <input name="emails" type="text" placeholder="Type some emails, or paste from an email."></input>
     <button class="btn default" type="submit">Add</button>
   </form>
-    
-
 </template>

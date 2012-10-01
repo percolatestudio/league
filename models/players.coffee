@@ -37,7 +37,12 @@ class Player extends Model
     
     this.create(data)
   
-  profile_url: (type = 'normal') ->
+  display_name: ->
+    @attributes.name || @attributes.email.split('@')[0]
+  
+  profile_url: (type) ->
+    type = 'normal' unless _.isString(type)
+    
     if (@attributes.facebook_id)
       @facebook_profile_url(type)
     else

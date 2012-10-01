@@ -48,6 +48,19 @@
         vertical-align: middle;
       }
     }
+    
+    form[name=add_player]{
+      margin-left: 16em;
+      margin-bottom: 5px;
+      input{
+        @include box-sizing(border-box);
+        padding-left: 1em;
+        width: 400px;
+        margin-left: 0;
+        text-align: left;
+      }
+    }
+    
     .roster_wrapper{
       @include background(
         linear-gradient(left, rgba(#ebebf1, .6), rgba(#ebebf1, .8) 50%, rgba(#ebebf1, .6) 100%),
@@ -56,9 +69,27 @@
       clear: both;
       padding-top: .75em;
       margin-bottom: 3em;
-      .roster{          
-        margin-left:16em;
+      .roster{
         .remove_player{display: block;}
+        .player{
+          float: left;
+          @include box-sizing(border-box);
+          margin: 0;
+          width: 33%;
+          padding: 10px;
+          .image{
+            float: left;
+            margin-right: 10px;
+          }
+          .name{
+            display: block;
+            width: auto;
+            margin-top: 20px;
+            
+            font-size: $h3 * 1px;
+            &:before{display: none;}
+          }
+        }
       }
       .add_cta{
         display: inline-block;
@@ -73,34 +104,4 @@
       }
     } 
   }
-  #add_player{
-    .search_wrapper{
-      margin: 0 1.5em 1.5em;
-      width: 200px;
-      position: relative;
-      float: left;
-      input{
-        @include box-sizing(border-box);
-        padding-left: 1.5em + .25em;
-        width: 200px;
-        text-align: left;
-      }
-      span.search{
-        @include position(absolute, .5em, auto, auto, .5em, 16px, 16px);
-        z-index: 2;
-      }
-    }
-    h3{
-      display: inline-block;
-      color: #666;
-      float: left;
-      margin-top: $font-size * .75px;
-    }
-    .player_list{
-      clear: both;
-      padding: 1.5em 0;
-      border-top: 1px dotted #eee;
-    }
-  }
-  
-}/* end players */
+  }/* end players */

@@ -32,9 +32,6 @@ Template.players.events =
 
 Template.player.is_self = -> current_player() and this.id == current_player().id
 
-Template.player.facebook_profile_url = -> 
-  this.facebook_profile_url()
-
 Template.player.in_team_class = -> 
   'in_team' if current_team() and (current_team().players({facebook_id: this.attributes.facebook_id}).count() > 0)
 
@@ -54,10 +51,14 @@ Template.add_player.events =
   'submit [name=add_player]': (event) ->
     event.preventDefault()
     
-    # TODO --- parse this better
-    emails = $(event.target).find('[name=emails]').val().split(',')
+    # a fairly simple reliable email regexp
+    regexp = /\S+@\S+\.\S+/g
+    emails = $(event.target).find('[name=emails]').val().match(regexp)
     
-    _.each emails, (email) => this.add_player_from_email(email)
+    _.each emails, (email) => 
+      # some minor cleaning up
+      email = email.replace(/^\W+|\W+$/, '')
+      this.add_player_from_email(email)
       
   'keyup input[name*=name]': (event) -> 
     Session.set 'current_friend_filter', new RegExp $(event.target).val(), 'i'
