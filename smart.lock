@@ -2,7 +2,7 @@
   "meteor": {
     "git": "https://github.com/tmeasday/meteor.git",
     "branch": "auth-model-support",
-    "commit": "47726f5f5ed35b44856b9015c141c5dab96ab0cb"
+    "commit": "b921de029d985541d4099baeb514bc1cced8a908"
   },
   "dependencies": {
     "basePackages": {
