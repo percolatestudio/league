@@ -50,7 +50,7 @@ class Player extends Model
     if (@attributes.facebook_id)
       @facebook_profile_url(type)
     else
-      Gravatar.imageUrl(@attributes.email, {default: '404'})
+      Gravatar.imageUrl(@attributes.email, {default: 'retro'})
     
   facebook_profile_url: (type = 'normal') ->
     "https://graph.facebook.com/#{@attributes.facebook_id}/picture?type=#{type}"
