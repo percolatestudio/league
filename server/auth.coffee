@@ -1,6 +1,6 @@
 # I'm not sure if this is the best way to hook in here (as it also allows us to modify
 #  the user, which we don't want to to do). But it gets the job done.
-Meteor.accounts.onCreateUser (options, extra, user) ->
+Accounts.onCreateUser (options, extra, user) ->
   
   # create a player that is attached to this user
   console.log "creating/updating player"
