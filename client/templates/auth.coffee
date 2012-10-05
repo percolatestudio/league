@@ -1,9 +1,9 @@
-Template.auth.logged_in = -> Meteor.user() and not Meteor.user().loading
-Template.auth.team_from_season_ticket = -> 
+Template.signin.logged_in = -> Meteor.user() and not Meteor.user().loading
+Template.signin.team_from_season_ticket = -> 
   data = Session.get('team_from_season_ticket')
   new Team(data) if data
 
-Template.auth.prepare_team_from_season_ticket = ->
+Template.signin.prepare_team_from_season_ticket = ->
   if document.location.hash.match /season-ticket/
     if Session.equals('team_from_season_ticket', undefined)
       Session.set 'team_from_season_ticket', false
