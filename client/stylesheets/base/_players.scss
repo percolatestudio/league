@@ -1,107 +1,127 @@
 .players_page {
-	#lineup {
-	    @include position(relative, 1.5em, auto, auto, auto, 80%);
-	    margin: 0 auto;
-	    min-width: 960px;
+	.section {
+    position: relative;
 	  @include box-sizing(border-box);
+    width: 80%;
+    min-width: 960px;
+    margin: 1.5em auto;
+
 	  @include maskbg(#fff);
 	  @include border-radius(5px);
-	  border: 1px solid #fff;
 	  @include box-shadow(rgba(0,0,0, .2) 0 0px 1px 1px inset);
+	  border: 1px solid #fff;
+    
 	  @include clearfix;
 	  clear: both;
 	}
-  #lineup{
-    .proceed{
-      float: right;
-      margin-top: .75em;
-      margin-right: 1.5em;
-    }
-    .team_logo{
-      @include maskbg($paper);
-      @include border-radius(3px);
-      @include box-shadow(
-        rgba(black, .3) 0 1px 3px 0,
-        rgba(darken($skyblue, 5%), 1) 0 0px 0px 3px inset
-      );
-      @include position(absolute, -1.5em, auto, auto, 1.5em);
-    }
-    h2{
-      @include big;
-      @include emtype;
-      font-weight: bold;
+  .team_logo{
+    @include maskbg($paper);
+    @include border-radius(3px);
+    @include box-shadow(
+      rgba(black, .3) 0 1px 3px 0,
+      rgba(darken($skyblue, 5%), 1) 0 0px 0px 3px inset
+    );
+    @include position(absolute, -1.5em, auto, auto, 1.5em);
+  }
+  h2{
+    @include big;
+    @include emtype;
+    font-weight: bold;
+    display: inline-block;
+    vertical-align: middle;
+    text-transform: uppercase;
+    position: relative;
+    margin-left: $font-size * 16px;
+    padding: $font-size  * 1px 0 0;
+  }
+  .required_players{
+    margin-left: $font-size * 16px;
+    margin-bottom: $font-size * 1px;
+    .select{
+      font-size: $small * 1px;
       display: inline-block;
+      width: 140px;
+      margin-right: .75em;
       vertical-align: middle;
-      text-transform: uppercase;
-      position: relative;
-      margin-left: $font-size * 16px;
-      padding: $font-size  * 1px 0 0;
     }
-    .required_players{
-      margin-left: $font-size * 16px;
-      margin-bottom: $font-size * 1px;
-      .select{
-        font-size: $small * 1px;
-        display: inline-block;
-        width: 140px;
-        margin-right: .75em;
-        vertical-align: middle;
-      }
-    }
+  }
     
-    form[name=add_player]{
-      margin-left: 16em;
-      margin-bottom: 5px;
-      input{
+  form[name=add_player]{
+    margin-left: 16em;
+    margin-bottom: 5px;
+    input{
+      @include box-sizing(border-box);
+      padding-left: 1em;
+      width: 400px;
+      margin-left: 0;
+      text-align: left;
+    }
+  }
+    
+  .roster_wrapper{
+    @include background(
+      linear-gradient(left, rgba(#ebebf1, .6), rgba(#ebebf1, .8) 50%, rgba(#ebebf1, .6) 100%),
+      transparent
+    );
+    clear: both;
+    padding-top: .75em;
+    margin-bottom: 3em;
+    .roster{
+      .remove_player{display: block;}
+      .player{
+        float: left;
         @include box-sizing(border-box);
-        padding-left: 1em;
-        width: 400px;
-        margin-left: 0;
-        text-align: left;
-      }
-    }
-    
-    .roster_wrapper{
-      @include background(
-        linear-gradient(left, rgba(#ebebf1, .6), rgba(#ebebf1, .8) 50%, rgba(#ebebf1, .6) 100%),
-        transparent
-      );
-      clear: both;
-      padding-top: .75em;
-      margin-bottom: 3em;
-      .roster{
-        .remove_player{display: block;}
-        .player{
+        margin: 0;
+        width: 300px;
+        padding: 10px;
+        .image{
           float: left;
-          @include box-sizing(border-box);
-          margin: 0;
-          width: 33%;
-          padding: 10px;
-          .image{
-            float: left;
-            margin-right: 10px;
-          }
-          .name{
-            display: block;
-            width: auto;
-            margin-top: 20px;
+          margin-right: 10px;
+        }
+        .name{
+          display: block;
+          width: auto;
+          margin-top: 20px;
             
-            font-size: $h3 * 1px;
-            &:before{display: none;}
-          }
+          font-size: $h3 * 1px;
+          &:before{display: none;}
         }
       }
-      .add_cta{
-        display: inline-block;
-        width: 165px;
-        height: 72px;
-        margin-left: 1.5em;
-        text-indent: -999em;
-        overflow: hidden;
-        vertical-align: middle;
-        background: url('/images/text_img_playalone_165x40.png') no-repeat center;
-        @include opacity(.4);
+    }
+    .add_cta{
+      display: inline-block;
+      width: 165px;
+      height: 72px;
+      margin-left: 1.5em;
+      text-indent: -999em;
+      overflow: hidden;
+      vertical-align: middle;
+      background: url('/images/text_img_playalone_165x40.png') no-repeat center;
+      @include opacity(.4);
+    }
+  } 
+  
+  .section.continue {
+    .step {
+      float: left;
+      width: 30%;
+      margin: 1em;
+      padding: 1em;
+
+  	  @include maskbg(#fff);
+  	  @include border-radius(5px);
+  	  @include box-shadow(rgba(0,0,0, .2) 0 0px 1px 1px inset);
+      border: 1px solid #fff;
+      
+      background: #eee;
+      &.done {
+        @include skybg;
       }
-    } 
+    }
+    .start_season {
+      display: block;
+      float: right;
+      margin: 1.5em 1em 0;
+    }
   }
-  }/* end players */
+}/* end players */

@@ -3,51 +3,82 @@
     <div class="players_page">
       <header>
         <a href="/leagues" class="back btn">Leagues</a>
-        <h1>Roster</h1>
+        <h1>Team</h1>
         {{> logged_in_user }}
       </header>
+      
       <article>
-        <div id="lineup">
-          <div class="proceed">
-            <a href="{{games_path}}" class="start_season btn fwd" {{#if cant_continue}}disabled="true"{{/if}}>
-              {{#if attributes.started}}
-                Continue Season
-              {{else}}
-                Start Season
-              {{/if}}
-            </a>
-          </div>
-          
-          <div class="team_logo">
-            {{{ logo this size="large" without_link=true }}}
-          </div>
-          
-          <h2>Build your team</h2>
-          <div class="required_players">
-            {{#with players_required_data}}
-              {{> select }}
-            {{/with}}
-            <em>Players needed each week</em>
-          </div>
-          {{> add_player}}
-          
-          <div class="roster_wrapper">
-            <ul class="player_list roster">
-              {{#each players }}
-                {{> player}}
-              {{/each}}
-              {{#if alone_in_team}}
-                <li class="add_cta">Don't play alone - add teammates below.</li>
-              {{/if}}
-            </ul>
-          </div>
-        </div>
+        {{> team_details }}
+        {{> roster}}
+        {{> continue}}
       </article>
     </div>
   {{/with}}
   {{else}}
     {{> not_found}}
   {{/if}}
+</template>
+
+<template name="team_details">
+  <div class="details section">
+    <div class="team_logo">
+      {{{ logo this size="large" without_link=true }}}
+    </div>
+          
+    <h2>Build your team</h2>
+    <div class="required_players">
+      {{#with players_required_data}}
+        {{> select }}
+      {{/with}}
+      <em>Players needed each week</em>
+    </div>
+  </div>
+</template>
+
+<template name="roster">
+  <div class="roster_wrapper section">
+    <h2>Create your Roster</h2>
+    {{> add_player}}
+          
+    <ul class="player_list roster">
+      {{#each players }}
+        {{> player}}
+      {{/each}}
+      {{#if alone_in_team}}
+        <li class="add_cta">Don't play alone - add teammates below.</li>
+      {{/if}}
+    </ul>
+  </div>
+</template>
+
+<template name="continue">
+  <div class="continue section">
+    <h2>Start your Season</h2>
+    
+    <p class="step {{team_done}}">
+      {{#if team_done}}
+      Team Built
+      {{else}}
+      Build your team
+      {{/if}}
+    </p>
+
+    <p class="step {{roster_done}}">
+      {{#if roster_done}}
+      Roster Complete
+      {{else}}
+      Create your roster
+      {{/if}}
+    </p>
+    
+    <button href="{{games_path}}" class="start_season btn fwd" {{#if cant_continue}}disabled="true"{{/if}}>
+      {{#if attributes.started}}
+        Continue Season
+      {{else}}
+        Start Season
+      {{/if}}
+    </button>
+  </div>
 </template>
 
 <template name="player">

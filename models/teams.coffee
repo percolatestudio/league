@@ -43,6 +43,16 @@ class Team extends Model
   unauthorized_count: -> this.players({authorized: undefined}).count()
   authorized: ->  @unauthorized_count() == 0
   
+  team_done: ->
+    !! @attributes.players_required
+  
+  # TODO -- should this be more than players_required?
+  roster_done: ->
+    @players().count() > 1
+  
+  done: ->
+    @team_done() and @roster_done()
+  
   add_player: (player) ->
     # add player to this
     player.save() unless player.persisted()
@@ -98,9 +108,9 @@ class Team extends Model
       @logo = new Logo(this)
       @attributes.logo = @logo.to_object()
 
-Team.has_access = (userId, raw_team) ->
+Team.has_access = (userId, teams) ->
   # just check that the player is in the team
-  _.include(raw_team.player_ids, Player.find_by_userId(userId).id)
+  _.include(teams[0].attributes.player_ids, Player.find_by_userId(userId).id)
   
 Teams = Team._collection = new Meteor.Collection 'teams', null, null, null, Team
 
