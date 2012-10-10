@@ -27,20 +27,22 @@
 </template>
 
 <template name="login_fields">
-  
   <h3>Login</h3>
   <form name="login_password">
     <input name="email" type="email" placeholder="Your email address"/>
     <input name="password" type="password" placeholder="Your password"/>
-      
-    {{#if signingUp}}
-    <input name="password_confirm" type="password" placeholder="Confirm your password"/>
-    <button class="register btn default" title="Login with email">Register</button>
-    <a class="goto_login">⪻ Login</a>
-    {{else}}
-    <button class="login_password btn default" title="Login with email">Login</button>
-    <a class="goto_register">Join ⪼</a>
-    {{/if}}
+    
+    <div class="choice_container {{#if signingUp}}show_signing_up{{/if}}">
+      <div class="logging_in">
+        <button class="login_password btn default" title="Login with email">Login</button>
+        <a class="goto_register">Join ⪼</a>
+      </div>
+      <div class="signing_up">
+        <input name="password_confirm" type="password" placeholder="Confirm your password"/>
+        <button class="register btn default" title="Register your email">Register</button>
+        <a class="goto_login">⪻ Login</a>
+      </div>
+    </div>
   </form>
   
   <p class="alternative">Alternatively</p>

@@ -88,8 +88,10 @@
 
 .signin_page{
   form{
-    width: 235px;
+    $width: 235px;
+    width: $width;
     margin: 0 auto;
+    overflow: hidden;
     input {
       display: block;
       float: none;
@@ -109,6 +111,23 @@
     }
     .register {
       float: right;
+    }
+    
+    // transition
+    .choice_container {
+      position: relative;
+      width: 4*$width;
+      clear: both;
+      > * {
+        width: $width;
+        float:left;
+        margin-right: $width;
+      }
+      
+      @include transition(left 500ms linear);
+      &.show_signing_up {
+        left: -2*$width;
+      }
     }
   }
   .alternative {
