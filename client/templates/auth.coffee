@@ -1,4 +1,7 @@
 Template.signin.preserve(['.choice_container'])
+Template.signin.preserve
+  'input': (input) -> input.getAttribute('name')
+
 Template.signin.logged_in = -> Meteor.user() and not Meteor.user().loading
 Template.signin.team_from_season_ticket = -> 
   data = Session.get('team_from_season_ticket')
@@ -15,7 +18,7 @@ Template.login_fields.signingUp = -> Session.get 'signing_up'
 Template.login_fields.loginStatus = -> Session.get 'login_status'
 Template.login_fields.events =
   'click .goto_register, click .goto_login': -> 
-    Session.set('signing_up', !Session.get('signing_up'))
+     Session.set('signing_up', !Session.get('signing_up'))
   
   'click .login_facebook': ->
     Meteor.loginWithFacebook (err) ->
