@@ -8,7 +8,11 @@ Meteor.startup ->
     me = current_player()
     team_ids = (me.attributes.team_ids if me) || []
     
-    Meteor.subscribe 'teams'
+    Session.set('teams_loading', true)
+    Meteor.subscribe 'teams', -> 
+      console.log('done')
+      Session.set('teams_loading', false)
+    
     Meteor.subscribe 'players', team_ids
     Meteor.subscribe 'games', team_ids
     

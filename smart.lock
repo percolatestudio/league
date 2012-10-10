@@ -7,7 +7,9 @@
   "dependencies": {
     "basePackages": {
       "router": {},
-      "transitioner": {},
+      "transitioner": {
+        "path": "../../meteor/meteor-transitioner"
+      },
       "environment-hooks": {
         "git": "https://github.com/possibilities/meteor-environment-hooks.git",
         "branch": "master"
@@ -21,9 +23,7 @@
         "commit": "bb806c51efe3686a8da6628269aa67a269a4e076"
       },
       "transitioner": {
-        "git": "https://github.com/tmeasday/meteor-transitioner.git",
-        "tag": "v0.1.1",
-        "commit": "edb0668f085564b36cc73bfd8464f23fdda481cf"
+        "path": "../../meteor/meteor-transitioner"
       },
       "environment-hooks": {
         "git": "https://github.com/possibilities/meteor-environment-hooks.git",

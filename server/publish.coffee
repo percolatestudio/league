@@ -1,7 +1,11 @@
 Meteor.publish 'teams',  -> 
   console.log "getting teams for #{this.userId()}"
-  me = Meteor.users.findOne(this.userId())
-  Teams.find({player_ids: me.player_id}) if me
+  me = Meteor.users.find(this.userId())
+  if me
+    Teams.find({player_ids: me.player_id})
+  else
+    console.log('complete')
+    @complete()
 
 # all players for a set of team_ids (the teams of the current player)
 Meteor.publish 'players', (team_ids) -> 
@@ -10,6 +14,8 @@ Meteor.publish 'players', (team_ids) ->
   if me
     player_id = Meteor.users.findOne(this.userId()).player_id
     Players.find({$or: [{team_ids: {$in: team_ids}}, {_id: player_id}]})
+  else
+    @complete()
 
 # all games in a set of team_ids (the teams of the current player)
 Meteor.publish 'games', (team_ids) -> 

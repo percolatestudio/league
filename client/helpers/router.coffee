@@ -6,12 +6,23 @@ LeagueRouter = FilteredRouter.extend
   
   require_login: (page, logged_out_page = 'signin', loading_page = 'loading') ->
     # we are logged in AND the data has loaded from the server
-    if not Meteor.user() 
+    if not Meteor.user()
+      console.log('showing logged out page')
       logged_out_page
     else if Meteor.user().loading
+      console.log('login showing loading')
       loading_page
     else
       page
+  
+  require_object: (object, page, loading, not_found_page = 'not_found', loading_page = 'loading') ->
+    if object
+      page
+    else if loading
+      console.log('require object showing loading')
+      loading_page
+    else
+      not_found_page
   
   close_overlays: (page) ->
     close_overlays()
@@ -38,7 +49,8 @@ LeagueRouter = FilteredRouter.extend
   leagues: -> @goto('teams')
   players: (team_id) ->
     Session.set 'team_id', team_id
-    @goto('players')
+    @goto =>
+      @require_object(current_team(), 'players', Session.get('teams_loading'))
   games: (team_id) -> 
     Session.set 'team_id', team_id
     
