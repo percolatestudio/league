@@ -28,22 +28,22 @@
 
 <template name="login_fields">
   
-  <h3>Login with your email address</h3>
-  <form name="login_password" class="spaced">
-    <fieldset>
-      <input name="email" type="email" placeholder="Your email address"/>
-      <input name="password" type="password" placeholder="Your password"/>
-      {{#if signingUp}}
-        <input name="password_confirm" type="password" placeholder="Confirm your password"/>
-      {{/if}}
-    </fieldset>
-    
-    <button class="login_password btn default" title="Login with email" type="submit">{{#if signingUp}}Register{{else}}Login{{/if}}</button>
-    <span class="alternative">or</span>
-    <button class="register btn inverse">{{#if signingUp}}Login{{else}}Register{{/if}}</button>
+  <h3>Login</h3>
+  <form name="login_password">
+    <input name="email" type="email" placeholder="Your email address"/>
+    <input name="password" type="password" placeholder="Your password"/>
+      
+    {{#if signingUp}}
+    <input name="password_confirm" type="password" placeholder="Confirm your password"/>
+    <button class="register btn default" title="Login with email">Register</button>
+    <a class="goto_login">⪻ Login</a>
+    {{else}}
+    <button class="login_password btn default" title="Login with email">Login</button>
+    <a class="goto_register">Join ⪼</a>
+    {{/if}}
   </form>
   
-  <h3>Login with facebook</h3>
+  <p class="alternative">Alternatively</p>
   <button class="login_facebook icon16 facebook btn inverse" title="Login with Facebook">Login with Facebook</button>
 </template>
 

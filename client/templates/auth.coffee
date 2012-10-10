@@ -13,7 +13,8 @@ Template.signin.prepare_team_from_season_ticket = ->
 Template.login_fields.signingUp = -> Session.get 'signing_up'
 Template.login_fields.loginStatus = -> Session.get 'login_status'
 Template.login_fields.events =
-  'click .register': -> Session.set('signing_up', !Session.get('signing_up'))
+  'click .goto_register,.goto_login': -> 
+    Session.set('signing_up', !Session.get('signing_up'))
   
   'click .login_facebook': ->
     Meteor.loginWithFacebook (err) ->
