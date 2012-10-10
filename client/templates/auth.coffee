@@ -14,8 +14,8 @@ Template.signin.prepare_team_from_season_ticket = ->
       Meteor.call 'team_from_season_ticket', Session.get('team_id'), (error, data) ->
         Session.set 'team_from_season_ticket', data
 
-Template.login_fields.signingUp = -> Session.get 'signing_up'
-Template.login_fields.loginStatus = -> Session.get 'login_status'
+Template.login_fields.signing_up = -> Session.get 'signing_up'
+Template.login_fields.login_status = -> Session.get 'login_status'
 Template.login_fields.events =
   'click .goto_register, click .goto_login': -> 
      Session.set('signing_up', !Session.get('signing_up'))
@@ -44,6 +44,7 @@ Template.login_fields.events =
     else
       Session.set('login_status', 'Logging in...')
       Meteor.loginWithPassword email, password, (err, res) ->
+        console.log(err)
         Session.set('login_status', "ERROR: #{err.reason}") if err
 
 Template.logged_in_user.profile_url = -> this.profile_url('square')

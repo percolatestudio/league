@@ -32,7 +32,7 @@
     <input name="email" type="email" placeholder="Your email address"/>
     <input name="password" type="password" placeholder="Your password"/>
     
-    <div class="choice_container {{#if signingUp}}show_signing_up{{/if}}">
+    <div class="choice_container {{#if signing_up}}show_signing_up{{/if}}">
       <div class="logging_in">
         <button class="login_password btn default" title="Login with email">Login</button>
         <a class="goto_register">Join ⪼</a>
@@ -42,6 +42,7 @@
         <button class="register btn default" title="Register your email">Register</button>
         <a class="goto_login">⪻ Login</a>
       </div>
+      <!-- <p class="login status">{{login_status}}</p> -->
     </div>
   </form>
   
