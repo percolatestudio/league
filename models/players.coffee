@@ -91,7 +91,7 @@ Player.has_access = (userId, raw_player, fields) ->
   
   _.intersection(team_ids, our_team_ids) != []
   
-Players = Player._collection = new Meteor.Collection 'players', null, null, null, Player
+Players = Player._collection = new Meteor.Collection 'players', {ctor: Player}
 
 ## add security
 Players.allow

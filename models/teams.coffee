@@ -112,7 +112,7 @@ Team.has_access = (userId, teams) ->
   # just check that the player is in the team
   _.include(teams[0].attributes.player_ids, Player.find_by_userId(userId).id)
   
-Teams = Team._collection = new Meteor.Collection 'teams', null, null, null, Team
+Teams = Team._collection = new Meteor.Collection 'teams', {ctor: Team}
 
 ## add security
 Teams.allow

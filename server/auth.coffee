@@ -13,5 +13,5 @@ Accounts.onCreateUser (options, extra, user) ->
 
 # publish the player_id field
 Meteor.publish null, -> 
-  if this.userId()
-    Meteor.users.find(this.userId(), {fields: {player_id: true}})
+  if this.userId
+    Meteor.users.find(this.userId, {fields: {player_id: true}})

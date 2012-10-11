@@ -136,7 +136,7 @@ Game.has_access = (userId, raw_game) ->
   team = Teams.findOne(raw_game.team_id)
   _.include(team.attributes.player_ids, Meteor.users.findOne(userId).player_id)
 
-Games = Game._collection = new Meteor.Collection 'games', null, null, null, Game
+Games = Game._collection = new Meteor.Collection 'games', {ctor: Game}
 
 ## add security
 Games.allow
