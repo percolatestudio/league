@@ -28,7 +28,7 @@ class Player extends Model
     
     email = user.services.facebook?.email || user.emails[0].address
     
-    return player if player = Players.fieldsndOne({email: email})
+    return player if player = Players.findOne({email: email})
     
     # create a new player
     name = extra.profile?.name || email.split('@')[0]

@@ -1,0 +1,85 @@
+.signin_page{
+  $width: 240px;
+  $transition_time: 300ms;
+  
+  form{
+    width: $width;
+    margin: 0 auto;
+    overflow: hidden;
+    
+    padding: 10px;
+    @include maskbg(darken($skyblue, 20%));
+    @include border-radius(5px);
+    @include box-shadow(rgba(0,0,0, .2) 0 0px 1px 1px inset);
+    
+    
+    input {
+      display: block;
+      float: none;
+      width: 100%;
+    }
+    .register {
+      float: right;
+    }
+  }
+  
+  .goto_register, .goto_login {
+    display: block;
+    margin: 0.25em;
+    line-height: 2.5em;
+  }
+  .goto_login {
+    text-align: left;
+  }
+  .goto_register {
+    text-align: right;
+  }
+  
+  
+  // transitions
+  .header_container, .link_container {
+    position: relative;
+    width: $width;
+    margin: 0 auto;
+    .signing_up, .logging_in{
+      @include transition(opacity $transition_time linear);
+    }
+    .signing_up {
+      @include position(absolute, 0, 0, 0, 0);
+      @include opacity(0);
+    }
+    &.show_signing_up {
+      .signing_up {
+        @include opacity(1);
+      }
+      .logging_in {
+        @include opacity(0);
+      }
+    }
+  }
+  
+  .button_container {
+    position: relative;
+    width: 4*$width;
+    clear: both;
+    > * {
+      width: $width;
+      float:left;
+      margin-right: $width;
+    }
+      
+    @include transition(left $transition_time linear);
+    &.show_signing_up {
+      left: -2*$width;
+    }
+  }
+  
+  .alternative {
+    font-style: italic;
+  }
+  
+  .login_facebook {
+    width: $width;
+    margin: 0 auto;
+  }
+}

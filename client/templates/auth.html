@@ -27,27 +27,45 @@
 </template>
 
 <template name="login_fields">
-  <h3>Login</h3>
+  <div class="header_container {{#if signing_up}}show_signing_up{{/if}}">
+    <div class="logging_in">
+      <h3>Login to League</h3>
+      <h4>to access your team</h4>
+    </div>
+    <div class="signing_up">
+      <h3>Join League</h3>
+      <h4>in 30 seconds</h4>
+    </div>
+  </div>
+  
   <form name="login_password">
-    <input name="email" type="email" placeholder="Your email address"/>
-    <input name="password" type="password" placeholder="Your password"/>
+    <div class="field_error">{{email_error}}</div>
+    <input name="email" type="email" placeholder="Your email address" />
+    <div class="field_error">{{password_error}}</div>
+    <input name="password" type="password" placeholder="Your password" />
     
-    <div class="choice_container {{#if signing_up}}show_signing_up{{/if}}">
+    <div class="button_container {{#if signing_up}}show_signing_up{{/if}}">
       <div class="logging_in">
         <button class="login_password btn default" title="Login with email">Login</button>
-        <a class="goto_register">Join ⪼</a>
       </div>
       <div class="signing_up">
+        <div class="field_error">{{password_confirm_error}}</div>
         <input name="password_confirm" type="password" placeholder="Confirm your password"/>
-        <button class="register btn default" title="Register your email">Register</button>
-        <a class="goto_login">⪻ Login</a>
+        <button class="register btn default" title="Register your email">Join</button>
       </div>
+      
       <!-- <p class="login status">{{login_status}}</p> -->
     </div>
   </form>
+  <div class="link_container {{#if signing_up}}show_signing_up{{/if}}">
+    <a class="logging_in goto_register">Join ⪼</a>
+    <a class="signing_up goto_login">⪻ Login</a>
+  </div>
   
   <p class="alternative">Alternatively</p>
-  <button class="login_facebook icon16 facebook btn inverse" title="Login with Facebook">Login with Facebook</button>
+  <button class="login_facebook icon16 facebook btn inverse" title="Login with Facebook">
+    {{#if signing_up}}Join{{else}}Login{{/if}} with Facebook
+  </button>
 </template>
 
 <template name="logged_in_user">

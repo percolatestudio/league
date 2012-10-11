@@ -19,6 +19,7 @@ label{
 form{
   text-align: left;
   @include clearfix;
+  position: relative;
   label {
     float: left;
     &.hide{
@@ -27,6 +28,15 @@ form{
       display: inline-block;
       height: 0;
     }
+  }
+  .field_error {
+    // position in the natural top position, all the way over to the right
+    @include position(absolute, auto, 1em);
+    margin-top: 0.6em;
+    z-index: 1;
+    @include stdform_txt;
+    font-style: italic;
+    color: $red;
   }
   /* Exceptions */
   input[type=checkbox] + label, input[type=radio] + label {

@@ -14,3 +14,4 @@ environment-hooks
 accounts-facebook
 accounts-password
 gravatar
+preserve-inputs
