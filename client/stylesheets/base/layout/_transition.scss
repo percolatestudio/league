@@ -1,15 +1,12 @@
+$page-transition-time: 500ms;
+
 // a transition that does nothing to tell the transitioner when the transition is finished.
 body {
   left: 0;
-  @include transition(left 0ms linear 600ms);
+  @include transition(left 0ms linear $page-transition-time + 100ms);
   &.transitioning {
     left: 1px;
   }
-}
-
-.container {
-  left: 0;
-  @include transition( all 500ms cubic-bezier(0.51, 0, 0.6, 1) 0ms);
 }
 
 body:not(.transitioning) .next_page {
@@ -23,6 +20,10 @@ $to_fadeout_pages: '.to_loading, .to_signin, .to_not_authorized, .to_home';
 
 // what the current page does:
 .transitioning {
+  .container {
+    left: 0;
+    @include transition( all $page-transition-time cubic-bezier(0.51, 0, 0.6, 1) 0ms);
+  }
   
   //hide scrollbars
   article{
