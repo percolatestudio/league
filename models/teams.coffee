@@ -116,7 +116,7 @@ Teams = Team._collection = new Meteor.Collection 'teams', {ctor: Team}
 
 ## add security
 Teams.allow
-  insert: Team.has_access
+  insert: (userId) -> !! userId
   update: Team.has_access
   remove: Team.has_access
   
