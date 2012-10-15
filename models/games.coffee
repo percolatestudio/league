@@ -122,11 +122,17 @@ class Game extends Model
   
   # this is the total number of players that we still need to confirm that they're playing
   confirmations_needed: ->
-    @team().attributes.players_required - @availability_count(1)
+    if @team().attributes.players_required
+      @team().attributes.players_required - @availability_count(1)
+    else
+      0
     
   # this is the number of players we are going to need to get from outside
   player_deficit: ->
-    @team().attributes.players_required - (@players().count() - @availability_count(2))
+    if @team().attributes.players_required
+      @team().attributes.players_required - (@players().count() - @availability_count(2))
+    else
+      0
   
   game_number: ->
     @team().games({date: {$lt: @attributes.date}}).count() + 1
