@@ -2,33 +2,27 @@
   "meteor": {
     "git": "https://github.com/tmeasday/meteor.git",
     "branch": "model-support",
-    "commit": "bc0ef76a5929263acc2a76a3a22ef2103959960a"
+    "commit": "7f676b3d1837553497c016451120c513d34e8127"
   },
   "dependencies": {
     "basePackages": {
-      "router": {
-        "git": "https://github.com/tmeasday/meteor-router.git",
-        "branch": "master"
-      },
-      "transitioner": {
-        "git": "https://github.com/tmeasday/meteor-transitioner.git",
-        "branch": "master"
-      }
+      "router": {},
+      "transitioner": {}
     },
     "packages": {
       "router": {
         "git": "https://github.com/tmeasday/meteor-router.git",
-        "branch": "master",
-        "commit": "c73515515f1d267108f78b4928a6866952290761"
+        "tag": "v0.1.1",
+        "commit": "bb806c51efe3686a8da6628269aa67a269a4e076"
       },
       "transitioner": {
         "git": "https://github.com/tmeasday/meteor-transitioner.git",
-        "branch": "master",
-        "commit": "4360e3a79dba675e155f59d342fef5c1d06c3112"
+        "tag": "v0.1.1",
+        "commit": "edb0668f085564b36cc73bfd8464f23fdda481cf"
       },
       "deps-extensions": {
         "git": "https://github.com/tmeasday/meteor-deps-extensions.git",
-        "branch": "master",
+        "tag": "v0.1.0",
         "commit": "110462c0ba33aaeb35e55069134287325cc453e5"
       }
     }

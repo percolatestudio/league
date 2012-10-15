@@ -8,7 +8,7 @@ grab_facebook_friends = ->
   self.searching = true
   FB.api '/me/friends', (response) ->
     # FIXME-- this could be paginated.. this is NOT all friends
-    all_friends = _.map(response.data, (fd) -> Player.new_from_facebook(fd) )
+    all_friends = _.map(response.data, (fd) -> Player.new_from_facebook(fd)._meteorRawData() )
     Session.set 'facebook_friends', all_friends
   
 Template.players.team = -> current_team()
@@ -45,9 +45,9 @@ Template.add_player.results = ->
     []
   else
     all_friends = Session.get('facebook_friends')
-    match = (f) -> f.attributes.name.match(Session.get('current_friend_filter'))
-      
-    f for f in all_friends when match(f)
+    match = (f) -> f.name.match(Session.get('current_friend_filter'))
+    
+    new Player(f) for f in all_friends when match(f)
 
 Template.add_player.events = 
   'keyup input[name*=name]': (event) -> 
