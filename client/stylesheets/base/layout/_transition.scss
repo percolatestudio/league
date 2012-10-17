@@ -2,10 +2,10 @@ $page-transition-time: 500ms;
 
 // a transition that does nothing to tell the transitioner when the transition is finished.
 body {
-  left: 0;
-  @include transition(left 0ms linear $page-transition-time + 100ms);
+  opacity: 1;
+  @include transition(opacity 0ms linear $page-transition-time);
   &.transitioning {
-    left: 1px;
+    opacity: 0.9999;
   }
 }
 
