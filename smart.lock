@@ -17,8 +17,8 @@
       },
       "transitioner": {
         "git": "https://github.com/tmeasday/meteor-transitioner.git",
-        "tag": "v0.1.1",
-        "commit": "edb0668f085564b36cc73bfd8464f23fdda481cf"
+        "tag": "v0.1.2",
+        "commit": "22b72617698eee998f761492e4473566d7ef508e"
       },
       "deps-extensions": {
         "git": "https://github.com/tmeasday/meteor-deps-extensions.git",
