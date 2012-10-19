@@ -8,9 +8,9 @@
 
 <template name="logo">
   {{#if render_options.without_link}}
-    <div id="logo">{{>logo_internals}}</div>
+    <div class="logo">{{>logo_internals}}</div>
   {{else}}
-    <a href="{{ games_path }}" id="logo" title="{{team.name}}" data-alert="{{ player_deficit }}" class="{{size}}">
+    <a href="{{ games_path }}" class="logo" title="{{team.name}}" data-alert="{{ player_deficit }}" class="{{size}}">
       {{>logo_internals}}
     </a>
   {{/if}}
