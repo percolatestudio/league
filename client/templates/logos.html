@@ -10,7 +10,7 @@
   {{#if render_options.without_link}}
     <div class="logo">{{>logo_internals}}</div>
   {{else}}
-    <a href="{{ games_path }}" class="logo" title="{{team.name}}" data-alert="{{ player_deficit }}" class="{{size}}">
+    <a href="{{ games_path }}" class="logo {{size}}" title="{{team.name}}" data-alert="{{ player_deficit }}" >
       {{>logo_internals}}
     </a>
   {{/if}}
