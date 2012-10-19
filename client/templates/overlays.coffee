@@ -1,3 +1,4 @@
+Template.overlays.preserve(['#overlays', '.overlay']);
 Template.overlays.show_overlays = -> 'show' if show_overlays()
 Template.overlays.events =
   'click .close': -> close_overlays()
