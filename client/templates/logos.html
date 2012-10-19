@@ -19,7 +19,7 @@
 <template name="logo_internals">
   <h3 style="font-family: {{font}}, cursive; color: {{primary_color}}">
     {{#each lines}}
-      <p>{{> fittext this}}</p>
+      <p>{{fittext this key=../team.id}}</p>
     {{/each}}
   </h3>
   <figure style="background: {{primary_color}}; color: {{primary_color}}" class="{{shape}}">

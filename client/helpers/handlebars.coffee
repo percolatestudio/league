@@ -48,3 +48,7 @@ Handlebars.registerHelper 'pluralize', (word, count) ->
 
 Handlebars.registerHelper 'letter', (word) ->
   ("<span class='char#{i}'>#{letter}</span>" for letter, i in word.split('')).join('')
+
+Handlebars.registerHelper 'fittext', (text, options)->
+  key = (options.hash.key || Meteor.uuid()) + "-#{text}"
+  new Handlebars.SafeString(Template.fittext({text: text, key: key}))

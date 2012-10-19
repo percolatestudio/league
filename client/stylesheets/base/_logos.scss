@@ -14,6 +14,10 @@
     letter-spacing: .1em;
     white-space: nowrap;
     @include maskbg;
+    span {
+      line-height: 30px;
+      vertical-align: middle;
+    }
   }
   h3{
     font-size: 26px;

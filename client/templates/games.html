@@ -74,7 +74,7 @@
     {{{ logo this size="large" without_link=true }}}
     {{#with next_game }}
       <h2 class="game_title editable" data-field="location">
-        {{> fittext location_or_game_number}}
+        {{fittext location_or_game_number key="location"}}
         {{#if_editing "location"}}
           <div class="edit_location tooltip">
             <label for="location">Location:</label>
