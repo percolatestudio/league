@@ -20,12 +20,6 @@
     @include position(absolute, 50%, 3px, auto, 3px, auto, 1em);
     margin: -.75em 0;
     line-height: 1em;
-    span {display: block;}
-  }
-  h4{
-    /* for long titles */
-    font-size: 16px;
-    @include position(absolute, auto, 3px, 0, 3px, auto, 1em);
   }
 }
 #logo{

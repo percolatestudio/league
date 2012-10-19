@@ -1,5 +1,9 @@
 <template name="fittext">
-  <span style="white-space: nowrap; font-size: {{size}}">
-    {{this}}
-  </span>
+  {{> fittext_internals data}}
 </template>
+
+<template name="fittext_internals">
+  <span style="white-space: nowrap; font-size: {{size}}">
+    {{text}}
+  </span>
+</template>  
