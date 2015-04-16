@@ -11,3 +11,5 @@ You'll also need to compile the CSS (it's SCSS, which isn't well supported by JS
 ### Running
 
 Simply run `mrt` in the league directory. Alternatively, you can visit the live beta site at http://getleague.com.
+
+(c) Percolate Studio. Maintained by Tom Coleman (@tmeasday)
